@@ -2,17 +2,28 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Recommended VSCode Extensions
+
+* [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+* [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens)
+
 ## Folder Structure
 
-
+```bash
+.
 └── /src
-    ├── /assets
-    ├── /components <!-- global shared/reusable components, such as layout (wrappers, navigation), form components, buttons -->
-    ├── /utils <!-- utilities, helpers, constants, and the like -->
-    ├── /pages <!-- contains all site routes -->
-    ├── index.js
-    └── App.js
-
+    └── /assets
+    └── /components
+    |    └── /Header
+    |        └── Header.js
+    |        └── index.js
+    └── /pages
+    |    └── /Contact
+    |        └── Contact.js
+    |        └── index.js
+    └── utils.js
+    └── index.js
+```
 
 ## Available Scripts
 
