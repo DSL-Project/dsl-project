@@ -21,9 +21,25 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
     |    └── /Contact
     |        └── Contact.js
     |        └── index.js
+    └── /hooks
+    |    └── useContentful.js
     └── utils.js
     └── index.js
 ```
+React component folders are utilizing `index.js` files to forward all exports. This allows for easier import references.
+
+### Utils
+
+A `utils.js` file is provided to store any utility functions, any generic function that accomplishes an abstract task. 
+
+
+## CSS
+
+`SCSS` is enabled for this project.
+
+Now you can rename src/App.css to src/App.scss and update src/App.js to import src/App.scss. This file and any other file will be automatically compiled if imported with the extension .scss or .sass.
+
+For more information you can visit [Adding a Sass Stylesheet](https://create-react-app.dev/docs/adding-a-sass-stylesheet/).
 
 ## Available Scripts
 
