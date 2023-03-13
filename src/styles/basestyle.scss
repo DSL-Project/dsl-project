@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body,
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+a,
+img,
+blockquote,
+input {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+html {
+    font-size: 125%;
+}
+
+.wrapper {
+    max-width: 1260px;
+    width: 85%;
+    margin: 0 auto;
+}
+button {
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
