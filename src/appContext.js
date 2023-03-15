@@ -19,24 +19,13 @@ const AppProvider = ({ children }) => {
         setAuthor(...filteredAuthor);
     };
 
-    // const setAuthorById = useCallback(
-    //     (id) => {
-    //         console.log('UTHORS: ', authors);
-    //         console.log('id: ', id);
-    //         const filteredAuthor = authors.filter((author) => author.id === id);
-    //         setAuthor(filteredAuthor[0]);
-
-    //         console.log('filtered author: ', filteredAuthor);
-    //         console.log('author updated: ', author);
-    //     },
-    //     [authors, author]
-    // );
-
     const getAuthors = useCallback(async () => {
         const authors = await getCmsResponse();
 
         setAuthors(authors);
     }, []);
+
+    // getCmsResponse
 
     useEffect(() => {
         getAuthors();

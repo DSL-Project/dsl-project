@@ -87,4 +87,4 @@ const PeopleList = () => {
     );
 };
 
-export default PeopleList;
+export default React.memo(PeopleList);
