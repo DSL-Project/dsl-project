@@ -1,15 +1,12 @@
-import React from "react";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
+import React from 'react';
+import PeopleList from '../../components/PeopleList/PeopleList';
 
 const People = () => {
-  return (
-    <div>
-      <Header />
-      <div>People</div>
-      <Footer />
-    </div>
-  );
+    return (
+        <section className='people'>
+            <PeopleList />
+        </section>
+    );
 };
 
 export default People;
