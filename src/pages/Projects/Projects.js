@@ -1,13 +1,15 @@
+import React from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-function Contact() {
+
+const Projects = () => {
   return (
     <div>
       <Header />
-      <h2>Contact Page</h2>
+      <h2>Projects</h2>
       <Footer />
     </div>
   );
-}
+};
 
-export default Contact;
+export default Projects;
