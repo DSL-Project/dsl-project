@@ -1,0 +1,88 @@
+// person nav
+.person-nav {
+    // border: 2px solid red;
+    background-color: $darker-tan;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.4rem 1rem;
+
+    a,
+    span {
+        // border: 2px solid red;
+        font-size: 0.6rem;
+        font-weight: 700;
+        margin: 0.3rem 0.1rem;
+        text-transform: capitalize;
+    }
+
+    a {
+        border-bottom: 1px solid $gray;
+    }
+    span {
+        margin-right: 4px;
+    }
+
+    .person-contact ul {
+        display: flex;
+
+        .item {
+            display: flex;
+            align-items: center;
+            margin: 0 0.5rem;
+        }
+    }
+}
+
+// person section
+.person-section {
+    // border: 2px solid red;
+    margin-top: 4rem;
+
+    h1 {
+        margin-top: 3rem;
+    }
+
+    .person-img {
+        border: 1px solid $gray;
+        width: 25%;
+        padding: 0.3rem;
+        border-radius: 10px;
+
+        img {
+            width: 100%;
+            border-radius: 10px;
+        }
+    }
+
+    .mainTags,
+    .subTags {
+        // border: 2px solid red;
+        display: flex;
+        justify-content: flex-start;
+        max-width: 45%;
+        flex-wrap: wrap;
+        margin-top: 0.5rem;
+
+        li {
+            margin: 5px 5px 5px 0px;
+            padding: 0.3rem;
+        }
+    }
+    .subTags li {
+        border: 1px solid $gray;
+        background-color: #fff;
+        color: gray;
+    }
+
+    .mainTags li {
+        background-color: $font-white;
+        color: $hover-black;
+    }
+
+    .description {
+        // border: 2px solid blue;
+        font-size: 0.9rem;
+        line-height: 1.2;
+        margin-top: 3rem;
+    }
+}

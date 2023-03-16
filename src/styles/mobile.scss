@@ -1,0 +1,17 @@
+@media (max-width: 1000px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo,
+  .nav-bar {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-bar ul {
+    flex-direction: column;
+  }
+}
