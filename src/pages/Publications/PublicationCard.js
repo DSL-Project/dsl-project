@@ -1,3 +1,5 @@
+// component for later abstraction from Publications page
+// NOT in use!!!
 const PublicationCard = ({ publication }) => {
   return (
     <>

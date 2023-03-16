@@ -7,6 +7,11 @@ const Training = () => {
   return (
     <div>
       <Header />
+
+      {/* This section will be dynamically rendered from CMS static content model 
+      //TODO: 1. trainingTitle and trainingBody from: CMS - Static
+      //TODO: 2. use the same style as other pages
+      */}
       <div>
         <h2>Training</h2>
         <p>
