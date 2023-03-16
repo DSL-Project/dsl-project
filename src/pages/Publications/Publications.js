@@ -22,6 +22,7 @@ const Publications = () => {
       </div>
 
       {/* This section will be dynamically rendered from CMS
+       //TODO: may need to abstract the content below to a child component i.e. PublicationCard
        */}
       <div>
         <div>
