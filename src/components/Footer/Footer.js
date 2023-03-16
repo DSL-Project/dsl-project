@@ -13,8 +13,9 @@ function Footer() {
             autoComplete="off"
           />
           <input type="hidden" name="tag" value="placeholder-signup" />
-          <input type="hidden" value="1" name="embed" />
-          <input type="submit" value="Sign up" />
+          <button>Sign up</button>
+          {/* <input type="hidden" value="1" name="embed" />
+          <input type="submit" value="Sign up" /> */}
         </div>
       </form>
     </footer>

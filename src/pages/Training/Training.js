@@ -12,7 +12,7 @@ const Training = () => {
       //TODO: 1. trainingTitle and trainingBody from: CMS - Static
       //TODO: 2. use the same style as other pages
       */}
-      <div>
+      <div className="banner">
         <h2>Training</h2>
         <p>
           Section description faculty members in our department are actively
