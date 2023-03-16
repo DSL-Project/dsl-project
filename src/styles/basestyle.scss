@@ -18,6 +18,15 @@ input {
     margin: 0;
     padding: 0;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
 
 ul {
     list-style: none;
@@ -45,4 +54,32 @@ a {
 img {
     max-width: 100%;
     display: block;
+}
+
+// banner styling applicable to all pages
+.banner {
+    background-color: $darker-tan;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20%;
+    justify-content: center;
+    min-height: 25vh;
+
+    .banner-content {
+        max-width: 1000px;
+        width: 80%;
+    }
+
+    h1 {
+        font-size: 1rem;
+        font-weight: 500;
+        padding-bottom: 12px;
+    }
+
+    p {
+        font-size: 0.8rem;
+        font-weight: 650;
+        opacity: 0.8;
+        color: $gray-dark;
+    }
 }

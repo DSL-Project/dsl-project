@@ -1,0 +1,202 @@
+.projects-list {
+    // border: 2px solid red;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.project-card {
+    background-color: $darker-tan;
+    border: 1px solid $gray-border;
+    border-radius: 10px;
+    padding: 1.3rem 2.3rem 1rem;
+
+    .project-card-heading {
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: 0.15px;
+        line-height: 22px;
+        color: $h3-bada-bing;
+        margin-bottom: 5px;
+    }
+    .project-card-subheading {
+        font-size: 0.9rem;
+        margin-bottom: 0.9rem;
+    }
+    .project-card-intro {
+        padding-bottom: 2.5rem;
+        line-height: 28px;
+        letter-spacing: 0.15px;
+        font-weight: 440;
+    }
+
+    // hover effect on each project
+    &:hover {
+        background-color: $hover-black;
+        color: $lighter-tan;
+        background-color: $main-black;
+    }
+}
+.project-card-metadata {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+
+    // first child status
+    .status {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .current-status {
+            display: flex;
+            justify-content: space-between;
+            min-height: 30px;
+            padding: 0 12px;
+            background-color: $hover-black;
+            border-radius: 4px;
+            align-items: center;
+        }
+
+        .status-label {
+            font-size: inherit;
+            color: $lighter-tan;
+            font-weight: 600;
+            text-transform: capitalize;
+        }
+        .status-icon {
+            display: flex;
+            align-items: center;
+        }
+
+        .flashing {
+            margin: 0 0.7rem;
+        }
+        .singleDot {
+            margin-left: 0.3rem;
+        }
+
+        // styling date
+        .timeline {
+            color: $main-white;
+            margin-left: 1rem;
+            color: $h3-bada-bing;
+            font-size: 0.8rem;
+        }
+    }
+
+    // second child categories/tags
+    .categories {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: 0.3rem;
+
+        // styling hashtag
+        li:first-child {
+            width: 1.3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            color: $h3-bada-bing;
+            border-radius: 4px 0 0 4px;
+        }
+        // styling rest of the li's
+        li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1px 10px;
+            border: 1px solid $gray-border;
+            text-transform: capitalize;
+        }
+        // styling last li
+        li:last-child {
+            border-radius: 0 4px 4px 0;
+        }
+    }
+}
+
+// --animated three dot icon--
+
+.dot-flashing {
+    position: relative;
+    width: 5px;
+    height: 5px;
+    border-radius: 5px;
+    background-color: $main-white;
+    color: $main-white;
+    animation: dot-flashing 1s infinite linear alternate;
+    animation-delay: 0.5s;
+}
+.dot-flashing::before,
+.dot-flashing::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+}
+.dot-flashing::before {
+    left: -7px;
+    width: 5px;
+    height: 5px;
+    border-radius: 5px;
+    background-color: $main-white;
+    color: $main-white;
+    animation: dot-flashing 1s infinite alternate;
+    animation-delay: 0s;
+}
+.dot-flashing::after {
+    left: 7px;
+    width: 5px;
+    height: 5px;
+    border-radius: 5px;
+    background-color: $main-white;
+    color: $main-white;
+    animation: dot-flashing 1s infinite alternate;
+    animation-delay: 1s;
+}
+
+@keyframes dot-flashing {
+    0% {
+        background-color: $main-white;
+    }
+    50%,
+    100% {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+}
+
+// --single dot icon------
+.singleDot {
+    background: $main-white;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+}
+
+// media
+
+@media screen and (max-width: 466px) {
+    .project-card-metadata {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .status {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 0.9rem;
+
+        .timeline {
+            margin-top: 0.6rem;
+        }
+    }
+    .categories {
+        justify-content: center;
+    }
+}
