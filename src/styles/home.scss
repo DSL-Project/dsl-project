@@ -1,0 +1,37 @@
+.home {
+  min-height: 100vh;
+  background-color: $lighter-tan;
+  display: flex;
+  flex-direction: column;
+  .announcement {
+    background-color: #ffe83c;
+    padding: 2rem;
+  }
+  .home-body {
+    padding: 0 12.5%;
+  }
+  h2 {
+    padding: 2rem 0;
+    font-weight: 600;
+  }
+  p {
+    span {
+      display: block;
+      padding-bottom: 1rem;
+    }
+  }
+  .empty-box {
+    display: block;
+    height: 1rem;
+    border: $main-black 1px solid;
+  }
+  h6 {
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 2rem 0;
+  }
+  .funding-logos {
+    display: flex;
+    justify-content: space-between;
+  }
+}
