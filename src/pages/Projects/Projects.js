@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { projects } from '../../assets/testData';
 
 const Projects = () => {
