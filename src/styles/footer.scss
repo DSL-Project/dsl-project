@@ -1,8 +1,15 @@
 .footer {
   padding: 20px 0;
   background-color: $darker-tan;
+  margin-top: auto;
 }
 .footer form {
   display: flex;
   justify-content: flex-end;
+  gap: 1rem;
+  padding: 0 1rem;
+}
+.email-inputs {
+  display: flex;
+  gap: 1rem;
 }
