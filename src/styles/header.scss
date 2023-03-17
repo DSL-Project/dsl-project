@@ -1,33 +1,33 @@
 .header {
-  padding: 10px;
-  background-color: $main-black;
-  color: $font-white;
-  display: flex;
-  justify-content: space-between;
+    padding: 10px;
+    background-color: $main-black;
+    color: $font-white;
+    display: flex;
+    justify-content: space-between;
 }
 
 .logo {
-  width: 40%;
-  font-weight: bold;
-  font-size: 1.5rem;
+    width: 40%;
+    font-weight: bold;
+    font-size: 1.5rem;
 }
 .logo:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .nav-bar {
-  width: 60%;
+    width: 60%;
 }
 .nav-bar ul {
-  display: flex;
-  justify-content: space-evenly;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .nav-bar ul li {
-  line-height: 2;
-  font-size: 1.2rem;
-  a:hover {
-    cursor: pointer;
-    text-decoration: underline;
-  }
+    line-height: 2;
+    font-size: 1.2rem;
+    a:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
 }
