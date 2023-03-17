@@ -1,13 +1,9 @@
 //import useContentful from "../../hooks/useContenful";
 //import PublicationCard from "../Publications/PublicationCard";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
 
 const Publications = () => {
   return (
     <>
-      <Header />
-
       {/* This is the Publications Banner section 
       //TODO: 1. will use a generic style format as all pages have this section; consider where to put wrapper
       */}
@@ -88,8 +84,6 @@ const Publications = () => {
           </div>
         </div>
       </div>
-
-      <Footer />
     </>
   );
 };

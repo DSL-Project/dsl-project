@@ -1,5 +1,3 @@
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
 import GoogleMap from "./GoogleMap";
 function Contact() {
   const location = {
@@ -8,7 +6,6 @@ function Contact() {
   };
   return (
     <div>
-      <Header />
       <div>
         <h2>Contact Page</h2>
         <form action="">
@@ -74,7 +71,6 @@ function Contact() {
           <GoogleMap location={location} width={600} height={450} />
         </div>
       </div>
-      <Footer />
     </div>
   );
 }
