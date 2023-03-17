@@ -1,30 +1,9 @@
 import React from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import { projects } from '../../assets/testData';
 
 const Projects = () => {
-    const projects = [
-        {
-            title: 'GeckoSpy',
-            subtitle:
-                'Pegasus Spyware Used against Thailand’s Pro-Democracy Movement',
-            about: 'Digital technologies are transforming civil society and democracy. Our dependencies on digital systems require new insights into how these technologies work and how civil society can engage them safely, equitably, purposefully, and in support of human dignity and collective action.',
-            url: 'http://www.digitalsocietylab.org/',
-            status: 'complete',
-            date: '2020 - Present',
-            tags: ['security', 'politics', 'hacking', 'privacy'],
-        },
-        {
-            title: 'Bada Bing, Bada Boom',
-            subtitle:
-                'Microsoft Bing’s Chinese Political Censorship of Autosuggestions in North America',
-            about: 'Digital technologies are transforming civil society and democracy. Our dependencies on digital systems require new insights into how these technologies work and how civil society can engage them safely, equitably, purposefully, and in support of human dignity and collective action.',
-            url: 'http://www.digitalsocietylab.org/',
-            status: 'active',
-            date: '2020 - Present',
-            tags: ['security', 'politics', 'hacking'],
-        },
-    ];
     return (
         <div>
             <Header />
@@ -47,7 +26,13 @@ const Projects = () => {
                         project;
 
                     return (
-                        <a className='project-link' href={url} key={id}>
+                        <a
+                            className='project-link'
+                            href={url}
+                            key={id}
+                            target='_blank'
+                            rel='noreferrer'
+                        >
                             <article className='project-card'>
                                 <h2 className='project-card-heading'>
                                     {title}
