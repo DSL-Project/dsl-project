@@ -1,13 +1,10 @@
 import React from 'react';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
+
 import { projects } from '../../assets/testData';
 
 const Projects = () => {
     return (
-        <div>
-            <Header />
-
+        <main className='projects-main'>
             {/* banner */}
             <section className='banner'>
                 <div className='banner-content'>
@@ -95,9 +92,7 @@ const Projects = () => {
                     );
                 })}
             </article>
-
-            <Footer />
-        </div>
+        </main>
     );
 };
 

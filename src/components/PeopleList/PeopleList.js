@@ -10,9 +10,23 @@ const PeopleList = () => {
     };
 
     return (
-        <section className='people-main'>
+        <main className='people-main'>
+            {/* rendering banner */}
+            <section className='banner'>
+                <div className='banner-content'>
+                    <h1>People</h1>
+                    <p>
+                        Section description faculty members in our department
+                        are actively exploring the implications of digital
+                        technology for both democratic and authoritarian
+                        regimes, as well as its transformative role in global
+                        governance.
+                    </p>
+                </div>
+            </section>
+
             {/* rendering staff members */}
-            <div className='wrapper'>
+            <div className='wrapper people-wrapper'>
                 <h2>Staff</h2>
                 <ul className='list'>
                     {authors.map((staffMember) => {
@@ -46,10 +60,10 @@ const PeopleList = () => {
                     })}
                 </ul>
             </div>
-            <hr />
+            <div className='underline'></div>
 
             {/* rendering students */}
-            <div className='wrapper'>
+            <div className='wrapper people-wrapper'>
                 <h2>Students</h2>
                 <ul className='list'>
                     {authors.map((staffMember) => {
@@ -83,7 +97,7 @@ const PeopleList = () => {
                     })}
                 </ul>
             </div>
-        </section>
+        </main>
     );
 };
 

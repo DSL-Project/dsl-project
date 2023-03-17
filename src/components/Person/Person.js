@@ -1,6 +1,5 @@
 import React from 'react';
-import Header from '../Header';
-import Footer from '../Footer';
+
 import { Link, useLocation } from 'react-router-dom';
 import { persons } from '../../assets/testData';
 
@@ -23,8 +22,7 @@ const Person = () => {
         publications,
     } = persons;
     return (
-        <section className='person-page'>
-            <Header />
+        <main className='person-main'>
             {/*--- person's nav --*/}
             <div className='person-nav'>
                 {/* path name */}
@@ -152,8 +150,7 @@ const Person = () => {
                     </div>
                 </div>
             </section>
-            <Footer />
-        </section>
+        </main>
     );
 };
 
