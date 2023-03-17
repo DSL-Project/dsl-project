@@ -1,10 +1,6 @@
-import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer";
 function Home() {
   return (
     <div className="home">
-      <Header />
-
       {/* This is the announcement banner:
       //TODO: 1. the link is clickable to a page called "Opportunities" which may need to be dynamically populated as hiring opportunities can change over time
       //TODO: 2. needs styling
@@ -57,7 +53,6 @@ function Home() {
           <button>🐻</button>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

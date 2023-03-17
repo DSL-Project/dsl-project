@@ -1,13 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
 
 const Training = () => {
   return (
     <div>
-      <Header />
-
       {/* This section will be dynamically rendered from CMS static content model 
       //TODO: 1. trainingTitle and trainingBody from: CMS - Static
       //TODO: 2. use the same style as other pages
@@ -57,8 +53,6 @@ const Training = () => {
           </Link>
         </p>
       </div>
-
-      <Footer />
     </div>
   );
 };
