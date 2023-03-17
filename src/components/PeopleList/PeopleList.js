@@ -10,7 +10,21 @@ const PeopleList = () => {
     };
 
     return (
-        <section className='people-main'>
+        <main className='people-main'>
+            {/* rendering banner */}
+            <section className='banner'>
+                <div className='banner-content'>
+                    <h1>People</h1>
+                    <p>
+                        Section description faculty members in our department
+                        are actively exploring the implications of digital
+                        technology for both democratic and authoritarian
+                        regimes, as well as its transformative role in global
+                        governance.
+                    </p>
+                </div>
+            </section>
+
             {/* rendering staff members */}
             <div className='wrapper'>
                 <h2>Staff</h2>
@@ -83,7 +97,7 @@ const PeopleList = () => {
                     })}
                 </ul>
             </div>
-        </section>
+        </main>
     );
 };
 
