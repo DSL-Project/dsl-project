@@ -26,7 +26,7 @@ const PeopleList = () => {
             </section>
 
             {/* rendering staff members */}
-            <div className='wrapper'>
+            <div className='wrapper people-wrapper'>
                 <h2>Staff</h2>
                 <ul className='list'>
                     {authors.map((staffMember) => {
@@ -60,10 +60,10 @@ const PeopleList = () => {
                     })}
                 </ul>
             </div>
-            <hr />
+            <div className='underline'></div>
 
             {/* rendering students */}
-            <div className='wrapper'>
+            <div className='wrapper people-wrapper'>
                 <h2>Students</h2>
                 <ul className='list'>
                     {authors.map((staffMember) => {

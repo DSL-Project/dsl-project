@@ -1,3 +1,6 @@
+.people-main {
+    background-color: $lighter-tan;
+}
 .people-main h2 {
     font-size: 1.2rem;
     color: $h3-bada-bing;
@@ -28,7 +31,7 @@
     margin: 2rem 0;
 
     .list-item a {
-        border: 1px solid $h3-bada-bing;
+        border: 1px solid $gray-border;
         display: grid;
         grid-template-columns: 25% 1fr;
         grid-template-rows: 1fr;
@@ -52,6 +55,11 @@
             padding-left: 1rem;
         }
     }
+}
+
+.people-wrapper {
+    border: 1px solid transparent;
+    width: 50%;
 }
 
 @media screen and (max-width: 800px) {
