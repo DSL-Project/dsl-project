@@ -1,5 +1,34 @@
-import React from 'react';
 import { TbGlobe as GlobeLogo, TbMail as MailLogo } from 'react-icons/tb';
+
+export const people = [
+    {
+        name: 'clifton van der linden',
+        titles: ['digital society lab founder', 'faculty of social science'],
+        img: 'https://images.ctfassets.net/qnuyirsilyvc/6sKzvEn1v9lzQi9883lTDk/82c02ad2c87aa3cee680997c77dce0d6/file.jpg?h=250',
+        isStaff: true,
+        isStudent: true,
+        website:
+            'https://socialsciences.mcmaster.ca/people/van-der-linden-clifton',
+    },
+    {
+        name: 'clifton van der linden',
+        titles: [],
+        img: 'https://images.ctfassets.net/qnuyirsilyvc/6sKzvEn1v9lzQi9883lTDk/82c02ad2c87aa3cee680997c77dce0d6/file.jpg?h=250',
+        isStaff: true,
+        isStudent: true,
+        website:
+            'https://socialsciences.mcmaster.ca/people/van-der-linden-clifton',
+    },
+    {
+        name: 'clifton van der linden',
+        titles: [],
+        img: 'https://images.ctfassets.net/qnuyirsilyvc/6sKzvEn1v9lzQi9883lTDk/82c02ad2c87aa3cee680997c77dce0d6/file.jpg?h=250',
+        isStaff: true,
+        isStudent: true,
+        website:
+            'https://socialsciences.mcmaster.ca/people/van-der-linden-clifton',
+    },
+];
 
 export const persons = {
     name: 'clifton van der linden',

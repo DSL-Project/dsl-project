@@ -1,14 +1,6 @@
 import React from 'react';
-import { useGlobalContext } from '../../appContext';
-import { Link } from 'react-router-dom';
-
-const PeopleList = () => {
-    const { authors, setAuthorById } = useGlobalContext();
-
-    const handleClick = (id) => {
-        setAuthorById(id);
-    };
-
+import { people } from '../../assets/testData';
+const Test = () => {
     return (
         <main className='people-main'>
             {/* rendering banner */}
@@ -25,80 +17,68 @@ const PeopleList = () => {
                 </div>
             </section>
 
-            {/* rendering staff members */}
-            <div className='wrapper people-wrapper'>
-                <h2>Staff</h2>
-                <ul className='list'>
-                    {authors.map((staffMember) => {
-                        const { id, name, title, img, about } = staffMember;
-                        const { isStaff } = about;
-                        return (
-                            <li className='list-item' key={id}>
-                                {isStaff && (
-                                    <Link
-                                        to={`/people/staff/${
-                                            name.split(' ')[0]
-                                        }`}
-                                        onClick={() => handleClick(id)}
+            <section className='people-list'>
+                <div className='wrapper group'>
+                    {/* rendering staff */}
+                    <h2 className='category-title'>Staff</h2>
+                    <ul className='staff contributor '>
+                        {people.map((person, id) => {
+                            const { name, titles, img, website } = person;
+                            return (
+                                <li key={id}>
+                                    <a
+                                        href={'/people/staff/clifton'}
+                                        className='profile-link'
                                     >
-                                        <div className='img-container'>
-                                            <img
-                                                src={img}
-                                                alt={`${name} is looking at the camera`}
-                                            />
+                                        <div className='profile-img'>
+                                            <img src={img} alt='' />
                                         </div>
-                                        <div className='text-container'>
-                                            <h3>{name}</h3>
-                                            {title !== 'null' ? (
-                                                <h4>{title}</h4>
-                                            ) : null}
+                                        <div className='profile-content'>
+                                            <h2 className='profile-name'>
+                                                {name}
+                                            </h2>
+                                            <h2 className='title'>
+                                                {titles[0]}
+                                            </h2>
                                         </div>
-                                    </Link>
-                                )}
-                            </li>
-                        );
-                    })}
-                </ul>
-            </div>
-            <div className='underline'></div>
+                                    </a>
+                                </li>
+                            );
+                        })}
+                    </ul>
+                </div>
 
-            {/* rendering students */}
-            <div className='wrapper people-wrapper'>
-                <h2>Students</h2>
-                <ul className='list'>
-                    {authors.map((staffMember) => {
-                        const { id, name, title, img, about } = staffMember;
-                        const { isStudent } = about;
-                        return (
-                            <li className='list-item' key={id}>
-                                {isStudent && (
-                                    <Link
-                                        to={`/people/student/${
-                                            name.split(' ')[0]
-                                        }`}
-                                        onClick={() => handleClick(id)}
-                                    >
-                                        <div className='img-container'>
-                                            <img
-                                                src={img}
-                                                alt={`${name} is looking at the camera`}
-                                            />
+                <div className='underline'></div>
+
+                {/* rendering students */}
+                <div className='wrapper group'>
+                    <h2 className='category-title'>students</h2>
+                    <ul className='students contributor'>
+                        {people.map((person, id) => {
+                            const { name, titles, img, website } = person;
+                            return (
+                                <li key={id}>
+                                    <a href={website} className='profile-link'>
+                                        <div className='profile-img'>
+                                            <img src={img} alt='' />
                                         </div>
-                                        <div className='text-container'>
-                                            <h3>{name}</h3>
-                                            {title !== 'null' ? (
-                                                <h4>{title}</h4>
-                                            ) : null}
+                                        <div className='profile-content'>
+                                            <h2 className='profile-name'>
+                                                {name}
+                                            </h2>
+                                            <h2 className='title'>
+                                                {titles[0]}
+                                            </h2>
                                         </div>
-                                    </Link>
-                                )}
-                            </li>
-                        );
-                    })}
-                </ul>
-            </div>
+                                    </a>
+                                </li>
+                            );
+                        })}
+                    </ul>
+                </div>
+            </section>
         </main>
     );
 };
 
-export default React.memo(PeopleList);
+export default Test;
