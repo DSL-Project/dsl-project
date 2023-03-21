@@ -23,19 +23,54 @@ const AppProvider = ({ children }) => {
         }
     }, [query, getCmsResponse]);
 
+    const filterBannerContents = (response) => {
+        // this function filters content from response for banner on each page.
+        const filter1 = 'projectsTitle';
+        const filter2 = 'projectsBody';
+        const filter3 = 'trainingTitle';
+        const filter4 = 'trainingBody';
+        const filter5 = 'publicationsTitle';
+        const filter6 = 'publicationsBody';
+        const filter7 = 'peopleTitle';
+        const filter8 = 'peopleBody';
+        const targetObj = response;
+
+        const filteredObject = Object.keys(targetObj)
+            .filter(
+                (key) =>
+                    key === filter1 ||
+                    key === filter2 ||
+                    key === filter3 ||
+                    key === filter4 ||
+                    key === filter5 ||
+                    key === filter6 ||
+                    key === filter7 ||
+                    key === filter8
+            )
+            .reduce((cur, key) => {
+                return Object.assign(cur, { [key]: targetObj[key] });
+            }, {});
+
+        return filteredObject;
+    };
+
     useEffect(() => {
         cmsQuery();
     }, [query]);
 
     useEffect(() => {
-        // only to update banner content, this will run only once in
+        // update banner content
         getCmsResponse(STATIC_QUERY).then((response) => {
             setBannerContent(response);
+
+            //updating banner state
+            const bannerObject = filterBannerContents(response[0]);
+            setBannerContent(bannerObject);
         });
     }, []);
 
     return (
-        <AppContext.Provider value={{ response, setQuery, bannerContent }}>
+        <AppContext.Provider value={{ response, setQuery, ...bannerContent }}>
             {children}
         </AppContext.Provider>
     );

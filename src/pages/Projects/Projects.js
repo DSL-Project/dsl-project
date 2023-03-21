@@ -4,9 +4,8 @@ import { projects } from '../../assets/testData';
 import { useGlobalContext } from '../../appContext';
 
 const Projects = () => {
-    const { response, bannerContent } = useGlobalContext();
-    const { projectsBody, projectsTitle } = bannerContent[0];
-
+    const { response, projectsBody, projectsTitle } = useGlobalContext();
+    console.log(`data for projects page: `, response);
     return (
         <main className='projects-main'>
             {/* banner */}

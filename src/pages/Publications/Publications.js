@@ -4,8 +4,10 @@ import { useGlobalContext } from '../../appContext';
 import Banner from '../../components/Banner/Banner';
 
 const Publications = () => {
-    const { response, bannerContent } = useGlobalContext();
-    const { publicationsBody, publicationsTitle } = bannerContent[0];
+    const { response, publicationsBody, publicationsTitle } =
+        useGlobalContext();
+    console.log(`data for publications page: `, response);
+
     return (
         <>
             {/* This is the Publications Banner section
