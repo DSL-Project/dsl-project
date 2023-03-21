@@ -4,8 +4,8 @@ import { useGlobalContext } from '../../appContext';
 import Banner from '../../components/Banner/Banner';
 
 const Training = () => {
-    const { response, bannerContent } = useGlobalContext();
-    const { trainingBody, trainingTitle } = bannerContent[0];
+    const { response, trainingBody, trainingTitle } = useGlobalContext();
+    console.log(`data for training page: `, response);
     return (
         <div>
             {/* This section will be dynamically rendered from CMS static content model

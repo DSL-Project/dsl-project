@@ -1,6 +1,5 @@
 import React from 'react';
 const Banner = ({ title, info }) => {
-    console.log(`title: ${title} info ${info}`);
     return (
         <section className='banner'>
             <div className='banner-content'>
