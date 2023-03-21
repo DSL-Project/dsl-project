@@ -23,7 +23,7 @@ const People = () => {
                     <h2 className='category-title'>Staff</h2>
                     <ul className='staff contributor '>
                         {people.map((person, id) => {
-                            const { name, titles, img, website } = person;
+                            const { name, titles, img } = person;
                             return (
                                 <li key={id}>
                                     <a
@@ -55,10 +55,13 @@ const People = () => {
                     <h2 className='category-title'>students</h2>
                     <ul className='students contributor'>
                         {people.map((person, id) => {
-                            const { name, titles, img, website } = person;
+                            const { name, titles, img } = person;
                             return (
                                 <li key={id}>
-                                    <a href={website} className='profile-link'>
+                                    <a
+                                        href={`/people/student/clifton`}
+                                        className='profile-link'
+                                    >
                                         <div className='profile-img'>
                                             <img src={img} alt='' />
                                         </div>
