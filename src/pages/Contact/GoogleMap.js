@@ -8,7 +8,6 @@ const GoogleMap = ({ location, width, height }) => {
       src={src}
       width={width}
       height={height}
-      frameborder="0"
       style={{ border: 0 }}
       allowFullScreen={true}
     />
