@@ -1,0 +1,95 @@
+.contact {
+  width: 100%;
+  background-color: $lighter-tan;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  hr {
+    display: block;
+    width: 100%;
+    color: none;
+    border-top: none;
+    border-bottom: 1px solid $gray-border;
+  }
+
+  .wrapper {
+    margin: 0 auto;
+  }
+  .form-container {
+    padding: 4rem 0;
+  }
+  form fieldset {
+    border: none;
+    display: flex;
+    flex-direction: column;
+
+    label,
+    input,
+    select {
+      padding: 1rem 2rem;
+      border-radius: 5px;
+    }
+    label {
+      padding-left: 0;
+    }
+    select {
+      background-color: $main-white;
+    }
+    .contact-message {
+      width: 100%;
+      height: 10rem;
+    }
+  }
+  .name-email-subject {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .button-container {
+    padding-top: 2rem;
+    display: flex;
+
+    .text-box {
+      width: 70%;
+      background-color: $darker-tan;
+      padding: 1rem 1rem;
+      border-radius: 10px 0 0 10px;
+    }
+    button {
+      background-color: $hover-black;
+      color: $main-white;
+      width: 30%;
+      border-radius: 0 10px 10px 0;
+    }
+    button:hover {
+      background-color: $main-black;
+    }
+  }
+  .address-container {
+    display: flex;
+    justify-content: center;
+    padding: 4rem 0;
+    .address {
+      width: 40%;
+      padding: 2rem;
+      background-color: $hover-black;
+      color: $main-white;
+      border-radius: 10px 0 0 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .contact-methods {
+      display: grid;
+      grid-template-columns: auto auto;
+    }
+
+    .map {
+      width: 60%;
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
