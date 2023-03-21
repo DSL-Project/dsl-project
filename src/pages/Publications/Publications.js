@@ -1,24 +1,18 @@
 //import useContentful from "../../hooks/useContenful";
 //import PublicationCard from "../Publications/PublicationCard";
 import { useGlobalContext } from '../../appContext';
+import Banner from '../../components/Banner/Banner';
 
 const Publications = () => {
-    const { response } = useGlobalContext();
-    console.log('fetching data for publications page: ', response);
+    const { response, bannerContent } = useGlobalContext();
+    const { publicationsBody, publicationsTitle } = bannerContent[0];
     return (
         <>
             {/* This is the Publications Banner section
       //TODO: 1. will use a generic style format as all pages have this section; consider where to put wrapper
       */}
-            <div>
-                <h2>Publications</h2>
-                <p>
-                    Section description faculty members in our department are
-                    actively exploring the implications of digital technology
-                    for both democratic and authoritarian regimes, as well as
-                    its transformative role in global governance.
-                </p>
-            </div>
+            {/* banner */}
+            <Banner title={publicationsTitle} info={publicationsBody} />
 
             {/* This section will be dynamically rendered from CMS
        //TODO: may need to abstract the content below to a child component i.e. PublicationCard

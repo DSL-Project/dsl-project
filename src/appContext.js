@@ -11,6 +11,7 @@ const AppProvider = ({ children }) => {
 
     const [response, setResponse] = useState([]);
     const [query, setQuery] = useState(STATIC_QUERY);
+    const [bannerContent, setBannerContent] = useState({});
 
     const cmsQuery = React.useCallback(() => {
         if (query) {
@@ -26,8 +27,15 @@ const AppProvider = ({ children }) => {
         cmsQuery();
     }, [query]);
 
+    useEffect(() => {
+        // only to update banner content, this will run only once in
+        getCmsResponse(STATIC_QUERY).then((response) => {
+            setBannerContent(response);
+        });
+    }, []);
+
     return (
-        <AppContext.Provider value={{ response, setQuery }}>
+        <AppContext.Provider value={{ response, setQuery, bannerContent }}>
             {children}
         </AppContext.Provider>
     );

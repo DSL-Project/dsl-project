@@ -1,21 +1,15 @@
 import React from 'react';
 import { people } from '../../assets/testData';
 import { useGlobalContext } from '../../appContext';
+import Banner from '../../components/Banner/Banner';
 const People = () => {
-    const { response } = useGlobalContext();
-    console.log('fetching data for people page: ', response);
+    const { response, bannerContent } = useGlobalContext();
+    const { peopleBody, peopleTitle } = bannerContent[0];
+
     return (
         <main className='people-main'>
             {/* banner */}
-            <section className='banner'>
-                <div className='banner-content'>
-                    <h1>Projects</h1>
-                    <p>
-                        This is a very insightful page about the exciting
-                        projects happening at the Digital Society Lab.
-                    </p>
-                </div>
-            </section>
+            <Banner title={peopleTitle} info={peopleBody} />
 
             <section className='people-list'>
                 <div className='wrapper group'>
