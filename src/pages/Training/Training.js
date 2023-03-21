@@ -1,22 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useGlobalContext } from '../../appContext';
+import Banner from '../../components/Banner/Banner';
 
 const Training = () => {
+    const { response, bannerContent } = useGlobalContext();
+    const { trainingBody, trainingTitle } = bannerContent[0];
     return (
         <div>
             {/* This section will be dynamically rendered from CMS static content model
       //TODO: 1. trainingTitle and trainingBody from: CMS - Static
       //TODO: 2. use the same style as other pages
       */}
-            <div className='banner'>
-                <h2>Training</h2>
-                <p>
-                    Section description faculty members in our department are
-                    actively exploring the implications of digital technology
-                    for both democratic and authoritarian regimes, as well as
-                    its transformative role in global governance.
-                </p>
-            </div>
+            {/* banner */}
+            <Banner title={trainingTitle} info={trainingBody} />
             <div>
                 <h3>Master of Public Policy in Digital Society</h3>
                 <p>

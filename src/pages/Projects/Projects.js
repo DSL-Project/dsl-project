@@ -1,23 +1,16 @@
 import React from 'react';
-
+import Banner from '../../components/Banner/Banner';
 import { projects } from '../../assets/testData';
 import { useGlobalContext } from '../../appContext';
 
 const Projects = () => {
-    const { response } = useGlobalContext();
-    console.log('fetching data for projects page: ', response);
+    const { response, bannerContent } = useGlobalContext();
+    const { projectsBody, projectsTitle } = bannerContent[0];
+
     return (
         <main className='projects-main'>
             {/* banner */}
-            <section className='banner'>
-                <div className='banner-content'>
-                    <h1>Projects</h1>
-                    <p>
-                        This is a very insightful page about the exciting
-                        projects happening at the Digital Society Lab.
-                    </p>
-                </div>
-            </section>
+            <Banner title={projectsTitle} info={projectsBody} />
 
             {/* rendering projects */}
             <article className='projects-list-container'>
