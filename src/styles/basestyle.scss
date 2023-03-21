@@ -58,28 +58,26 @@ img {
 
 // banner styling applicable to all pages
 .banner {
-    background-color: $darker-tan;
     display: flex;
     flex-direction: column;
-    padding-left: 20%;
-    justify-content: center;
-    min-height: 25vh;
+    align-items: center;
+    background-color: #f3f1e7;
+    width: 100%;
 
     .banner-content {
-        max-width: 1000px;
-        width: 80%;
-    }
+        max-width: 40rem;
+        margin: 3.5rem 0;
 
-    h1 {
-        font-size: 1rem;
-        font-weight: 500;
-        padding-bottom: 12px;
-    }
+        h1 {
+            font-weight: 500;
+            font-size: 1rem;
+            padding-bottom: 0.6rem;
+        }
 
-    p {
-        font-size: 0.8rem;
-        font-weight: 650;
-        opacity: 0.8;
-        color: $gray-dark;
+        p {
+            font-weight: 600;
+            color: #404040;
+            opacity: 0.7;
+        }
     }
 }

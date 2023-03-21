@@ -1,32 +1,36 @@
-import React from "react";
+import React from 'react';
+import { useGlobalContext } from '../../appContext';
+import { navConstants, STATIC_QUERY } from '../../appConstants';
+import { NavLink } from 'react-router-dom';
 
 const Header = () => {
-  return (
-    <div className="header">
-      <div className="logo">Digital Society Lab</div>
-      <nav className="nav-bar">
-        <ul>
-          <li>
-            <a href="https://development-dsl.netlify.app/projects">PROJECTS</a>
-          </li>
-          <li>
-            <a href="https://development-dsl.netlify.app/training">TRAINING</a>
-          </li>
-          <li>
-            <a href="https://development-dsl.netlify.app/publications">
-              PUBLICATIONS
-            </a>
-          </li>
-          <li>
-            <a href="https://development-dsl.netlify.app/people">PEOPLE</a>
-          </li>
-          <li>
-            <a href="https://development-dsl.netlify.app/contact">CONTACT</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  );
+    const { setQuery } = useGlobalContext();
+    return (
+        <div className='header'>
+            <div className='logo'>
+                <NavLink to='/' onClick={() => setQuery(STATIC_QUERY)}>
+                    Digital Society Lab
+                </NavLink>
+            </div>
+            <nav className='nav-bar'>
+                <ul>
+                    {navConstants.map((nav) => {
+                        const { id, name, url, queryString } = nav;
+                        return (
+                            <li key={id}>
+                                <NavLink
+                                    to={url}
+                                    onClick={() => setQuery(queryString)}
+                                >
+                                    {name}
+                                </NavLink>
+                            </li>
+                        );
+                    })}
+                </ul>
+            </nav>
+        </div>
+    );
 };
 
 export default Header;

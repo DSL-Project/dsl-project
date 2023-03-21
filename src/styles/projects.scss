@@ -1,5 +1,8 @@
+.projects-list-container {
+    background-color: $lighter-tan;
+}
+
 .projects-list {
-    // border: 2px solid red;
     padding: 1rem 0;
     display: flex;
     justify-content: center;
@@ -12,6 +15,9 @@
     border: 1px solid $gray-border;
     border-radius: 10px;
     padding: 1.3rem 2.3rem 1rem;
+    max-width: 40rem;
+    margin: 0 auto;
+    // border: 2px solid red;
 
     .project-card-heading {
         font-size: 1rem;
