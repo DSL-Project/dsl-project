@@ -1,5 +1,4 @@
 //query parameters
-
 const PEOPLE = 'persons';
 const PUBLICATIONS = 'publications';
 const PROJECTS = 'projects';

@@ -1,45 +1,40 @@
-import React, {
-    createContext,
-    useContext,
-    useEffect,
-    useState,
-    useCallback,
-} from 'react';
+/*This context calls getStatic method from 'useContentful' hook.
+getStatic method fetch 'static' field from contentful
+ */
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import { STATIC_QUERY } from './appConstants';
 import useContentful from './hooks/useContenful';
 
 const AppContext = createContext();
-
 const AppProvider = ({ children }) => {
-    const [authors, setAuthors] = useState([]);
-    const [author, setAuthor] = useState({});
     const { getCmsResponse } = useContentful();
 
-    const setAuthorById = (id) => {
-        const filteredAuthor = authors.filter((author) => author.id === id);
-        setAuthor(...filteredAuthor);
-    };
+    const [response, setResponse] = useState([]);
+    const [query, setQuery] = useState(STATIC_QUERY);
 
-    const getAuthors = useCallback(async () => {
-        const authors = await getCmsResponse();
-
-        setAuthors(authors);
-    }, []);
-
-    // getCmsResponse
+    const cmsQuery = React.useCallback(() => {
+        if (query) {
+            getCmsResponse(query).then((response) => {
+                setResponse(response);
+            });
+        } else {
+            setResponse([]);
+        }
+    }, [query, getCmsResponse]);
 
     useEffect(() => {
-        getAuthors();
-    }, [getAuthors]);
+        cmsQuery();
+    }, [query]);
+
     return (
-        <AppContext.Provider value={{ authors, author, setAuthorById }}>
+        <AppContext.Provider value={{ response, setQuery }}>
             {children}
         </AppContext.Provider>
     );
 };
 
-// custom hook
 export const useGlobalContext = () => {
     return useContext(AppContext);
 };
 
-export { AppProvider, AppContext };
+export { AppProvider };

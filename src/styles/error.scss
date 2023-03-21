@@ -1,0 +1,26 @@
+.error-main {
+    min-height: calc(100vh - 7rem);
+
+    .error-container {
+        text-align: center;
+        max-width: 40rem;
+        margin: 0 auto;
+        min-height: calc(100vh - 7rem);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .error-heading {
+            font-size: 7.5rem;
+            opacity: 0.7;
+        }
+        .error-subheading {
+            text-transform: capitalize;
+            font-size: 1.5rem;
+            opacity: 0.7;
+        }
+        .error-description {
+            margin-top: 1.5rem;
+        }
+    }
+}
