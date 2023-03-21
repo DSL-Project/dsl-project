@@ -2,7 +2,7 @@ import { useGlobalContext } from "../../appContext";
 
 function Home() {
   const { response } = useGlobalContext();
-  console.log("fetching data for home page: ", response);
+  console.log("data for home page: ", response);
 
   return (
     <div className="home">
