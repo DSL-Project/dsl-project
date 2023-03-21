@@ -3,8 +3,8 @@ import { people } from '../../assets/testData';
 import { useGlobalContext } from '../../appContext';
 import Banner from '../../components/Banner/Banner';
 const People = () => {
-    const { response, bannerContent } = useGlobalContext();
-    const { peopleBody, peopleTitle } = bannerContent[0];
+    const { response, peopleBody, peopleTitle } = useGlobalContext();
+    console.log(`data for people page: `, response);
 
     return (
         <main className='people-main'>
