@@ -1,11 +1,11 @@
 import React from 'react';
 import Banner from '../../components/Banner/Banner';
-import { projects } from '../../assets/testData';
 import { useGlobalContext } from '../../appContext';
+import { Link } from 'react-router-dom';
 
 const Projects = () => {
     const { response, projectsBody, projectsTitle } = useGlobalContext();
-    console.log(`data for projects page: `, response);
+    console.log('response for PROJECTS page: ', response);
     return (
         <main className='projects-main'>
             {/* banner */}
@@ -14,25 +14,21 @@ const Projects = () => {
             {/* rendering projects */}
             <article className='projects-list-container'>
                 <article className='projects-list wrapper'>
-                    {projects.map((project, id) => {
+                    {response.map((project, id) => {
+                        // about is array/object, tags is arrays
                         const {
                             title,
                             subtitle,
+                            slug,
                             about,
                             url,
                             status,
-                            date,
+                            endDate: date,
                             tags,
                         } = project;
 
                         return (
-                            <a
-                                className='project-link'
-                                href={url}
-                                key={id}
-                                target='_blank'
-                                rel='noreferrer'
-                            >
+                            <Link className='project-link' to={url} key={id}>
                                 <article className='project-card'>
                                     <h2 className='project-card-heading'>
                                         {title}
@@ -40,13 +36,16 @@ const Projects = () => {
                                     <h3 className='project-card-subheading'>
                                         {subtitle}
                                     </h3>
+
                                     <p className='project-card-intro'>
-                                        {about}
+                                        {about?.content[0]?.content[0]?.value ||
+                                            'finding data.... '}
                                     </p>
+
                                     <div className='project-card-metadata'>
                                         <div className='status'>
                                             <div className='current-status'>
-                                                {/* active-complete pargraph */}
+                                                {/* active button looking paragraph*/}
                                                 <p className='status-label'>{`${
                                                     status === 'complete'
                                                         ? 'complete'
@@ -72,30 +71,32 @@ const Projects = () => {
                                                     )}
                                                 </div>
                                             </div>
-
                                             {/* rendering date */}
-                                            <div className='timeline'>
-                                                {date}
-                                            </div>
+                                            {date !== undefined && (
+                                                <div className='timeline'>
+                                                    {date.substring(0, 4)}
+                                                </div>
+                                            )}
                                         </div>
-
                                         {/* rendering tags */}
-                                        <ul className='categories'>
-                                            <li>#</li>
-                                            {tags.map((tag, id) => {
-                                                return (
-                                                    <li
-                                                        className='category'
-                                                        key={id}
-                                                    >
-                                                        {tag}
-                                                    </li>
-                                                );
-                                            })}
-                                        </ul>
+                                        {tags && (
+                                            <ul className='categories'>
+                                                <li>#</li>
+                                                {tags.map((tag, id) => {
+                                                    return (
+                                                        <li
+                                                            className='category'
+                                                            key={id}
+                                                        >
+                                                            {tag}
+                                                        </li>
+                                                    );
+                                                })}
+                                            </ul>
+                                        )}
                                     </div>
                                 </article>
-                            </a>
+                            </Link>
                         );
                     })}
                 </article>

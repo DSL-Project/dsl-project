@@ -20,8 +20,8 @@ function App() {
                 <Route path='training' element={<Training />} />
                 <Route path='people' element={<People />} />
                 <Route path='publications' element={<Publications />} />
-                <Route path='people/staff/:name' element={<Person />} />
-                <Route path='people/student/:name' element={<Person />} />
+                <Route path='people/staff/:slug' element={<Person />} />
+                <Route path='people/student/:slug' element={<Person />} />
                 <Route path='contact' element={<Contact />} />
                 <Route path='*' element={<Error />} />
             </Route>
