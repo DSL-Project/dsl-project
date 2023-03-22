@@ -19,6 +19,32 @@ function Home() {
             <div className='wrapper home-body'>
                 <h2>Home</h2>
                 <p>
+                    <div
+                        className='test-container'
+                        style={{ 'margin-left': '30px' }}
+                    >
+                        <h1>testing h1</h1>
+                        <h2>testing h2</h2>
+                        <h3>testing h3</h3>
+                        <h4 className='bold-18'>testing bold18</h4>
+                        <h4 className='semi-18'>testing semi18</h4>
+                        <p>-----------------------------------</p>
+
+                        <h4 className='bold-16'>testing bold16</h4>
+                        <h4 className='medium-16'>testing medium16</h4>
+                        <h4 className='regular-16'>testing regular16</h4>
+                        <p>-----------------------------------</p>
+
+                        <h4 className='semi-14'>testing semi14</h4>
+                        <h4 className='medium-14'>testing medium14</h4>
+                        <h4 className='regular-14'>testing regular14</h4>
+
+                        <p>-----------------------------------</p>
+
+                        <p className='regular-caps'>testing regular-caps</p>
+                        <p className='bold-caps'>testing bold-caps</p>
+                    </div>
+
                     <span>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         Maecenas justo nunc, ornare eget rutrum at, tristique ut

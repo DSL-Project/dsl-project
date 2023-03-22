@@ -32,14 +32,11 @@ ul {
     list-style: none;
 }
 
-html {
-    // 1rem = 20px
-    font-size: 20px;
-}
+// ---------
 
 .wrapper {
-    max-width: 1260px;
-    width: 85%;
+    max-width: 40rem;
+    width: 100%;
     margin: 0 auto;
 }
 button {
@@ -55,4 +52,7 @@ a {
 img {
     max-width: 100%;
     display: block;
+}
+html {
+    background-color: $neutral-100;
 }

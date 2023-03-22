@@ -10,6 +10,7 @@ import Person from '../Person';
 import Error from '../../pages/Error/Error';
 import '../../App.scss';
 import React from 'react';
+import Test from './Test';
 
 function App() {
     return (
@@ -23,6 +24,7 @@ function App() {
                 <Route path='people/staff/:slug' element={<Person />} />
                 <Route path='people/student/:slug' element={<Person />} />
                 <Route path='contact' element={<Contact />} />
+                <Route path='testing' element={<Test />} />
                 <Route path='*' element={<Error />} />
             </Route>
         </Routes>
