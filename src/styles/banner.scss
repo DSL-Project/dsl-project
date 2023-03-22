@@ -1,14 +1,17 @@
 .banner {
+    border: 1px dotted gray;
     width: 100%;
     background-color: $neutral-300;
 
     .banner-container {
-        max-width: 800px;
-        margin: 3.5rem auto 0 auto;
+        border: 1px dotted blue;
+        max-width: 1260px;
+        width: 60%;
+        margin: 0 auto;
         padding: 4rem 0;
 
         .banner-heading {
-            padding-bottom: 0.1rem;
+            padding-bottom: 0.2rem;
             font-size: 1rem;
             font-weight: 500;
         }
