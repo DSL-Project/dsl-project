@@ -1,93 +1,209 @@
-//import useContentful from "../../hooks/useContenful";
-//import PublicationCard from "../Publications/PublicationCard";
+import React from 'react';
+import { CgLink as LinkIcon } from 'react-icons/cg';
+import { TbExternalLink as ExternalLink } from 'react-icons/tb';
 import { useGlobalContext } from '../../appContext';
 import Banner from '../../components/Banner/Banner';
+import { Link } from 'react-router-dom';
 
 const Publications = () => {
     const { response, publicationsBody, publicationsTitle } =
         useGlobalContext();
-    console.log(`data for publications page: `, response);
 
     return (
-        <>
-            {/* This is the Publications Banner section
-      //TODO: 1. will use a generic style format as all pages have this section; consider where to put wrapper
-      */}
-            {/* banner */}
+        <main className='publication-main'>
+            {/* rendering banner */}
             <Banner title={publicationsTitle} info={publicationsBody} />
 
-            {/* This section will be dynamically rendered from CMS
-       //TODO: may need to abstract the content below to a child component i.e. PublicationCard
-       */}
-            <div>
-                <div>
-                    {/*
-          //TODO: h3 (year) from: CMS - Publications (content model) - date (field)
-           */}
-                    <h3>2023</h3>
+            <section className='publication-list'>
+                <div className='wrapper content'>
+                    <div className='content-container'>
+                        {response.map((publication, id) => {
+                            const {
+                                date,
+                                publicationType,
+                                title,
+                                authors,
+                                projects,
+                                url,
+                            } = publication;
+                            return (
+                                <div key={id}>
+                                    {date !== undefined && (
+                                        <h2 className='year'>
+                                            {date.substring(0, 4)}
+                                        </h2>
+                                    )}
+                                    <ul className='publications'>
+                                        <li className='publications-list-item'>
+                                            {/* rendering journal */}
+                                            <div className='publication'>
+                                                <div className='meta'>
+                                                    {/* publication type */}
+                                                    <a
+                                                        href={url}
+                                                        className={`${
+                                                            publicationType ===
+                                                            'journal article'
+                                                                ? 'publication-type journal'
+                                                                : 'publication-type popular'
+                                                        }`}
+                                                    >
+                                                        {publicationType}
+                                                    </a>
+                                                    {/* link icon */}
+                                                    <a
+                                                        href={url}
+                                                        className='top-link'
+                                                        title='Permalink'
+                                                    >
+                                                        <LinkIcon />
+                                                    </a>
+                                                </div>
 
-                    <div>
-                        {/*
-          //TODO: 1. h4 from CMS - Publications - publicationType
-          //TODO: 2. anchor from CMS - Publications - url
-          //TODO: 3. paragraph from CMS - Publications - title
+                                                {/* journal heading */}
+                                                <div className='heading'>
+                                                    <p>
+                                                        {title}
 
-          */}
-                        <h4>JOURNAL ARTICLE</h4>
-                        <a href='http://trybut.fail/dsl/publications/id:w848b1qb'>
-                            🔗
-                        </a>
-                        <p>
-                            Conflicting Nationalisms: The Voice of the Subaltern
-                            in Mahasweta Devi's Bashai Tudu, by Alaknada Bagchi.
-                        </p>
-                        <div>
-                            <h5>Lab Author(s)</h5>
-                            {/* //TODO: author name from: CMS - Publications - authors which is linked to Persons (content model)
-                             */}
-                            <p>Clifton van der Linden</p>
-                        </div>
-                        <h5>Featured Projects(s)</h5>
+                                                        {/* if url for article is present only then render */}
+                                                        {url && (
+                                                            <a
+                                                                href={url}
+                                                                className='heading-url'
+                                                            >
+                                                                Link
+                                                                <ExternalLink />
+                                                            </a>
+                                                        )}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            {/* authors.fields.name */}
+                                            {/* rendering authors */}
+                                            <div className='authors'>
+                                                <h4>lab authors</h4>
+                                                {authors && (
+                                                    <ul className='authors-list'>
+                                                        {/* if length of author is > 1, then each array item concat with comma */}
+                                                        {/* any change we make in author array in if statement, might need to be made in else part as well                                                                                                                                                                    */}
+                                                        {authors.length > 1
+                                                            ? authors.map(
+                                                                  (
+                                                                      author,
+                                                                      id
+                                                                  ) => {
+                                                                      const {
+                                                                          slug,
+                                                                          website,
+                                                                      } =
+                                                                          author.fields;
+                                                                      return (
+                                                                          <li
+                                                                              key={
+                                                                                  slug
+                                                                              }
+                                                                          >
+                                                                              <Link
+                                                                                  to={`/people/staff/${slug}`}
+                                                                                  className='author-link'
+                                                                              >
+                                                                                  {author +
+                                                                                      (id
+                                                                                          ? ' '
+                                                                                          : ', ')}
+                                                                              </Link>
+                                                                          </li>
+                                                                      );
+                                                                  }
+                                                              )
+                                                            : // if length of author is less than equal to 1, then do not concat with comma
+                                                              authors.map(
+                                                                  (author) => {
+                                                                      const {
+                                                                          name,
+                                                                          slug,
+                                                                      } =
+                                                                          author.fields;
+                                                                      return (
+                                                                          <li
+                                                                              key={
+                                                                                  slug
+                                                                              }
+                                                                              className='author'
+                                                                          >
+                                                                              <Link
+                                                                                  to={`/people/staff/${slug}`}
+                                                                                  className='author-link'
+                                                                              >
+                                                                                  {
+                                                                                      name
+                                                                                  }
+                                                                              </Link>
+                                                                          </li>
+                                                                      );
+                                                                  }
+                                                              )}
+                                                    </ul>
+                                                )}
+                                            </div>
 
-                        {/*
-            //TODO: project(s) from: CMS - Publications - projects which is linked to Projects (content model)
-            */}
-                        <ol>
-                            <li>
-                                <a href='http://trybut.fail/dsl/research/project-one'>
-                                    Bada Bing, Bada Boom: Microsoft Bing's
-                                    Chinese Political Censorship of Au...
-                                </a>
-                            </li>
-                            <li>
-                                <a href='http://trybut.fail/dsl/research/project-two'>
-                                    GeckoSpy: Pegasus Spyware Used against
-                                    Thailand's Pro-Democracy Mov...
-                                </a>
-                            </li>
-                        </ol>
+                                            {/* rendering featured projects */}
+
+                                            {projects && (
+                                                <div className='featured-projects'>
+                                                    <h4 className='featured-projects-title'>
+                                                        featured projects
+                                                    </h4>
+
+                                                    {/* projects list */}
+                                                    <ol className='project-list'>
+                                                        {projects.map(
+                                                            (project) => {
+                                                                const {
+                                                                    slug,
+                                                                    subtitle,
+                                                                    url,
+                                                                    title,
+                                                                } =
+                                                                    project.fields;
+
+                                                                return (
+                                                                    <li
+                                                                        key={
+                                                                            slug
+                                                                        }
+                                                                        className='project'
+                                                                    >
+                                                                        <a
+                                                                            href={
+                                                                                url
+                                                                            }
+                                                                            className='project-link'
+                                                                            title={
+                                                                                title
+                                                                            }
+                                                                        >
+                                                                            {`${title}: ${subtitle.substring(
+                                                                                0,
+                                                                                74
+                                                                            )}...`}
+                                                                        </a>
+                                                                    </li>
+                                                                );
+                                                            }
+                                                        )}
+                                                    </ol>
+                                                </div>
+                                            )}
+                                        </li>
+                                    </ul>
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
-            </div>
-            <div>
-                <h3>1994</h3>
-                <div>
-                    <div>
-                        <h4>POPULAR PRESS</h4>
-                        <a href='http://trybut.fail/dsl/publications/id:r3p7c8zp'>
-                            🔗
-                        </a>
-                    </div>
-                    <div>
-                        <h5>Lab Author(s)</h5>
-                        <p>
-                            <span>Joshua Apostpolooulos</span>
-                            <span>Vass Bednar</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </>
+            </section>
+        </main>
     );
 };
 

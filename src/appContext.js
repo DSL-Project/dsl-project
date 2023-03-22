@@ -9,8 +9,13 @@ const AppContext = createContext();
 const AppProvider = ({ children }) => {
     const { getCmsResponse } = useContentful();
 
+    // ** response state updates everytime user clicks on navbar links **
     const [response, setResponse] = useState([]);
+
+    // ** query state updates everytime user clicks on navbar links **
     const [query, setQuery] = useState(STATIC_QUERY);
+
+    // ** banner populate during initial app loads ONLY , only once **
     const [bannerContent, setBannerContent] = useState({});
 
     const cmsQuery = React.useCallback(() => {
@@ -23,51 +28,44 @@ const AppProvider = ({ children }) => {
         }
     }, [query, getCmsResponse]);
 
-    const filterBannerContents = (response) => {
-        // this function filters content from response for banner on each page.
-        const filter1 = 'projectsTitle';
-        const filter2 = 'projectsBody';
-        const filter3 = 'trainingTitle';
-        const filter4 = 'trainingBody';
-        const filter5 = 'publicationsTitle';
-        const filter6 = 'publicationsBody';
-        const filter7 = 'peopleTitle';
-        const filter8 = 'peopleBody';
-        const targetObj = response;
+    const setBannerState = React.useCallback(() => {
+        // this function set the banner state on app loads
 
-        const filteredObject = Object.keys(targetObj)
-            .filter(
-                (key) =>
-                    key === filter1 ||
-                    key === filter2 ||
-                    key === filter3 ||
-                    key === filter4 ||
-                    key === filter5 ||
-                    key === filter6 ||
-                    key === filter7 ||
-                    key === filter8
-            )
-            .reduce((cur, key) => {
-                return Object.assign(cur, { [key]: targetObj[key] });
-            }, {});
+        // (1)query cms for static field
+        getCmsResponse(STATIC_QUERY).then((response) => {
+            const targetObj = response[0];
 
-        return filteredObject;
-    };
+            //(2) filter the response, and return new object
+            const filterItems = [
+                'projectsTitle',
+                'projectsBody',
+                'trainingTitle',
+                'trainingBody',
+                'publicationsTitle',
+                'publicationsBody',
+                'peopleTitle',
+                'peopleBody',
+            ];
+            const filteredObject = Object.keys(targetObj)
+                .filter((key) => filterItems.includes(key))
+                .reduce((cur, key) => {
+                    return Object.assign(cur, { [key]: targetObj[key] });
+                }, {});
+
+            //(3) set the banner state
+            setBannerContent(filteredObject);
+        });
+    }, []);
 
     useEffect(() => {
+        // querying cms each time user click on nav links
         cmsQuery();
     }, [query]);
 
     useEffect(() => {
-        // update banner content
-        getCmsResponse(STATIC_QUERY).then((response) => {
-            setBannerContent(response);
-
-            //updating banner state
-            const bannerObject = filterBannerContents(response[0]);
-            setBannerContent(bannerObject);
-        });
-    }, []);
+        // set banner state on app loads
+        setBannerState();
+    }, [setBannerState]);
 
     return (
         <AppContext.Provider value={{ response, setQuery, ...bannerContent }}>
