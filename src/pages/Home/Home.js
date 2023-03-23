@@ -1,7 +1,9 @@
 import { useGlobalContext } from '../../appContext';
+import Announcement from './Announcement';
 
 function Home() {
     const { response } = useGlobalContext();
+    const isAnnouncement = true;
     console.log('data for home page: ', response);
 
     return (
@@ -10,12 +12,8 @@ function Home() {
       //TODO: 1. the link is clickable to a page called "Opportunities" which may need to be dynamically populated as hiring opportunities can change over time
       //TODO: 2. needs styling
        */}
-            <div className='announcement'>
-                <a href='http://trybut.fail/dsl/opportunities'>
-                    The Lab is looking for a new Director of Cliff Services.
-                    More →
-                </a>
-            </div>
+            {isAnnouncement && <Announcement />}
+
             <div className='wrapper home-body'>
                 <h2>Home</h2>
                 <p>
