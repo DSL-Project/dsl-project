@@ -43,8 +43,11 @@
   .project-title {
     color: $neutral-500;
   }
-
   .subtitle {
+    display: flex;
+    align-items: center;
+  }
+  .subtitle > h3 {
     display: flex;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -71,6 +74,35 @@
       padding: 0.5rem;
       border: 1px solid $neutral-400;
       border-radius: 0.1rem;
+    }
+  }
+}
+
+//! Media Queries
+@media (max-width: 834px) {
+  .heading-container > h2 {
+    font-size: 1.6rem;
+  }
+
+  .custom-arrow {
+    font-size: 0.9rem;
+  }
+
+  .project-container {
+    max-width: 14.5rem;
+    height: 16.5rem;
+
+    .project-title,
+    .project-description {
+      font-size: 0.6rem;
+    }
+    .subtitle {
+      font-size: 0.7rem;
+    }
+    .tag-container > .tag-box {
+      font-size: 0.5rem;
+
+      padding: 0.2rem;
     }
   }
 }

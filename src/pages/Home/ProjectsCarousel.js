@@ -5,13 +5,28 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 
 const ProjectsCarousel = () => {
   let settings = {
-    //className: "center",
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 2,
     swipeToSlide: true,
+    responsive: [
+      {
+        breakpoint: 834,
+        settings: {
+          slidesToShow: 2.5,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 375,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   return (
@@ -27,15 +42,15 @@ const ProjectsCarousel = () => {
         <div className="project-container">
           <div className="title-container">
             <h2 className="medium-16 project-title">GeckoSpy</h2>
-            <a href="/project">
-              {/* this anchor link should go to the specific project page */}
-              <AiOutlineArrowRight />
-            </a>
           </div>
           <div className="subtitle">
             <h3>
               Pegasus Spyware Used against Thailand's Pro-Democracy Movement
             </h3>
+            <a href="/project">
+              {/* this anchor link should go to the specific project page */}
+              <AiOutlineArrowRight />
+            </a>
           </div>
           <p className="medium-16 project-description">
             Digital technologies are transforming civil society and democracy.
@@ -56,16 +71,16 @@ const ProjectsCarousel = () => {
         <div className="project-container">
           <div className="title-container">
             <h2 className="medium-16 project-title">Bada Bing, Bada Boom</h2>
-            <a href="/project">
-              {/* this anchor link should go to the specific project page */}
-              <AiOutlineArrowRight />
-            </a>
           </div>
           <div className="subtitle">
             <h3>
               Microsoft Bing's Chinese Political Censorship of Autosuggestions
               in North America
             </h3>
+            <a href="/project">
+              {/* this anchor link should go to the specific project page */}
+              <AiOutlineArrowRight />
+            </a>
           </div>
           <p className="medium-16 project-description">
             Digital technologies are transforming civil society and democracy.
@@ -86,15 +101,15 @@ const ProjectsCarousel = () => {
         <div className="project-container">
           <div className="title-container">
             <h2 className="medium-16 project-title">GeckoSpy</h2>
-            <a href="/project">
-              {/* this anchor link should go to the specific project page */}
-              <AiOutlineArrowRight />
-            </a>
           </div>
           <div className="subtitle">
             <h3>
               Pegasus Spyware Used against Thailand's Pro-Democracy Movement
             </h3>
+            <a href="/project">
+              {/* this anchor link should go to the specific project page */}
+              <AiOutlineArrowRight />
+            </a>
           </div>
           <p className="medium-16 project-description">
             Digital technologies are transforming civil society and democracy.
@@ -115,16 +130,16 @@ const ProjectsCarousel = () => {
         <div className="project-container">
           <div className="title-container">
             <h2 className="medium-16 project-title">Bada Bing, Bada Boom</h2>
-            <a href="/project">
-              {/* this anchor link should go to the specific project page */}
-              <AiOutlineArrowRight />
-            </a>
           </div>
           <div className="subtitle">
             <h3>
               Microsoft Bing's Chinese Political Censorship of Autosuggestions
               in North America
             </h3>
+            <a href="/project">
+              {/* this anchor link should go to the specific project page */}
+              <AiOutlineArrowRight />
+            </a>
           </div>
           <p className="medium-16 project-description">
             Digital technologies are transforming civil society and democracy.
@@ -145,15 +160,15 @@ const ProjectsCarousel = () => {
         <div className="project-container">
           <div className="title-container">
             <h2 className="medium-16 project-title">GeckoSpy</h2>
-            <a href="/project">
-              {/* this anchor link should go to the specific project page */}
-              <AiOutlineArrowRight />
-            </a>
           </div>
           <div className="subtitle">
             <h3>
               Pegasus Spyware Used against Thailand's Pro-Democracy Movement
             </h3>
+            <a href="/project">
+              {/* this anchor link should go to the specific project page */}
+              <AiOutlineArrowRight />
+            </a>
           </div>
           <p className="medium-16 project-description">
             Digital technologies are transforming civil society and democracy.
@@ -174,16 +189,16 @@ const ProjectsCarousel = () => {
         <div className="project-container">
           <div className="title-container">
             <h2 className="medium-16 project-title">Bada Bing, Bada Boom</h2>
-            <a href="/project">
-              {/* this anchor link should go to the specific project page */}
-              <AiOutlineArrowRight />
-            </a>
           </div>
           <div className="subtitle">
             <h3>
               Microsoft Bing's Chinese Political Censorship of Autosuggestions
               in North America
             </h3>
+            <a href="/project">
+              {/* this anchor link should go to the specific project page */}
+              <AiOutlineArrowRight />
+            </a>
           </div>
           <p className="medium-16 project-description">
             Digital technologies are transforming civil society and democracy.

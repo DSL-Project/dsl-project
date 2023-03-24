@@ -13,7 +13,6 @@ function Home() {
     <div className="home">
       {/* This is the announcement banner:
       //TODO: 1. the link is clickable to a page called "Opportunities" which may need to be dynamically populated as hiring opportunities can change over time
-      //TODO: 2. needs styling
        */}
       <Announcement />
 

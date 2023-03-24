@@ -8,9 +8,16 @@
 
   .announcement {
     display: flex;
+    align-items: center;
     gap: 0.5rem;
   }
   .bold-16:hover {
     text-decoration: underline;
+  }
+}
+
+@media (max-width: 375px) {
+  .announcement-link {
+    padding: 0.9rem;
   }
 }

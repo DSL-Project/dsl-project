@@ -36,11 +36,13 @@
     padding: 0.75rem 0;
     display: flex;
     justify-content: space-between;
+    gap: 0.8rem;
 
     .funder-logo {
-      width: 10.5rem;
+      width: 18%;
       height: 3.7rem;
       background-color: $neutral-300;
+      border-radius: 0.25rem;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -108,5 +110,115 @@
     background-color: $black;
     color: $white;
     border-radius: 0.25rem;
+  }
+}
+
+//! Media Queries
+@media (max-width: 834px) {
+  .home-wrapper {
+    width: 90%;
+  }
+
+  .welcome-container {
+    width: 80%;
+    h1 {
+      font-size: 3rem;
+    }
+  }
+
+  .funding-container > .funding-logos > .funder-logo {
+    height: 2.5rem;
+  }
+  .home-address,
+  .stay-updated {
+    padding: 1.9rem;
+    width: 50%;
+  }
+  .home-name,
+  .bold-18 {
+    font-size: 0.75rem;
+  }
+
+  .street-address {
+    font-size: 0.75rem;
+  }
+  .contact-methods {
+    font-size: 0.65rem;
+  }
+
+  .stay-updated {
+    padding: 3.5rem 1rem;
+    justify-content: space-around;
+    h2 {
+      font-size: 1.2rem;
+    }
+    form {
+      justify-content: space-between;
+    }
+    input {
+      width: 60%;
+    }
+    button {
+      width: 30%;
+      font-size: 0.7rem;
+      padding: 0 0.8rem;
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .welcome-container {
+    padding: 1.8rem 0;
+    h1 {
+      font-size: 2.1rem;
+      line-height: 2.5rem;
+    }
+  }
+
+  .funding-container {
+    padding: 4.4rem 0;
+    h2 {
+      font-size: 0.9rem;
+    }
+    .funding-logos {
+      display: grid;
+      grid-template-rows: repeat(2, 1fr);
+      grid-template-columns: repeat(2, 1fr);
+
+      .funder-logo {
+        width: 100%;
+        &:last-child {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .home-contact {
+    flex-direction: column;
+    .home-address,
+    .stay-updated {
+      width: 100%;
+      padding: 1.5rem 1rem 2.4rem 1rem;
+    }
+
+    .home-address {
+      border-radius: 0.25rem 0.25rem 0 0;
+      height: 13.5rem;
+      .contact-methods {
+        padding: 1.35rem 0;
+      }
+    }
+    .stay-updated {
+      height: 12.5rem;
+      border-radius: 0 0 0.25rem 0.25rem;
+      h2 {
+        line-height: 1.4rem;
+      }
+      button {
+        width: 35%;
+        font-size: 0.6rem;
+      }
+    }
   }
 }

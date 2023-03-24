@@ -1,5 +1,5 @@
 import React from "react";
-import { AiOutlineArrowRight } from "react-icons/ai";
+import { BsArrowRight } from "react-icons/bs";
 
 const Announcement = () => {
   return (
@@ -11,7 +11,7 @@ const Announcement = () => {
         <h3 className="bold-16">
           The Lab is looking for a new Director of Cliff Services.
         </h3>
-        <AiOutlineArrowRight />
+        <BsArrowRight />
       </div>
     </a>
   );
