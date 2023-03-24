@@ -1,192 +1,383 @@
+// SEARCH BAR STYLING
+// strip off all default styling
+.form,
+fieldset,
+select,
+input {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    appearance: none;
+    outline: none;
+    color: inherit;
+    background-color: inherit;
+    &::placeholder {
+        color: inherit;
+    }
+}
+.bx {
+    width: 100%;
+    padding: 0.6rem 0.7rem;
+    text-transform: uppercase;
+    border-radius: 5px;
+    border: 1px solid $neutral-400;
+    background-color: $white;
+    color: $neutral-500;
+}
+
+// styling starts
+.form {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    .child1 {
+        grid-column: 1/3;
+        display: grid;
+        grid-template-columns: repeat(
+            2,
+            minmax(calc(6.65rem - 0.5rem), calc(7.75rem - 0.5rem))
+        );
+        gap: 0.5rem;
+    }
+    .child2 {
+        grid-column: 4/-1;
+        display: grid;
+        grid-template-columns: repeat(1, minmax(2.2rem, 8.7rem));
+        gap: 0.5rem;
+        justify-content: flex-end;
+    }
+}
+// adding icons
+.filterBx {
+    // border: 2px solid blue;
+    &::placeholder {
+        padding-left: 1.2rem;
+        background-image: url('../assets/filter.svg'),
+            url('../assets/downArrow.svg');
+        background-repeat: no-repeat;
+        background-size: 0.9rem, 0.6rem;
+        background-position: 0 100%, 100% 0;
+    }
+}
+
+.sortBx {
+    padding-left: 1.2rem;
+    background-image: url('../assets/downArrow.svg');
+    background-repeat: no-repeat;
+    background-size: 0.6rem;
+    background-position: 90% 50%;
+}
+
+.searchBx {
+    &::placeholder {
+        padding-left: 1.2rem;
+        background-image: url('../assets/magnifier.svg');
+        background-repeat: no-repeat;
+        background-size: 0.8rem;
+        background-position: 0 100%, 100% 0;
+    }
+}
+
+// --------------------------------------------------------------------
 .publication-list {
-    background-color: #fdfaf1;
+    // background-color: #fdfaf1;
 
     .content {
-        padding: 4.3rem 0 2rem;
+        padding: 4rem 0 0 0rem;
+        // border: 2px solid red;
 
         .content-container {
-            max-width: 40rem;
             margin: 0 auto;
 
-            h2 {
-                padding-left: 1.1rem;
-                font-weight: 600;
-                color: #7b7668;
+            .year {
+                margin-top: 2rem;
+                font-weight: 500;
             }
             .publications {
-                margin: 1.6rem 0 2.8rem;
+                // margin-top: 1rem;
 
                 .publications-list-item {
-                    padding-top: 1.1rem;
-                    border: 1px solid #dbd7c7;
+                    // padding: 8px 9px;
+                    border: 1px solid $neutral-400;
                     border-radius: 5px;
-                    box-shadow: 0px 0.5px 1.1px -1px rgba(0, 0, 0, 0.19),
-                        0px 4px 4px -1px rgba(0, 0, 0, 0.118);
+                    // border: 4px solid red;
+                    margin-top: 1.3rem;
 
                     .publication {
-                        padding: 0 1.1rem;
+                        // border: 2px solid magenta;
+                        // border-top: 1px solid $neutral-400;
+                        .meta-container {
+                            // border: 2px solid black;
 
-                        // 1st child of publication
-                        .meta {
-                            display: flex;
-                            text-transform: capitalize;
-                            justify-content: space-between;
-                            align-items: center;
-
-                            .publication-type {
-                                padding: 0.2rem 0.4rem 0.15rem;
-                                border-radius: 5px;
-                                font-weight: 600;
-                                font-size: 0.8rem;
-                                text-transform: uppercase;
-                                letter-spacing: 0.5px;
-                            }
-                            .journal {
-                                color: #384f9c;
-                                background-color: #ecece9;
-                                &:hover {
-                                    border: 1px solid #384f9c;
-                                }
-                            }
-                            .popular {
-                                color: #074f58;
-                                background-color: #e8efeb;
-                                &:hover {
-                                    border: 1px solid #074f58;
-                                }
-                            }
-
-                            .top-link {
-                                background-color: #f3f1e7;
-                                border-radius: 5px;
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-                                color: #7b7668;
-                                font-size: 1.3rem;
-                                &:hover {
-                                    background-color: #7b7668;
-                                    color: #f3f1e7;
-                                }
-                            }
-                        }
-
-                        // 2nd child of publication
-                        .heading {
-                            margin: 0.9rem 0;
-
-                            p {
-                                line-height: 30px;
-                            }
-                            .heading-url {
-                                position: relative;
-                                display: inline-flex;
-                                align-items: center;
-                                font-size: 16px;
-                                border-radius: 5px;
-                                border: 1px solid #dbd7c7;
-                                color: #1a1a1a;
-                                font-weight: 500;
-                                padding: 1px 6px 0.5px;
-                                margin-left: 10px;
-
-                                svg {
-                                    margin-left: 3px;
-                                    color: #7b7668;
-                                    font-size: 1rem;
-                                }
-                                &:hover {
-                                    background-color: #1a1a1a;
-                                    color: #fdfaf1;
-                                    border-color: #1a1a1a;
-                                }
-                            }
-                        }
-                    }
-                    .authors {
-                        display: flex;
-                        justify-content: flex-start;
-                        padding: 0.7rem 1.1rem;
-                        border-top: 1px solid #dbd7c7;
-                        align-items: center;
-                        h4 {
-                            padding-top: 5px;
-                            text-transform: capitalize;
-                            font-size: 0.8rem;
-                            color: #8c8573;
-                            letter-spacing: 0.25px;
-                        }
-
-                        .authors-list {
-                            margin: 0 1.1rem;
-
-                            .author {
-                                display: inline-block;
-                                font-weight: 600;
-                                margin: 0 3px;
-
-                                .author-link {
-                                    font-size: 0.8rem;
-                                    color: #1a1a1a;
-                                    letter-spacing: 0.2px;
-                                    text-decoration: underline;
-                                    text-decoration-color: #dbd7c7;
-                                    text-decoration-thickness: 1px;
-                                    text-underline-offset: 3px;
-                                }
-                            }
-                        }
-                    }
-                    .featured-projects {
-                        display: flex;
-                        padding: 0.8rem 15px;
-                        border-top: 1px solid #dbd7c7;
-
-                        .featured-projects-title {
-                            // padding-top: 0.4rem;
-                            font-size: 0.8rem;
-                            text-transform: capitalize;
-                            letter-spacing: 0.2px;
-                            color: #8c8573;
-                            width: 20%;
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            // border: 2px solid goldenrod;
-                        }
-
-                        .project-list {
-                            // border: 2px solid blue;
-                            margin: 0 1.1rem;
-                            list-style-type: upper-roman;
-                            min-width: calc(80% - 20% - 1.1rem);
+                            // border: 2px solid green;
                             padding: 0;
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            // max-width: 100%;
-                            // list-style-position: inside;
+                            margin: 0;
+                            // margin-top: 1.3rem;
+                            // border: 5px solid goldenrod;
 
-                            .project {
-                                font-size: 0.7rem;
-                                letter-spacing: 0.2px;
-                                line-height: 25px;
-                                color: #1a1a1a;
-                                text-decoration: none;
+                            margin: 1.3rem 1rem 0 2.1rem;
 
-                                .project-link {
-                                    // border-bottom: 1px solid #dbd7c7;
-                                    font-weight: 700;
-                                    text-decoration: underline;
-                                    text-decoration-color: #dbd7c7;
-                                    text-decoration-thickness: 1px;
-                                    text-underline-offset: 3px;
-                                    // text-decoration: none;
-                                    // border: 2px solid goldenrod;
+                            // 1st child of meta-container
+                            .meta {
+                                // border: 2px dotted red;
+                                // margin: 1.3rem 1rem 0 2.1rem;
+                                display: flex;
+                                text-transform: capitalize;
+                                justify-content: space-between;
+                                align-items: center;
+
+                                .publication-type {
+                                    padding: 0.4rem 0.45rem;
+                                    border-radius: 5px;
+                                    text-transform: uppercase;
+                                }
+                                .journal {
+                                    // border: 2px solid red;
+                                    color: $journal-col;
+                                    background-color: $journal-bg;
+                                    &:hover {
+                                        border: 1px solid $journal-col;
+                                    }
+                                }
+                                .popular {
+                                    color: $popular-col;
+                                    background-color: $popular-bg;
+                                    &:hover {
+                                        border: 1px solid $popular-col;
+                                    }
+                                }
+
+                                .top-link {
+                                    background-color: $neutral-300;
+                                    border-radius: 4px;
+                                    padding: 0.4rem 0.45rem;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    color: $black;
+                                    font-size: 1rem;
+                                    &:hover {
+                                        background-color: $neutral-500;
+                                        color: $neutral-100;
+                                    }
+                                }
+                            }
+
+                            // 2nd child of meta-container
+                            .heading {
+                                font-weight: 400;
+                                color: $black;
+                                margin-top: 1.3rem;
+
+                                .heading-url {
+                                    display: inline-flex;
+                                    align-items: center;
+                                    border-radius: 5px;
+                                    border: 1px solid $neutral-400;
+                                    color: $black;
+                                    margin-left: 5px;
+                                    // padding: 0.4rem;
+                                    padding: 3px 6px;
+
+                                    svg {
+                                        margin-left: 3px;
+                                        font-size: 0.9rem;
+                                        font-size: 1rem;
+                                    }
+                                    &:hover {
+                                        background-color: $black;
+                                        color: $white;
+                                        border-color: $black;
+                                    }
                                 }
                             }
                         }
                     }
+                    .authors-container {
+                        border-top: 1px solid $neutral-400;
+                        margin-top: 1.3rem;
+                        .authors {
+                            display: flex;
+                            justify-content: flex-start;
+                            align-items: center;
+                            margin: 1.3rem 1rem 1.3rem 2.1rem;
+
+                            .auth-heading {
+                                padding-top: 5px;
+                                text-transform: capitalize;
+                                color: $neutral-500;
+                            }
+
+                            .authors-list {
+                                margin: 0 1.1rem;
+
+                                .author {
+                                    display: inline-block;
+                                    margin: 0 3px;
+
+                                    .author-link {
+                                        color: $black;
+
+                                        text-decoration: underline;
+                                        text-decoration-color: $black;
+                                        text-decoration-thickness: 1px;
+                                        text-underline-offset: 4px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .featured-projects-container {
+                        border-top: 1px solid $neutral-400;
+                        margin-top: 1.3rem;
+
+                        .featured-projects {
+                            display: flex;
+                            justify-content: space-between;
+                            margin: 1.3rem 1rem 1.3rem 2.1rem;
+                            // padding: 0.8rem 15px;
+
+                            .featured-projects-heading {
+                                // padding-top: 0.4rem;
+                                text-transform: capitalize;
+                                width: 20%;
+                                display: flex;
+                                justify-content: flex-start;
+                                padding-top: 5px;
+                                text-transform: capitalize;
+                                color: $neutral-500;
+                            }
+
+                            .project-list {
+                                // min-width: calc(80% - 20% - 1.1rem);
+                                max-width: 75%;
+
+                                padding: 0;
+                                display: flex;
+                                // justify-content: center;
+                                align-items: center;
+
+                                .project {
+                                    color: $black;
+                                    text-decoration: none;
+
+                                    .project-link {
+                                        color: $black;
+                                        text-decoration: underline;
+                                        text-decoration-color: $black;
+                                        text-decoration-thickness: 1px;
+                                        text-underline-offset: 4px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 834px) {
+    .featured-projects-container {
+        // border: 2px solid red;
+
+        .featured-projects {
+            // border: 2px solid green;
+            display: flex;
+
+            .featured-projects-heading {
+                // border: 2px solid magenta;
+                min-width: 160px;
+                // font-size: 0.7rem;
+            }
+
+            .project-list {
+                // border: 2px solid black;
+                min-width: 180px;
+                width: 90%;
+
+                // gap: 10px;
+
+                .project {
+                    // display: inline;
+                    margin-left: 20px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 375px) {
+    // adjusting the LINK size on journal
+    .publication-list
+        .content
+        .content-container
+        .publications
+        .publications-list-item
+        .publication
+        .meta-container
+        .heading
+        .heading-url {
+        margin: 10px 0px 0px 0px;
+        padding: 3px 6px;
+    }
+
+    // tweaking author-list
+    .publication-list
+        .content
+        .content-container
+        .publications
+        .publications-list-item
+        .authors-container
+        .authors
+        .authors-list {
+        margin: 0;
+        padding-top: 0.5rem;
+        margin-left: 0;
+    }
+
+    .authors-container {
+        .authors {
+            margin: 0;
+            flex-direction: column;
+            text-align: left;
+            justify-content: flex-start;
+            align-items: flex-start;
+
+            .auth-heading {
+                align-self: flex-start;
+                width: 100%;
+            }
+            .authors-list {
+                padding: 0;
+                align-self: flex-start;
+                width: 100%;
+
+                .author {
+                    margin: 0;
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .featured-projects-container {
+        .featured-projects {
+            flex-direction: column;
+
+            .featured-projects-heading {
+                min-width: 100%;
+            }
+
+            .project-list {
+                min-width: 100%;
+                margin-top: 0.5rem;
+                padding: 1rem 0;
+
+                .project-link {
+                    margin: 0;
                 }
             }
         }

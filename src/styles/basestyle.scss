@@ -33,14 +33,6 @@ ul {
 }
 
 // ---------
-
-.wrapper {
-    border: 1px dotted gray;
-    max-width: 1260px;
-    width: 60%;
-    margin: 0 auto;
-    padding: 4rem 0;
-}
 button {
     display: block;
 }
@@ -57,4 +49,18 @@ img {
 }
 html {
     background-color: $neutral-100;
+}
+
+.wrapper {
+    border: 1px dotted gray;
+    max-width: 1440px;
+    width: 37.2%;
+    margin: 0 auto;
+    padding-top: 4rem;
+}
+
+@media (max-width: 834px) {
+    .wrapper {
+        width: 90%;
+    }
 }
