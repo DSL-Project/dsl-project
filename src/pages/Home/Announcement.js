@@ -1,21 +1,20 @@
-import React from 'react';
+import React from "react";
+import { BsArrowRight } from "react-icons/bs";
 
 const Announcement = () => {
-    return (
-        <section className='announcement-link'>
-            <a
-                href='http://trybut.fail/dsl/opportunities'
-                className='annouce-link'
-            >
-                <div className='annnounce'>
-                    <h3 className='announce-text'>
-                        The lab is looking for a new Director of cliff services.{' '}
-                        <span className='cta'>More - </span>
-                    </h3>
-                </div>
-            </a>
-        </section>
-    );
+  return (
+    <a
+      className="announcement-link"
+      href="http://trybut.fail/dsl/opportunities"
+    >
+      <div className="announcement">
+        <h3 className="bold-16">
+          The Lab is looking for a new Director of Cliff Services.
+        </h3>
+        <BsArrowRight />
+      </div>
+    </a>
+  );
 };
 
 export default Announcement;
