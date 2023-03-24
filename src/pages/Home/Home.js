@@ -1,94 +1,110 @@
-import { useGlobalContext } from '../../appContext';
-import Announcement from './Announcement';
+import { useGlobalContext } from "../../appContext";
+import Announcement from "./Announcement";
+import { AiOutlineArrowDown, AiOutlineTwitter } from "react-icons/ai";
+import { FaFacebookF } from "react-icons/fa";
+import { Link } from "react-scroll";
+import ProjectsCarousel from "./ProjectsCarousel";
 
 function Home() {
-    const { response } = useGlobalContext();
-    const isAnnouncement = true;
-    console.log('data for home page: ', response);
+  const { response } = useGlobalContext();
+  console.log("data for home page: ", response);
 
-    return (
-        <div className='home'>
-            {/* This is the announcement banner:
+  return (
+    <div className="home">
+      {/* This is the announcement banner:
       //TODO: 1. the link is clickable to a page called "Opportunities" which may need to be dynamically populated as hiring opportunities can change over time
       //TODO: 2. needs styling
        */}
-            {isAnnouncement && <Announcement />}
+      <Announcement />
 
-            <div className='wrapper home-body'>
-                <h2>Home</h2>
-                <p>
-                    <div
-                        className='test-container'
-                        style={{ 'margin-left': '30px' }}
-                    >
-                        <h1>testing h1</h1>
-                        <h2>testing h2</h2>
-                        <h3>testing h3</h3>
-                        <h4 className='bold-18'>testing bold18</h4>
-                        <h4 className='semi-18'>testing semi18</h4>
-                        <p>-----------------------------------</p>
-
-                        <h4 className='bold-16'>testing bold16</h4>
-                        <h4 className='medium-16'>testing medium16</h4>
-                        <h4 className='regular-16'>testing regular16</h4>
-                        <p>-----------------------------------</p>
-
-                        <h4 className='semi-14'>testing semi14</h4>
-                        <h4 className='medium-14'>testing medium14</h4>
-                        <h4 className='regular-14'>testing regular14</h4>
-
-                        <p>-----------------------------------</p>
-
-                        <p className='regular-caps'>testing regular-caps</p>
-                        <p className='bold-caps'>testing bold-caps</p>
-                    </div>
-
-                    <span>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Maecenas justo nunc, ornare eget rutrum at, tristique ut
-                        nibh. Phasellus in lobortis justo. Suspendisse ac dui
-                        sit amet elit porttitor elementum. Nulla a tincidunt
-                        arcu. Curabitur molestie lectus vestibulum, posuere nunc
-                        eu, iaculis ligula. Aenean quis odio pellentesque,
-                        faucibus massa nec, pretium dui. Curabitur id quam ut
-                        nibh convallis mollis. Nunc accumsan tempor sapien ac
-                        consectetur. Donec pulvinar ultricies lectus, sed
-                        euismod ex consectetur et. Nullam rhoncus risus eros, a
-                        dignissim risus fringilla sed. Fusce semper ac sapien a
-                        pulvinar.
-                    </span>
-                    <span>
-                        Vestibulum placerat sapien ut dolor convallis ornare.
-                        Vivamus volutpat ligula non metus tempus, nec aliquam
-                        arcu imperdiet. Sed vel lacus eget ipsum venenatis
-                        finibus et vel lectus. Phasellus posuere hendrerit
-                        rhoncus. Integer vel sapien et felis fringilla hendrerit
-                        vel ac dui. Aenean eu elit et arcu sagittis pellentesque
-                        et eu est. Nulla sagittis venenatis eros. Curabitur ac
-                        turpis rutrum sapien iaculis eleifend a sed justo. Sed
-                        iaculis facilisis mattis. Lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit. Curabitur et pulvinar
-                        velit, ut tincidunt mi. In quis risus eros. Nulla vel
-                        varius sapien. Quisque eu augue vitae magna hendrerit
-                        commodo. In pretium dui nec elit hendrerit tincidunt.
-                    </span>
-                    <span className='empty-box'></span>
-                </p>
-                <h6>Made possible with funding from:</h6>
-                {/* This is the "funded by" section
-        //TODO: 1. this will likely be statically coded for now but may need to switch to clickable icons; buttons need to be replaced by anchors/Links
-        //TODO: 2. style: icons will be flexed
-        */}
-                <div className='funding-logos'>
-                    <button>🐶</button>
-                    <button>😺</button>
-                    <button>🦝</button>
-                    <button>🐼</button>
-                    <button>🐻</button>
-                </div>
-            </div>
+      <div className="home-wrapper">
+        <div className="welcome-container">
+          <h1>Welcome to the Digital Society Lab</h1>
+          <p className="regular-16">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+            justo nunc, ornare eget rutrum at, tristique ut nibh. Phasellus in
+            lobortis justo. Suspendisse ac dui sit amet elit porttitor
+            elementum. Nulla a tincidunt arcu. Curabitur molestie lectus
+            vestibulum, posuere nunc eu, iaculis ligula. Aenean quis odio
+            pellentesque, faucibus massa nec, pretium dui. Curabitur id quam ut
+            nibh convallis mollis. Nunc accumsan tempor sapien ac consectetur.
+            Donec pulvinar ultricies lectus, sed euismod ex consectetur et.
+            Nullam rhoncus risus eros, a dignissim risus fringilla sed. Fusce
+            semper ac sapien a pulvinar.
+          </p>
+          <div className="recent-projects">
+            <Link
+              to="project-carousel"
+              smooth={true}
+              duration={500}
+              className="bold-18"
+            >
+              See recent projects
+            </Link>
+            <AiOutlineArrowDown />
+          </div>
         </div>
-    );
+        <div id="project-carousel">
+          <ProjectsCarousel />
+        </div>
+        <div className="funding-container">
+          <h2>Made possible with funding from:</h2>
+          {/* This is the "funded by" section
+          //TODO: 1. this will likely be statically coded for now but may need to switch to clickable icons; buttons need to be replaced by anchors/Links
+          //TODO: 2. style: icons will be flexed
+          */}
+          <div className="funding-logos">
+            <div className="funder-logo"></div>
+            <div className="funder-logo"></div>
+            <div className="funder-logo"></div>
+            <div className="funder-logo"></div>
+            <div className="funder-logo"></div>
+          </div>
+        </div>
+        <div className="home-contact">
+          <div className="home-address">
+            <div className="home-name">
+              <div className="bold-18">Digital Society Lab</div>
+
+              <div className="media-container">
+                <AiOutlineTwitter />
+                <FaFacebookF />
+              </div>
+            </div>
+            <div className="street-address bold-18">
+              <p>1280 Main St</p>
+              <p>WHamilton,</p>
+              <p>ONL8S4L8</p>
+            </div>
+            <div className="contact-methods bold-16">
+              <div>Phone</div>
+              <div>555-555-5555</div>
+              <div>Email</div>
+              <div>
+                <a href="mailto: webmaster@digitalsocietylab.org">
+                  webmaster@digitalsocietylab.org
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="stay-updated">
+            <h2>Stay updated with the Digital Society Lab</h2>
+            <form action="">
+              <input
+                id="sign-up"
+                type="email"
+                placeholder="email@address.com"
+                className="regular-14"
+              />
+
+              <label sr-only="true" htmlFor="sign-up" />
+              <button className="regular-14">SIGN UP</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default Home;

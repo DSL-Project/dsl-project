@@ -1,0 +1,16 @@
+.announcement-link {
+  background-color: $yellow;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 2.8rem;
+  padding: 0 2rem;
+
+  .announcement {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .bold-16:hover {
+    text-decoration: underline;
+  }
+}
