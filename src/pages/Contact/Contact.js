@@ -7,32 +7,43 @@ function Contact() {
   // };
   return (
     <div className="contact">
-      <div className="wrapper">
+      <div className="contact-wrapper">
         <div className="form-container">
-          <h2>Contact the Lab</h2>
+          <h1>Contact the Lab</h1>
           <form action="">
             <div className="name-email-subject">
               <fieldset>
-                <label className="contact-label" htmlFor="name">
+                <label className="semi-14" htmlFor="name">
                   Name*
                 </label>
-                <input id="name" type="text" placeholder="Your name" />
+                <input
+                  className="regular-14"
+                  id="name"
+                  type="text"
+                  placeholder="Your name"
+                />
               </fieldset>
               <fieldset>
-                <label className="contact-label" htmlFor="email">
+                <label className="semi-14" htmlFor="email">
                   Email*
                 </label>
                 <input
+                  className="regular-14"
                   id="email"
                   type="email"
                   placeholder="email@address.com"
                 />
               </fieldset>
               <fieldset>
-                <label className="contact-label" htmlFor="subject">
+                <label className="semi-14" htmlFor="subject">
                   Subject*
                 </label>
-                <select name="subject" id="subject" defaultValue={""}>
+                <select
+                  className="regular-14"
+                  name="subject"
+                  id="subject"
+                  defaultValue={""}
+                >
                   <option value="" disabled>
                     Select a subject
                   </option>
@@ -43,16 +54,12 @@ function Contact() {
                 </select>
               </fieldset>
             </div>
-            <fieldset>
-              <label className="contact-label" htmlFor="your-message">
+            <div className="contact-message">
+              <label className="semi-14" htmlFor="your-message">
                 Your Message*
               </label>
-              <input
-                className="contact-message"
-                name="your message"
-                id="your-message"
-              ></input>
-            </fieldset>
+              <input name="your message" id="your-message"></input>
+            </div>
             <div className="button-container">
               <p className="text-box">
                 The information above is used solely to respond to your inquiry.
@@ -63,7 +70,7 @@ function Contact() {
         </div>
       </div>
       <hr />
-      <div className="wrapper">
+      <div className="contact-wrapper">
         <div className="address-container">
           <div className="address">
             <div className="street-address">
