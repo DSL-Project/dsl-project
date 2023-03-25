@@ -39,7 +39,7 @@ function Contact() {
                   Subject*
                 </label>
                 <select
-                  className="regular-14"
+                  className="regular-14 default"
                   name="subject"
                   id="subject"
                   defaultValue={""}
@@ -58,13 +58,21 @@ function Contact() {
               <label className="semi-14" htmlFor="your-message">
                 Your Message*
               </label>
-              <input name="your message" id="your-message"></input>
+
+              <textarea
+                className="default regular-14"
+                name="your message"
+                id="your-message"
+                cols="30"
+                rows="8"
+                placeholder="Start typing your message..."
+              />
             </div>
             <div className="button-container">
-              <p className="text-box">
+              <p className="text-box semi-14">
                 The information above is used solely to respond to your inquiry.
               </p>
-              <button>SEND</button>
+              <button className="regular-caps">SEND</button>
             </div>
           </form>
         </div>
@@ -73,25 +81,22 @@ function Contact() {
       <div className="contact-wrapper">
         <div className="address-container">
           <div className="address">
+            <div className="bold-18 address-name">Digital Society Lab</div>
             <div className="street-address">
-              <h5>Digital Society Lab</h5>
-              <p>1280 Main St W</p>
-              <p>Hamilton, ON</p>
-              <p>L8S 4L8</p>
+              <p className="bold-18">1280 Main St</p>
+              <p className="bold-18">WHamilton</p>
+              <p className="bold-18">ONL8S4L8</p>
             </div>
             <div className="contact-methods">
-              {/* <div className="phone"> */}
-              <div>Phone:</div>
-              <div>555-555-5555</div>
-              {/* </div> */}
-              {/* <div className="email-address"> */}
-              <div>Email</div>
-              <div>
+              <div className="bold-16">Phone:</div>
+              <div className="bold-16">555-555-5555</div>
+
+              <div className="bold-16">Email</div>
+              <div className="bold-16">
                 <a href="mailto: webmaster@digitalsocietylab.org">
                   webmaster@digitalsocietylab.org
                 </a>
               </div>
-              {/* </div> */}
             </div>
           </div>
           <div className="map">
@@ -99,10 +104,10 @@ function Contact() {
               src={dslMapStill}
               alt="a map indicating digital society lab location"
             />
-            {/* <GoogleMap location={location} width={600} height={450} /> */}
           </div>
         </div>
       </div>
+      <hr />
     </div>
   );
 }

@@ -5,27 +5,25 @@
   .contact-wrapper {
     width: 60%;
     margin: 0 auto;
-    padding: 6.25rem 0 4.75rem;
+    padding: 6.25rem 0;
   }
 
   .form-container {
-    height: 21rem;
+    min-height: 21rem;
   }
   form fieldset {
-    width: 33%;
     border: none;
     display: flex;
     flex-direction: column;
-
     input,
     select {
       padding: 0.7rem;
       border: 1px solid $neutral-400;
       background-color: $white;
-      border-radius: 5px;
+      border-radius: 0.25rem;
     }
     label {
-      padding: 0.7rem 0 0.7rem 0;
+      padding: 0.7rem 0;
     }
   }
 
@@ -33,18 +31,27 @@
     display: flex;
     justify-content: space-between;
     gap: 1rem;
+    fieldset {
+      width: 33%;
+      .default {
+        color: $neutral-500;
+      }
+    }
   }
-  form > .contact-message {
+  .contact-message {
     width: 100%;
     display: flex;
     flex-direction: column;
     label {
       padding: 0.7rem 0;
     }
-    input {
-      height: 8rem;
+    textarea {
+      resize: none;
+      padding: 0.7rem;
+
       border: 1px solid $neutral-400;
       border-radius: 0.25rem;
+      background-color: $white;
     }
   }
   hr {
@@ -58,18 +65,19 @@
   .button-container {
     padding-top: 2rem;
     display: flex;
+    gap: 0.5rem;
 
     .text-box {
-      width: 70%;
+      width: 80%;
       background-color: $neutral-300;
       padding: 1rem 1rem;
-      border-radius: 10px 0 0 10px;
+      border-radius: 0.25rem;
     }
     button {
       background-color: $black;
-      color: $white;
-      width: 30%;
-      border-radius: 0 10px 10px 0;
+      color: $neutral-100;
+      width: 20%;
+      border-radius: 0.25rem;
     }
     button:hover {
       background-color: $black;
@@ -78,26 +86,84 @@
   .address-container {
     display: flex;
     justify-content: center;
-    padding: 4rem 0;
     .address {
-      width: 40%;
+      width: 50%;
       padding: 2rem;
       background-color: $black;
       color: $white;
-      border-radius: 10px 0 0 10px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      border-radius: 0.5rem 0 0 0.5rem;
+    }
+    .street-address {
+      padding: 1.4rem 0;
     }
     .contact-methods {
+      padding-top: 2rem;
       display: grid;
       grid-template-columns: auto auto;
     }
 
     .map {
-      width: 60%;
+      width: 50%;
       img {
         width: 100%;
+        border-radius: 0 0.5rem 0.5rem 0;
+      }
+    }
+  }
+}
+
+//! Media Queries
+@media (max-width: 834px) {
+  .contact {
+    .contact-wrapper {
+      width: 90%;
+      margin: 0 auto;
+      padding: 4.5rem 0;
+    }
+    .street-address {
+      .bold-18 {
+        font-size: 0.75rem;
+      }
+    }
+    .contact-methods {
+      .bold-16 {
+        font-size: 0.65rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .contact {
+    form fieldset {
+      flex-direction: column;
+    }
+    .name-email-subject {
+      flex-direction: column;
+      fieldset {
+        width: 100%;
+      }
+    }
+    .button-container {
+      flex-direction: column;
+
+      .text-box,
+      button {
+        width: 100%;
+        min-height: 2.2rem;
+      }
+    }
+    .address-container {
+      flex-direction: column;
+      .address,
+      .map {
+        width: 100%;
+      }
+      .address {
+        border-radius: 0.5rem 0.5rem 0 0;
+      }
+      .map img {
+        border-radius: 0 0 0.5rem 0.5rem;
       }
     }
   }
