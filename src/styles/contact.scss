@@ -80,7 +80,8 @@
       border-radius: 0.25rem;
     }
     button:hover {
-      background-color: $black;
+      background-color: $soft-black;
+      color: $neutral-200;
     }
   }
   .address-container {
