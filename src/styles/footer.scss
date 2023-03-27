@@ -1,15 +1,42 @@
 .footer {
-  padding: 20px 0;
-  background-color: $darker-tan;
-  margin-top: auto;
+  width: 100%;
+  background-color: $neutral-100;
+  border-top: 1px solid $neutral-400;
 }
-.footer form {
+.footer-wrapper {
+  width: 88%;
+  margin: 0 auto;
+  padding: 2.3rem 0;
   display: flex;
-  justify-content: flex-end;
-  gap: 1rem;
-  padding: 0 1rem;
+  flex-direction: column;
+  gap: 1.1rem;
 }
-.email-inputs {
+
+.logo-media,
+.copyright-terms {
   display: flex;
-  gap: 1rem;
+  justify-content: space-between;
+  font-size: 0.6rem;
+  font-family: Arial, Helvetica, sans-serif;
+  // this is just a placeholder for Circular Air Pro
+  font-weight: 500;
+}
+
+.logo-media {
+  align-items: center;
+}
+
+.copyright-terms {
+  color: $neutral-500;
+}
+.copyright-terms a {
+  text-decoration: underline;
+  display: inline;
+}
+
+@media (max-width: 375px) {
+  .copyright-terms {
+    flex-direction: column;
+    gap: 0.35rem;
+  }
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 import { useGlobalContext } from "../../appContext";
 import Banner from "../../components/Banner/Banner";
 

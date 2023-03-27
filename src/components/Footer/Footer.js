@@ -1,23 +1,26 @@
+import { FaTwitter, FaFacebookF } from "react-icons/fa";
 function Footer() {
   return (
     <footer className="footer">
-      {/* <a href="@DigSocietyLab">Follow the Lab on Twitter</a> */}
-      <form action="" method="post">
-        <label htmlFor="bd-email">Sign up for news & updates</label>
-        <div className="email-inputs">
-          <input
-            type="email"
-            name="email"
-            id="bd-email"
-            placeholder="email@address.com"
-            autoComplete="off"
-          />
-          <input type="hidden" name="tag" value="placeholder-signup" />
-          <button>Sign up</button>
-          {/* <input type="hidden" value="1" name="embed" />
-          <input type="submit" value="Sign up" /> */}
+      <div className="footer-wrapper">
+        <div className="logo-media">
+          <p className="bold-18">Digital Society Lab</p>
+          <div className="media-container">
+            <FaTwitter />
+            <FaFacebookF />
+          </div>
         </div>
-      </form>
+        <div className="copyright-terms">
+          <p className="copyright">
+            @ Digital Society Lab, 2023. McMaster University
+          </p>
+          <p className="terms">
+            <a href="/">Privacty Policy</a>
+            &nbsp;& &nbsp;
+            <a href="/">Terms of Use</a>
+          </p>
+        </div>
+      </div>
     </footer>
   );
 }
