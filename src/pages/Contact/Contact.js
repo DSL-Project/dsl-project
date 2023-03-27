@@ -7,32 +7,43 @@ function Contact() {
   // };
   return (
     <div className="contact">
-      <div className="wrapper">
+      <div className="contact-wrapper">
         <div className="form-container">
-          <h2>Contact the Lab</h2>
+          <h1>Contact the Lab</h1>
           <form action="">
             <div className="name-email-subject">
               <fieldset>
-                <label className="contact-label" htmlFor="name">
+                <label className="semi-14" htmlFor="name">
                   Name*
                 </label>
-                <input id="name" type="text" placeholder="Your name" />
+                <input
+                  className="regular-14"
+                  id="name"
+                  type="text"
+                  placeholder="Your name"
+                />
               </fieldset>
               <fieldset>
-                <label className="contact-label" htmlFor="email">
+                <label className="semi-14" htmlFor="email">
                   Email*
                 </label>
                 <input
+                  className="regular-14"
                   id="email"
                   type="email"
                   placeholder="email@address.com"
                 />
               </fieldset>
               <fieldset>
-                <label className="contact-label" htmlFor="subject">
+                <label className="semi-14" htmlFor="subject">
                   Subject*
                 </label>
-                <select name="subject" id="subject" defaultValue={""}>
+                <select
+                  className="regular-14 default"
+                  name="subject"
+                  id="subject"
+                  defaultValue={""}
+                >
                   <option value="" disabled>
                     Select a subject
                   </option>
@@ -43,48 +54,49 @@ function Contact() {
                 </select>
               </fieldset>
             </div>
-            <fieldset>
-              <label className="contact-label" htmlFor="your-message">
+            <div className="contact-message">
+              <label className="semi-14" htmlFor="your-message">
                 Your Message*
               </label>
-              <input
-                className="contact-message"
+
+              <textarea
+                className="default regular-14"
                 name="your message"
                 id="your-message"
-              ></input>
-            </fieldset>
+                cols="30"
+                rows="8"
+                placeholder="Start typing your message..."
+              />
+            </div>
             <div className="button-container">
-              <p className="text-box">
+              <p className="text-box semi-14">
                 The information above is used solely to respond to your inquiry.
               </p>
-              <button>SEND</button>
+              <button className="regular-caps">SEND</button>
             </div>
           </form>
         </div>
       </div>
       <hr />
-      <div className="wrapper">
+      <div className="contact-wrapper">
         <div className="address-container">
           <div className="address">
+            <div className="bold-18 address-name">Digital Society Lab</div>
             <div className="street-address">
-              <h5>Digital Society Lab</h5>
-              <p>1280 Main St W</p>
-              <p>Hamilton, ON</p>
-              <p>L8S 4L8</p>
+              <p className="bold-18">1280 Main St</p>
+              <p className="bold-18">WHamilton</p>
+              <p className="bold-18">ONL8S4L8</p>
             </div>
             <div className="contact-methods">
-              {/* <div className="phone"> */}
-              <div>Phone:</div>
-              <div>555-555-5555</div>
-              {/* </div> */}
-              {/* <div className="email-address"> */}
-              <div>Email</div>
-              <div>
+              <div className="bold-16">Phone:</div>
+              <div className="bold-16">555-555-5555</div>
+
+              <div className="bold-16">Email</div>
+              <div className="bold-16">
                 <a href="mailto: webmaster@digitalsocietylab.org">
                   webmaster@digitalsocietylab.org
                 </a>
               </div>
-              {/* </div> */}
             </div>
           </div>
           <div className="map">
@@ -92,10 +104,10 @@ function Contact() {
               src={dslMapStill}
               alt="a map indicating digital society lab location"
             />
-            {/* <GoogleMap location={location} width={600} height={450} /> */}
           </div>
         </div>
       </div>
+      <hr />
     </div>
   );
 }

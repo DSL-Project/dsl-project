@@ -22,6 +22,9 @@
   background-color: $neutral-300;
   padding: 1rem;
   border-radius: 0.5rem;
+  .tag-box {
+    color: $soft-black;
+  }
 
   &:hover {
     background-color: $black;
@@ -31,6 +34,7 @@
     }
     .tag-container > .tag-box {
       border: 1px solid $white;
+      color: $white;
     }
   }
 
