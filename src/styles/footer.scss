@@ -26,6 +26,11 @@
   align-items: center;
 }
 
+.media-container {
+  display: flex;
+  gap: 0.5rem;
+}
+
 .copyright-terms {
   color: $neutral-500;
 }
