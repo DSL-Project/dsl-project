@@ -15,6 +15,7 @@
     border: none;
     display: flex;
     flex-direction: column;
+
     input,
     select {
       padding: 0.7rem;
@@ -29,6 +30,18 @@
       content: "*";
       color: $neutral-500;
       margin-left: 0.25rem;
+    }
+    select {
+      outline: none;
+      padding-right: 1rem;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="$black" d="M11.178 19.569a.998.998 0 0 0 1.644 0l9-13A.999.999 0 0 0 21 5H3a1.002 1.002 0 0 0-.822 1.569l9 13z"/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 0.8rem center;
+      background-size: 0.5rem 0.5rem;
+      cursor: pointer;
+      option {
+        color: $black;
+      }
     }
   }
 
