@@ -1,0 +1,344 @@
+// ProfileNav Component styling
+// top and bottom padding of profile navbar
+.path-children,
+.links {
+    padding: 0.5rem 0;
+}
+
+// left and right margin of profile navbar
+.person-nav {
+    margin: 0 2rem;
+}
+
+// internal styling of navbar
+.links {
+    // border: 4px solid magenta;
+    display: flex;
+    align-items: center;
+    .nav-icons {
+        // border: 2px solid blue;
+        display: flex;
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-right: 10px;
+        color: $neutral-500;
+    }
+
+    //navbar RHS: personal website and email styling
+    .links-title {
+        color: $neutral-500;
+        text-transform: capitalize;
+        text-decoration: underline;
+        text-underline-offset: 0.2rem;
+    }
+}
+
+// navbar LHS: path styling
+.navigation {
+    display: flex;
+
+    .path-children {
+        display: inline-block;
+
+        &:not(:first-child) {
+            margin-left: 0.2rem;
+            color: $black;
+        }
+        &:first-child,
+        &:nth-child(3) {
+            text-decoration: underline;
+            text-underline-offset: 0.2rem;
+            text-transform: capitalize;
+            color: $black;
+        }
+        &:nth-child(2),
+        &:nth-child(4) {
+            color: $neutral-500;
+        }
+    }
+}
+
+// background color of profile navbar
+.nav-container {
+    background-color: $neutral-400;
+
+    .person-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .person-contact ul {
+            display: flex;
+            .item {
+                display: flex;
+                align-items: center;
+
+                &:first-child {
+                    margin-right: 1rem;
+                }
+            }
+        }
+    }
+}
+
+// ------------------end of styling profile navbar-------------------------
+
+// diving main page into left and right pane, and general styling of both
+.person-profile {
+    display: flex;
+    width: 100vw;
+    // height of page = desired height - height of navbar and footer
+    max-height: calc(100vh - 200px);
+}
+
+// dividing main page into 2 panes, left pane 80% and right 20%
+// LEFT Pane
+.left-pane {
+    width: 85%;
+    border: 1px solid $neutral-400;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+        width: 1px;
+        height: 0;
+        background-color: $neutral-400;
+    }
+}
+
+// Right Pane of vertical Scroll styling
+.right-pane {
+    overflow: scroll;
+    border-top: 1px solid $neutral-400;
+    border-bottom: 1px solid $neutral-400;
+
+    &::-webkit-scrollbar {
+        width: 0px;
+        height: 0px;
+        background-color: $neutral-400;
+    }
+}
+
+// ----------------------------------------------------
+
+// LEFT PANE OF VERTICAL SCROLL styling
+// giving left and right padding to body and image container
+.person-image-container,
+.body {
+    padding: 0 20%;
+}
+
+// giving top padding to body, to keep contents below the image
+.body {
+    padding-top: 8rem;
+
+    // padding bottom for the footer space
+    padding-bottom: 5rem;
+}
+
+.profile {
+    // top banner
+    .header {
+        display: flex;
+        background-color: $neutral-200;
+        border-bottom: 1px solid $neutral-400;
+        width: 100%;
+        height: 14rem;
+        padding: 0;
+
+        // image styling
+        .person-image-container {
+            position: relative;
+            top: 7.5rem;
+
+            .person-image {
+                border-radius: 10px;
+                width: 258px;
+                padding: 4px;
+                border: 1px solid $neutral-400;
+
+                img {
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+
+    // second child of profile
+
+    .body {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        .body-content {
+            .name {
+                text-transform: capitalize;
+                color: $black;
+            }
+            .subtitles-container {
+                display: flex;
+                flex-wrap: wrap;
+
+                .subtitles {
+                    color: $black;
+                    padding: 5px 0px;
+                    text-transform: capitalize;
+                    // border: 2px solid red;
+                }
+            }
+        }
+
+        // second child of body
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 1rem;
+            max-width: 30rem;
+
+            .tags {
+                background-color: $neutral-300;
+                border-radius: 3px;
+                padding: 5px 8px 2.5px;
+                color: $black;
+            }
+        }
+
+        //third child of body
+        .bio {
+            margin-top: 1rem;
+
+            .paragraphs {
+                color: $black;
+                margin: 1rem 0;
+            }
+        }
+    }
+}
+
+// -----------------end--------------------------
+// Right Pane of vertical Scroll styling
+.right-pane {
+    // border: 3px solid red;
+    .container {
+        // border: 3px solid black;
+        padding: 3rem 2rem;
+
+        .heading {
+            // border: 2px solid red;
+            color: $neutral-500;
+            text-transform: capitalize;
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+.list {
+    width: 80%;
+    .list-item {
+        // border: 2px solid black;
+        max-width: 100%;
+    }
+}
+.project-list {
+    .list-item .project {
+        text-decoration: underline;
+        text-decoration-color: $black;
+        text-underline-offset: 4px;
+    }
+}
+
+.date-container {
+    display: flex;
+    margin: 0.5rem 0;
+    .publication-on {
+        text-transform: capitalize;
+        // border: 2px solid red;
+    }
+    .publication-date {
+        margin-left: 3px;
+    }
+}
+// --------end of right pane
+
+// ------ misc -------------
+.underline {
+    width: 100%;
+    height: 1px;
+    background: $neutral-400;
+}
+
+.read-btn {
+    border: 0;
+    background-color: inherit;
+    text-transform: capitalize;
+    border-bottom: 1px solid $black;
+    color: $black;
+    cursor: pointer;
+}
+
+// -----------------MEDIA QUERIES--------------
+
+@media screen and (max-width: 835px) {
+    // removing the person-nav as per FIGMA
+    .nav-container {
+        display: none;
+    }
+
+    .person-profile {
+        flex-direction: column;
+        min-height: 0;
+        min-height: 100vh;
+    }
+
+    // left pane
+    .left-pane {
+        width: 100%;
+    }
+    .person-image-container,
+    .body {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    // right pane
+    .right-pane {
+        width: 100%;
+        overflow: visible;
+        border-top: 0;
+
+        .container {
+            padding: 1.5rem 1rem;
+        }
+    }
+    .list {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    //left pane
+
+    .profile {
+        .body-content {
+            .name {
+                font-size: 1.3rem;
+            }
+            .subtitles-container {
+                .subtitles {
+                    font-size: 0.7rem;
+                }
+            }
+        }
+        .tags-container {
+            .tags {
+                font-size: 0.5rem;
+                padding: 0;
+            }
+        }
+    }
+
+    .profile .body .body-content .subtitles-container .subtitles {
+        padding: 0;
+    }
+}

@@ -1,54 +1,35 @@
-.projects-list-container {
-    background-color: $lighter-tan;
-}
-
 .projects-list {
-    padding: 1rem 0;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
 }
 
+// project card component styling
 .project-card {
-    background-color: $darker-tan;
-    border: 1px solid $gray-border;
+    background-color: $neutral-200;
+    border: 1px solid $neutral-400;
     border-radius: 10px;
-    padding: 1.3rem 2.3rem 1rem;
-    max-width: 40rem;
+    padding: 1rem 1rem 1rem;
+    width: 100%;
     margin: 0 auto;
-    // border: 2px solid red;
 
     .project-card-heading {
-        font-size: 1rem;
-        font-weight: 700;
-        letter-spacing: 0.15px;
-        line-height: 22px;
-        color: $h3-bada-bing;
-        margin-bottom: 5px;
+        color: $neutral-500;
     }
     .project-card-subheading {
-        font-size: 0.9rem;
-        margin-bottom: 0.9rem;
+        color: $black;
+        margin-top: 0.3rem;
     }
     .project-card-intro {
-        padding-bottom: 2.5rem;
-        line-height: 28px;
-        letter-spacing: 0.15px;
-        font-weight: 440;
-    }
-
-    // hover effect on each project
-    &:hover {
-        background-color: $hover-black;
-        color: $lighter-tan;
-        background-color: $main-black;
+        margin-top: 0.7rem;
     }
 }
 .project-card-metadata {
     display: flex;
     justify-content: space-between;
     font-size: 0.8rem;
+    margin-top: 0.7rem;
 
     // first child status
     .status {
@@ -61,15 +42,13 @@
             justify-content: space-between;
             min-height: 30px;
             padding: 0 12px;
-            background-color: $hover-black;
+            background-color: $black;
             border-radius: 4px;
             align-items: center;
         }
 
         .status-label {
-            font-size: inherit;
-            color: $lighter-tan;
-            font-weight: 600;
+            color: $neutral-200;
             text-transform: capitalize;
         }
         .status-icon {
@@ -86,36 +65,32 @@
 
         // styling date
         .timeline {
-            color: $main-white;
-            margin-left: 1rem;
-            color: $h3-bada-bing;
-            font-size: 0.8rem;
+            margin-left: 0.5rem;
+            color: $neutral-500;
         }
     }
 
     // second child categories/tags
     .categories {
         display: flex;
-        flex-wrap: wrap;
-        margin-left: 0.3rem;
-
+        flex-wrap: wrap-reverse;
         // styling hashtag
         li:first-child {
             width: 1.3rem;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-weight: 700;
-            color: $h3-bada-bing;
+            color: $black;
             border-radius: 4px 0 0 4px;
         }
         // styling rest of the li's
         li {
+            color: $black;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 1px 10px;
-            border: 1px solid $gray-border;
+            border: 1px solid $neutral-400;
             text-transform: capitalize;
         }
         // styling last li
@@ -125,15 +100,15 @@
     }
 }
 
-// --animated three dot icon--
+// --animated three dot flashing icon--
 
 .dot-flashing {
     position: relative;
     width: 5px;
     height: 5px;
     border-radius: 5px;
-    background-color: $main-white;
-    color: $main-white;
+    background-color: $white;
+    color: $white;
     animation: dot-flashing 1s infinite linear alternate;
     animation-delay: 0.5s;
 }
@@ -149,8 +124,8 @@
     width: 5px;
     height: 5px;
     border-radius: 5px;
-    background-color: $main-white;
-    color: $main-white;
+    background-color: $white;
+    color: $white;
     animation: dot-flashing 1s infinite alternate;
     animation-delay: 0s;
 }
@@ -159,15 +134,15 @@
     width: 5px;
     height: 5px;
     border-radius: 5px;
-    background-color: $main-white;
-    color: $main-white;
+    background-color: $white;
+    color: $white;
     animation: dot-flashing 1s infinite alternate;
     animation-delay: 1s;
 }
 
 @keyframes dot-flashing {
     0% {
-        background-color: $main-white;
+        background-color: $white;
     }
     50%,
     100% {
@@ -177,18 +152,32 @@
 
 // --single dot icon------
 .singleDot {
-    background: $main-white;
+    background: $white;
     border-radius: 50%;
     width: 12px;
     height: 12px;
 }
 
-// media
+// hover effect on each project
+.project-card {
+    transition: $main-transition;
+    &:hover {
+        background-color: #2a2a2a;
+        .project-card-heading,
+        .project-card-subheading,
+        .project-card-intro,
+        .timeline,
+        #hash,
+        .category {
+            color: $neutral-400;
+        }
+    }
+}
 
+// media
 @media screen and (max-width: 466px) {
     .project-card-metadata {
         flex-direction: column;
-        align-items: center;
         justify-content: center;
     }
     .status {
@@ -204,5 +193,16 @@
     }
     .categories {
         justify-content: center;
+        justify-content: flex-start;
+    }
+}
+@media screen and (max-width: 375px) {
+    .status {
+        align-items: flex-end;
+        justify-content: flex-start;
+        .timeline {
+            margin-top: 0;
+            padding: 0.1rem 0;
+        }
     }
 }
