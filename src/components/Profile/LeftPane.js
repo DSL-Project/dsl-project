@@ -4,7 +4,6 @@ import { useGlobalContext } from '../../appContext';
 const LeftPane = ({ name, titles, tags, bio, personImg }) => {
     const [readMore, setReadMore] = useState(true);
     const { tabletView } = useGlobalContext();
-
     return (
         <div className='profile'>
             <div className='header'>
