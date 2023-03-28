@@ -50,13 +50,16 @@ input {
 }
 // adding icons
 .filterBx {
+    padding-left: 25%;
+    background-image: url('../assets/filter.svg'),
+        url('../assets/downArrow.svg');
+    background-repeat: no-repeat;
+    background-size: 0.9rem, 0.6rem;
+    background-position: 5%, 92%;
+
     &::placeholder {
-        padding-left: 1.2rem;
-        background-image: url('../assets/filter.svg'),
-            url('../assets/downArrow.svg');
-        background-repeat: no-repeat;
-        background-size: 0.9rem, 0.6rem;
-        background-position: 0 100%, 100% 0;
+        color: $neutral-500;
+        opacity: 1;
     }
 }
 
@@ -67,16 +70,21 @@ input {
     background-size: 0.6rem;
     background-position: 90% 50%;
     cursor: pointer;
+    color: $neutral-500;
 }
 
 .searchBx {
+    padding-left: 25%;
+    background-image: url('../assets/magnifier.svg');
+    background-repeat: no-repeat;
+    background-size: 0.9rem, 0.6rem;
+    background-position: 5%, 92%;
+
     &::placeholder {
-        padding-left: 1.2rem;
-        background-image: url('../assets/magnifier.svg');
-        background-repeat: no-repeat;
-        background-size: 0.8rem;
-        background-position: 0 100%, 100% 0;
+        color: $neutral-500;
+        opacity: 1;
     }
+    //
 }
 
 // --------------------------------------------------------------------
