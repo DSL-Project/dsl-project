@@ -230,3 +230,19 @@
     }
   }
 }
+@media (max-width: 320px) {
+  .home-contact {
+    .stay-updated form {
+      flex-direction: column;
+
+      input,
+      button {
+        width: 100%;
+      }
+
+      button {
+        height: 2.2rem;
+      }
+    }
+  }
+}
