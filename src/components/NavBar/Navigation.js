@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import NavLinks from "./NavLinks";
 
 const Navigation = () => {
   return (
     <div className="navigation">
       <div className="bold-18 logo">
-        <a href="https://development-dsl.netlify.app/">Digital Society Lab</a>
+        <Link to="/">Digital Society Lab</Link>
       </div>
       <NavLinks />
     </div>

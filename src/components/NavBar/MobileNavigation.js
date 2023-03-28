@@ -1,5 +1,6 @@
 import React from "react";
 import NavLinks from "./NavLinks";
+import { Link } from "react-router-dom";
 import { CgClose, CgMenu } from "react-icons/cg";
 import { useState } from "react";
 
@@ -16,7 +17,7 @@ const MobileNavigation = () => {
   return (
     <div className="mobile-navigation">
       <div className="bold-18 logo">
-        <a href="https://development-dsl.netlify.app/">Digital Society Lab</a>
+        <Link to="/">Digital Society Lab</Link>
       </div>
       {menuOpen ? closeIcon : burgerIcon}
       {menuOpen && (
