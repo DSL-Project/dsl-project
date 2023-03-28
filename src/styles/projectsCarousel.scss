@@ -82,6 +82,10 @@
   }
 }
 
+.slick-dots li button::before {
+  font-size: 0.45rem;
+}
+
 //! Media Queries
 @media (max-width: 834px) {
   .heading-container > h2 {
