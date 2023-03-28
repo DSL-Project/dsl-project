@@ -2,7 +2,7 @@
 getStatic method fetch 'static' field from contentful
  */
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { STATIC_QUERY } from './appConstants';
+import { STATIC_QUERY, PROJECTS, PUBLICATIONS } from './appConstants';
 import useContentful from './hooks/useContenful';
 
 const AppContext = createContext();
@@ -20,6 +20,15 @@ const AppProvider = ({ children }) => {
 
     // tablet view is turned true, when app goes below or equal to 835px
     const [tabletView, setTabletView] = useState(false);
+
+    // author slug
+    const [authorSlug, setAuthorSlug] = useState('');
+
+    //projects by author
+    const [authorProjects, setAuthorProjects] = useState([]);
+
+    //publications by author
+    const [authorPublications, setAuthorPublications] = useState([]);
 
     const cmsQuery = React.useCallback(() => {
         if (query) {
@@ -66,18 +75,66 @@ const AppProvider = ({ children }) => {
         } else {
             setTabletView(false);
         }
-        // console.log('size: ', window.innerWidth, '- ', tabletView);
+    };
+
+    const getProjectsByAuthSlug = (authSlug) => {
+        // quering projects: get All projects
+        getCmsResponse(PROJECTS).then((response) => {
+            // STEP 1: filter the array that has author slugs
+            const arrayWithAuthSlugs = response.filter(
+                (resp) => resp?.team?.[0]?.fields.slug
+            );
+
+            //STEP 2: filter the authors slug wrt user's request
+            const dataArray = arrayWithAuthSlugs.filter(
+                (response) => response.team[0].fields.slug === authSlug
+            );
+
+            // STEP 3 : get titles and subtitles
+            const filter = ['title', 'subtitle'];
+            const finalData = dataArray.map((targetObj) => {
+                const filteredObject = Object.keys(targetObj)
+                    .filter((key) => filter.includes(key))
+                    .reduce((cur, key) => {
+                        return Object.assign(cur, { [key]: targetObj[key] });
+                    }, {});
+                return filteredObject;
+            });
+
+            // set author projects state
+            setAuthorProjects(finalData);
+        });
+    };
+
+    const getPublicationsByAuthSlug = (authSlug) => {
+        getCmsResponse(PUBLICATIONS).then((response) => {
+            // STEP1: filter the publications that has any authors
+            const arrayWithAuthors = response.filter((resp) => resp?.authors);
+
+            //STEP 2: filter the publication  wrt user's author slug
+            arrayWithAuthors.map((response) => {
+                const publicationsResponse = response.authors.map((author) => {
+                    if (author.fields.slug === authSlug) {
+                        return response;
+                    } else {
+                        return null;
+                    }
+                });
+                setAuthorPublications(publicationsResponse);
+
+                return publicationsResponse;
+            });
+        });
     };
 
     useEffect(() => {
+        getPublicationsByAuthSlug(authorSlug);
+        getProjectsByAuthSlug(authorSlug);
+        setBannerState();
+
         // querying cms each time user click on nav links
         cmsQuery();
-    }, [query]);
-
-    useEffect(() => {
-        // set banner state on app loads
-        setBannerState();
-    }, [setBannerState]);
+    }, [authorSlug, query, setBannerState]);
 
     useEffect(() => {
         window.addEventListener('resize', handleResize);
@@ -85,7 +142,15 @@ const AppProvider = ({ children }) => {
     }, []);
     return (
         <AppContext.Provider
-            value={{ response, setQuery, tabletView, ...bannerContent }}
+            value={{
+                response,
+                setQuery,
+                tabletView,
+                setAuthorSlug,
+                authorProjects,
+                authorPublications,
+                ...bannerContent,
+            }}
         >
             {children}
         </AppContext.Provider>

@@ -2,7 +2,7 @@
 const PEOPLE = 'persons';
 const PUBLICATIONS = 'publications';
 const PROJECTS = 'projects';
-const MEDIA = 'media';
+// const MEDIA = 'media';
 const STATIC_QUERY = 'homepage';
 
 const navConstants = [
@@ -38,4 +38,4 @@ const navConstants = [
     },
 ];
 
-export { navConstants, STATIC_QUERY };
+export { navConstants, STATIC_QUERY, PUBLICATIONS, PROJECTS };
