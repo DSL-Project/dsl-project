@@ -25,6 +25,11 @@
     label {
       padding: 0.7rem 0;
     }
+    label::after {
+      content: "*";
+      color: $neutral-500;
+      margin-left: 0.25rem;
+    }
   }
 
   .name-email-subject {
@@ -45,6 +50,11 @@
     padding-top: 1.75rem;
     label {
       padding: 0.7rem 0;
+    }
+    label::after {
+      content: "*";
+      color: $neutral-500;
+      margin-left: 0.25rem;
     }
     textarea {
       resize: none;

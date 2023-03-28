@@ -14,7 +14,7 @@ function Contact() {
             <div className="name-email-subject">
               <fieldset>
                 <label className="semi-14" htmlFor="name">
-                  Name*
+                  Name
                 </label>
                 <input
                   className="regular-14"
@@ -25,7 +25,7 @@ function Contact() {
               </fieldset>
               <fieldset>
                 <label className="semi-14" htmlFor="email">
-                  Email*
+                  Email
                 </label>
                 <input
                   className="regular-14"
@@ -36,7 +36,7 @@ function Contact() {
               </fieldset>
               <fieldset>
                 <label className="semi-14" htmlFor="subject">
-                  Subject*
+                  Subject
                 </label>
                 <select
                   className="regular-14 default"
@@ -56,7 +56,7 @@ function Contact() {
             </div>
             <div className="contact-message">
               <label className="semi-14" htmlFor="your-message">
-                Your Message*
+                Your Message
               </label>
 
               <textarea
