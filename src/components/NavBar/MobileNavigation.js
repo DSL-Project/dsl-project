@@ -15,7 +15,9 @@ const MobileNavigation = () => {
   const closeMobileMenu = () => setMenuOpen(false);
   return (
     <div className="mobile-navigation">
-      <div className="bold-18 logo">Digital Society Lab</div>
+      <div className="bold-18 logo">
+        <a href="https://development-dsl.netlify.app/">Digital Society Lab</a>
+      </div>
       {menuOpen ? closeIcon : burgerIcon}
       {menuOpen && (
         <NavLinks isMobile={true} closeMobileMenu={closeMobileMenu} />
