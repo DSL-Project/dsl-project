@@ -1,20 +1,21 @@
 import React from 'react';
-import { persons } from '../../assets/testData';
-const { projects, publications } = persons;
+import { useGlobalContext } from '../../appContext';
 
 const RightPane = () => {
+    const { authorProjects, authorPublications } = useGlobalContext();
+
     return (
         <aside className='right-pane'>
             {/* associated projects to this person */}
             <div className='projects-container container'>
                 <h3 className='bold-16 heading'>affiliated projects</h3>
                 <ul className='project-list list'>
-                    {projects.map((project, id) => {
-                        const { url, subtitle } = project;
+                    {authorProjects.map((project, id) => {
+                        const { subtitle } = project;
                         return (
                             <li key={id} className='list-item'>
                                 <a
-                                    href={url}
+                                    href={'/'}
                                     className='medium-16 project'
                                     target='_blank'
                                     rel='noreferrer'
@@ -27,13 +28,14 @@ const RightPane = () => {
                 </ul>
             </div>
             <div className='underline' />
-
             {/* publications of this person */}
             <div className='publications-container container'>
                 <h3 className='bold-16 heading'>publications </h3>
                 <ul className='publication-list list'>
-                    {publications.map((article, id) => {
-                        const { title, date } = article;
+                    {authorPublications.map((article, id) => {
+                        const title = article?.title || 'not available';
+                        const date = article?.date || 'not available';
+
                         return (
                             <li key={id} className='list-item'>
                                 <div className='publication-container'>
@@ -50,7 +52,7 @@ const RightPane = () => {
                                         dateTime={date}
                                         className='medium-16 publication-date'
                                     >
-                                        {date}
+                                        {date.substring(0, 4)}
                                     </time>
                                 </div>
                             </li>
