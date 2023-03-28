@@ -75,6 +75,7 @@
   .contact-methods {
     display: grid;
     grid-template-columns: auto auto;
+    gap: 1rem;
     padding: 2.15rem 0;
   }
 }
