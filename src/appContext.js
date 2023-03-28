@@ -18,6 +18,9 @@ const AppProvider = ({ children }) => {
     // ** banner populate during initial app loads ONLY , only once **
     const [bannerContent, setBannerContent] = useState({});
 
+    // tablet view is turned true, when app goes below or equal to 835px
+    const [tabletView, setTabletView] = useState(false);
+
     const cmsQuery = React.useCallback(() => {
         if (query) {
             getCmsResponse(query).then((response) => {
@@ -57,6 +60,15 @@ const AppProvider = ({ children }) => {
         });
     }, []);
 
+    const handleResize = () => {
+        if (window.innerWidth < 835) {
+            setTabletView(true);
+        } else {
+            setTabletView(false);
+        }
+        // console.log('size: ', window.innerWidth, '- ', tabletView);
+    };
+
     useEffect(() => {
         // querying cms each time user click on nav links
         cmsQuery();
@@ -67,8 +79,14 @@ const AppProvider = ({ children }) => {
         setBannerState();
     }, [setBannerState]);
 
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
     return (
-        <AppContext.Provider value={{ response, setQuery, ...bannerContent }}>
+        <AppContext.Provider
+            value={{ response, setQuery, tabletView, ...bannerContent }}
+        >
             {children}
         </AppContext.Provider>
     );

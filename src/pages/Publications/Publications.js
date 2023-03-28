@@ -22,7 +22,7 @@ const Publications = () => {
                     <div className='content-container'>
                         {response.map((publication, id) => {
                             return (
-                                <>
+                                <div key={id}>
                                     {publication.date !== undefined && (
                                         <h2 className='year'>
                                             {publication.date.substring(0, 4)}
@@ -32,7 +32,7 @@ const Publications = () => {
                                         key={id}
                                         {...publication}
                                     />
-                                </>
+                                </div>
                             );
                         })}
                     </div>

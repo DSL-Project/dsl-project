@@ -15,6 +15,7 @@ input {
         color: inherit;
     }
 }
+// styling all 3 common input and select boxes
 .bx {
     width: 100%;
     padding: 0.6rem 0.7rem;
@@ -49,7 +50,6 @@ input {
 }
 // adding icons
 .filterBx {
-    // border: 2px solid blue;
     &::placeholder {
         padding-left: 1.2rem;
         background-image: url('../assets/filter.svg'),
@@ -66,6 +66,7 @@ input {
     background-repeat: no-repeat;
     background-size: 0.6rem;
     background-position: 90% 50%;
+    cursor: pointer;
 }
 
 .searchBx {
@@ -79,48 +80,45 @@ input {
 }
 
 // --------------------------------------------------------------------
-.publication-list {
-    // background-color: #fdfaf1;
 
+/* common stying for publication card :
+change the margins to see the changes in all 2 boxes of each card.
+*/
+
+.meta-container,
+.authors,
+.featured-projects {
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+// top margin from the date element
+.publications .publications-list-item {
+    margin-top: 1.3rem;
+}
+
+//precise level styling
+.publication-list {
     .content {
         padding: 4rem 0 0 0rem;
-        // border: 2px solid red;
 
         .content-container {
             margin: 0 auto;
 
+            // year styling
             .year {
                 margin-top: 2rem;
                 font-weight: 500;
             }
             .publications {
-                // margin-top: 1rem;
-
                 .publications-list-item {
-                    // padding: 8px 9px;
                     border: 1px solid $neutral-400;
                     border-radius: 5px;
-                    // border: 4px solid red;
-                    margin-top: 1.3rem;
 
+                    // 1st DIRECT CHILD
                     .publication {
-                        // border: 2px solid magenta;
-                        // border-top: 1px solid $neutral-400;
                         .meta-container {
-                            // border: 2px solid black;
-
-                            // border: 2px solid green;
-                            padding: 0;
-                            margin: 0;
-                            // margin-top: 1.3rem;
-                            // border: 5px solid goldenrod;
-
-                            margin: 1.3rem 1rem 0 2.1rem;
-
                             // 1st child of meta-container
                             .meta {
-                                // border: 2px dotted red;
-                                // margin: 1.3rem 1rem 0 2.1rem;
                                 display: flex;
                                 text-transform: capitalize;
                                 justify-content: space-between;
@@ -132,9 +130,9 @@ input {
                                     text-transform: uppercase;
                                 }
                                 .journal {
-                                    // border: 2px solid red;
                                     color: $journal-col;
                                     background-color: $journal-bg;
+                                    transition: $main-transition;
                                     &:hover {
                                         border: 1px solid $journal-col;
                                     }
@@ -142,6 +140,8 @@ input {
                                 .popular {
                                     color: $popular-col;
                                     background-color: $popular-bg;
+                                    transition: $main-transition;
+
                                     &:hover {
                                         border: 1px solid $popular-col;
                                     }
@@ -156,6 +156,7 @@ input {
                                     align-items: center;
                                     color: $black;
                                     font-size: 1rem;
+                                    transition: $main-transition;
                                     &:hover {
                                         background-color: $neutral-500;
                                         color: $neutral-100;
@@ -163,61 +164,67 @@ input {
                                 }
                             }
 
-                            // 2nd child of meta-container
                             .heading {
                                 font-weight: 400;
                                 color: $black;
                                 margin-top: 1.3rem;
 
-                                .heading-url {
-                                    display: inline-flex;
-                                    align-items: center;
-                                    border-radius: 5px;
-                                    border: 1px solid $neutral-400;
-                                    color: $black;
-                                    margin-left: 5px;
-                                    // padding: 0.4rem;
-                                    padding: 3px 6px;
+                                .link-container {
+                                    display: inline-block;
+                                    .heading-url {
+                                        display: inline-flex;
+                                        align-items: center;
+                                        border-radius: 5px;
+                                        border: 1px solid $neutral-400;
+                                        color: $black;
+                                        margin-left: 5px;
 
-                                    svg {
-                                        margin-left: 3px;
-                                        font-size: 0.9rem;
-                                        font-size: 1rem;
-                                    }
-                                    &:hover {
-                                        background-color: $black;
-                                        color: $white;
-                                        border-color: $black;
+                                        padding: 0.15rem 0.3rem;
+                                        display: inline-flex;
+                                        align-items: center;
+
+                                        svg {
+                                            margin-left: 0.15rem;
+                                            font-size: 0.9rem;
+                                            font-size: 1rem;
+                                        }
+                                        &:hover {
+                                            background-color: $black;
+                                            color: $white;
+                                            border-color: $black;
+                                        }
                                     }
                                 }
                             }
                         }
                     }
+
+                    // 2ND DIRECT CHILD
                     .authors-container {
                         border-top: 1px solid $neutral-400;
-                        margin-top: 1.3rem;
+                        // margin-top: 1.3rem;
                         .authors {
-                            display: flex;
-                            justify-content: flex-start;
-                            align-items: center;
-                            margin: 1.3rem 1rem 1.3rem 2.1rem;
+                            display: grid;
+                            grid-template-columns: 9rem 1fr;
+                            grid-template-rows: 1fr;
 
                             .auth-heading {
                                 padding-top: 5px;
                                 text-transform: capitalize;
                                 color: $neutral-500;
+
+                                .specialS {
+                                    text-transform: lowercase;
+                                }
                             }
 
                             .authors-list {
-                                margin: 0 1.1rem;
-
                                 .author {
                                     display: inline-block;
                                     margin: 0 3px;
 
                                     .author-link {
                                         color: $black;
-
                                         text-decoration: underline;
                                         text-decoration-color: $black;
                                         text-decoration-thickness: 1px;
@@ -228,39 +235,37 @@ input {
                         }
                     }
 
+                    // 3RD DIRECT CHILD
                     .featured-projects-container {
                         border-top: 1px solid $neutral-400;
-                        margin-top: 1.3rem;
 
                         .featured-projects {
-                            display: flex;
-                            justify-content: space-between;
-                            margin: 1.3rem 1rem 1.3rem 2.1rem;
-                            // padding: 0.8rem 15px;
+                            display: grid;
+                            grid-template-columns: 9rem 1fr;
+                            grid-template-rows: 1fr;
 
                             .featured-projects-heading {
-                                // padding-top: 0.4rem;
                                 text-transform: capitalize;
-                                width: 20%;
                                 display: flex;
+                                align-items: flex-start;
                                 justify-content: flex-start;
-                                padding-top: 5px;
                                 text-transform: capitalize;
                                 color: $neutral-500;
                             }
 
                             .project-list {
-                                // min-width: calc(80% - 20% - 1.1rem);
-                                max-width: 75%;
-
                                 padding: 0;
                                 display: flex;
-                                // justify-content: center;
-                                align-items: center;
+                                flex-direction: column;
+                                align-items: flex-start;
+                                gap: 10px;
+                                // list-style-type: none;
 
                                 .project {
                                     color: $black;
                                     text-decoration: none;
+                                    list-style: none;
+                                    // list-style-position: inside;
 
                                     .project-link {
                                         color: $black;
@@ -279,36 +284,6 @@ input {
     }
 }
 
-@media (max-width: 834px) {
-    .featured-projects-container {
-        // border: 2px solid red;
-
-        .featured-projects {
-            // border: 2px solid green;
-            display: flex;
-
-            .featured-projects-heading {
-                // border: 2px solid magenta;
-                min-width: 160px;
-                // font-size: 0.7rem;
-            }
-
-            .project-list {
-                // border: 2px solid black;
-                min-width: 180px;
-                width: 90%;
-
-                // gap: 10px;
-
-                .project {
-                    // display: inline;
-                    margin-left: 20px;
-                }
-            }
-        }
-    }
-}
-
 @media (max-width: 375px) {
     // adjusting the LINK size on journal
     .publication-list
@@ -319,66 +294,50 @@ input {
         .publication
         .meta-container
         .heading
-        .heading-url {
+        .link-container {
+        display: block;
         margin: 10px 0px 0px 0px;
-        padding: 3px 6px;
+        .heading-url {
+            margin: 0;
+            padding: 3px 6px;
+        }
     }
 
-    // tweaking author-list
+    // stacking  author-list in mobile view
     .publication-list
         .content
         .content-container
         .publications
         .publications-list-item
         .authors-container
-        .authors
-        .authors-list {
-        margin: 0;
-        padding-top: 0.5rem;
-        margin-left: 0;
-    }
-
-    .authors-container {
         .authors {
-            margin: 0;
-            flex-direction: column;
-            text-align: left;
-            justify-content: flex-start;
-            align-items: flex-start;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
 
-            .auth-heading {
-                align-self: flex-start;
+        .authors-list {
+            margin-top: 1rem;
+            .author {
                 width: 100%;
-            }
-            .authors-list {
-                padding: 0;
-                align-self: flex-start;
-                width: 100%;
-
-                .author {
-                    margin: 0;
-                    width: 100%;
-                }
+                margin: 0;
             }
         }
     }
 
-    .featured-projects-container {
+    // stacking publication type view in mobile
+    .publication-list
+        .content
+        .content-container
+        .publications
+        .publications-list-item
+        .featured-projects-container
         .featured-projects {
-            flex-direction: column;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
 
-            .featured-projects-heading {
-                min-width: 100%;
-            }
-
-            .project-list {
-                min-width: 100%;
-                margin-top: 0.5rem;
-                padding: 1rem 0;
-
-                .project-link {
-                    margin: 0;
-                }
+        .project-list {
+            margin-top: 1rem;
+            .project {
+                justify-content: center;
             }
         }
     }

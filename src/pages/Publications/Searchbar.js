@@ -7,7 +7,7 @@ const Searchbar = () => {
                 {/* filter dropdown */}
                 <fieldset className='child1'>
                     <fieldset className='subchild1'>
-                        <label for='filter' className='sr-only'>
+                        <label htmlFor='filter' className='sr-only'>
                             filter
                         </label>
 
@@ -21,7 +21,7 @@ const Searchbar = () => {
                     </fieldset>
                     {/* sort-by dropdown */}
                     <fieldset className='subchild2'>
-                        <label for='sort' className='sr-only'>
+                        <label htmlFor='sort' className='sr-only'>
                             sort by
                         </label>
 
@@ -30,21 +30,16 @@ const Searchbar = () => {
                             id='sort'
                             className='regular-caps sortBx bx'
                         >
-                            <option
-                                value='placeholder'
-                                disabled
-                                selected
-                                id='sort'
-                            >
+                            <option value='placeholder' disabled id='sort'>
                                 sort by
                             </option>
                             <option value='item1'>item1</option>
                             <option value='item2'>item2</option>
                         </select>
                     </fieldset>
-                    {/* search bar */}
                 </fieldset>
 
+                {/* search bar */}
                 {/* child  */}
                 <fieldset className='child2'>
                     <label htmlFor='search' className='sr-only'>

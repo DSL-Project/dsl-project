@@ -15,30 +15,38 @@ const PublicationCard = ({
         <section className='publication-card-list'>
             <ul className='publications'>
                 <li className='publications-list-item'>
-                    {/* rendering journal */}
+                    {/* rendering publication  */}
                     <div className='publication'>
                         <div className='meta-container'>
-                            <div className='meta'>
-                                {/* publication type */}
-                                <a
-                                    href={url}
-                                    className={`${
-                                        publicationType === 'journal article'
-                                            ? 'publication-type journal bold-caps'
-                                            : 'publication-type popular bold-caps'
-                                    }`}
-                                >
-                                    {publicationType}
-                                </a>
-                                {/* link icon */}
-                                <a
-                                    href={url}
-                                    className='top-link'
-                                    title='Permalink'
-                                >
-                                    <LinkIcon />
-                                </a>
-                            </div>
+                            {(publicationType !== undefined ||
+                                publicationType !== '') && (
+                                <div className='meta'>
+                                    {/* publication type */}
+                                    <a
+                                        href={url}
+                                        className={`${
+                                            publicationType ===
+                                            'journal article'
+                                                ? 'publication-type journal bold-caps'
+                                                : 'publication-type popular bold-caps'
+                                        }`}
+                                    >
+                                        {publicationType}
+                                    </a>
+
+                                    {/* perma link */}
+                                    <Link
+                                        href={url}
+                                        className='top-link'
+                                        title='Permalink'
+                                        onClick={() =>
+                                            console.log('navigate to the page')
+                                        }
+                                    >
+                                        <LinkIcon />
+                                    </Link>
+                                </div>
+                            )}
 
                             {/* journal heading */}
                             <div className='heading '>
@@ -46,69 +54,60 @@ const PublicationCard = ({
                                     {title}
                                     {/* if url for article is present only then render */}
                                     {url && (
-                                        <a
-                                            href={url}
-                                            className='heading-url regular-caps'
-                                        >
-                                            <p className='regular-caps'>Link</p>
-                                            <ExternalLink />
-                                        </a>
+                                        <div className='link-container'>
+                                            <a
+                                                href={url}
+                                                className='heading-url regular-caps'
+                                            >
+                                                Link
+                                                <span className='regular-caps svg-container'>
+                                                    <ExternalLink />
+                                                </span>
+                                            </a>
+                                        </div>
                                     )}
                                 </h3>
                             </div>
                         </div>
                     </div>
-                    {/* authors.fields.name */}
                     {/* rendering authors */}
-                    <div className='authors-container'>
-                        <div className='authors'>
-                            <h4 className='regular-16 auth-heading'>
-                                lab author
-                            </h4>
-                            {authors && (
-                                <ul className='authors-list'>
-                                    {/* if length of author is > 1, then each array item concat with comma */}
-                                    {/* any change we make in author array in if statement, might need to be made in else part as well                                                                                                                                                                    */}
-                                    {authors.length > 1
-                                        ? authors.map((author, id) => {
-                                              const { slug } = author.fields;
-                                              return (
-                                                  <li
-                                                      key={slug}
-                                                      className='author medium-16'
-                                                  >
-                                                      <Link
-                                                          to={`/people/staff/${slug}`}
-                                                          className='author-link'
-                                                      >
-                                                          {author +
-                                                              (id ? ' ' : ', ')}
-                                                      </Link>
-                                                  </li>
-                                              );
-                                          })
-                                        : // if length of author is less than equal to 1, then do not concat with comma
-                                          authors.map((author) => {
-                                              const { name, slug } =
-                                                  author.fields;
-                                              return (
-                                                  <li
-                                                      key={slug}
-                                                      className='author medium-16'
-                                                  >
-                                                      <Link
-                                                          to={`/people/staff/${slug}`}
-                                                          className='medium-16 author-link'
-                                                      >
-                                                          {name}
-                                                      </Link>
-                                                  </li>
-                                              );
-                                          })}
-                                </ul>
-                            )}
+                    {authors !== undefined && authors.length > 0 && (
+                        <div className='authors-container'>
+                            <div className='authors'>
+                                <h4 className='regular-16 auth-heading'>
+                                    lab author
+                                    <span className='specialS'>
+                                        &#40;s&#41;
+                                    </span>
+                                </h4>
+                                {authors && (
+                                    <ul className='authors-list'>
+                                        {/* if length of author is > 1, then each array item concat with comma */}
+                                        {authors.map((author, id) => {
+                                            const { slug, name } =
+                                                author.fields;
+
+                                            return (
+                                                <li
+                                                    key={id}
+                                                    className='author medium-16'
+                                                >
+                                                    <Link
+                                                        to={`/people/staff/${slug}`}
+                                                        className='author-link'
+                                                    >
+                                                        {/* {name} */}
+
+                                                        {(id ? ',' : '') + name}
+                                                    </Link>
+                                                </li>
+                                            );
+                                        })}
+                                    </ul>
+                                )}
+                            </div>
                         </div>
-                    </div>
+                    )}
 
                     {/* rendering featured projects */}
 
@@ -121,13 +120,13 @@ const PublicationCard = ({
 
                                 {/* projects list */}
                                 <ol className='project-list'>
-                                    {projects.map((project) => {
-                                        const { slug, subtitle, url, title } =
+                                    {projects.map((project, id) => {
+                                        const { subtitle, url, title } =
                                             project.fields;
 
                                         return (
                                             <li
-                                                key={slug}
+                                                key={id}
                                                 className='project medium-16'
                                             >
                                                 <a
@@ -135,10 +134,12 @@ const PublicationCard = ({
                                                     className='project-link'
                                                     title={title}
                                                 >
-                                                    {`${title}: ${subtitle.substring(
+                                                    {`${
+                                                        id + 1
+                                                    }. ${title}: ${subtitle.substring(
                                                         0,
-                                                        74
-                                                    )}... `}
+                                                        40
+                                                    )}...`}
                                                 </a>
                                             </li>
                                         );

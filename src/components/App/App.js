@@ -6,11 +6,10 @@ import Training from '../../pages/Training';
 import Publications from '../../pages/Publications';
 import People from '../../pages/People';
 import Contact from '../../pages/Contact';
-import Person from '../Person';
 import Error from '../../pages/Error/Error';
 import '../../App.scss';
 import React from 'react';
-import Test from './Test';
+import Profile from '../Profile/Profile';
 
 function App() {
     return (
@@ -21,10 +20,9 @@ function App() {
                 <Route path='training' element={<Training />} />
                 <Route path='people' element={<People />} />
                 <Route path='publications' element={<Publications />} />
-                <Route path='people/staff/:slug' element={<Person />} />
-                <Route path='people/student/:slug' element={<Person />} />
+                <Route path='people/staff/:slug' element={<Profile />} />
+                <Route path='people/student/:slug' element={<Profile />} />
                 <Route path='contact' element={<Contact />} />
-                <Route path='testing' element={<Test />} />
                 <Route path='*' element={<Error />} />
             </Route>
         </Routes>

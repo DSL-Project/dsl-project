@@ -1,7 +1,7 @@
 import React from 'react';
 import { useGlobalContext } from '../../appContext';
 import Banner from '../../components/Banner/Banner';
-import { Link } from 'react-router-dom';
+import Person from './Person';
 const People = () => {
     const { response, peopleBody, peopleTitle } = useGlobalContext();
 
@@ -11,77 +11,40 @@ const People = () => {
             <Banner title={peopleTitle} info={peopleBody} />
 
             <section className='people-list'>
+                {/* rendering staff */}
                 <div className='wrapper group'>
-                    {/* rendering staff */}
                     <h2 className='category-title'>staff</h2>
                     <ul className='staff contributor'>
                         {response
                             .filter((person) => person.isStaff)
-                            .map((staffMember) => {
-                                const { slug, name, titles, img } = staffMember;
-                                const memberImg = img.fields.file.url;
-
+                            .map((staffMember, id) => {
+                                const memberInfo = {
+                                    ...staffMember,
+                                    memberType: 'staff',
+                                };
                                 return (
-                                    <li key={slug}>
-                                        <Link
-                                            to={`/people/staff/${slug}`}
-                                            className='profile-link'
-                                        >
-                                            <div className='profile-img'>
-                                                <img
-                                                    src={memberImg}
-                                                    alt={`${name} is looking at the camera`}
-                                                />
-                                            </div>
-                                            <div className='profile-content'>
-                                                <h2 className='profile-name'>
-                                                    {name}
-                                                </h2>
-                                                <h2 className='title'>
-                                                    {titles[0]}
-                                                </h2>
-                                            </div>
-                                        </Link>
-                                    </li>
+                                    <Person key={id} memberInfo={memberInfo} />
                                 );
                             })}
                     </ul>
                 </div>
-
-                <div className='underline'></div>
+                <h3 className=' wrapper semi-14 section-description'>
+                    digital society lab founder, faculty of social science
+                </h3>
 
                 {/* rendering students */}
                 <div className='wrapper group'>
-                    <h2 className='category-title'>Students</h2>
+                    <h2 className='category-title'>students</h2>
                     <ul className='students contributor'>
                         {response
                             .filter((person) => person.isStudent)
-                            .map((student) => {
-                                const { slug, name, titles, img } = student;
-                                const memberImg = img.fields.file.url;
-
+                            .map((student, id) => {
+                                const memberInfo = {
+                                    ...student,
+                                    memberType: 'student',
+                                };
                                 return (
-                                    <li key={slug}>
-                                        <Link
-                                            to={`/people/student/${slug}`}
-                                            className='profile-link'
-                                        >
-                                            <div className='profile-img'>
-                                                <img
-                                                    src={memberImg}
-                                                    alt={`${name} is looking at the camera`}
-                                                />
-                                            </div>
-                                            <div className='profile-content'>
-                                                <h2 className='profile-name'>
-                                                    {name}
-                                                </h2>
-                                                <h2 className='title'>
-                                                    {titles[0]}
-                                                </h2>
-                                            </div>
-                                        </Link>
-                                    </li>
+                                    <Person key={id} memberInfo={memberInfo} />
                                 );
                             })}
                     </ul>
