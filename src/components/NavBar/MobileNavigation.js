@@ -23,7 +23,10 @@ const MobileNavigation = () => {
       </div>
       {menuOpen ? closeIcon : burgerIcon}
       {menuOpen && (
-        <NavLinks isMobile={true} closeMobileMenu={closeMobileMenu} />
+        <div className="nav-with-footer">
+          <NavLinks isMobile={true} closeMobileMenu={closeMobileMenu} />
+          <p>@ Digital Society Lab, 2023. McMaster University</p>
+        </div>
       )}
     </div>
   );
