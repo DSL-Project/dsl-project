@@ -17,7 +17,9 @@ const MobileNavigation = () => {
   return (
     <div className="mobile-navigation">
       <div className="bold-18 logo">
-        <Link to="/">Digital Society Lab</Link>
+        <Link to="/" onClick={closeMobileMenu}>
+          Digital Society Lab
+        </Link>
       </div>
       {menuOpen ? closeIcon : burgerIcon}
       {menuOpen && (
