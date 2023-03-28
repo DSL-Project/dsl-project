@@ -1,33 +1,26 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const NavLinks = (props) => {
-    return (
-        <ul className='regular-caps'>
-            <li onClick={() => props.isMobile && props.closeMobileMenu()}>
-                <a href='https://development-dsl.netlify.app/projects'>
-                    PROJECTS
-                </a>
-            </li>
-            <li onClick={() => props.isMobile && props.closeMobileMenu()}>
-                <a href='https://development-dsl.netlify.app/training'>
-                    TRAINING
-                </a>
-            </li>
-            <li onClick={() => props.isMobile && props.closeMobileMenu()}>
-                <a href='https://development-dsl.netlify.app/publications'>
-                    PUBLICATIONS
-                </a>
-            </li>
-            <li onClick={() => props.isMobile && props.closeMobileMenu()}>
-                <a href='https://development-dsl.netlify.app/people'>PEOPLE</a>
-            </li>
-            <li onClick={() => props.isMobile && props.closeMobileMenu()}>
-                <a href='https://development-dsl.netlify.app/contact'>
-                    CONTACT
-                </a>
-            </li>
-        </ul>
-    );
+  return (
+    <ul className="regular-caps">
+      <li onClick={() => props.isMobile && props.closeMobileMenu()}>
+        <Link to="/projects">PROJECTS</Link>
+      </li>
+      <li onClick={() => props.isMobile && props.closeMobileMenu()}>
+        <Link to="/training">TRAINING</Link>
+      </li>
+      <li onClick={() => props.isMobile && props.closeMobileMenu()}>
+        <Link to="/publications">PUBLICATIONS</Link>
+      </li>
+      <li onClick={() => props.isMobile && props.closeMobileMenu()}>
+        <Link to="people">PEOPLE</Link>
+      </li>
+      <li onClick={() => props.isMobile && props.closeMobileMenu()}>
+        <Link to="contact">CONTACT</Link>
+      </li>
+    </ul>
+  );
 };
 
 export default NavLinks;
