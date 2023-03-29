@@ -3,8 +3,12 @@ import { AiOutlineArrowDown } from "react-icons/ai";
 import { FaFacebookF, FaTwitter } from "react-icons/fa";
 import { Link } from "react-scroll";
 import ProjectsCarousel from "./ProjectsCarousel";
+import { useGlobalContext } from "../../appContext";
 
 function Home() {
+  const { response } = useGlobalContext();
+  console.log(response);
+
   return (
     <div className="home">
       {/* This is the announcement banner:
@@ -14,7 +18,13 @@ function Home() {
 
       <div className="home-wrapper">
         <div className="welcome-container">
+          {/* <h1>{response[0].hometitle}</h1>  for now this renders Home not "Welcome to the Digital Society Lab*/}
           <h1>Welcome to the Digital Society Lab</h1>
+          <p className="regular-16">
+            {response[0].homebody.content[1].content[1]}
+          </p>
+
+          {/* //!Leave the hard coded content for now in for styling bug fixes
           <p className="regular-16">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
             justo nunc, ornare eget rutrum at, tristique ut nibh. Phasellus in
@@ -26,7 +36,7 @@ function Home() {
             Donec pulvinar ultricies lectus, sed euismod ex consectetur et.
             Nullam rhoncus risus eros, a dignissim risus fringilla sed. Fusce
             semper ac sapien a pulvinar.
-          </p>
+          </p> */}
           <div className="recent-projects">
             <Link
               to="project-carousel"
@@ -43,18 +53,26 @@ function Home() {
           <ProjectsCarousel />
         </div>
         <div className="funding-container">
-          <h2>Made possible with funding from:</h2>
-          {/* This is the "funded by" section
-          //TODO: 1. this will likely be statically coded for now but may need to switch to clickable icons; buttons need to be replaced by anchors/Links
-          //TODO: 2. style: icons will be flexed
-          */}
+          <h2>{response[0].homeFundersText}</h2>
+
+          {/* //! leaving the hard coded content for now for styling bug fixes
+          <h2>Made possible with funding from:</h2> */}
+
           <div className="funding-logos">
-            <div className="funder-logo"></div>
-            <div className="funder-logo"></div>
-            <div className="funder-logo"></div>
-            <div className="funder-logo"></div>
-            <div className="funder-logo"></div>
+            {response[0].homeFunders.map((funder) => (
+              <div key={funder.sys.id} className="funder-logo">
+                <img src={funder.fields.file.url} alt={funder.fields.title} />
+              </div>
+            ))}
           </div>
+
+          {/* <div className="funding-logos">
+            <div className="funder-logo"></div>
+            <div className="funder-logo"></div>
+            <div className="funder-logo"></div>
+            <div className="funder-logo"></div>
+            <div className="funder-logo"></div>
+          </div> */}
         </div>
         <div className="home-contact">
           <div className="home-address">
