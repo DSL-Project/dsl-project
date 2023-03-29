@@ -33,6 +33,9 @@ const AppProvider = ({ children }) => {
     //publications by author
     const [authorPublications, setAuthorPublications] = useState([]);
 
+    // home page data
+    const [homepageData, setHomepageData] = useState([]);
+
     const cmsQuery = React.useCallback(() => {
         if (query) {
             getCmsResponse(query).then((response) => {
@@ -130,13 +133,22 @@ const AppProvider = ({ children }) => {
         });
     };
 
+    const getHomeData = () => {
+        getCmsResponse(STATIC_QUERY).then((response) => {
+            if (response) {
+                console.log(response);
+                setHomepageData(response);
+            } else {
+                setHomepageData('no data');
+            }
+        });
+    };
     useEffect(() => {
         getPublicationsByAuthSlug(authorSlug);
         getProjectsByAuthSlug(authorSlug);
         setBannerState();
-
-        // querying cms each time user click on nav links
         cmsQuery();
+        getHomeData();
     }, [authorSlug, query, setBannerState]);
 
     useEffect(() => {
@@ -154,6 +166,7 @@ const AppProvider = ({ children }) => {
                 authorPublications,
                 openMenu,
                 setOpenMenu,
+                homepageData,
                 ...bannerContent,
             }}
         >
