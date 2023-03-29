@@ -1,5 +1,5 @@
 //import GoogleMap from "./GoogleMap";
-import dslMapStill from "../../assets/dslMapStill.png";
+//import dslMapStill from "../../assets/dslMapStill.png";
 
 function Contact() {
   // const location = {
@@ -81,14 +81,14 @@ function Contact() {
       <hr />
       <div className="contact-wrapper">
         <div className="address-container">
-          <div className="address">
+          <address className="address">
             <div className="bold-18 address-name">Digital Society Lab</div>
             <div className="street-address">
               <p className="bold-18">1280 Main St</p>
               <p className="bold-18">WHamilton</p>
               <p className="bold-18">ONL8S4L8</p>
             </div>
-            <div className="contact-methods">
+            <address className="contact-methods">
               <div className="bold-16">Phone:</div>
               <div className="bold-16">555-555-5555</div>
 
@@ -98,13 +98,13 @@ function Contact() {
                   webmaster@digitalsocietylab.org
                 </a>
               </div>
-            </div>
-          </div>
+            </address>
+          </address>
           <div className="map">
-            <img
+            {/* <img
               src={dslMapStill}
               alt="a map indicating digital society lab location"
-            />
+            /> */}
           </div>
         </div>
       </div>

@@ -125,26 +125,48 @@
     .contact-methods {
       padding-top: 2rem;
       display: grid;
-      grid-template-columns: auto auto;
+      grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+      .bold-16 {
+        font-family: Arial, Helvetica, sans-serif;
+        // this is a placeholder for MD
+        word-wrap: break-word;
+      }
     }
 
     .map {
       width: 50%;
-      img {
-        width: 100%;
-        border-radius: 0 0.5rem 0.5rem 0;
-      }
+      border-radius: 0 0.5rem 0.5rem 0;
+      background-image: url("../assets/dslMapStill.png");
+      background-size: cover;
+      background-repeat: no-repeat;
     }
   }
 }
 
 //! Media Queries
-@media (max-width: 834px) {
+@media (max-width: 1040px) {
   .contact {
     .contact-wrapper {
       width: 90%;
       margin: 0 auto;
       padding: 4.5rem 0;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .contact {
+    .address-container {
+      flex-direction: column;
+      .address,
+      .map {
+        width: 100%;
+        min-height: 15rem;
+        border-radius: 0.5rem;
+        border-radius: 0 0 0.5rem 0.5rem;
+      }
+      .address {
+        border-radius: 0.5rem 0.5rem 0 0;
+      }
     }
     .street-address {
       .bold-18 {
@@ -159,7 +181,7 @@
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 480px) {
   .contact {
     form fieldset {
       flex-direction: column;
@@ -181,15 +203,14 @@
     }
     .address-container {
       flex-direction: column;
+      align-items: center;
       .address,
       .map {
         width: 100%;
+        border-radius: 0.5rem;
       }
       .address {
         border-radius: 0.5rem 0.5rem 0 0;
-      }
-      .map img {
-        border-radius: 0 0 0.5rem 0.5rem;
       }
     }
   }
