@@ -18,6 +18,9 @@ const AppProvider = ({ children }) => {
     // ** banner populate during initial app loads ONLY , only once **
     const [bannerContent, setBannerContent] = useState({});
 
+    // side bar menu state
+    const [openMenu, setOpenMenu] = useState(false);
+
     // tablet view is turned true, when app goes below or equal to 835px
     const [tabletView, setTabletView] = useState(false);
 
@@ -149,6 +152,8 @@ const AppProvider = ({ children }) => {
                 setAuthorSlug,
                 authorProjects,
                 authorPublications,
+                openMenu,
+                setOpenMenu,
                 ...bannerContent,
             }}
         >

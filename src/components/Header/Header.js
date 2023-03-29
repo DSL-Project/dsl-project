@@ -1,39 +1,34 @@
 import React from 'react';
 import { useGlobalContext } from '../../appContext';
-import { navConstants, STATIC_QUERY } from '../../appConstants';
+import { navConstants } from '../../appConstants';
 import { NavLink } from 'react-router-dom';
+import { CgMenu as HamburgerIcon } from 'react-icons/cg';
+import Sidebar from './Sidebar';
+import Logo from './Logo';
 
 const Header = () => {
-    const { setQuery } = useGlobalContext();
+    const { setQuery, setOpenMenu } = useGlobalContext();
     return (
         // body
-        <section className='header-container'>
+        <nav className='header-container'>
             <header className='header'>
-                {/* logo */}
+                {/* LOGO */}
+                <Logo />
 
-                <NavLink
-                    to='/'
-                    onClick={() => setQuery(STATIC_QUERY)}
-                    className='home-logo bold-18'
-                >
-                    Digital Society Lab
-                </NavLink>
-
-                {/* navbar */}
-                <nav className='main-menu'>
-                    <ul>
+                {/* main NAVBAR */}
+                <section className='main-menu'>
+                    <ul className='mm-list'>
                         {navConstants.map((nav) => {
                             const { id, name, url, queryString } = nav;
                             return (
-                                <li key={id}>
+                                <li className='mm-list-item' key={id}>
                                     <NavLink
                                         to={url}
                                         onClick={() => setQuery(queryString)}
-                                        // className='regular-caps'
                                         className={({ isActive }) =>
                                             isActive
-                                                ? 'active regular-caps'
-                                                : 'inactive regular-caps'
+                                                ? 'item active regular-caps'
+                                                : 'item inactive regular-caps'
                                         }
                                     >
                                         {name}
@@ -42,9 +37,21 @@ const Header = () => {
                             );
                         })}
                     </ul>
-                </nav>
+
+                    {/* HAMBURGER button */}
+                    <button
+                        className='ham-btn'
+                        onClick={() => setOpenMenu(true)}
+                    >
+                        <HamburgerIcon className='hamburgerIcon' />
+                    </button>
+
+                    {/* SIDEBAR menu */}
+                    <Sidebar />
+                    {/* <Sidebar openMenu={openMenu} setOpenMenu={setOpenMenu} /> */}
+                </section>
             </header>
-        </section>
+        </nav>
     );
 };
 
