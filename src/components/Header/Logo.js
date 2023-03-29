@@ -4,13 +4,16 @@ import { useGlobalContext } from '../../appContext';
 import { STATIC_QUERY } from '../../appConstants';
 
 const Logo = () => {
-    const { setQuery } = useGlobalContext();
+    const { setQuery, setOpenMenu } = useGlobalContext();
     return (
         <section className='logo'>
             {/* LOGO */}
             <NavLink
                 to='/'
-                onClick={() => setQuery(STATIC_QUERY)}
+                onClick={() => {
+                    setQuery(STATIC_QUERY);
+                    setOpenMenu(false);
+                }}
                 className='home-logo bold-18'
             >
                 Digital Society Lab
