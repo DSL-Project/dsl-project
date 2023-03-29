@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useGlobalContext } from '../../appContext';
 import { navConstants } from '../../appConstants';
 import { NavLink } from 'react-router-dom';
@@ -7,8 +7,7 @@ import Sidebar from './Sidebar';
 import Logo from './Logo';
 
 const Header = () => {
-    const [openMenu, setOpenMenu] = useState(false);
-    const { setQuery } = useGlobalContext();
+    const { setQuery, setOpenMenu } = useGlobalContext();
     return (
         // body
         <nav className='header-container'>
@@ -26,7 +25,6 @@ const Header = () => {
                                     <NavLink
                                         to={url}
                                         onClick={() => setQuery(queryString)}
-                                        // className='regular-caps'
                                         className={({ isActive }) =>
                                             isActive
                                                 ? 'item active regular-caps'
@@ -49,7 +47,8 @@ const Header = () => {
                     </button>
 
                     {/* SIDEBAR menu */}
-                    <Sidebar openMenu={openMenu} setOpenMenu={setOpenMenu} />
+                    <Sidebar />
+                    {/* <Sidebar openMenu={openMenu} setOpenMenu={setOpenMenu} /> */}
                 </section>
             </header>
         </nav>

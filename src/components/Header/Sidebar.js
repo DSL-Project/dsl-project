@@ -5,8 +5,8 @@ import { NavLink } from 'react-router-dom';
 import { useGlobalContext } from '../../appContext';
 import Logo from './Logo';
 
-const Sidebar = ({ openMenu, setOpenMenu }) => {
-    const { setQuery } = useGlobalContext();
+const Sidebar = () => {
+    const { setQuery, openMenu, setOpenMenu } = useGlobalContext();
 
     return (
         // <aside className='side-menu'>

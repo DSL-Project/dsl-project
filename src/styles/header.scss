@@ -131,6 +131,7 @@
 
 .show-sidebar {
     transform: translate(0);
+    z-index: 999;
 }
 .ham-btn {
     display: none;
