@@ -1,6 +1,6 @@
 import Announcement from "./Announcement";
-import { AiOutlineArrowDown, AiOutlineTwitter } from "react-icons/ai";
-import { FaFacebookF } from "react-icons/fa";
+import { AiOutlineArrowDown } from "react-icons/ai";
+import { FaFacebookF, FaTwitter } from "react-icons/fa";
 import { Link } from "react-scroll";
 import ProjectsCarousel from "./ProjectsCarousel";
 
@@ -62,8 +62,20 @@ function Home() {
               <div className="bold-18">Digital Society Lab</div>
 
               <div className="media-container">
-                <AiOutlineTwitter />
-                <FaFacebookF />
+                <a
+                  href="https://twitter.com/DigSocietyLab"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaTwitter />
+                </a>
+                <a
+                  href="https://www.facebook.com/DigSocietyLab"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaFacebookF />
+                </a>
               </div>
             </div>
             <div className="street-address bold-18">
