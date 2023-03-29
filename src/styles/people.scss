@@ -1,0 +1,117 @@
+.group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .category-title {
+        width: 100%;
+        text-transform: capitalize;
+        color: $black;
+    }
+    .contributor {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(278px, 1fr));
+        gap: 0.4rem;
+        margin-top: 1.5rem;
+
+        .profile-link {
+            border: 1px solid $neutral-400;
+            display: flex;
+            flex-direction: row;
+            border-radius: 5px;
+            padding: 0.1rem;
+
+            // first child of profile link
+            .profile-img {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 5px;
+                width: 20%;
+
+                min-width: 3.8rem;
+                img {
+                    border-radius: 5px;
+                    width: 100%;
+                }
+            }
+
+            // default img size, incase img not present in cms
+            .default-img {
+                min-width: 76px;
+                min-height: 76px;
+                background-color: $neutral-300;
+                border-radius: 5px;
+                .profile-content {
+                    display: none;
+                }
+            }
+
+            //second child of profile link
+            .profile-content {
+                width: 80%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                margin-left: 0.4rem;
+
+                .profile-name {
+                    width: 100%;
+                    text-transform: capitalize;
+                    color: $black;
+                    margin-bottom: 5px;
+                }
+                .title {
+                    width: 100%;
+                    color: $neutral-500;
+                    text-transform: capitalize;
+                }
+            }
+        }
+    }
+}
+
+// section-description
+.section-description {
+    text-transform: capitalize;
+}
+
+// styling on hover
+.personCard {
+    transition: $main-transition;
+    &:hover {
+        background-color: $black;
+        .profile-link .profile-content .profile-name,
+        .profile-link .profile-content .title {
+            color: $white;
+        }
+    }
+}
+
+// media-queries
+
+@media (max-width: 835px) {
+    .section-description {
+        display: none;
+    }
+}
+@media (max-width: 785px) {
+    .group .contributor .profile-link .profile-content {
+        width: 100%;
+
+        .profile-name {
+            font-size: 0.8rem;
+        }
+
+        .title {
+            font-size: 0.6rem;
+        }
+    }
+}
+
+@media (max-width: 690px) {
+    .group .contributor {
+        grid-template-columns: 1fr;
+    }
+}

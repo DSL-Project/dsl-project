@@ -1,0 +1,19 @@
+.banner {
+    width: 100%;
+    background-color: $neutral-300;
+
+    .banner-container {
+        padding-bottom: 4rem;
+
+        .banner-heading {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: $black;
+            line-height: 1.45rem;
+        }
+        .banner-content {
+            color: $neutral-500;
+            margin-top: 0.3rem;
+        }
+    }
+}

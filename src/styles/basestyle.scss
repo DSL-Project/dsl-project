@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body,
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+a,
+img,
+blockquote,
+input {
+    margin: 0;
+    padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+ul {
+    list-style: none;
+}
+
+// ---------
+button {
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+html {
+    background-color: $neutral-100;
+}
+
+.wrapper {
+    max-width: 1440px;
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 4rem;
+}
+
+.footer {
+    // position: sticky;
+    bottom: 0;
+}
+
+@media (max-width: 835px) {
+    .wrapper {
+        width: 90%;
+    }
+}

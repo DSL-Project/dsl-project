@@ -1,4 +1,4 @@
 /* Forward all exports */
 
-export * from "./Contact";
-export { default } from "./Contact";
+export * from './Contact';
+export { default } from './Contact';
