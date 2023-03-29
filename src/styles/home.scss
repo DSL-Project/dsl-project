@@ -122,7 +122,7 @@
 }
 
 //! Media Queries
-@media (max-width: 834px) {
+@media (max-width: 768px) {
   .home-wrapper {
     width: 90%;
   }
@@ -174,7 +174,7 @@
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 480px) {
   .welcome-container {
     padding: 1.8rem 0;
     h1 {
@@ -204,6 +204,7 @@
 
   .home-contact {
     flex-direction: column;
+    height: auto;
     .home-address,
     .stay-updated {
       width: 100%;
