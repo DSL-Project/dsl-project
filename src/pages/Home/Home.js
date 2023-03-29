@@ -8,6 +8,7 @@ import { useGlobalContext } from "../../appContext";
 function Home() {
   const { response } = useGlobalContext();
   console.log(response);
+  //! waiting for data from useGlobalContext()
 
   return (
     <div className="home">
@@ -21,7 +22,17 @@ function Home() {
           {/* <h1>{response[0].hometitle}</h1>  for now this renders Home not "Welcome to the Digital Society Lab*/}
           <h1>Welcome to the Digital Society Lab</h1>
           <p className="regular-16">
-            {response[0].homebody.content[1].content[1]}
+            {response[0]?.homebody?.content[1]?.content[1] ??
+              `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+            justo nunc, ornare eget rutrum at, tristique ut nibh. Phasellus in
+            lobortis justo. Suspendisse ac dui sit amet elit porttitor
+            elementum. Nulla a tincidunt arcu. Curabitur molestie lectus
+            vestibulum, posuere nunc eu, iaculis ligula. Aenean quis odio
+            pellentesque, faucibus massa nec, pretium dui. Curabitur id quam ut
+            nibh convallis mollis. Nunc accumsan tempor sapien ac consectetur.
+            Donec pulvinar ultricies lectus, sed euismod ex consectetur et.
+            Nullam rhoncus risus eros, a dignissim risus fringilla sed. Fusce
+            semper ac sapien a pulvinar.`}
           </p>
 
           {/* //!Leave the hard coded content for now in for styling bug fixes
@@ -53,17 +64,23 @@ function Home() {
           <ProjectsCarousel />
         </div>
         <div className="funding-container">
-          <h2>{response[0].homeFundersText}</h2>
+          <h2>
+            {response[0]?.homeFundersText ?? `Made possible with funding from:`}
+          </h2>
 
           {/* //! leaving the hard coded content for now for styling bug fixes
           <h2>Made possible with funding from:</h2> */}
 
           <div className="funding-logos">
-            {response[0].homeFunders.map((funder) => (
+            {response[0]?.homeFunders?.map((funder) => (
               <div key={funder.sys.id} className="funder-logo">
                 <img src={funder.fields.file.url} alt={funder.fields.title} />
               </div>
-            ))}
+            )) ?? (
+              <div className="funder-logo">
+                Default funder logo when response is not available
+              </div>
+            )}
           </div>
 
           {/* <div className="funding-logos">
