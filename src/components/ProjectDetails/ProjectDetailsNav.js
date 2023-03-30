@@ -2,8 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const ProjectDetailsNav = ({ projectCardInfo, data }) => {
-    console.log('DATA: ', data.split('/')[1]);
-
     return (
         <nav className='pdnav-container'>
             <div className='pd-nav'>

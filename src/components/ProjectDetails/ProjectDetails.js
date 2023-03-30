@@ -38,20 +38,25 @@ const ProjectDetails = () => {
                 data={NavData}
                 projectCardInfo={projectCardInfo}
             />
-
             {/* left pane */}
-            <ProjectDetailsLeft
-                className='pd-left'
-                data={LeftPaneData}
-                projectCardInfo={projectCardInfo}
-            />
+            <section className='project-details'>
+                <section className='pd-leftpane'>
+                    <ProjectDetailsLeft
+                        className='pd-left'
+                        data={LeftPaneData}
+                        projectCardInfo={projectCardInfo}
+                    />
+                </section>
 
-            {/* right pane */}
-            <ProjectDetailsRight
-                className='pd-right'
-                data={RightPaneData}
-                projectCardInfo={projectCardInfo}
-            />
+                {/* right pane */}
+                <section className='pd-rightpane'>
+                    <ProjectDetailsRight
+                        className='pd-right'
+                        data={RightPaneData}
+                        projectCardInfo={projectCardInfo}
+                    />
+                </section>
+            </section>
         </main>
     );
 };
