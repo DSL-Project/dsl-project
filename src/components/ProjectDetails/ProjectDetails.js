@@ -32,20 +32,27 @@ const ProjectDetails = () => {
     };
 
     return (
-        <>
+        <main className='pd-main'>
+            {/* navigation */}
             <ProjectDetailsNav
                 data={NavData}
                 projectCardInfo={projectCardInfo}
             />
+
+            {/* left pane */}
             <ProjectDetailsLeft
+                className='pd-left'
                 data={LeftPaneData}
                 projectCardInfo={projectCardInfo}
             />
+
+            {/* right pane */}
             <ProjectDetailsRight
+                className='pd-right'
                 data={RightPaneData}
                 projectCardInfo={projectCardInfo}
             />
-        </>
+        </main>
     );
 };
 

@@ -1,0 +1,86 @@
+// Project Details Navbar
+.pdnav-container {
+    // border: 2px solid red;
+    background-color: $neutral-400;
+    .pd-link {
+        // border: 1px dotted black;
+        padding: 0.5rem 0;
+    }
+
+    .pd-nav {
+        // border: 2px solid blue;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: 0 2rem;
+
+        .pd-path {
+            // border: 2px solid goldenrod;
+            display: flex;
+            align-items: center;
+            .pathItem2,
+            .pathItem3 {
+                // border: 1px solid blue;
+                padding-left: 0.2rem;
+                text-transform: capitalize;
+            }
+            .pathItem1 {
+                // border: 2px solid red;
+                text-decoration: underline;
+                text-underline-offset: 4px;
+                text-transform: capitalize;
+            }
+        }
+
+        // main menu
+        .pd-main-menu {
+            display: none;
+
+            .pd-menu-item:not(:last-child) {
+                // border: 2px solid magenta;
+                padding-right: 0.5rem;
+            }
+            .pd-active {
+                color: $black;
+            }
+            .pd-inactive {
+                color: $neutral-500;
+            }
+        }
+    }
+}
+
+@media (max-width: 835px) {
+    .pdnav-container .pd-nav .pd-main-menu {
+        display: flex;
+        align-items: center;
+    }
+    .pd-path {
+        // border: 2px solid red;
+        min-width: 170px;
+    }
+}
+@media (max-width: 375px) {
+    .pdnav-container .pd-nav {
+        margin: 0;
+    }
+    .pd-nav {
+        min-width: 100%;
+    }
+    .pd-link {
+        font-size: 0.6rem;
+    }
+    .pd-path {
+        width: 100%;
+        border-bottom: 1px solid $neutral-500;
+        .pathItem1,
+        .pathItem2,
+        .pathItem3 {
+            padding-left: 0.5rem;
+        }
+    }
+    .pd-main-menu {
+        width: 100%;
+        padding-left: 0.4rem;
+    }
+}
