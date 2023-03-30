@@ -7,7 +7,7 @@ import { useGlobalContext } from '../../appContext';
 
 function Home() {
     const { homepageData: response } = useGlobalContext();
-    console.log(response);
+    // console.log(response);
     //! waiting for data from useGlobalContext()
 
     return (
