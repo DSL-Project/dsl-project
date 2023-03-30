@@ -16,7 +16,6 @@ function Home() {
   const homeStatic = homepageData[0];
   useEffect(() => {
     if (homeStatic) {
-      console.log(homeStatic.homeFunders[0]);
       setIsLoadding(false);
     }
   }, [homeStatic]);
@@ -90,10 +89,16 @@ function Home() {
           <div className="funding-logos">
             {homeStatic?.homeFunders?.map((funder) => (
               <div key={funder.sys.id} className="funder-logo">
-                <img
-                  src={`https:${funder.fields.file.url}`}
-                  alt={funder.fields.title}
-                />
+                <a
+                  href={`https:${funder.fields.description}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={`https:${funder.fields.file.url}`}
+                    alt={funder.fields.title}
+                  />
+                </a>
               </div>
             )) ?? (
               <div className="funder-logo">
