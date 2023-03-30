@@ -1,19 +1,52 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import ProjectDetailsNav from './ProjectDetailsNav';
+import ProjectDetailsLeft from './ProjectDetailsLeft';
+import ProjectDetailsRight from './ProjectDetailsRight';
 
 const ProjectDetails = () => {
-    const { pathname, state: projectData } = useLocation();
-    const { title, subtitle, about, tags, team, media, url } = projectData;
+    const { pathname, state: projectCardInfo } = useLocation();
+    const {
+        title,
+        subtitle,
+        about,
+        tags,
+        team,
+        media,
+        url,
+        publications,
+        status,
+        startDate,
+    } = projectCardInfo;
 
-    console.log('project data: ', projectData);
-    const aboutArray =
-        about?.content?.filter((item) => {
-            return item?.content;
-        }) || null;
-    console.log('SUM: ', aboutArray);
+    const NavData = pathname;
+    const RightPaneData = { url, status, startDate };
+    const LeftPaneData = {
+        title,
+        subtitle,
+        about,
+        tags,
+        team,
+        publications,
+        media,
+    };
 
-    // console.log('PROJECT DATA: ', projectData);
-    return <div>ProjectDetails</div>;
+    return (
+        <>
+            <ProjectDetailsNav
+                data={NavData}
+                projectCardInfo={projectCardInfo}
+            />
+            <ProjectDetailsLeft
+                data={LeftPaneData}
+                projectCardInfo={projectCardInfo}
+            />
+            <ProjectDetailsRight
+                data={RightPaneData}
+                projectCardInfo={projectCardInfo}
+            />
+        </>
+    );
 };
 
 export default ProjectDetails;

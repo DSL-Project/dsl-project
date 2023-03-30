@@ -15,7 +15,9 @@ const Projects = () => {
             <article className='projects-list-container'>
                 <article className='projects-list wrapper'>
                     {response.map((project, id) => {
-                        return <ProjectCard key={id} {...project} />;
+                        return (
+                            <ProjectCard key={id} projectCardInfo={project} />
+                        );
                     })}
                 </article>
             </article>

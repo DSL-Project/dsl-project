@@ -9,8 +9,8 @@ const SharedLayout = () => {
     const { openMenu } = useGlobalContext();
     return (
         <>
-            <Header />
             {/* <NavBar /> */}
+            <Header />
             {openMenu || <Outlet />}
             <Footer />
         </>
