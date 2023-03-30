@@ -136,7 +136,6 @@ const AppProvider = ({ children }) => {
     const getHomeData = () => {
         getCmsResponse(STATIC_QUERY).then((response) => {
             if (response) {
-                console.log(response);
                 setHomepageData(response);
             } else {
                 setHomepageData('no data');
