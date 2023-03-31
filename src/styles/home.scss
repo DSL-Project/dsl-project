@@ -6,7 +6,7 @@
 
 .welcome-container {
   width: 60%;
-  padding: 4.5rem 0;
+  padding: 2.5rem 0;
 
   h1 {
     font-size: 3.5rem;
@@ -42,14 +42,16 @@
     .funder-logo {
       width: 18%;
       height: 3.7rem;
-      //background-color: $neutral-300;
       border-radius: 0.25rem;
       display: flex;
       justify-content: center;
       align-items: center;
+      &:hover {
+        background-color: $neutral-300;
+      }
       a {
         display: block;
-        width: 100%;
+        width: 90%;
         cursor: pointer;
         img {
           width: auto;

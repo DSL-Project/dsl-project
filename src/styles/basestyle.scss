@@ -1,6 +1,6 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 body,
 ul,
@@ -15,8 +15,8 @@ a,
 img,
 blockquote,
 input {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 h1,
 h2,
@@ -24,47 +24,42 @@ h3,
 h4,
 h5,
 p {
-    overflow-wrap: break-word;
-    hyphens: auto;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 // ---------
 button {
-    display: block;
+  display: block;
 }
 
 a {
-    text-decoration: none;
-    color: inherit;
-    display: block;
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 
 img {
-    max-width: 100%;
-    display: block;
+  max-width: 100%;
+  display: block;
 }
 html {
-    background-color: $neutral-100;
+  background-color: $neutral-100;
 }
 
 .wrapper {
-    max-width: 1440px;
-    width: 50%;
-    margin: 0 auto;
-    padding-top: 4rem;
-}
-
-.footer {
-    // position: sticky;
-    bottom: 0;
+  max-width: 1440px;
+  width: 60%;
+  margin: 0 auto;
+  padding-top: 4rem;
 }
 
 @media (max-width: 835px) {
-    .wrapper {
-        width: 90%;
-    }
+  .wrapper {
+    width: 90%;
+  }
 }
