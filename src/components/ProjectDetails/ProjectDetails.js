@@ -6,55 +6,30 @@ import ProjectDetailsRight from './ProjectDetailsRight';
 
 const ProjectDetails = () => {
     const { pathname, state: projectCardInfo } = useLocation();
-    const {
-        title,
-        subtitle,
-        about,
-        tags,
-        team,
-        media,
-        url,
-        publications,
-        status,
-        startDate,
-    } = projectCardInfo;
+    const navLinks = [
+        { id: 1, name: 'publications', url: '/publications' },
+        { id: 2, name: 'description', url: '/' },
+        { id: 3, name: 'partners', url: '/' },
+        { id: 4, name: 'funding', url: '/' },
+        { id: 5, name: 'media', url: '/' },
+    ];
 
-    const NavData = pathname;
-    const RightPaneData = { url, status, startDate };
-    const LeftPaneData = {
-        title,
-        subtitle,
-        about,
-        tags,
-        team,
-        publications,
-        media,
-    };
+    const RightPaneData = { projectCardInfo, navLinks };
+    const NavData = { pathname, navLinks };
 
     return (
         <main className='pd-main'>
             {/* navigation */}
-            <ProjectDetailsNav
-                data={NavData}
-                projectCardInfo={projectCardInfo}
-            />
+            <ProjectDetailsNav {...NavData} />
             {/* left pane */}
             <section className='project-details'>
                 <section className='pd-leftpane'>
-                    <ProjectDetailsLeft
-                        className='pd-left'
-                        data={LeftPaneData}
-                        projectCardInfo={projectCardInfo}
-                    />
+                    <ProjectDetailsLeft {...projectCardInfo} />
                 </section>
 
                 {/* right pane */}
                 <section className='pd-rightpane'>
-                    <ProjectDetailsRight
-                        className='pd-right'
-                        data={RightPaneData}
-                        projectCardInfo={projectCardInfo}
-                    />
+                    <ProjectDetailsRight {...RightPaneData} />
                 </section>
             </section>
         </main>
