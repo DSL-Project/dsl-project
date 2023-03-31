@@ -2,7 +2,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { AiOutlineArrowRight } from "react-icons/ai";
-
 const ProjectsCarousel = () => {
   let settings = {
     dots: true,
@@ -13,14 +12,14 @@ const ProjectsCarousel = () => {
     swipeToSlide: true,
     responsive: [
       {
-        breakpoint: 834,
+        breakpoint: 768,
         settings: {
-          slidesToShow: 2.5,
+          slidesToShow: 2,
           slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 375,
+        breakpoint: 480,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
