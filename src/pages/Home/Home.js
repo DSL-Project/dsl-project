@@ -6,6 +6,7 @@ import ProjectsCarousel from "./ProjectsCarousel";
 import { useGlobalContext } from "../../appContext";
 import React, { useState, useEffect } from "react";
 import defaultImg from "../../assets/defaultImg.jpg";
+import { Skeleton } from "@chakra-ui/react";
 
 function Home() {
   const handleSubmit = () => {
@@ -21,7 +22,7 @@ function Home() {
   }, [homeStatic]);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Skeleton height="100vh" my="8" />;
   }
 
   return (
