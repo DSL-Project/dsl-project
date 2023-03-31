@@ -155,6 +155,9 @@
 }
 @media (max-width: 768px) {
   .contact {
+    .contact-wrapper {
+      padding: 3.4rem 0;
+    }
     .address-container {
       flex-direction: column;
       .address,
