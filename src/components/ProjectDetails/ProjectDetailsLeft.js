@@ -17,11 +17,6 @@ const ProjectDetailsLeft = ({
 }) => {
     const [screenSize, setScreenSize] = React.useState(getCurrentWidth());
 
-    const aboutArray =
-        about?.content?.filter((item) => {
-            return item?.content;
-        }) || null;
-
     function getCurrentWidth() {
         return window.innerWidth;
     }
@@ -71,14 +66,19 @@ const ProjectDetailsLeft = ({
 
             {/* about section */}
             <div className='pd-about'>
-                {aboutArray !== null &&
-                    aboutArray.map((item) =>
-                        item?.content?.map((nesteditem, id) => (
-                            <p key={id} className='regular-16 pd-about-content'>
-                                {nesteditem.value}
-                            </p>
-                        ))
-                    )}
+                {about !== undefined &&
+                    about.content.map((item) => {
+                        return item.content.map((nestedItem, id) => {
+                            return (
+                                <p
+                                    key={id}
+                                    className='regular-16 pd-about-content'
+                                >
+                                    {nestedItem.value}
+                                </p>
+                            );
+                        });
+                    })}
             </div>
 
             {/* tags */}
@@ -137,6 +137,9 @@ const ProjectDetailsLeft = ({
                     <h2 className='pd-media-heading pd-heading'>media</h2>
                     {media
                         .map((data) => {
+                            if (data?.fields === undefined) {
+                                return;
+                            }
                             return data.fields.title.content[0].content.map(
                                 (nestedData) => {
                                     return nestedData.value;

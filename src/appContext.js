@@ -23,6 +23,7 @@ const AppProvider = ({ children }) => {
 
     // tablet view is turned true, when app goes below or equal to 835px
     const [tabletView, setTabletView] = useState(false);
+    const [mobileView, setMobileView] = useState(false);
 
     // author slug
     const [authorSlug, setAuthorSlug] = useState('');
@@ -76,10 +77,13 @@ const AppProvider = ({ children }) => {
     }, []);
 
     const handleResize = () => {
-        if (window.innerWidth < 835) {
+        setTabletView(false);
+        setMobileView(false);
+        if (window.innerWidth < 837) {
             setTabletView(true);
-        } else {
-            setTabletView(false);
+        }
+        if (window.innerWidth < 375) {
+            setMobileView(true);
         }
     };
 
@@ -160,6 +164,7 @@ const AppProvider = ({ children }) => {
                 response,
                 setQuery,
                 tabletView,
+                mobileView,
                 setAuthorSlug,
                 authorProjects,
                 authorPublications,
