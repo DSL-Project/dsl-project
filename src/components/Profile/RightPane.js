@@ -33,28 +33,31 @@ const RightPane = () => {
                 <h3 className='bold-16 heading'>publications </h3>
                 <ul className='publication-list list'>
                     {authorPublications.map((article, id) => {
-                        const title = article?.title || 'not available';
-                        const date = article?.date || 'not available';
+                        const title = article?.title || null;
+                        const date = article?.date || null;
 
                         return (
                             <li key={id} className='list-item'>
-                                <div className='publication-container'>
-                                    <p className='medium-16 publication'>
-                                        {title}
-                                    </p>
-                                </div>
+                                {title !== null && (
+                                    <div className='publication-container'>
+                                        <p className='medium-16 publication'>
+                                            {title}
+                                        </p>
+                                    </div>
+                                )}
 
-                                <div className='date-container'>
-                                    <p className='medium-16 publication-on '>
-                                        published
-                                    </p>
-                                    <time
-                                        dateTime={date}
-                                        className='medium-16 publication-date'
-                                    >
-                                        {date.substring(0, 4)}
-                                    </time>
-                                </div>
+                                {date !== null && (
+                                    <div className='date-container'>
+                                        <p className='medium-16 publication-on '>
+                                            <time
+                                                dateTime={date}
+                                                className='medium-16 publication-date'
+                                            >
+                                                Published {date.substring(0, 4)}
+                                            </time>
+                                        </p>
+                                    </div>
+                                )}
                             </li>
                         );
                     })}

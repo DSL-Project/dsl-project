@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 const ProfileNav = ({ pathname, website, email, name }) => {
     const pathItem = pathname.split('/');
 
+    console.log('PROFILE NAV: ', website);
+
     return (
         <section className='nav-container'>
             {/*--- person's nav --*/}
@@ -12,11 +14,11 @@ const ProfileNav = ({ pathname, website, email, name }) => {
                 {/* path name */}
                 <div className='navigation'>
                     <span>
-                        <Link to='/' className='medium-14 path-children'>
+                        <Link to='/people' className='medium-14 path-children'>
                             {pathItem[1]}
                         </Link>
                         <span className='medium-14 path-children'>/</span>
-                        <Link to='/' className='medium-14 path-children'>
+                        <Link to='/people' className='medium-14 path-children'>
                             {pathItem[2]}
                         </Link>
                         <span className='medium-14 path-children'>/</span>
@@ -30,7 +32,7 @@ const ProfileNav = ({ pathname, website, email, name }) => {
                         {website && (
                             <li className='item'>
                                 <Link
-                                    to={{ pathname: website.siteUrl }}
+                                    to={website}
                                     target='_blank'
                                     className='links'
                                 >

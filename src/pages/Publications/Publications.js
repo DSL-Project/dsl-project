@@ -15,29 +15,31 @@ const Publications = () => {
             {/* rendering banner */}
             <Banner title={publicationsTitle} info={publicationsBody} />
 
-            <section className='publication-list'>
-                <div className='wrapper content'>
-                    {/*search bar */}
-                    <Searchbar />
-                    <div className='content-container'>
-                        {response.map((publication, id) => {
-                            return (
-                                <div key={id}>
-                                    {publication.date !== undefined && (
-                                        <h2 className='year'>
-                                            {publication.date.substring(0, 4)}
-                                        </h2>
-                                    )}
-                                    <PublicationCard
-                                        key={id}
-                                        {...publication}
-                                    />
-                                </div>
-                            );
-                        })}
-                    </div>
-                </div>
-            </section>
+            {/* <section className='publication-list'> */}
+            <div className='wrapper pub-wrapper'>
+                {/*search bar */}
+                <Searchbar />
+                {/* <div className='content-container'> */}
+                {response.map((publication, id) => {
+                    return (
+                        <div className='single-content' key={id}>
+                            {publication.date !== undefined && (
+                                <h2 className='year'>
+                                    {publication.date.substring(0, 4)}
+                                </h2>
+                            )}
+                            <PublicationCard
+                                key={id}
+                                publication={publication}
+                                id={id}
+                            />
+                            {/* <PublicationCard key={id} {...publication} /> */}
+                        </div>
+                    );
+                })}
+            </div>
+            {/* </div> */}
+            {/* </section> */}
         </main>
     );
 };

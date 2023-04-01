@@ -86,36 +86,32 @@
 // diving main page into left and right pane, and general styling of both
 .person-profile {
     display: flex;
-    width: 100vw;
-    // height of page = desired height - height of navbar and footer
+    max-width: 100vw;
     max-height: calc(100vh - 200px);
+    // border: 4px solid red;
 }
 
 // dividing main page into 2 panes, left pane 80% and right 20%
 // LEFT Pane
 .left-pane {
-    width: 85%;
-    border: 1px solid $neutral-400;
+    // width: 70%;
+    // border: 1px solid $neutral-400;
+    border-right: 1px solid $neutral-400;
     overflow: auto;
+    border-bottom: 0;
+    border-top: 0;
 
     &::-webkit-scrollbar {
-        width: 1px;
-        height: 0;
-        background-color: $neutral-400;
+        width: 0px;
+        height: 0px;
     }
 }
 
 // Right Pane of vertical Scroll styling
 .right-pane {
-    overflow: scroll;
-    border-top: 1px solid $neutral-400;
-    border-bottom: 1px solid $neutral-400;
-
-    &::-webkit-scrollbar {
-        width: 0px;
-        height: 0px;
-        background-color: $neutral-400;
-    }
+    min-width: 35%;
+    // overflow: scroll;
+    // border: 2px solid red;
 }
 
 // ----------------------------------------------------
@@ -124,7 +120,9 @@
 // giving left and right padding to body and image container
 .person-image-container,
 .body {
-    padding: 0 20%;
+    padding-left: 10rem;
+    padding-right: 5rem;
+    // border: 2px solid red;
 }
 
 // giving top padding to body, to keep contents below the image
@@ -177,6 +175,7 @@
             }
             .subtitles-container {
                 display: flex;
+
                 flex-wrap: wrap;
 
                 .subtitles {
@@ -199,7 +198,7 @@
             .tags {
                 background-color: $neutral-300;
                 border-radius: 3px;
-                padding: 5px 8px 2.5px;
+                padding: 5px 8px;
                 color: $black;
             }
         }
@@ -219,10 +218,9 @@
 // -----------------end--------------------------
 // Right Pane of vertical Scroll styling
 .right-pane {
-    // border: 3px solid red;
     .container {
         // border: 3px solid black;
-        padding: 3rem 2rem;
+        padding: 2rem 1.5rem;
 
         .heading {
             // border: 2px solid red;
@@ -234,26 +232,40 @@
 }
 
 .list {
-    width: 80%;
+    width: 100%;
+    // border: 2px solid magenta;
     .list-item {
         // border: 2px solid black;
         max-width: 100%;
+        padding: 0;
+        .publication-container {
+            // border: 2px solid green;
+        }
     }
 }
 .project-list {
+    // border: 2px solid red;
     .list-item .project {
         text-decoration: underline;
-        text-decoration-color: $black;
-        text-underline-offset: 4px;
+        text-decoration-color: $soft-black;
+        text-underline-offset: 2px;
+
+        padding-top: 0.5rem;
+        // border: 2px solid black;
     }
+}
+.publication-container {
+    // border: 2px solid blue;
+    margin-top: 0.5rem;
 }
 
 .date-container {
     display: flex;
     margin: 0.5rem 0;
+    margin: 0;
+    // border: 2px solid red;
     .publication-on {
         text-transform: capitalize;
-        // border: 2px solid red;
     }
     .publication-date {
         margin-left: 3px;
@@ -289,23 +301,30 @@
         flex-direction: column;
         min-height: 0;
         min-height: 100vh;
+        // border: 2px solid red;
     }
 
     // left pane
     .left-pane {
         width: 100%;
+        // border: 2px solid blue;
+        border-bottom: 1px solid $neutral-400;
     }
     .person-image-container,
     .body {
         padding-left: 1rem;
         padding-right: 1rem;
     }
+    .tags-container {
+        // border: 2px solid red;
+        min-width: 100%;
+    }
 
     // right pane
     .right-pane {
         width: 100%;
-        overflow: visible;
-        border-top: 0;
+        // overflow: visible;
+        // border-top: 0.5px solid $neutral-400;
 
         .container {
             padding: 1.5rem 1rem;
@@ -330,12 +349,19 @@
                 }
             }
         }
+
         .tags-container {
+            margin: 0;
             .tags {
-                font-size: 0.5rem;
+                font-size: 0.6rem;
                 padding: 0;
             }
         }
+    }
+
+    .show-btn {
+        // border: 2px solid red;
+        margin-top: 1rem;
     }
 
     .profile .body .body-content .subtitles-container .subtitles {
