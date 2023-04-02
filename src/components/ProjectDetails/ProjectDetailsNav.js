@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { NavHashLink } from 'react-router-hash-link';
 
-const ProjectDetailsNav = ({ pathname, navLinks }) => {
+const ProjectDetailsNav = ({ pathname, navLinks, projectCardInfo }) => {
     return (
         <nav className='pdnav-container'>
             <div className='pd-nav'>
@@ -21,8 +22,9 @@ const ProjectDetailsNav = ({ pathname, navLinks }) => {
                     {navLinks.map((link) => {
                         return (
                             <li key={link.id} className='pd-menu-item'>
-                                <NavLink
+                                <NavHashLink
                                     to={link.url}
+                                    state={projectCardInfo}
                                     className={({ isActive }) =>
                                         isActive
                                             ? 'regular-14 pd-link pd-active'
@@ -30,7 +32,7 @@ const ProjectDetailsNav = ({ pathname, navLinks }) => {
                                     }
                                 >
                                     {link.name}
-                                </NavLink>
+                                </NavHashLink>
                             </li>
                         );
                     })}

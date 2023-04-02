@@ -114,7 +114,7 @@ const ProjectDetailsLeft = ({
 
             {/*1: PUBLICATIONS */}
             {publications !== undefined && (
-                <div className='pd-publications .pd-contain'>
+                <div className='pd-publications .pd-contain' id='publications'>
                     <h2 className='pd-pub-heading pd-heading'>Publications</h2>
                     <div className='publications-container'>
                         {publications.map((pub, id) => {
@@ -131,7 +131,7 @@ const ProjectDetailsLeft = ({
 
             {/*2: MEDIA */}
             {media !== undefined && (
-                <div className='pd-media .pd-contain'>
+                <div className='pd-media .pd-contain' id='media'>
                     <h2 className='pd-media-heading pd-heading'>media</h2>
                     {media
                         .map((data) => {
@@ -153,7 +153,7 @@ const ProjectDetailsLeft = ({
             )}
 
             {/*3: Partners */}
-            <div className='pd-partners .pd-contain'>
+            <div className='pd-partners .pd-contain' id='partners'>
                 <h2 className='pd-partner-heading pd-heading'>partners</h2>
                 <h3 className='regular-16 pd-content'>
                     <div className='dummy'></div>
@@ -163,7 +163,7 @@ const ProjectDetailsLeft = ({
                 </h3>
             </div>
             {/*4: funding */}
-            <div className='pd-funding .pd-contain'>
+            <div className='pd-funding .pd-contain' id='fundings'>
                 <h2 className='pd-funding-heading pd-heading'>
                     funding provided by
                 </h2>
