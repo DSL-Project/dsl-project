@@ -6,17 +6,16 @@ import ProjectDetailsRight from './ProjectDetailsRight';
 
 const ProjectDetails = () => {
     const { pathname, state: projectCardInfo } = useLocation();
+    console.log('PRJECT CARD INFO: ', projectCardInfo);
     const navLinks = [
-        { id: 1, name: 'publications', url: '/publications' },
-        { id: 2, name: 'description', url: '/' },
-        { id: 3, name: 'partners', url: '/' },
-        { id: 4, name: 'funding', url: '/' },
-        { id: 5, name: 'media', url: '/' },
+        { id: 1, name: 'publications', url: '/' },
+        { id: 2, name: 'partners', url: '/' },
+        { id: 3, name: 'funding', url: '/' },
+        { id: 4, name: 'media', url: '/' },
     ];
 
     const RightPaneData = { projectCardInfo, navLinks };
     const NavData = { pathname, navLinks };
-
     return (
         <main className='pd-main'>
             {/* navigation */}

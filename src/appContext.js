@@ -21,8 +21,10 @@ const AppProvider = ({ children }) => {
     // side bar menu state
     const [openMenu, setOpenMenu] = useState(false);
 
-    // tablet view is turned true, when app goes below or equal to 835px
+    // tablet view will turn to true, when app goes below or equal to 835px
     const [tabletView, setTabletView] = useState(false);
+
+    // mobile view will turn to true, when app goes below or equal to 375px
     const [mobileView, setMobileView] = useState(false);
 
     // author slug
@@ -37,15 +39,18 @@ const AppProvider = ({ children }) => {
     // home page data
     const [homepageData, setHomepageData] = useState([]);
 
-    const cmsQuery = React.useCallback(() => {
-        if (query) {
-            getCmsResponse(query).then((response) => {
-                setResponse(response);
-            });
-        } else {
-            setResponse([]);
-        }
-    }, [query, getCmsResponse]);
+    const cmsQuery = React.useCallback(
+        (queryName) => {
+            if (queryName) {
+                getCmsResponse(queryName).then((response) => {
+                    setResponse(response);
+                });
+            } else {
+                setResponse([]);
+            }
+        },
+        [query, getCmsResponse]
+    );
 
     const setBannerState = React.useCallback(() => {
         // this function set the banner state on app loads
@@ -100,19 +105,7 @@ const AppProvider = ({ children }) => {
                 (response) => response.team[0].fields.slug === authSlug
             );
 
-            // STEP 3 : get titles and subtitles
-            const filter = ['title', 'subtitle'];
-            const finalData = dataArray.map((targetObj) => {
-                const filteredObject = Object.keys(targetObj)
-                    .filter((key) => filter.includes(key))
-                    .reduce((cur, key) => {
-                        return Object.assign(cur, { [key]: targetObj[key] });
-                    }, {});
-                return filteredObject;
-            });
-
-            // set author projects state
-            setAuthorProjects(finalData);
+            setAuthorProjects(dataArray);
         });
     };
 
@@ -147,11 +140,11 @@ const AppProvider = ({ children }) => {
         });
     };
     useEffect(() => {
-        getPublicationsByAuthSlug(authorSlug);
-        getProjectsByAuthSlug(authorSlug);
-        setBannerState();
-        cmsQuery();
+        cmsQuery(query);
         getHomeData();
+        setBannerState();
+        getProjectsByAuthSlug(authorSlug);
+        getPublicationsByAuthSlug(authorSlug);
     }, [authorSlug, query, setBannerState]);
 
     useEffect(() => {

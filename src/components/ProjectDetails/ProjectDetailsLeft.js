@@ -84,9 +84,7 @@ const ProjectDetailsLeft = ({
             {/* tags */}
             {tags !== undefined && (
                 <ul className=' categories'>
-                    <li className='semi-14' id='hash'>
-                        #
-                    </li>
+                    <li className='semi-14'>#</li>
                     {tags.map((tag, id) => {
                         return (
                             <li key={id} className='semi-14 category'>
@@ -114,7 +112,7 @@ const ProjectDetailsLeft = ({
                 </div>
             )}
 
-            {/* PUBLICATIONS */}
+            {/*1: PUBLICATIONS */}
             {publications !== undefined && (
                 <div className='pd-publications .pd-contain'>
                     <h2 className='pd-pub-heading pd-heading'>Publications</h2>
@@ -131,14 +129,14 @@ const ProjectDetailsLeft = ({
                 </div>
             )}
 
-            {/* MEDIA */}
+            {/*2: MEDIA */}
             {media !== undefined && (
                 <div className='pd-media .pd-contain'>
                     <h2 className='pd-media-heading pd-heading'>media</h2>
                     {media
                         .map((data) => {
                             if (data?.fields === undefined) {
-                                return;
+                                return null;
                             }
                             return data.fields.title.content[0].content.map(
                                 (nestedData) => {
@@ -154,7 +152,7 @@ const ProjectDetailsLeft = ({
                 </div>
             )}
 
-            {/* Partners */}
+            {/*3: Partners */}
             <div className='pd-partners .pd-contain'>
                 <h2 className='pd-partner-heading pd-heading'>partners</h2>
                 <h3 className='regular-16 pd-content'>
@@ -164,8 +162,8 @@ const ProjectDetailsLeft = ({
                     <div className='dummy'></div>
                 </h3>
             </div>
-            {/* funding */}
-            <div className='pd-funding .pd-contain '>
+            {/*4: funding */}
+            <div className='pd-funding .pd-contain'>
                 <h2 className='pd-funding-heading pd-heading'>
                     funding provided by
                 </h2>
