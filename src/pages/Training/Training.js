@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { useGlobalContext } from '../../appContext';
 import Banner from '../../components/Banner/Banner';
+import { TRAININGS } from '../../appConstants';
 
 const Training = () => {
-    const { trainingBody, trainingTitle } = useGlobalContext();
+    const { trainingBody, trainingTitle, response, setQuery } =
+        useGlobalContext();
+    console.log('TRAINING RESPO: ', response);
+
+    useEffect(() => {
+        window.addEventListener('beforeunload', setQuery(TRAININGS));
+        return () => {
+            window.removeEventListener('beforeunload', setQuery(TRAININGS));
+        };
+    }, [setQuery]);
 
     return (
         <div className='training'>

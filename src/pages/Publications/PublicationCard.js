@@ -32,6 +32,7 @@ const PublicationCard = ({ publication, id }) => {
                                 to={url}
                                 className='perma-link'
                                 title='Permalink'
+                                target='_blank'
                             >
                                 <LinkIcon />
                             </Link>
@@ -48,6 +49,8 @@ const PublicationCard = ({ publication, id }) => {
                                     <a
                                         href={url}
                                         className='heading-url regular-caps'
+                                        target='_blank'
+                                        rel='noreferrer'
                                     >
                                         Link
                                         <span className='regular-caps svg-container'>
@@ -114,6 +117,8 @@ const PublicationCard = ({ publication, id }) => {
                                 const { subtitle, url, title, slug } =
                                     project.fields;
 
+                                console.log('PROJECT SLUG: ', slug);
+
                                 return (
                                     <div key={id}>
                                         {subtitle !== undefined && (
@@ -122,11 +127,16 @@ const PublicationCard = ({ publication, id }) => {
                                                 className='project medium-16'
                                             >
                                                 <Link
-                                                    to={url}
+                                                    to={`/projects/${slug}`}
                                                     state={project.fields}
                                                     className='proj-link'
                                                     title={title}
-                                                    target='_blank'
+                                                    onClick={() =>
+                                                        console.log(
+                                                            'PROJECT SLUG: ',
+                                                            slug
+                                                        )
+                                                    }
                                                 >
                                                     {subtitle.length > 62
                                                         ? ` ${title}: ${subtitle.substring(
