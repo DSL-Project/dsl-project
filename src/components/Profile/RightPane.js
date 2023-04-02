@@ -1,6 +1,7 @@
 import React from 'react';
 import { useGlobalContext } from '../../appContext';
 import { Link } from 'react-router-dom';
+import { printMonthYear } from '../../utils';
 
 const RightPane = () => {
     const { authorProjects, authorPublications } = useGlobalContext();
@@ -12,16 +13,19 @@ const RightPane = () => {
                 <h3 className='bold-16 heading'>affiliated projects</h3>
                 <ul className='project-list list'>
                     {authorProjects.map((project, id) => {
-                        const { subtitle } = project;
+                        const { subtitle, slug } = project;
                         return (
                             <li key={id} className='list-item'>
                                 <Link
-                                    to={'/projects'}
+                                    to={`/projects/${slug}`}
                                     state={project}
                                     className='medium-16 project'
                                     // target='_blank'
                                 >
-                                    {subtitle}
+                                    {`${
+                                        slug.charAt(0).toUpperCase() +
+                                        slug.slice(1)
+                                    }:  ${subtitle}`}
                                 </Link>
                             </li>
                         );
@@ -54,7 +58,8 @@ const RightPane = () => {
                                                 dateTime={date}
                                                 className='medium-16 publication-date'
                                             >
-                                                Published {date.substring(0, 4)}
+                                                {/* Published {date.substring(0, 4)} */}
+                                                Published {printMonthYear(date)}
                                             </time>
                                         </p>
                                     </div>

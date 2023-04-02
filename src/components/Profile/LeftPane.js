@@ -5,21 +5,6 @@ const LeftPane = ({ name, titles, tags, bio, personImg }) => {
     const [readMore, setReadMore] = useState(true);
     const [showAll, setShowAll] = useState(false);
     const { tabletView, mobileView } = useGlobalContext();
-    let tagss = [
-        'tag1',
-        'tag2',
-        'tag3',
-        'tag4',
-        'tag5',
-        'tag6',
-        'tag7',
-        'tag8',
-        'tag9',
-        'tag10',
-    ];
-
-    // tagss = ['tag1', 'tag2', 'tag3'];
-    // tagss = undefined;
     return (
         <div className='profile'>
             <div className='header'>
