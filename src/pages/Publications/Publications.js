@@ -1,14 +1,21 @@
-import React from 'react';
-
+import React, { useEffect } from 'react';
 import { useGlobalContext } from '../../appContext';
 import Banner from '../../components/Banner/Banner';
 import Searchbar from './Searchbar';
+import { PUBLICATIONS } from '../../appConstants';
 
 import PublicationCard from './PublicationCard';
 
 const Publications = () => {
-    const { response, publicationsBody, publicationsTitle } =
+    const { response, publicationsBody, publicationsTitle, setQuery } =
         useGlobalContext();
+
+    useEffect(() => {
+        window.addEventListener('beforeunload', setQuery(PUBLICATIONS));
+        return () => {
+            window.removeEventListener('beforeunload', setQuery(PUBLICATIONS));
+        };
+    }, [setQuery]);
 
     return (
         <main className='publication-main'>

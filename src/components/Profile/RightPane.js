@@ -1,5 +1,6 @@
 import React from 'react';
 import { useGlobalContext } from '../../appContext';
+import { Link } from 'react-router-dom';
 
 const RightPane = () => {
     const { authorProjects, authorPublications } = useGlobalContext();
@@ -14,14 +15,13 @@ const RightPane = () => {
                         const { subtitle } = project;
                         return (
                             <li key={id} className='list-item'>
-                                <a
-                                    href={'/'}
+                                <Link
+                                    href={'#'}
                                     className='medium-16 project'
                                     target='_blank'
-                                    rel='noreferrer'
                                 >
                                     {subtitle}
-                                </a>
+                                </Link>
                             </li>
                         );
                     })}

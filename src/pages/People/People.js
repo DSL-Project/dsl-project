@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useGlobalContext } from '../../appContext';
 import Banner from '../../components/Banner/Banner';
 import Person from './Person';
+import { PEOPLE } from '../../appConstants';
 const People = () => {
-    const { response, peopleBody, peopleTitle } = useGlobalContext();
+    const { response, peopleBody, peopleTitle, setQuery } = useGlobalContext();
+
+    useEffect(() => {
+        window.addEventListener('beforeunload', setQuery(PEOPLE));
+        return () => {
+            window.removeEventListener('beforeunload', setQuery(PEOPLE));
+        };
+    }, [setQuery]);
 
     return (
         <main className='people-main'>
