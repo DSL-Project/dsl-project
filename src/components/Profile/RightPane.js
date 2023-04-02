@@ -16,9 +16,10 @@ const RightPane = () => {
                         return (
                             <li key={id} className='list-item'>
                                 <Link
-                                    href={'#'}
+                                    to={'/projects'}
+                                    state={project}
                                     className='medium-16 project'
-                                    target='_blank'
+                                    // target='_blank'
                                 >
                                     {subtitle}
                                 </Link>
