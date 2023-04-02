@@ -1,17 +1,40 @@
-//import GoogleMap from "./GoogleMap";
-//import dslMapStill from "../../assets/dslMapStill.png";
+import { useState, useRef } from "react";
 
 function Contact() {
-  // const location = {
-  //   latitude: 43.26224447913664,
-  //   longitude: -79.92247478517749,
-  // };
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("select a subject");
+  const [message, setMessage] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const formRef = useRef(null);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData(formRef.current);
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then(() => {
+        setIsSubmitted(true);
+      })
+      .catch((error) => alert(error));
+  };
+
   return (
     <div className="contact">
       <div className="contact-wrapper">
         <div className="form-container">
           <h1>Contact the Lab</h1>
-          <form action="">
+          <form
+            onSubmit={handleSubmit}
+            method="post"
+            name="contact"
+            netlify
+            ref={formRef}
+          >
             <div className="name-email-subject">
               <fieldset>
                 <label className="semi-14" htmlFor="name">
@@ -20,8 +43,11 @@ function Contact() {
                 <input
                   className="regular-14"
                   id="name"
+                  name="fullName"
                   type="text"
                   placeholder="Your name"
+                  value={name}
+                  onChange={(event) => setName(event.target.value)}
                 />
               </fieldset>
               <fieldset>
@@ -31,8 +57,11 @@ function Contact() {
                 <input
                   className="regular-14"
                   id="email"
+                  name="email"
                   type="email"
                   placeholder="email@address.com"
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
                 />
               </fieldset>
               <fieldset>
@@ -43,9 +72,10 @@ function Contact() {
                   className="regular-14 default"
                   name="subject"
                   id="subject"
-                  defaultValue={""}
+                  value={subject}
+                  onChange={(event) => setSubject(event.target.value)}
                 >
-                  <option value="" disabled>
+                  <option value="select a subject" disabled>
                     Select a subject
                   </option>
                   <option value="study">Study</option>
@@ -62,18 +92,29 @@ function Contact() {
 
               <textarea
                 className="default regular-14"
-                name="your message"
+                name="subject"
                 id="your-message"
                 cols="30"
                 rows="8"
                 placeholder="Start typing your message..."
+                value={message}
+                onChange={(event) => setMessage(event.target.value)}
               />
             </div>
             <div className="button-container">
-              <p className="text-box semi-14">
-                The information above is used solely to respond to your inquiry.
-              </p>
-              <button className="regular-caps">SEND</button>
+              {isSubmitted ? (
+                <p className="text-box form-submitted">Thank you! Your message has been sent.</p>
+              ) : (
+                <p className="text-box semi-14">
+                  The information above is used solely to respond to your
+                  inquiry.
+                </p>
+              )}
+              <input type="hidden" name="form-name" value="contact" />
+
+              <button type="submit" className="regular-caps" disabled={isSubmitted ? true : false}>
+                SEND
+              </button>
             </div>
           </form>
         </div>
@@ -100,12 +141,7 @@ function Contact() {
               </div>
             </address>
           </address>
-          <div className="map">
-            {/* <img
-              src={dslMapStill}
-              alt="a map indicating digital society lab location"
-            /> */}
-          </div>
+          <div className="map"></div>
         </div>
       </div>
       <hr />
