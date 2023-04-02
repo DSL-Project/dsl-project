@@ -28,13 +28,8 @@ function Contact() {
       <div className="contact-wrapper">
         <div className="form-container">
           <h1>Contact the Lab</h1>
-          <form
-            onSubmit={handleSubmit}
-            method="post"
-            name="contact"
-            netlify
-            ref={formRef}
-          >
+          <form ref={formRef} id="contact-form" name="contact" method="post">
+            <input type="hidden" name="form-name" value="contact" />
             <div className="name-email-subject">
               <fieldset>
                 <label className="semi-14" htmlFor="name">
@@ -103,16 +98,21 @@ function Contact() {
             </div>
             <div className="button-container">
               {isSubmitted ? (
-                <p className="text-box form-submitted">Thank you! Your message has been sent.</p>
+                <p className="text-box semi-14 form-submitted">
+                  Thank you! Your message has been sent.
+                </p>
               ) : (
                 <p className="text-box semi-14">
                   The information above is used solely to respond to your
                   inquiry.
                 </p>
               )}
-              <input type="hidden" name="form-name" value="contact" />
 
-              <button type="submit" className="regular-caps" disabled={isSubmitted ? true : false}>
+              <button
+                type="submit"
+                className="regular-caps"
+                onClick={handleSubmit}
+              >
                 SEND
               </button>
             </div>
