@@ -1,8 +1,9 @@
 import React from 'react';
 import { TbExternalLink as ExternalLink } from 'react-icons/tb';
 import { NavLink } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 
-const ProjectDetailsRight = ({ navLinks, projectCardInfo }) => {
+const ProjectDetailsRight = ({ projectCardInfo, navLinks }) => {
     const { status, endDate: date, url } = projectCardInfo;
 
     return (
@@ -23,6 +24,7 @@ const ProjectDetailsRight = ({ navLinks, projectCardInfo }) => {
                         className='medium-14 site-btn'
                         to={url}
                         target='_blank'
+                        state={projectCardInfo}
                     >
                         visit the site
                         <span className='site-icon'>
@@ -37,13 +39,14 @@ const ProjectDetailsRight = ({ navLinks, projectCardInfo }) => {
                 <ul className='pd-nav'>
                     {navLinks.map((link) => {
                         return (
-                            <NavLink
+                            <HashLink
                                 key={link.id}
                                 to={link.url}
                                 className='semi-14 pd-nav-item'
+                                state={projectCardInfo}
                             >
                                 {link.name}
-                            </NavLink>
+                            </HashLink>
                         );
                     })}
                 </ul>
