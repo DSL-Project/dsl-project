@@ -114,11 +114,8 @@ const PublicationCard = ({ publication, id }) => {
                         {/* projects list */}
                         <ol className='project-list'>
                             {projects.map((project, id) => {
-                                const { subtitle, url, title, slug } =
+                                const { subtitle, title, slug } =
                                     project.fields;
-
-                                console.log('PROJECT SLUG: ', slug);
-
                                 return (
                                     <div key={id}>
                                         {subtitle !== undefined && (
@@ -131,12 +128,6 @@ const PublicationCard = ({ publication, id }) => {
                                                     state={project.fields}
                                                     className='proj-link'
                                                     title={title}
-                                                    onClick={() =>
-                                                        console.log(
-                                                            'PROJECT SLUG: ',
-                                                            slug
-                                                        )
-                                                    }
                                                 >
                                                     {subtitle.length > 62
                                                         ? ` ${title}: ${subtitle.substring(

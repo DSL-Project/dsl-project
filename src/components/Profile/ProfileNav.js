@@ -5,8 +5,6 @@ import { Link } from 'react-router-dom';
 const ProfileNav = ({ pathname, website, email, name }) => {
     const pathItem = pathname.split('/');
 
-    console.log('PROFILE NAV: ', website);
-
     return (
         <section className='nav-container'>
             {/*--- person's nav --*/}

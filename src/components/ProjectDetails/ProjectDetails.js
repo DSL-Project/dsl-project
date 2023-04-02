@@ -6,7 +6,6 @@ import ProjectDetailsRight from './ProjectDetailsRight';
 
 const ProjectDetails = () => {
     const { pathname, state: projectCardInfo } = useLocation();
-    console.log('PROJECT CARD INFO: ', projectCardInfo.title);
     const navLinks = [
         { id: 1, name: 'publications', url: '/publications' },
         { id: 2, name: 'description', url: '/' },

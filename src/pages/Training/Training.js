@@ -7,7 +7,7 @@ import { TRAININGS } from '../../appConstants';
 const Training = () => {
     const { trainingBody, trainingTitle, response, setQuery } =
         useGlobalContext();
-    console.log('TRAINING RESPO: ', response);
+    console.log('TRAINING RESPONSE: ', response);
 
     useEffect(() => {
         window.addEventListener('beforeunload', setQuery(TRAININGS));
