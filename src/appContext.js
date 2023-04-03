@@ -1,13 +1,22 @@
 /*This context calls getStatic method from 'useContentful' hook.
 getStatic method fetch 'static' field from contentful
  */
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, {
+    createContext,
+    useContext,
+    useEffect,
+    useState,
+    useCallback,
+} from 'react';
 import { STATIC_QUERY, PROJECTS, PUBLICATIONS } from './appConstants';
 import useContentful from './hooks/useContenful';
 
 const AppContext = createContext();
 const AppProvider = ({ children }) => {
     const { getCmsResponse } = useContentful();
+
+    // loading state
+    const [isLoading, setIsLoading] = useState(false);
 
     // ** response state updates everytime user clicks on navbar links **
     const [response, setResponse] = useState([]);
@@ -39,17 +48,19 @@ const AppProvider = ({ children }) => {
     // home page data
     const [homepageData, setHomepageData] = useState([]);
 
-    const cmsQuery = React.useCallback(
-        (queryName) => {
-            if (queryName) {
-                getCmsResponse(queryName).then((response) => {
-                    setResponse(response);
-                });
-            } else {
-                setResponse([]);
+    const cmsQuery = useCallback(
+        async (queryName) => {
+            setIsLoading(true);
+            try {
+                const response = await getCmsResponse(queryName);
+                setResponse(response);
+                setIsLoading(false);
+            } catch (error) {
+                setIsLoading(true);
             }
+            setIsLoading(false);
         },
-        [query, getCmsResponse]
+        [query]
     );
 
     const setBannerState = React.useCallback(() => {
@@ -130,15 +141,18 @@ const AppProvider = ({ children }) => {
         });
     };
 
-    const getHomeData = () => {
-        getCmsResponse(STATIC_QUERY).then((response) => {
-            if (response) {
-                setHomepageData(response);
-            } else {
-                setHomepageData('no data');
-            }
-        });
-    };
+    const getHomeData = useCallback(async () => {
+        setIsLoading(true);
+        try {
+            const response = await getCmsResponse(STATIC_QUERY);
+            setHomepageData(response);
+            setIsLoading(false);
+        } catch (error) {
+            setIsLoading(true);
+        }
+        setIsLoading(false);
+    }, []);
+
     useEffect(() => {
         cmsQuery(query);
         getHomeData();
@@ -154,6 +168,7 @@ const AppProvider = ({ children }) => {
     return (
         <AppContext.Provider
             value={{
+                isLoading,
                 response,
                 setQuery,
                 tabletView,
