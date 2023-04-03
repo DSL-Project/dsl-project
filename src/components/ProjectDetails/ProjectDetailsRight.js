@@ -41,6 +41,7 @@ const ProjectDetailsRight = ({ projectCardInfo, navLinks }) => {
                         return (
                             <HashLink
                                 key={link.id}
+                                smooth
                                 to={link.url}
                                 className='semi-14 pd-nav-item'
                                 state={projectCardInfo}
