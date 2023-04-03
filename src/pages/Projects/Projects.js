@@ -20,6 +20,9 @@ const Projects = () => {
     if (isLoading) {
         return <LoadingState />;
     }
+    if (response === undefined) {
+        return null;
+    }
 
     return (
         <main className='projects-main'>
