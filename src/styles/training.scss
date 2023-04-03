@@ -1,25 +1,22 @@
 .training {
-    hr {
-        display: block;
-        width: 100%;
-        color: none;
-        border-top: none;
+    .training-border:not(:last-child) {
         border-bottom: 1px solid $neutral-400;
     }
     .training-wrapper {
-        width: 60%;
-        margin: 0 auto;
         color: $soft-black;
-        h2 {
-            color: $black;
-            font-weight: 500;
-        }
+        padding-bottom: 3rem;
     }
 
     .training-container {
-        padding: 4.3rem 0;
+        .training-title {
+            color: $black;
+            // font-weight: 500;
+        }
 
-        p {
+        .training-link {
+            padding: 1rem 0;
+        }
+        .training-description {
             padding: 1rem 0;
         }
 
@@ -29,33 +26,10 @@
             //   this is a placeholder for MD System so the link doesn't break
             padding: 1rem 2rem;
             border-radius: 0.25rem;
-            a {
+            .training-anchor {
                 display: inline;
                 text-decoration: underline;
             }
-        }
-    }
-}
-
-//! Media Queries
-@media (max-width: 834px) {
-    .training {
-        .training-wrapper {
-            width: 90%;
-        }
-        .training-container {
-            padding: 3.65rem 0;
-        }
-    }
-}
-
-@media (max-width: 375px) {
-    .training {
-        .training-wrapper {
-            width: 87%;
-        }
-        .training-container {
-            padding: 2.5rem 0;
         }
     }
 }

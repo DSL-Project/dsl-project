@@ -261,6 +261,11 @@ input {
     }
 }
 
+// special S
+.specialS {
+    text-transform: lowercase;
+}
+
 //----- media query-----------------------------------------------------------
 @media (max-width: 835px) {
     // single publication card

@@ -19,6 +19,9 @@ const People = () => {
     if (isLoading) {
         return <LoadingState />;
     }
+    if (response === undefined) {
+        return null;
+    }
 
     return (
         <main className='people-main'>
