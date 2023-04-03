@@ -23,6 +23,7 @@ const ProjectDetailsNav = ({ pathname, navLinks, projectCardInfo }) => {
                         return (
                             <li key={link.id} className='pd-menu-item'>
                                 <NavHashLink
+                                    smooth
                                     to={link.url}
                                     state={projectCardInfo}
                                     className={({ isActive }) =>

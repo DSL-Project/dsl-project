@@ -59,7 +59,8 @@
 // LEFT Pane
 .pd-leftpane {
     width: 70%;
-    border: 1px solid $neutral-400;
+    // border: 1px solid $neutral-400;
+    border-right: 1px solid $neutral-400;
     border-bottom: 0;
     overflow: auto;
     &::-webkit-scrollbar {
