@@ -1,13 +1,22 @@
 /*This context calls getStatic method from 'useContentful' hook.
 getStatic method fetch 'static' field from contentful
  */
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, {
+    createContext,
+    useContext,
+    useEffect,
+    useState,
+    useCallback,
+} from 'react';
 import { STATIC_QUERY, PROJECTS, PUBLICATIONS } from './appConstants';
 import useContentful from './hooks/useContenful';
 
 const AppContext = createContext();
 const AppProvider = ({ children }) => {
     const { getCmsResponse } = useContentful();
+
+    // loading state
+    const [isLoading, setIsLoading] = useState(false);
 
     // ** response state updates everytime user clicks on navbar links **
     const [response, setResponse] = useState([]);
@@ -21,8 +30,11 @@ const AppProvider = ({ children }) => {
     // side bar menu state
     const [openMenu, setOpenMenu] = useState(false);
 
-    // tablet view is turned true, when app goes below or equal to 835px
+    // tablet view will turn to true, when app goes below or equal to 835px
     const [tabletView, setTabletView] = useState(false);
+
+    // mobile view will turn to true, when app goes below or equal to 375px
+    const [mobileView, setMobileView] = useState(false);
 
     // author slug
     const [authorSlug, setAuthorSlug] = useState('');
@@ -36,15 +48,20 @@ const AppProvider = ({ children }) => {
     // home page data
     const [homepageData, setHomepageData] = useState([]);
 
-    const cmsQuery = React.useCallback(() => {
-        if (query) {
-            getCmsResponse(query).then((response) => {
+    const cmsQuery = useCallback(
+        async (queryName) => {
+            setIsLoading(true);
+            try {
+                const response = await getCmsResponse(queryName);
                 setResponse(response);
-            });
-        } else {
-            setResponse([]);
-        }
-    }, [query, getCmsResponse]);
+                setIsLoading(false);
+            } catch (error) {
+                setIsLoading(true);
+            }
+            setIsLoading(false);
+        },
+        [query]
+    );
 
     const setBannerState = React.useCallback(() => {
         // this function set the banner state on app loads
@@ -76,10 +93,13 @@ const AppProvider = ({ children }) => {
     }, []);
 
     const handleResize = () => {
-        if (window.innerWidth < 835) {
+        setTabletView(false);
+        setMobileView(false);
+        if (window.innerWidth < 837) {
             setTabletView(true);
-        } else {
-            setTabletView(false);
+        }
+        if (window.innerWidth < 375) {
+            setMobileView(true);
         }
     };
 
@@ -96,19 +116,7 @@ const AppProvider = ({ children }) => {
                 (response) => response.team[0].fields.slug === authSlug
             );
 
-            // STEP 3 : get titles and subtitles
-            const filter = ['title', 'subtitle'];
-            const finalData = dataArray.map((targetObj) => {
-                const filteredObject = Object.keys(targetObj)
-                    .filter((key) => filter.includes(key))
-                    .reduce((cur, key) => {
-                        return Object.assign(cur, { [key]: targetObj[key] });
-                    }, {});
-                return filteredObject;
-            });
-
-            // set author projects state
-            setAuthorProjects(finalData);
+            setAuthorProjects(dataArray);
         });
     };
 
@@ -133,21 +141,24 @@ const AppProvider = ({ children }) => {
         });
     };
 
-    const getHomeData = () => {
-        getCmsResponse(STATIC_QUERY).then((response) => {
-            if (response) {
-                setHomepageData(response);
-            } else {
-                setHomepageData('no data');
-            }
-        });
-    };
+    const getHomeData = useCallback(async () => {
+        setIsLoading(true);
+        try {
+            const response = await getCmsResponse(STATIC_QUERY);
+            setHomepageData(response);
+            setIsLoading(false);
+        } catch (error) {
+            setIsLoading(true);
+        }
+        setIsLoading(false);
+    }, []);
+
     useEffect(() => {
-        getPublicationsByAuthSlug(authorSlug);
-        getProjectsByAuthSlug(authorSlug);
-        setBannerState();
-        cmsQuery();
+        cmsQuery(query);
         getHomeData();
+        setBannerState();
+        getProjectsByAuthSlug(authorSlug);
+        getPublicationsByAuthSlug(authorSlug);
     }, [authorSlug, query, setBannerState]);
 
     useEffect(() => {
@@ -157,9 +168,11 @@ const AppProvider = ({ children }) => {
     return (
         <AppContext.Provider
             value={{
+                isLoading,
                 response,
                 setQuery,
                 tabletView,
+                mobileView,
                 setAuthorSlug,
                 authorProjects,
                 authorPublications,

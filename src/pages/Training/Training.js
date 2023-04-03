@@ -1,10 +1,24 @@
-import React from 'react';
-
+import React, { useEffect } from 'react';
 import { useGlobalContext } from '../../appContext';
 import Banner from '../../components/Banner/Banner';
+import { TRAININGS } from '../../appConstants';
+import LoadingState from '../../components/LoadingState/LoadingState';
 
 const Training = () => {
-    const { trainingBody, trainingTitle } = useGlobalContext();
+    const { trainingBody, trainingTitle, response, setQuery, isLoading } =
+        useGlobalContext();
+    console.log('TRAINING RESPONSE: ', response);
+
+    useEffect(() => {
+        window.addEventListener('beforeunload', setQuery(TRAININGS));
+        return () => {
+            window.removeEventListener('beforeunload', setQuery(TRAININGS));
+        };
+    }, [setQuery]);
+
+    if (isLoading) {
+        return <LoadingState />;
+    }
 
     return (
         <div className='training'>

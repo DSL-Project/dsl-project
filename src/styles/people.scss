@@ -36,17 +36,6 @@
                 }
             }
 
-            // default img size, incase img not present in cms
-            .default-img {
-                min-width: 76px;
-                min-height: 76px;
-                background-color: $neutral-300;
-                border-radius: 5px;
-                .profile-content {
-                    display: none;
-                }
-            }
-
             //second child of profile link
             .profile-content {
                 width: 80%;
@@ -78,8 +67,11 @@
 }
 
 // styling on hover
+
 .personCard {
+    border-radius: 5px;
     transition: $main-transition;
+
     &:hover {
         background-color: $black;
         .profile-link .profile-content .profile-name,
@@ -87,6 +79,11 @@
             color: $white;
         }
     }
+}
+
+// space between the footer
+.students {
+    margin-bottom: 4rem;
 }
 
 // media-queries

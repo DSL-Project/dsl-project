@@ -25,6 +25,9 @@
         margin-top: 0.7rem;
     }
 }
+.project-link:last-child {
+    margin-bottom: 3rem;
+}
 .project-card-metadata {
     display: flex;
     justify-content: space-between;
@@ -73,7 +76,7 @@
     // second child categories/tags
     .categories {
         display: flex;
-        flex-wrap: wrap-reverse;
+        flex-wrap: wrap;
         // styling hashtag
         li:first-child {
             width: 1.3rem;
@@ -160,9 +163,11 @@
 
 // hover effect on each project
 .project-card {
+    border: none;
+    outline: none;
     transition: $main-transition;
     &:hover {
-        background-color: #2a2a2a;
+        background-color: $soft-black;
         .project-card-heading,
         .project-card-subheading,
         .project-card-intro,

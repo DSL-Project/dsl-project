@@ -17,11 +17,6 @@ const ProjectDetailsLeft = ({
 }) => {
     const [screenSize, setScreenSize] = React.useState(getCurrentWidth());
 
-    const aboutArray =
-        about?.content?.filter((item) => {
-            return item?.content;
-        }) || null;
-
     function getCurrentWidth() {
         return window.innerWidth;
     }
@@ -71,22 +66,25 @@ const ProjectDetailsLeft = ({
 
             {/* about section */}
             <div className='pd-about'>
-                {aboutArray !== null &&
-                    aboutArray.map((item) =>
-                        item?.content?.map((nesteditem, id) => (
-                            <p key={id} className='regular-16 pd-about-content'>
-                                {nesteditem.value}
-                            </p>
-                        ))
-                    )}
+                {about !== undefined &&
+                    about.content.map((item) => {
+                        return item.content.map((nestedItem, id) => {
+                            return (
+                                <p
+                                    key={id}
+                                    className='regular-16 pd-about-content'
+                                >
+                                    {nestedItem.value}
+                                </p>
+                            );
+                        });
+                    })}
             </div>
 
             {/* tags */}
             {tags !== undefined && (
                 <ul className=' categories'>
-                    <li className='semi-14' id='hash'>
-                        #
-                    </li>
+                    <li className='semi-14'>#</li>
                     {tags.map((tag, id) => {
                         return (
                             <li key={id} className='semi-14 category'>
@@ -114,9 +112,9 @@ const ProjectDetailsLeft = ({
                 </div>
             )}
 
-            {/* PUBLICATIONS */}
+            {/*1: PUBLICATIONS */}
             {publications !== undefined && (
-                <div className='pd-publications .pd-contain'>
+                <div className='pd-publications .pd-contain' id='publications'>
                     <h2 className='pd-pub-heading pd-heading'>Publications</h2>
                     <div className='publications-container'>
                         {publications.map((pub, id) => {
@@ -131,12 +129,15 @@ const ProjectDetailsLeft = ({
                 </div>
             )}
 
-            {/* MEDIA */}
+            {/*2: MEDIA */}
             {media !== undefined && (
-                <div className='pd-media .pd-contain'>
+                <div className='pd-media .pd-contain' id='media'>
                     <h2 className='pd-media-heading pd-heading'>media</h2>
                     {media
                         .map((data) => {
+                            if (data?.fields === undefined) {
+                                return null;
+                            }
                             return data.fields.title.content[0].content.map(
                                 (nestedData) => {
                                     return nestedData.value;
@@ -151,8 +152,8 @@ const ProjectDetailsLeft = ({
                 </div>
             )}
 
-            {/* Partners */}
-            <div className='pd-partners .pd-contain'>
+            {/*3: Partners */}
+            <div className='pd-partners .pd-contain' id='partners'>
                 <h2 className='pd-partner-heading pd-heading'>partners</h2>
                 <h3 className='regular-16 pd-content'>
                     <div className='dummy'></div>
@@ -161,8 +162,8 @@ const ProjectDetailsLeft = ({
                     <div className='dummy'></div>
                 </h3>
             </div>
-            {/* funding */}
-            <div className='pd-funding .pd-contain '>
+            {/*4: funding */}
+            <div className='pd-funding .pd-contain' id='fundings'>
                 <h2 className='pd-funding-heading pd-heading'>
                     funding provided by
                 </h2>

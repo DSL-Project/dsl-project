@@ -1,61 +1,61 @@
 .training {
-  hr {
-    display: block;
-    width: 100%;
-    color: none;
-    border-top: none;
-    border-bottom: 1px solid $neutral-400;
-  }
-  .training-wrapper {
-    width: 60%;
-    margin: 0 auto;
-    color: $soft-black;
-    h2 {
-      color: $black;
-      font-weight: 500;
+    hr {
+        display: block;
+        width: 100%;
+        color: none;
+        border-top: none;
+        border-bottom: 1px solid $neutral-400;
     }
-  }
-
-  .training-container {
-    padding: 4.3rem 0;
-
-    p {
-      padding: 1rem 0;
+    .training-wrapper {
+        width: 60%;
+        margin: 0 auto;
+        color: $soft-black;
+        h2 {
+            color: $black;
+            font-weight: 500;
+        }
     }
 
-    .training-link {
-      background-color: $neutral-200;
-      font-family: Arial, Helvetica, sans-serif;
-      //   this is a placeholder for MD System so the link doesn't break
-      padding: 1rem 2rem;
-      border-radius: 0.25rem;
-      a {
-        display: inline;
-        text-decoration: underline;
-      }
+    .training-container {
+        padding: 4.3rem 0;
+
+        p {
+            padding: 1rem 0;
+        }
+
+        .training-link {
+            background-color: $neutral-200;
+            font-family: Arial, Helvetica, sans-serif;
+            //   this is a placeholder for MD System so the link doesn't break
+            padding: 1rem 2rem;
+            border-radius: 0.25rem;
+            a {
+                display: inline;
+                text-decoration: underline;
+            }
+        }
     }
-  }
 }
 
 //! Media Queries
 @media (max-width: 834px) {
-  .training {
-    .training-wrapper {
-      width: 90%;
+    .training {
+        .training-wrapper {
+            width: 90%;
+        }
+        .training-container {
+            padding: 3.65rem 0;
+        }
     }
-    .training-container {
-      padding: 3.65rem 0;
-    }
-  }
 }
 
 @media (max-width: 375px) {
-  .training {
-    .training-wrapper {
-      width: 87%;
+    .training {
+        .training-wrapper {
+            width: 87%;
+        }
+        .training-container {
+            padding: 2.5rem 0;
+        }
     }
-    .training-container {
-      padding: 2.5rem 0;
-    }
-  }
 }
