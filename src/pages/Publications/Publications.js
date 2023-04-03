@@ -3,12 +3,17 @@ import { useGlobalContext } from '../../appContext';
 import Banner from '../../components/Banner/Banner';
 import Searchbar from './Searchbar';
 import { PUBLICATIONS } from '../../appConstants';
-
 import PublicationCard from './PublicationCard';
+import LoadingState from '../../components/LoadingState/LoadingState';
 
 const Publications = () => {
-    const { response, publicationsBody, publicationsTitle, setQuery } =
-        useGlobalContext();
+    const {
+        response,
+        publicationsBody,
+        publicationsTitle,
+        setQuery,
+        isLoading,
+    } = useGlobalContext();
 
     useEffect(() => {
         window.addEventListener('beforeunload', setQuery(PUBLICATIONS));
@@ -16,6 +21,10 @@ const Publications = () => {
             window.removeEventListener('beforeunload', setQuery(PUBLICATIONS));
         };
     }, [setQuery]);
+
+    if (isLoading) {
+        return <LoadingState />;
+    }
 
     return (
         <main className='publication-main'>

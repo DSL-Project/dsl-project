@@ -35,7 +35,7 @@ const navConstants = [
         id: 5,
         name: 'contact',
         url: '/contact',
-        queryString: null,
+        queryString: STATIC_QUERY,
     },
 ];
 

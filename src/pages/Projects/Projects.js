@@ -3,17 +3,23 @@ import Banner from '../../components/Banner/Banner';
 import { useGlobalContext } from '../../appContext';
 import ProjectCard from './ProjectCard';
 import { PROJECTS } from '../../appConstants';
+import LoadingState from '../../components/LoadingState/LoadingState';
 
 const Projects = () => {
-    const { response, projectsBody, projectsTitle, setQuery } =
+    const { response, projectsBody, projectsTitle, setQuery, isLoading } =
         useGlobalContext();
 
+    // refresh button functionality
     useEffect(() => {
         window.addEventListener('beforeunload', setQuery(PROJECTS));
         return () => {
             window.removeEventListener('beforeunload', setQuery(PROJECTS));
         };
     }, [setQuery]);
+
+    if (isLoading) {
+        return <LoadingState />;
+    }
 
     return (
         <main className='projects-main'>
