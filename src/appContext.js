@@ -22,7 +22,7 @@ const AppProvider = ({ children }) => {
     const [response, setResponse] = useState([]);
 
     // ** query state updates everytime user clicks on navbar links **
-    const [query, setQuery] = useState(STATIC_QUERY);
+    const [query, setQuery] = useState('');
 
     // ** banner populate during initial app loads ONLY , only once **
     const [bannerContent, setBannerContent] = useState({});
@@ -62,35 +62,6 @@ const AppProvider = ({ children }) => {
         },
         [query]
     );
-
-    const setBannerState = React.useCallback(() => {
-        // this function set the banner state on app loads
-
-        // (1)query cms for static field
-        getCmsResponse(STATIC_QUERY).then((response) => {
-            const targetObj = response[0];
-
-            //(2) filter the response, and return new object
-            const filterItems = [
-                'projectsTitle',
-                'projectsBody',
-                'trainingTitle',
-                'trainingBody',
-                'publicationsTitle',
-                'publicationsBody',
-                'peopleTitle',
-                'peopleBody',
-            ];
-            const filteredObject = Object.keys(targetObj)
-                .filter((key) => filterItems.includes(key))
-                .reduce((cur, key) => {
-                    return Object.assign(cur, { [key]: targetObj[key] });
-                }, {});
-
-            //(3) set the banner state
-            setBannerContent(filteredObject);
-        });
-    }, []);
 
     const handleResize = () => {
         setTabletView(false);
@@ -141,11 +112,37 @@ const AppProvider = ({ children }) => {
         });
     };
 
+    const getBannerContent = (response) => {
+        const targetObj = response[0];
+
+        //(2) filter the response, and return new object
+        const filterItems = [
+            'projectsTitle',
+            'projectsBody',
+            'trainingTitle',
+            'trainingBody',
+            'publicationsTitle',
+            'publicationsBody',
+            'peopleTitle',
+            'peopleBody',
+        ];
+        const filteredObject = Object.keys(targetObj)
+            .filter((key) => filterItems.includes(key))
+            .reduce((cur, key) => {
+                return Object.assign(cur, { [key]: targetObj[key] });
+            }, {});
+
+        //(3) set the banner state
+        setBannerContent(filteredObject);
+    };
+
     const getHomeData = useCallback(async () => {
         setIsLoading(true);
         try {
             const response = await getCmsResponse(STATIC_QUERY);
+
             setHomepageData(response);
+            getBannerContent(response);
             setIsLoading(false);
         } catch (error) {
             setIsLoading(true);
@@ -155,16 +152,18 @@ const AppProvider = ({ children }) => {
 
     useEffect(() => {
         cmsQuery(query);
-        getHomeData();
-        setBannerState();
         getProjectsByAuthSlug(authorSlug);
         getPublicationsByAuthSlug(authorSlug);
-    }, [authorSlug, query, setBannerState]);
+    }, [authorSlug, query]);
+
+    useEffect(() => {
+        getHomeData();
+    }, [getHomeData]);
 
     useEffect(() => {
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
-    }, []);
+    });
     return (
         <AppContext.Provider
             value={{

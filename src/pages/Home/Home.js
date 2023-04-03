@@ -4,7 +4,7 @@ import { FaFacebookF, FaTwitter } from 'react-icons/fa';
 import { Link } from 'react-scroll';
 import ProjectsCarousel from './ProjectsCarousel';
 import { useGlobalContext } from '../../appContext';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import defaultImg from '../../assets/defaultImg.jpg';
 import LoadingState from '../../components/LoadingState/LoadingState';
 //import { Skeleton } from "@chakra-ui/react";
@@ -28,6 +28,10 @@ function Home() {
     if (isLoading) {
         //return <Skeleton height="100vh" my="8" />;
         return <LoadingState />;
+    }
+
+    if (homepageData === undefined) {
+        return null;
     }
 
     return (

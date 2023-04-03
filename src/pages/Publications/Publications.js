@@ -25,6 +25,9 @@ const Publications = () => {
     if (isLoading) {
         return <LoadingState />;
     }
+    if (response === undefined) {
+        return null;
+    }
 
     return (
         <main className='publication-main'>
@@ -49,13 +52,10 @@ const Publications = () => {
                                 publication={publication}
                                 id={id}
                             />
-                            {/* <PublicationCard key={id} {...publication} /> */}
                         </div>
                     );
                 })}
             </div>
-            {/* </div> */}
-            {/* </section> */}
         </main>
     );
 };
