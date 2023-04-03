@@ -96,6 +96,10 @@
       background-color: $neutral-300;
       padding: 1rem 1rem;
       border-radius: 0.25rem;
+
+      &.form-submitted {
+        background-color: #DAD7C9;
+      }
     }
     button {
       background-color: $black;
