@@ -5,13 +5,18 @@ import { Link } from "react-scroll";
 import ProjectsCarousel from "./ProjectsCarousel";
 import { useGlobalContext } from "../../appContext";
 import defaultImg from "../../assets/defaultImg.jpg";
+import LoadingState from "../LoadingState/LoadingState";
 
 function Home() {
   const handleSubmit = () => {
     window.open("https://buttondown.email/digitalsocietylab", "popupwindow");
   };
-  const { homepageData } = useGlobalContext();
+  const { homepageData, isLoading } = useGlobalContext();
   const homeStatic = homepageData[0];
+
+  if (isLoading) {
+    return <LoadingState />;
+  }
 
   return (
     <div className="home">
