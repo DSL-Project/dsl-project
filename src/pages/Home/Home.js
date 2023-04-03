@@ -4,27 +4,14 @@ import { FaFacebookF, FaTwitter } from "react-icons/fa";
 import { Link } from "react-scroll";
 import ProjectsCarousel from "./ProjectsCarousel";
 import { useGlobalContext } from "../../appContext";
-import React, { useState, useEffect } from "react";
 import defaultImg from "../../assets/defaultImg.jpg";
-//import { Skeleton } from "@chakra-ui/react";
 
 function Home() {
   const handleSubmit = () => {
     window.open("https://buttondown.email/digitalsocietylab", "popupwindow");
   };
-  const [isLoading, setIsLoadding] = useState(true);
   const { homepageData } = useGlobalContext();
   const homeStatic = homepageData[0];
-  useEffect(() => {
-    if (homeStatic) {
-      setIsLoadding(false);
-    }
-  }, [homeStatic]);
-
-  if (isLoading) {
-    //return <Skeleton height="100vh" my="8" />;
-    return <div>Loading...</div>;
-  }
 
   return (
     <div className="home">
@@ -37,7 +24,6 @@ function Home() {
           <h1>
             {homeStatic?.hometitle ?? `Welcome to the Digital Society Lab`}
           </h1>
-          {/* <h1>Welcome to the Digital Society Lab</h1> */}
           <p className="regular-16">
             {homeStatic?.homebody?.content[1]?.content[1] ??
               `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
@@ -52,19 +38,6 @@ function Home() {
             semper ac sapien a pulvinar.`}
           </p>
 
-          {/* //!Leave the hard coded content for now in for styling bug fixes
-          <p className="regular-16">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-            justo nunc, ornare eget rutrum at, tristique ut nibh. Phasellus in
-            lobortis justo. Suspendisse ac dui sit amet elit porttitor
-            elementum. Nulla a tincidunt arcu. Curabitur molestie lectus
-            vestibulum, posuere nunc eu, iaculis ligula. Aenean quis odio
-            pellentesque, faucibus massa nec, pretium dui. Curabitur id quam ut
-            nibh convallis mollis. Nunc accumsan tempor sapien ac consectetur.
-            Donec pulvinar ultricies lectus, sed euismod ex consectetur et.
-            Nullam rhoncus risus eros, a dignissim risus fringilla sed. Fusce
-            semper ac sapien a pulvinar.
-          </p> */}
           <div className="recent-projects">
             <Link
               to="project-carousel"
@@ -84,9 +57,6 @@ function Home() {
           <h2>
             {homeStatic?.homeFundersText ?? `Made possible with funding from:`}
           </h2>
-
-          {/* //! leaving the hard coded content for now for styling bug fixes
-          <h2>Made possible with funding from:</h2> */}
 
           <div className="funding-logos">
             {homeStatic?.homeFunders?.map((funder) => (
@@ -111,14 +81,6 @@ function Home() {
               </div>
             )}
           </div>
-
-          {/* <div className="funding-logos">
-            <div className="funder-logo"></div>
-            <div className="funder-logo"></div>
-            <div className="funder-logo"></div>
-            <div className="funder-logo"></div>
-            <div className="funder-logo"></div>
-          </div> */}
         </div>
         <div className="home-contact">
           <div className="home-address">
