@@ -132,8 +132,6 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
       .bold-16 {
-        font-family: Arial, Helvetica, sans-serif;
-        // this is a placeholder for MD
         word-wrap: break-word;
       }
     }
