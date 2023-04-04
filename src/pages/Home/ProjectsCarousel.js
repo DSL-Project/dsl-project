@@ -20,7 +20,7 @@ const ProjectsCarousel = () => {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
           slidesToScroll: 1,
         },
       },
@@ -44,8 +44,8 @@ const ProjectsCarousel = () => {
         </div>
       </div>
       <Slider {...settings}>
-        {projectsData.map(({ id, title, subtitle, url, about, tags }) => (
-          <div className="project-container" key={id}>
+        {projectsData.map(({ slug, title, subtitle, url, about, tags }) => (
+          <div className="project-container" key={slug}>
             <div className="title-container">
               <h2 className="medium-16 project-title">{title}</h2>
             </div>

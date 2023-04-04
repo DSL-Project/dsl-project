@@ -1,6 +1,7 @@
 .contact {
   width: 100%;
   background-color: $neutral-100;
+  overflow-x: hidden;
 
   .contact-wrapper {
     width: 60%;
@@ -98,7 +99,7 @@
       border-radius: 0.25rem;
 
       &.form-submitted {
-        background-color: #DAD7C9;
+        background-color: #dad7c9;
       }
     }
     button {

@@ -9,9 +9,23 @@ function Contact() {
 
   const formRef = useRef(null);
 
+  const resetForm = () => {
+    setName("");
+    setEmail("");
+    setSubject("select a subject");
+    setMessage("");
+    setIsSubmitted(false);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(formRef.current);
+
+    if (!name || !email || subject === "select a subject" || !message) {
+      alert("Please fill in all the required fields.");
+      return;
+    }
+
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -19,6 +33,7 @@ function Contact() {
     })
       .then(() => {
         setIsSubmitted(true);
+        resetForm();
       })
       .catch((error) => alert(error));
   };
@@ -42,6 +57,7 @@ function Contact() {
                   type="text"
                   placeholder="Your name"
                   value={name}
+                  required
                   onChange={(event) => setName(event.target.value)}
                 />
               </fieldset>
@@ -56,6 +72,7 @@ function Contact() {
                   type="email"
                   placeholder="email@address.com"
                   value={email}
+                  required
                   onChange={(event) => setEmail(event.target.value)}
                 />
               </fieldset>
@@ -68,6 +85,7 @@ function Contact() {
                   name="subject"
                   id="subject"
                   value={subject}
+                  required
                   onChange={(event) => setSubject(event.target.value)}
                 >
                   <option value="select a subject" disabled>
@@ -93,6 +111,7 @@ function Contact() {
                 rows="8"
                 placeholder="Start typing your message..."
                 value={message}
+                required
                 onChange={(event) => setMessage(event.target.value)}
               />
             </div>
