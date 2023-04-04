@@ -11,8 +11,9 @@ function Home() {
   const handleSubmit = () => {
     window.open("https://buttondown.email/digitalsocietylab", "popupwindow");
   };
-  const { homepageData, isLoading } = useGlobalContext();
+  const { homepageData, isLoading, projectsData } = useGlobalContext();
   const homeStatic = homepageData[0];
+  console.log(projectsData);
 
   if (isLoading) {
     return <LoadingState />;
