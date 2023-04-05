@@ -19,7 +19,7 @@ const Training = () => {
         return <LoadingState />;
     }
     if (response === undefined || response.length < 1) {
-        return null;
+        return <Banner title={trainingTitle} info={trainingBody} />;
     }
 
     return (
