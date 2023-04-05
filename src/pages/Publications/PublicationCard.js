@@ -84,14 +84,12 @@ const PublicationCard = ({ publication, id }) => {
                                         >
                                             <Link
                                                 to={`/people/staff/${slug}`}
-                                                // to={`/`}
                                                 className='author-link medium-16'
                                                 state={author.fields}
                                             >
-                                                {/* {name} */}
-
-                                                {/* {name + (id ? '' : ',')} */}
-                                                {(id ? ',' : '') + name}
+                                                {id < authors.length - 1
+                                                    ? `${name},`
+                                                    : name}
                                             </Link>
                                         </li>
                                     );
