@@ -1,16 +1,35 @@
 @font-face {
   font-family: "MDSystem";
   src: url("./fonts/Non-Commercial/MDSystem/MDSystem-Bold.otf")
-      format("opentype"),
-    url("./fonts/Non-Commercial/MDSystem/MDSystem-Medium.otf")
-      format("opentype"),
-    url("./fonts/Non-Commercial/MDSystem/MDSystem-Regular.otf")
-      format("opentype"),
-    url("./fonts/Non-Commercial/MDSystem/MDSystem-Semibold.otf")
-      format("opentype");
-  font-weight: normal;
+    format("opentype");
+  font-weight: 700;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "MDSystem";
+  src: url("./fonts/Non-Commercial/MDSystem/MDSystem-Medium.otf")
+    format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MDSystem";
+  src: url("./fonts/Non-Commercial/MDSystem/MDSystem-Regular.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MDSystem";
+  src: url("./fonts/Non-Commercial/MDSystem/MDSystem-Semibold.otf")
+    format("opentype");
+  font-weight: 600;
+  font-style: normal;
+}
+
 body {
   margin: 0;
   font-family: "Sculpin Variable", "Sculpin", -apple-system, BlinkMacSystemFont,
