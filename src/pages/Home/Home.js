@@ -98,15 +98,19 @@ function Home() {
                   href="https://twitter.com/DigSocietyLab"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Follow us on Twitter"
                 >
-                  <FaTwitter />
+                  <FaTwitter aria-hidden="true" />
+                  <span className="sr-only">Follow us on Twitter</span>
                 </a>
                 <a
                   href="https://www.facebook.com/DigSocietyLab"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Follow us on Facebook"
                 >
-                  <FaFacebookF />
+                  <FaFacebookF aria-hidden="true" />
+                  <span className="sr-only">Follow us on Facebook</span>
                 </a>
               </div>
             </div>
