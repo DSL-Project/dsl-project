@@ -16,7 +16,7 @@ function Home() {
     };
     const { homepageData, isLoading, projectsData } = useGlobalContext();
     const homeStatic = homepageData[0];
-    console.log(projectsData);
+    // console.log(projectsData);
 
     if (isLoading) {
         return <LoadingState />;
