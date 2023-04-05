@@ -47,6 +47,7 @@ function Contact() {
             <input type="hidden" name="form-name" value="contact" />
             <div className="name-email-subject">
               <fieldset>
+                <legend className="sr-only">Please Enter Your Name</legend>
                 <label className="semi-14" htmlFor="name">
                   Name
                 </label>
@@ -62,6 +63,7 @@ function Contact() {
                 />
               </fieldset>
               <fieldset>
+                <legend className="sr-only">Please Enter Your Email</legend>
                 <label className="semi-14" htmlFor="email">
                   Email
                 </label>
@@ -77,6 +79,9 @@ function Contact() {
                 />
               </fieldset>
               <fieldset>
+                <legend className="sr-only">
+                  Please Select a Subject for Your Message
+                </legend>
                 <label className="semi-14" htmlFor="subject">
                   Subject
                 </label>
