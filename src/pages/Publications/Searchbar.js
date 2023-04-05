@@ -1,6 +1,9 @@
 import React from 'react';
+import Submenu from './Submenu';
+import { useGlobalFilterContext } from '../../filterContext';
 
 const Searchbar = () => {
+    const { isSubmenuOpen, toggleSubmenu } = useGlobalFilterContext();
     return (
         <section className='search-bar'>
             <form action='#' className='form'>
@@ -17,6 +20,7 @@ const Searchbar = () => {
                             id='filter'
                             className='regular-caps filterBx bx'
                             placeholder='filter'
+                            onClick={toggleSubmenu}
                         ></input>
                     </fieldset>
                     {/* sort-by dropdown */}
@@ -53,6 +57,8 @@ const Searchbar = () => {
                         className='regular-caps searchBx bx'
                     />
                 </fieldset>
+
+                {isSubmenuOpen && <Submenu />}
             </form>
         </section>
     );

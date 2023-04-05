@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Submenu = () => {
-    return <div>Submenu</div>;
+    return <div>Submenu in development...</div>;
 };
 
 export default Submenu;
