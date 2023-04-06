@@ -205,19 +205,29 @@
 @media (max-width: 375px) {
     // publication form
     .form {
-        display: flex;
-        align-items: center;
+        // display: flex;
+        // align-items: center;
+        // justify-content: space-between;
+        // width: 85%;
+        // width: 100%;
+        margin: 0;
 
         .child1 {
-            min-width: 85%;
-            gap: 0;
+            // border: 2px solid blue;
+            // min-width: 85%;
+            // width: 100%;
+            // gap: 0;
+            margin: 0;
+            gap: 2.5rem;
 
             .subchild1 {
-                margin-right: 5px;
+                // margin-right: 5px;
+                margin: 0;
             }
 
             .subchild2 {
-                margin-right: 5px;
+                // margin-right: 5px;
+                margin-right: 0px;
             }
         }
         .child2 {
