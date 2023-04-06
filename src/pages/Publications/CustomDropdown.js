@@ -11,7 +11,7 @@ const CustomDropdown = ({ title, data }) => {
 
     return (
         <Multiselect
-            showCheckbox={true}
+            showCheckbox
             options={data}
             placeholder={`${count === 0 ? `${title}` : `${title} (${count})`}`}
             displayValue='key'
