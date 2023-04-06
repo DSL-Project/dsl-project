@@ -8,7 +8,8 @@
 
 .publication-main {
     .pub-wrapper {
-        padding-bottom: 4rem;
+        padding-bottom: 8rem;
+        // border: 2px solid red;
 
         .single-content {
             margin-top: 2rem;
@@ -23,7 +24,8 @@
     border: 1px solid $neutral-400;
 
     .publication {
-        padding: 1rem;
+        padding: 1.5rem;
+        // border: 2px solid red;
 
         .meta-container {
             .meta {
@@ -51,7 +53,6 @@
                 .popular {
                     color: $popular-col;
                     background-color: $popular-bg;
-                    transition: $main-transition;
 
                     &:hover {
                         border: 1px solid $popular-col;
@@ -77,6 +78,7 @@
             // heading
             .journal-heading-container {
                 padding: 0.7rem 0;
+
                 .journal-heading {
                     color: $soft-black;
 
@@ -93,6 +95,7 @@
                             padding: 0.15rem 0.3rem;
                             display: inline-flex;
                             align-items: center;
+                            transition: $main-transition;
 
                             svg {
                                 margin-left: 0.15rem;
@@ -111,7 +114,7 @@
         }
     }
     .authors-container {
-        padding: 1rem;
+        padding: 1.5rem;
         border-top: 1px solid $neutral-400;
 
         .authors {
@@ -141,8 +144,9 @@
         }
     }
     .featured-projects-container {
-        padding: 1rem;
+        padding: 1.5rem;
         border-top: 1px solid $neutral-400;
+        // border: 2px solid red;
 
         .featured-projects {
             display: grid;
