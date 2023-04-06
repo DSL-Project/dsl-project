@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useGlobalContext } from '../../appContext';
 import Banner from '../../components/Banner/Banner';
-import Searchbar from './Searchbar';
+// import Searchbar from './Searchbar';
 import { PUBLICATIONS } from '../../appConstants';
 import PublicationCard from './PublicationCard';
 import LoadingState from '../../components/LoadingState/LoadingState';
@@ -39,7 +39,7 @@ const Publications = () => {
             {/* <section className='publication-list'> */}
             <div className='wrapper pub-wrapper'>
                 {/*search bar */}
-                <Searchbar />
+                {/* <Searchbar /> */}
                 {/* <div className='content-container'> */}
                 {response.map((publication, id) => {
                     return (
