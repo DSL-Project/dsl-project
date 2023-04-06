@@ -16,6 +16,9 @@
 
   .regular-16 {
     padding: 1.4rem 0;
+    .description {
+      margin-bottom: 1rem;
+    }
   }
 }
 .recent-projects {
@@ -56,12 +59,6 @@
         cursor: pointer;
         img {
           width: auto;
-          // svg {
-          //   fill: #525252;
-          //   &:hover {
-          //     fill: $black;
-          //   }
-          // }
         }
       }
     }

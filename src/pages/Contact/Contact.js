@@ -1,4 +1,6 @@
 import { useState, useRef } from "react";
+import LoadingState from "../../components/LoadingState/LoadingState";
+import { useGlobalContext } from "../../appContext";
 
 function Contact() {
   const [name, setName] = useState("");
@@ -37,6 +39,17 @@ function Contact() {
       })
       .catch((error) => alert(error));
   };
+
+  const { homepageData, isLoading } = useGlobalContext();
+
+  if (!homepageData || homepageData.length === 0) {
+    return <LoadingState />;
+  }
+  const homeStatic = homepageData[0];
+
+  if (isLoading) {
+    return <LoadingState />;
+  }
 
   return (
     <div className="contact">
@@ -147,20 +160,25 @@ function Contact() {
       <div className="contact-wrapper">
         <div className="address-container">
           <address className="address">
-            <div className="bold-18 address-name">Digital Society Lab</div>
+            <div className="bold-18 address-name">
+              {homeStatic.hometitle.slice(15)}
+            </div>
             <div className="street-address">
-              <p className="bold-18">1280 Main St</p>
-              <p className="bold-18">WHamilton</p>
-              <p className="bold-18">ONL8S4L8</p>
+              <p className="bold-18">{homeStatic.streetAddress}</p>
+              <p className="bold-18">{homeStatic.city},</p>
+              <p className="bold-18">
+                <span>{homeStatic.province}</span>&nbsp;
+                <span>{homeStatic.postcode}</span>
+              </p>
             </div>
             <address className="contact-methods">
               <div className="bold-16">Phone:</div>
-              <div className="bold-16">555-555-5555</div>
+              <div className="bold-16">{homeStatic.phoneNumber}</div>
 
               <div className="bold-16">Email</div>
               <div className="bold-16">
                 <a href="mailto: webmaster@digitalsocietylab.org">
-                  webmaster@digitalsocietylab.org
+                  {homeStatic.email}
                 </a>
               </div>
             </address>
