@@ -5,7 +5,7 @@ import { Link } from 'react-scroll';
 import ProjectsCarousel from './ProjectsCarousel';
 import { useGlobalContext } from '../../appContext';
 import defaultImg from '../../assets/defaultImg.jpg';
-import LoadingState from '../LoadingState/LoadingState';
+import LoadingState from '../../components/LoadingState/LoadingState';
 
 function Home() {
     const handleSubmit = () => {
