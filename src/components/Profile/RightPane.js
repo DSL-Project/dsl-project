@@ -22,10 +22,18 @@ const RightPane = () => {
                                     className='medium-16 project'
                                     // target='_blank'
                                 >
+                                    {/* {`${
+                                        slug.charAt(0).toUpperCase() +
+                                        slug.slice(1)
+                                    }:  ${subtitle}`} */}
                                     {`${
                                         slug.charAt(0).toUpperCase() +
                                         slug.slice(1)
-                                    }:  ${subtitle}`}
+                                    }  ${
+                                        subtitle !== undefined
+                                            ? `: ${subtitle}`
+                                            : ''
+                                    }`}
                                 </Link>
                             </li>
                         );
