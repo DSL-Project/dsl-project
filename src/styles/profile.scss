@@ -94,7 +94,7 @@
 // dividing main page into 2 panes, left pane 80% and right 20%
 // LEFT Pane
 .left-pane {
-    // width: 70%;
+    min-width: 75%;
     // border: 1px solid $neutral-400;
     border-right: 1px solid $neutral-400;
     overflow: auto;
@@ -109,9 +109,12 @@
 
 // Right Pane of vertical Scroll styling
 .right-pane {
-    min-width: 35%;
+    // min-width: 35%;
+    // max-width: 35%;
     // overflow: scroll;
-    // border: 2px solid red;
+    width: 100%;
+
+    // border: 2px solid blue;
 }
 
 // ----------------------------------------------------
