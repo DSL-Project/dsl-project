@@ -29,10 +29,11 @@ function Footer() {
         </div>
         <div className="copyright-terms">
           <p className="copyright">
-            @ Digital Society Lab, 2023. McMaster University
+            @ Digital Society Lab, {new Date().getFullYear()}. McMaster
+            University
           </p>
           <p className="terms">
-            <a href="/">Privacty Policy</a>
+            <a href="/">Privacy Policy</a>
             &nbsp;& &nbsp;
             <a href="/">Terms of Use</a>
           </p>
