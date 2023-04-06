@@ -13,7 +13,6 @@ const Searchbar = () => {
                         <label htmlFor='filter' className='sr-only'>
                             filter
                         </label>
-
                         <input
                             type='text'
                             name='filter'
@@ -34,18 +33,26 @@ const Searchbar = () => {
                             id='sort'
                             className='regular-caps sortBx bx'
                         >
-                            <option value='placeholder' disabled id='sort'>
+                            <option
+                                value='placeholder'
+                                selected
+                                disabled
+                                id='sort'
+                            >
                                 sort by
                             </option>
                             <option value='item1'>item1</option>
                             <option value='item2'>item2</option>
                         </select>
                     </fieldset>
+                    <div className='subMenu'>
+                        {isSubmenuOpen && <Submenu />}
+                    </div>
                 </fieldset>
 
                 {/* search bar */}
                 {/* child  */}
-                <fieldset className='child2'>
+                {/* <fieldset className='child2'>
                     <label htmlFor='search' className='sr-only'>
                         search
                     </label>
@@ -56,9 +63,7 @@ const Searchbar = () => {
                         placeholder='search'
                         className='regular-caps searchBx bx'
                     />
-                </fieldset>
-
-                {isSubmenuOpen && <Submenu />}
+                </fieldset> */}
             </form>
         </section>
     );

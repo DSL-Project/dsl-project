@@ -5,8 +5,10 @@ import Searchbar from './Searchbar';
 import { PUBLICATIONS } from '../../appConstants';
 import PublicationCard from './PublicationCard';
 import LoadingState from '../../components/LoadingState/LoadingState';
+import { useGlobalFilterContext } from '../../filterContext';
 
 const Publications = () => {
+    const { closeSubmenu } = useGlobalFilterContext();
     const {
         response,
         publicationsBody,
@@ -41,7 +43,11 @@ const Publications = () => {
                 {/* <div className='content-container'> */}
                 {response.map((publication, id) => {
                     return (
-                        <div className='single-content' key={id}>
+                        <div
+                            className='single-content'
+                            key={id}
+                            onClick={closeSubmenu}
+                        >
                             {publication.date !== undefined && (
                                 <h2 className='year'>
                                     {publication.date.substring(0, 4)}
