@@ -43,7 +43,6 @@ const ProjectDetailsLeft = ({ projectCardInfo, newStatus }) => {
                 <div className='top-container'>
                     <div className='status-container'>
                         <div className='status-subcontainer'>
-                            {console.log('STATUS: ', newStatus)}
                             <p className='bold-16 status'>{newStatus}</p>
                             <p className='medium-16 year'>
                                 {date === undefined
