@@ -172,14 +172,15 @@
                 color: $black;
             }
             .subtitles-container {
+                // border: 2px solid red;
                 display: flex;
-
                 flex-wrap: wrap;
 
                 .subtitles {
                     color: $black;
-                    padding: 5px 0px;
+                    padding: 5px 2px;
                     text-transform: capitalize;
+                    // border: 2px solid blue;
                     // border: 2px solid red;
                 }
             }
@@ -350,6 +351,8 @@
             .subtitles-container {
                 .subtitles {
                     font-size: 0.7rem;
+                    // border: 2px solid red;
+                    margin-left: 2px;
                 }
             }
         }

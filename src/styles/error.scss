@@ -1,14 +1,16 @@
 .error-main {
-    min-height: calc(100vh - 12rem);
+    height: 75vh;
 
     .error-container {
         text-align: center;
         max-width: 40rem;
         margin: 0 auto;
-        min-height: calc(100vh - 12rem);
+
         display: flex;
         flex-direction: column;
         justify-content: center;
+        min-height: 100%;
+
         // border: 2px solid black;
 
         .error-heading {
@@ -25,5 +27,15 @@
         .error-description {
             margin-top: 1.5rem;
         }
+    }
+}
+
+@media (max-width: 375px) {
+    .error-main {
+        height: 70vh;
+    }
+
+    .error-description {
+        padding: 0.3rem 0.5rem;
     }
 }
