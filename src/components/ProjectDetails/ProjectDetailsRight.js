@@ -2,8 +2,8 @@ import React from 'react';
 import { TbExternalLink as ExternalLink } from 'react-icons/tb';
 import { HashLink } from 'react-router-hash-link';
 
-const ProjectDetailsRight = ({ projectCardInfo, subNavLinks }) => {
-    const { status, startDate: date, url } = projectCardInfo;
+const ProjectDetailsRight = ({ projectCardInfo, subNavLinks, newStatus }) => {
+    const { startDate: date, url } = projectCardInfo;
 
     return (
         <aside className='right-pane'>
@@ -12,9 +12,7 @@ const ProjectDetailsRight = ({ projectCardInfo, subNavLinks }) => {
                 <div className='status-container'>
                     <div className='status-subcontainer'>
                         {/* <p className='bold-16 status'>{status}</p> */}
-                        <p className='bold-16 status'>
-                            {status === undefined ? 'Active' : status}
-                        </p>
+                        <p className='bold-16 status'>{newStatus}</p>
 
                         {date !== undefined && (
                             <p className='medium-16 year'>

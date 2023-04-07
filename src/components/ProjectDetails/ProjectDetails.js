@@ -36,8 +36,13 @@ const ProjectDetails = () => {
         (item) => item.name !== undefined
     );
 
+    /* in case status is undefined or user did not provide status information.
+     by default as per figma, if user does not provide status info, then its active otherwise whatever the user  provides*/
+    const { status } = projectCardInfo;
+    const newStatus = status === undefined ? 'active' : status;
     // -----------------------
-    const RightPaneData = { projectCardInfo, subNavLinks };
+    const RightPaneData = { projectCardInfo, subNavLinks, newStatus };
+    const LeftPaneData = { projectCardInfo, newStatus };
     const NavData = { pathname, subNavLinks, projectCardInfo };
     return (
         <main className='pd-main'>
@@ -46,7 +51,7 @@ const ProjectDetails = () => {
             {/* left pane */}
             <section className='project-details'>
                 <section className='pd-leftpane'>
-                    <ProjectDetailsLeft {...projectCardInfo} />
+                    <ProjectDetailsLeft {...LeftPaneData} />
                 </section>
 
                 {/* right pane */}

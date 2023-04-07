@@ -2,18 +2,19 @@ import React from 'react';
 import TeamMember from './TeamMember';
 import { TbExternalLink as ExternalLink } from 'react-icons/tb';
 
-const ProjectDetailsLeft = ({
-    title,
-    subtitle,
-    about,
-    tags,
-    team,
-    publications,
-    media,
-    url,
-    status,
-    startDate: date,
-}) => {
+const ProjectDetailsLeft = ({ projectCardInfo, newStatus }) => {
+    const {
+        title,
+        subtitle,
+        about,
+        tags,
+        team,
+        publications,
+        media,
+        url,
+        startDate: date,
+    } = projectCardInfo;
+
     const [screenSize, setScreenSize] = React.useState(getCurrentWidth());
 
     function getCurrentWidth() {
@@ -28,6 +29,7 @@ const ProjectDetailsLeft = ({
             window.removeEventListener('resize', updateWidth);
         };
     }, [screenSize]);
+
     return (
         <section className='pd-left'>
             {/* title and subtitle */}
@@ -41,7 +43,8 @@ const ProjectDetailsLeft = ({
                 <div className='top-container'>
                     <div className='status-container'>
                         <div className='status-subcontainer'>
-                            <p className='bold-16 status'>{status}</p>
+                            {console.log('STATUS: ', newStatus)}
+                            <p className='bold-16 status'>{newStatus}</p>
                             <p className='medium-16 year'>
                                 {date === undefined
                                     ? null
@@ -51,7 +54,27 @@ const ProjectDetailsLeft = ({
                             </p>
                         </div>
 
-                        <div className='btn-container'>
+                        {/* <div className='btn-container'> */}
+                        <div
+                            className={`${
+                                url === undefined ? 'removeMe' : 'btn-container'
+                            }`}
+                        >
+                            {url !== undefined && (
+                                <a
+                                    className='medium-14 site-btn'
+                                    href={url}
+                                    target='_blank'
+                                    rel='noreferrer'
+                                >
+                                    visit the site
+                                    <span className='site-icon'>
+                                        <ExternalLink />
+                                    </span>
+                                </a>
+                            )}
+                        </div>
+                        {/* <div className='btn-container'>
                             {console.log('URL', url)}
                             {url !== undefined ? (
                                 <a
@@ -68,7 +91,7 @@ const ProjectDetailsLeft = ({
                             ) : (
                                 <p style={{ display: 'none' }}>none</p>
                             )}
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             )}
