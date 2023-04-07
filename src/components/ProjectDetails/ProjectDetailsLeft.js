@@ -73,24 +73,6 @@ const ProjectDetailsLeft = ({ projectCardInfo, newStatus }) => {
                                 </a>
                             )}
                         </div>
-                        {/* <div className='btn-container'>
-                            {console.log('URL', url)}
-                            {url !== undefined ? (
-                                <a
-                                    className='medium-14 site-btn'
-                                    href={url}
-                                    target='_blank'
-                                    rel='noreferrer'
-                                >
-                                    visit the site
-                                    <span className='site-icon'>
-                                        <ExternalLink />
-                                    </span>
-                                </a>
-                            ) : (
-                                <p style={{ display: 'none' }}>none</p>
-                            )}
-                        </div> */}
                     </div>
                 </div>
             )}
