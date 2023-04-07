@@ -44,21 +44,31 @@ const ProjectDetailsLeft = ({
                         <div className='status-subcontainer'>
                             <p className='bold-16 status'>{status}</p>
                             <p className='medium-16 year'>
-                                {date.substring(0, 4)}-present
+                                {date === undefined
+                                    ? null
+                                    : date.substring(0, 4) + '-present'}
+
+                                {/* {date.substring(0, 4)}-present */}
                             </p>
                         </div>
 
                         <div className='btn-container'>
-                            <NavLink
-                                className='medium-14 site-btn'
-                                to={url}
-                                target='_blank'
-                            >
-                                visit the site
-                                <span className='site-icon'>
-                                    <ExternalLink />
-                                </span>
-                            </NavLink>
+                            {console.log('URL', url)}
+                            {url !== undefined ? (
+                                <a
+                                    className='medium-14 site-btn'
+                                    href={url}
+                                    target='_blank'
+                                    rel='noreferrer'
+                                >
+                                    visit the site
+                                    <span className='site-icon'>
+                                        <ExternalLink />
+                                    </span>
+                                </a>
+                            ) : (
+                                <p style={{ display: 'none' }}>none</p>
+                            )}
                         </div>
                     </div>
                 </div>
@@ -98,7 +108,9 @@ const ProjectDetailsLeft = ({
             {/* teams */}
             {team !== undefined && (
                 <div className='pd-team'>
-                    <h2 className='pd-team-heading pd-heading'>Team</h2>
+                    <h2 className='pd-team-heading pd-heading' id='team'>
+                        Team
+                    </h2>
                     <ul className='contributor  pd-team-container'>
                         {team.map((teamMemberInfo, id) => {
                             return (
