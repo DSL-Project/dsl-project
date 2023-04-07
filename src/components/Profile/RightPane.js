@@ -7,7 +7,7 @@ const RightPane = () => {
     const { authorProjects, authorPublications } = useGlobalContext();
 
     return (
-        <aside className='right-pane'>
+        <aside className='right-panes'>
             {/* associated projects to this person */}
             <div className='projects-container container'>
                 <h3 className='bold-16 heading'>affiliated projects</h3>
