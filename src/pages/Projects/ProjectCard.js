@@ -21,7 +21,7 @@ const ProjectCard = ({ projectCardInfo }) => {
                 <h2 className='medium-16 project-card-heading'>{title}</h2>
                 <h3 className='bold-18 project-card-subheading'>{subtitle}</h3>
                 <p className='regular-16 project-card-intro'>
-                    {about?.content[0]?.content[0]?.value || 'NO DATA FOUND ! '}
+                    {about?.content[0]?.content[0]?.value || null}
                 </p>
 
                 <div className='project-card-metadata'>

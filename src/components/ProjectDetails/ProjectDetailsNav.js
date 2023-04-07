@@ -19,9 +19,9 @@ const ProjectDetailsNav = ({ pathname, navLinks, projectCardInfo }) => {
                     </span>
                 </div>
                 <ul className='pd-main-menu'>
-                    {navLinks.map((link) => {
+                    {navLinks.map((link, id) => {
                         return (
-                            <li key={link.id} className='pd-menu-item'>
+                            <li key={id} className='pd-menu-item'>
                                 <NavHashLink
                                     smooth
                                     to={link.url}

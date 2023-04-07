@@ -358,6 +358,8 @@
                 justify-content: space-between;
                 align-items: center;
                 padding: 2rem 1.8rem;
+                // border: 2px solid red;
+                width: 100%;
                 .status-subcontainer {
                     .status {
                         text-transform: capitalize;
@@ -373,6 +375,8 @@
                     padding: 8px 10px;
                     background-color: $black;
                     color: $white;
+                    // border: 2px solid magenta;
+                    // margin-left: 15px;
 
                     .site-btn {
                         cursor: pointer;
@@ -413,6 +417,10 @@
             padding-bottom: 2rem;
         }
     }
+}
+.removeMe {
+    border: 2px solid red;
+    display: none;
 }
 @media (max-width: 375px) {
     // navbar
