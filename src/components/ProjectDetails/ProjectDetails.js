@@ -6,29 +6,39 @@ import ProjectDetailsRight from './ProjectDetailsRight';
 
 const ProjectDetails = () => {
     const { pathname, state: projectCardInfo } = useLocation();
-    const { slug } = projectCardInfo;
 
-    const navLinks = [];
-    const targetObj = projectCardInfo;
-    const filterItems = ['publications', 'media', 'team'];
-    const filteredObject = Object.keys(targetObj)
-        .filter((key) => filterItems.includes(key))
-        .reduce((cur, key) => {
-            return Object.assign(cur, {
-                url: `/projects/${slug}#${key}`,
-                name: key,
-            });
-        }, {});
-    navLinks.push(filteredObject);
-
-    // fundings and partners are static for now. we can tweak it, once we start getting from database.
-    navLinks.push(
-        { name: 'fundings', url: `/projects/${slug}#fundings` },
-        { name: 'partners', url: `/projects/${slug}#partners` }
+    const generateSubNavLinks = (projectCard) => {
+        /**This function generates the sub navigation items dynamically.
+         * partners and fundings are kept static on purpose to meet the figma designs
+         * response has no 'partners' and 'fundings' property, therefore its hard coded to showcase on UI.
+         */
+        const { slug } = projectCard;
+        const targetObj = projectCard;
+        const filterItems = ['publications', 'media', 'team'];
+        const linksArray = filterItems.map((item) => {
+            const filteredObject = Object.keys(targetObj)
+                .filter((key) => key.includes(item))
+                .reduce((cur, key) => {
+                    return Object.assign(cur, {
+                        name: key,
+                        url: `/projects/${slug}#${key}`,
+                    });
+                }, {});
+            return filteredObject;
+        });
+        linksArray.push(
+            { name: 'partners', url: `/projects/${slug}#partners` },
+            { name: 'fundings', url: `/projects/${slug}#fundings` }
+        );
+        return linksArray;
+    };
+    const subNavLinks = generateSubNavLinks(projectCardInfo).filter(
+        (item) => item.name !== undefined
     );
 
-    const RightPaneData = { projectCardInfo, navLinks };
-    const NavData = { pathname, navLinks, projectCardInfo };
+    // -----------------------
+    const RightPaneData = { projectCardInfo, subNavLinks };
+    const NavData = { pathname, subNavLinks, projectCardInfo };
     return (
         <main className='pd-main'>
             {/* navigation */}

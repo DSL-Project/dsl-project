@@ -1,7 +1,6 @@
 import React from 'react';
 import TeamMember from './TeamMember';
 import { TbExternalLink as ExternalLink } from 'react-icons/tb';
-import { NavLink } from 'react-router-dom';
 
 const ProjectDetailsLeft = ({
     title,

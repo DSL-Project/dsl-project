@@ -2,7 +2,7 @@ import React from 'react';
 import { TbExternalLink as ExternalLink } from 'react-icons/tb';
 import { HashLink } from 'react-router-hash-link';
 
-const ProjectDetailsRight = ({ projectCardInfo, navLinks }) => {
+const ProjectDetailsRight = ({ projectCardInfo, subNavLinks }) => {
     const { status, startDate: date, url } = projectCardInfo;
 
     return (
@@ -42,7 +42,7 @@ const ProjectDetailsRight = ({ projectCardInfo, navLinks }) => {
 
             <div className='bottom-container'>
                 <ul className='pd-nav'>
-                    {navLinks.map((link, id) => {
+                    {subNavLinks.map((link, id) => {
                         return (
                             <HashLink
                                 key={id}
