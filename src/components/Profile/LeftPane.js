@@ -12,7 +12,7 @@ const LeftPane = ({ name, titles, tags, bio, personImg }) => {
                     <div className='person-image'>
                         <img
                             src={personImg}
-                            alt={`${name} look at the camera`}
+                            alt={`${name} looking at the camera`}
                         />
                     </div>
                 </div>
