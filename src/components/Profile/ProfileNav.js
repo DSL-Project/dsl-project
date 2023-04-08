@@ -29,16 +29,17 @@ const ProfileNav = ({ pathname, website, email, name }) => {
                     <ul>
                         {website && (
                             <li className='item'>
-                                <Link
-                                    to={website}
+                                <a
+                                    href={website}
                                     target='_blank'
                                     className='links'
+                                    rel='noreferrer'
                                 >
                                     <GlobeLogo className='medium-16 nav-icons' />
                                     <span className='medium-16 links-title'>
                                         personal website
                                     </span>
-                                </Link>
+                                </a>
                             </li>
                         )}
                         {email && (

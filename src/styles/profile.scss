@@ -168,11 +168,10 @@
 
         .body-content {
             .name {
-                text-transform: capitalize;
+                // text-transform: capitalize;
                 color: $black;
             }
             .subtitles-container {
-                // border: 2px solid red;
                 display: flex;
                 flex-wrap: wrap;
 
@@ -180,8 +179,6 @@
                     color: $black;
                     padding: 5px 2px;
                     text-transform: capitalize;
-                    // border: 2px solid blue;
-                    // border: 2px solid red;
                 }
             }
         }
@@ -273,7 +270,9 @@
         text-transform: capitalize;
     }
     .publication-date {
-        margin-left: 3px;
+        // border: 2px solid red;
+        display: block;
+        margin-left: 0px;
     }
 }
 // --------end of right pane
