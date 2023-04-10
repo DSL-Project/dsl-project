@@ -49,7 +49,7 @@ const ProjectsCarousel = () => {
             </div>
             <div className="subtitle">
               <h3>{subtitle}</h3>
-              <a href={url}>
+              <a href={slug}>
                 <AiOutlineArrowRight />
               </a>
             </div>
