@@ -25,7 +25,7 @@ function Home() {
 
   return (
     <div className="home">
-      {/* This is the announcement banner built and styled which can be taken out as per client's request*/}
+      {/* This is the announcement banner built and styled which will only show when there is data in Contentful with announcement and announcementLink */}
 
       <Announcement />
 
@@ -123,7 +123,7 @@ function Home() {
             </div>
             <div className="street-address bold-18">
               <p>{homeStatic.streetAddress}</p>
-              <p>{homeStatic.city},</p>
+              <p>{homeStatic.city}</p>
               <p>
                 <span>{homeStatic.province}</span>&nbsp;
                 <span>{homeStatic.postcode}</span>

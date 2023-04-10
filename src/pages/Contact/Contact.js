@@ -165,7 +165,7 @@ function Contact() {
             </div>
             <div className="street-address">
               <p className="bold-18">{homeStatic.streetAddress}</p>
-              <p className="bold-18">{homeStatic.city},</p>
+              <p className="bold-18">{homeStatic.city}</p>
               <p className="bold-18">
                 <span>{homeStatic.province}</span>&nbsp;
                 <span>{homeStatic.postcode}</span>
