@@ -25,10 +25,7 @@ function Home() {
 
   return (
     <div className="home">
-      {/* This is the announcement banner built and styled which will only show when there is data in Contentful with announcement and announcementLink */}
-
       <Announcement />
-
       <div className="home-wrapper">
         <div className="welcome-container">
           <h1>
