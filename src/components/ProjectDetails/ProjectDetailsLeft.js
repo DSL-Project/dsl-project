@@ -48,12 +48,8 @@ const ProjectDetailsLeft = ({ projectCardInfo, newStatus }) => {
                                 {date === undefined
                                     ? null
                                     : date.substring(0, 4) + '-present'}
-
-                                {/* {date.substring(0, 4)}-present */}
                             </p>
                         </div>
-
-                        {/* <div className='btn-container'> */}
                         <div
                             className={`${
                                 url === undefined ? 'removeMe' : 'btn-container'
