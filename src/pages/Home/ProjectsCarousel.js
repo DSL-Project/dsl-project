@@ -55,7 +55,7 @@ const ProjectsCarousel = () => {
             </div>
             {about && about.content && about.content.length > 0 && (
               <p className="medium-16 project-description">
-                {about.content[0].value}
+                {about.content[0].content[0].value}
               </p>
             )}
             <div className="tag-container semi-14">
