@@ -11,7 +11,6 @@ const ProjectDetailsRight = ({ projectCardInfo, subNavLinks, newStatus }) => {
             <div className='top-container'>
                 <div className='status-container'>
                     <div className='status-subcontainer'>
-                        {/* <p className='bold-16 status'>{status}</p> */}
                         <p className='bold-16 status'>{newStatus}</p>
 
                         {date !== undefined && (

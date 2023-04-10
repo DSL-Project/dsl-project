@@ -20,12 +20,7 @@ const RightPane = () => {
                                     to={`/projects/${slug}`}
                                     state={project}
                                     className='medium-16 project'
-                                    // target='_blank'
                                 >
-                                    {/* {`${
-                                        slug.charAt(0).toUpperCase() +
-                                        slug.slice(1)
-                                    }:  ${subtitle}`} */}
                                     {`${
                                         slug.charAt(0).toUpperCase() +
                                         slug.slice(1)
@@ -66,7 +61,6 @@ const RightPane = () => {
                                                 dateTime={date}
                                                 className='medium-16 publication-date'
                                             >
-                                                {/* Published {date.substring(0, 4)} */}
                                                 Published {printMonthYear(date)}
                                             </time>
                                         </p>
