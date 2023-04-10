@@ -2,7 +2,6 @@ import React from "react";
 import Announcement from "./Announcement";
 import { AiOutlineArrowDown } from "react-icons/ai";
 import { FaFacebookF, FaTwitter } from "react-icons/fa";
-import { Link } from "react-scroll";
 import ProjectsCarousel from "./ProjectsCarousel";
 import { useGlobalContext } from "../../appContext";
 import defaultImg from "../../assets/defaultImg.jpg";
@@ -49,14 +48,14 @@ function Home() {
           </div>
 
           <div className="recent-projects">
-            <Link
-              to="project-carousel"
+            <a
+              href="/projects"
               smooth={true}
               duration={500}
               className="bold-18"
             >
               See recent projects
-            </Link>
+            </a>
             <AiOutlineArrowDown />
           </div>
         </div>
