@@ -8,13 +8,13 @@ const ProjectDetailsNav = ({ pathname, subNavLinks, projectCardInfo }) => {
             <div className='pd-nav'>
                 <div className='pd-path'>
                     <NavLink
-                        className='regular-16 pathItem1 pd-link'
+                        className='regular-14 pathItem1 pd-link'
                         to={'/projects'}
                     >
                         {pathname.split('/')[1]}
                     </NavLink>
-                    <span className='regular-16 pathItem2 pd-link'>/</span>
-                    <span className='regular-16 pathItem3 pd-link '>
+                    <span className='regular-14 pathItem2 pd-link'>/</span>
+                    <span className='regular-14 pathItem3 pd-link '>
                         {pathname.split('/')[2]}
                     </span>
                 </div>
