@@ -4,11 +4,13 @@ import ProfileNav from './ProfileNav';
 import LeftPane from './LeftPane';
 import RightPane from './RightPane';
 import { useGlobalContext } from '../../appContext';
+import defaultImg from '../../assets/defaultImg.jpg';
 
 const Profile = () => {
     const { setAuthorSlug } = useGlobalContext();
     const { pathname, state: profileData } = useLocation();
-    const { name, titles, personImg, website, email, tags, slug } = profileData;
+    const { name, titles, website, email, tags, slug, img } = profileData;
+    const personImg = img?.fields?.file?.url || defaultImg;
     const bio = profileData?.profile?.content || null;
     const profileNavData = { pathname, website, email, name };
     const leftPaneData = { name, titles, tags, bio, personImg };

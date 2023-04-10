@@ -53,14 +53,9 @@ html {
 
 .wrapper {
     max-width: 1440px;
-    width: 50%;
+    width: 60%;
     margin: 0 auto;
     padding-top: 4rem;
-}
-
-.footer {
-    // position: sticky;
-    bottom: 0;
 }
 
 @media (max-width: 835px) {

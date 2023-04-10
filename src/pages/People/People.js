@@ -1,9 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useGlobalContext } from '../../appContext';
 import Banner from '../../components/Banner/Banner';
 import Person from './Person';
+import { PEOPLE } from '../../appConstants';
+import LoadingState from '../../components/LoadingState/LoadingState';
 const People = () => {
-    const { response, peopleBody, peopleTitle } = useGlobalContext();
+    const { response, peopleBody, peopleTitle, setQuery, isLoading } =
+        useGlobalContext();
+
+    useEffect(() => {
+        // refresh button functionality
+        window.addEventListener('beforeunload', setQuery(PEOPLE));
+        return () => {
+            window.removeEventListener('beforeunload', setQuery(PEOPLE));
+        };
+    }, [setQuery]);
+
+    if (isLoading) {
+        return <LoadingState />;
+    }
+    if (response === undefined) {
+        return null;
+    }
 
     return (
         <main className='people-main'>

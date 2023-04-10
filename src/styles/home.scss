@@ -2,11 +2,12 @@
   width: 80%;
   margin: 0 auto;
   padding-bottom: 4.4rem;
+  overflow-x: hidden;
 }
 
 .welcome-container {
   width: 60%;
-  padding: 4.5rem 0;
+  padding: 2.5rem 0;
 
   h1 {
     font-size: 3.5rem;
@@ -15,6 +16,9 @@
 
   .regular-16 {
     padding: 1.4rem 0;
+    .description {
+      margin-bottom: 1rem;
+    }
   }
 }
 .recent-projects {
@@ -42,13 +46,21 @@
     .funder-logo {
       width: 18%;
       height: 3.7rem;
-      background-color: $neutral-300;
       border-radius: 0.25rem;
       display: flex;
       justify-content: center;
       align-items: center;
-      &:last-child {
-        visibility: hidden;
+      &:hover {
+        background-color: $neutral-300;
+      }
+      a {
+        display: block;
+        width: 90%;
+        cursor: pointer;
+        img {
+          width: 100%;
+          height: 100%;
+        }
       }
     }
   }
@@ -77,6 +89,9 @@
     grid-template-columns: auto auto;
     gap: 1rem;
     padding: 2.15rem 0;
+    .bold-16 {
+      word-wrap: break-word;
+    }
 
     a {
       text-decoration: underline;
@@ -104,14 +119,14 @@
   input {
     border: 1px solid $neutral-400;
     background-color: $white;
-    width: 35%;
+    width: 14rem;
     height: 2.2rem;
     border-radius: 0.25rem;
     padding-left: 0.7rem;
   }
 
   button {
-    width: 15%;
+    width: 6rem;
     font-family: "sculpin";
     font-weight: 500;
     background-color: $black;
@@ -122,7 +137,28 @@
 }
 
 //! Media Queries
-@media (max-width: 768px) {
+
+@media (max-width: 1300px) {
+  .home-address,
+  .stay-updated {
+    width: 50%;
+  }
+
+  .home-address {
+    .contact-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      padding: 0;
+    }
+  }
+  .stay-updated {
+    padding: 1.5rem;
+    padding-bottom: 3rem;
+  }
+}
+
+@media (max-width: 900px) {
   .home-wrapper {
     width: 90%;
   }
@@ -152,6 +188,7 @@
   }
   .contact-methods {
     font-size: 0.65rem;
+    padding-top: 2rem;
   }
 
   .stay-updated {
@@ -174,7 +211,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .welcome-container {
     padding: 1.8rem 0;
     h1 {
@@ -213,8 +250,10 @@
 
     .home-address {
       border-radius: 0.25rem 0.25rem 0 0;
-      height: 13.5rem;
+      height: auto;
       .contact-methods {
+        display: grid;
+        grid-template-columns: auto auto;
         padding: 1.35rem 0;
       }
     }
@@ -231,8 +270,15 @@
     }
   }
 }
-@media (max-width: 320px) {
+@media (max-width: 480px) {
   .home-contact {
+    .home-address {
+      .contact-methods {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+    }
     .stay-updated form {
       flex-direction: column;
       padding-top: 1rem;

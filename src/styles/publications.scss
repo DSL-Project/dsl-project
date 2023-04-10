@@ -1,288 +1,109 @@
-// SEARCH BAR STYLING
-// strip off all default styling
-.form,
-fieldset,
-select,
-input {
-    padding: 0;
-    margin: 0;
-    border: 0;
-    appearance: none;
-    outline: none;
-    color: inherit;
-    background-color: inherit;
-    &::placeholder {
-        color: inherit;
+// ------publications--------------------------------------------
+.proj-link {
+    display: inline;
+}
+.project-list {
+    list-style-position: inside;
+}
+
+.publication-main {
+    .pub-wrapper {
+        padding-bottom: 8rem;
+
+        .single-content {
+            margin-top: 2rem;
+        }
     }
 }
-// styling all 3 common input and select boxes
-.bx {
-    width: 100%;
-    padding: 0.6rem 0.7rem;
-    text-transform: uppercase;
+//-------publication card----------------------------
+.single-publication {
+    margin-top: 1rem;
     border-radius: 5px;
+
     border: 1px solid $neutral-400;
-    background-color: $white;
-    color: $neutral-500;
-}
 
-// styling starts
-.form {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    .publication {
+        padding: 1.5rem;
 
-    .child1 {
-        grid-column: 1/3;
-        display: grid;
-        grid-template-columns: repeat(
-            2,
-            minmax(calc(6.65rem - 0.5rem), calc(7.75rem - 0.5rem))
-        );
-        gap: 0.5rem;
-    }
-    .child2 {
-        grid-column: 4/-1;
-        display: grid;
-        grid-template-columns: repeat(1, minmax(2.2rem, 8.7rem));
-        gap: 0.5rem;
-        justify-content: flex-end;
-    }
-}
-// adding icons
-.filterBx {
-    padding-left: 25%;
-    background-image: url('../assets/filter.svg'),
-        url('../assets/downArrow.svg');
-    background-repeat: no-repeat;
-    background-size: 0.9rem, 0.6rem;
-    background-position: 5%, 92%;
+        .meta-container {
+            .meta {
+                display: flex;
+                justify-content: space-between;
+                flex-direction: row-reverse;
 
-    &::placeholder {
-        color: $neutral-500;
-        opacity: 1;
-    }
-}
-
-.sortBx {
-    padding-left: 1.2rem;
-    background-image: url('../assets/downArrow.svg');
-    background-repeat: no-repeat;
-    background-size: 0.6rem;
-    background-position: 90% 50%;
-    cursor: pointer;
-    color: $neutral-500;
-}
-
-.searchBx {
-    padding-left: 25%;
-    background-image: url('../assets/magnifier.svg');
-    background-repeat: no-repeat;
-    background-size: 0.9rem, 0.6rem;
-    background-position: 5%, 92%;
-
-    &::placeholder {
-        color: $neutral-500;
-        opacity: 1;
-    }
-    //
-}
-
-// --------------------------------------------------------------------
-
-/* common stying for publication card :
-change the margins to see the changes in all 2 boxes of each card.
-*/
-
-.meta-container,
-.authors,
-.featured-projects {
-    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
-}
-
-// top margin from the date element
-.publications .publications-list-item {
-    margin-top: 1.3rem;
-}
-
-//precise level styling
-.publication-list {
-    .content {
-        padding: 4rem 0 0 0rem;
-
-        .content-container {
-            margin: 0 auto;
-
-            // year styling
-            .year {
-                margin-top: 2rem;
-                font-weight: 500;
-            }
-            .publications {
-                .publications-list-item {
-                    border: 1px solid $neutral-400;
+                .publication-type {
+                    padding: 0.4rem 0.45rem;
                     border-radius: 5px;
+                    text-transform: uppercase;
+                    display: flex;
+                    align-items: center;
+                    order: 1;
+                }
 
-                    // 1st DIRECT CHILD
-                    .publication {
-                        .meta-container {
-                            // 1st child of meta-container
-                            .meta {
-                                display: flex;
-                                text-transform: capitalize;
-                                justify-content: space-between;
-                                align-items: center;
-
-                                .publication-type {
-                                    padding: 0.4rem 0.45rem;
-                                    border-radius: 5px;
-                                    text-transform: uppercase;
-                                }
-                                .journal {
-                                    color: $journal-col;
-                                    background-color: $journal-bg;
-                                    transition: $main-transition;
-                                    &:hover {
-                                        border: 1px solid $journal-col;
-                                    }
-                                }
-                                .popular {
-                                    color: $popular-col;
-                                    background-color: $popular-bg;
-                                    transition: $main-transition;
-
-                                    &:hover {
-                                        border: 1px solid $popular-col;
-                                    }
-                                }
-
-                                .top-link {
-                                    background-color: $neutral-300;
-                                    border-radius: 4px;
-                                    padding: 0.4rem 0.45rem;
-                                    display: flex;
-                                    justify-content: center;
-                                    align-items: center;
-                                    color: $black;
-                                    font-size: 1rem;
-                                    transition: $main-transition;
-                                    &:hover {
-                                        background-color: $neutral-500;
-                                        color: $neutral-100;
-                                    }
-                                }
-                            }
-
-                            .heading {
-                                font-weight: 400;
-                                color: $black;
-                                margin-top: 1.3rem;
-
-                                .link-container {
-                                    display: inline-block;
-                                    .heading-url {
-                                        display: inline-flex;
-                                        align-items: center;
-                                        border-radius: 5px;
-                                        border: 1px solid $neutral-400;
-                                        color: $black;
-                                        margin-left: 5px;
-
-                                        padding: 0.15rem 0.3rem;
-                                        display: inline-flex;
-                                        align-items: center;
-
-                                        svg {
-                                            margin-left: 0.15rem;
-                                            font-size: 0.9rem;
-                                            font-size: 1rem;
-                                        }
-                                        &:hover {
-                                            background-color: $black;
-                                            color: $white;
-                                            border-color: $black;
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                .journal {
+                    color: $journal-col;
+                    background-color: $journal-bg;
+                    transition: $main-transition;
+                    &:hover {
+                        border: 1px solid $journal-col;
                     }
+                }
+                .popular {
+                    color: $popular-col;
+                    background-color: $popular-bg;
 
-                    // 2ND DIRECT CHILD
-                    .authors-container {
-                        border-top: 1px solid $neutral-400;
-                        // margin-top: 1.3rem;
-                        .authors {
-                            display: grid;
-                            grid-template-columns: 9rem 1fr;
-                            grid-template-rows: 1fr;
-
-                            .auth-heading {
-                                padding-top: 5px;
-                                text-transform: capitalize;
-                                color: $neutral-500;
-
-                                .specialS {
-                                    text-transform: lowercase;
-                                }
-                            }
-
-                            .authors-list {
-                                .author {
-                                    display: inline-block;
-                                    margin: 0 3px;
-
-                                    .author-link {
-                                        color: $black;
-                                        text-decoration: underline;
-                                        text-decoration-color: $black;
-                                        text-decoration-thickness: 1px;
-                                        text-underline-offset: 4px;
-                                    }
-                                }
-                            }
-                        }
+                    &:hover {
+                        border: 1px solid $popular-col;
                     }
+                }
+                .perma-link {
+                    background-color: $neutral-300;
+                    border-radius: 4px;
+                    padding: 0.4rem 0.45rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: $black;
+                    font-size: 1rem;
+                    transition: $main-transition;
 
-                    // 3RD DIRECT CHILD
-                    .featured-projects-container {
-                        border-top: 1px solid $neutral-400;
+                    &:hover {
+                        background-color: $neutral-500;
+                        color: $neutral-100;
+                    }
+                }
+            }
+            // heading
+            .journal-heading-container {
+                padding: 0.7rem 0;
 
-                        .featured-projects {
-                            display: grid;
-                            grid-template-columns: 9rem 1fr;
-                            grid-template-rows: 1fr;
+                .journal-heading {
+                    color: $soft-black;
 
-                            .featured-projects-heading {
-                                text-transform: capitalize;
-                                display: flex;
-                                align-items: flex-start;
-                                justify-content: flex-start;
-                                text-transform: capitalize;
-                                color: $neutral-500;
+                    .link-container {
+                        display: inline-block;
+                        .heading-url {
+                            display: inline-flex;
+                            align-items: center;
+                            border-radius: 5px;
+                            border: 1px solid $neutral-400;
+                            color: $black;
+                            margin-left: 5px;
+
+                            padding: 0.15rem 0.3rem;
+                            display: inline-flex;
+                            align-items: center;
+                            transition: $main-transition;
+
+                            svg {
+                                margin-left: 0.15rem;
+                                font-size: 0.9rem;
+                                font-size: 1rem;
                             }
-
-                            .project-list {
-                                padding: 0;
-                                display: flex;
-                                flex-direction: column;
-                                align-items: flex-start;
-                                gap: 10px;
-                                // list-style-type: none;
-
-                                .project {
-                                    color: $black;
-                                    text-decoration: none;
-                                    list-style: none;
-                                    // list-style-position: inside;
-
-                                    .project-link {
-                                        color: $black;
-                                        text-decoration: underline;
-                                        text-decoration-color: $black;
-                                        text-decoration-thickness: 1px;
-                                        text-underline-offset: 4px;
-                                    }
-                                }
+                            &:hover {
+                                background-color: $black;
+                                color: $white;
+                                border-color: $black;
                             }
                         }
                     }
@@ -290,62 +111,171 @@ change the margins to see the changes in all 2 boxes of each card.
             }
         }
     }
+    .authors-container {
+        padding: 1.5rem;
+        border-top: 1px solid $neutral-400;
+
+        .authors {
+            display: grid;
+            align-items: flex-start;
+            grid-template-columns: 120px 1fr;
+
+            .auth-heading {
+                color: $neutral-500;
+                text-transform: capitalize;
+            }
+            .authors-list {
+                margin-left: 2.5rem;
+                display: flex;
+                flex-wrap: wrap;
+
+                .authors-list-item {
+                    .author-link {
+                        max-width: 213px;
+                        margin-left: 5px;
+                        color: $soft-black;
+                        text-decoration: underline;
+                        text-underline-offset: 3px;
+                    }
+                }
+            }
+        }
+    }
+    .featured-projects-container {
+        padding: 1.5rem;
+        border-top: 1px solid $neutral-400;
+
+        .featured-projects {
+            display: grid;
+            align-items: flex-start;
+            grid-template-columns: 155px 1fr;
+
+            .featured-projects-heading {
+                color: $neutral-500;
+                text-transform: capitalize;
+            }
+            .project-list {
+                color: $soft-black;
+                margin-left: 1rem;
+
+                .project {
+                    margin-bottom: 10px;
+                    .proj-link {
+                        text-decoration: underline;
+                        text-underline-offset: 2px;
+                    }
+                }
+            }
+        }
+    }
 }
 
+// special S
+.specialS {
+    text-transform: lowercase;
+}
+
+//----- media query-----------------------------------------------------------
+@media (max-width: 835px) {
+    // single publication card
+    .single-publication {
+        .publication {
+            .meta-container {
+                .meta {
+                    flex-direction: row;
+                    a[class='perma-link'] {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .authors-container {
+            padding: 1.5rem;
+
+            .authors {
+                align-items: flex-start;
+
+                .authors-list {
+                    margin-left: 2.2rem;
+                }
+            }
+        }
+    }
+}
 @media (max-width: 375px) {
-    // adjusting the LINK size on journal
-    .publication-list
-        .content
-        .content-container
-        .publications
-        .publications-list-item
-        .publication
-        .meta-container
-        .heading
-        .link-container {
-        display: block;
-        margin: 10px 0px 0px 0px;
-        .heading-url {
+    // publication form
+    .form {
+        margin: 0;
+
+        .child1 {
             margin: 0;
-            padding: 3px 6px;
+            gap: 2.5rem;
+
+            .subchild1 {
+                margin: 0;
+            }
+
+            .subchild2 {
+                margin-right: 0px;
+            }
+        }
+        .child2 {
+            .searchBx {
+                font-size: 0;
+                background-position: 50%;
+            }
+        }
+    }
+    //---------------------------
+
+    // single publication card
+    .single-publication {
+        .publication {
+            padding: 0.8rem 0.3rem;
+        }
+        .authors-container {
+            padding: 0.8rem 0.3rem;
+        }
+        .featured-projects-container {
+            padding: 0.8rem 0.3rem;
         }
     }
 
-    // stacking  author-list in mobile view
-    .publication-list
-        .content
-        .content-container
-        .publications
-        .publications-list-item
-        .authors-container
-        .authors {
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr;
+    // author
+    .authors-container {
+        padding: 1rem;
 
-        .authors-list {
-            margin-top: 1rem;
-            .author {
-                width: 100%;
+        .authors {
+            grid-template-columns: 1fr !important;
+
+            .auth-heading {
                 margin: 0;
+            }
+            .authors-list {
+                margin: 0;
+                margin-left: 0px !important;
+                padding-top: 1rem;
+
+                .authors-list-item {
+                    .author-link {
+                        margin-left: 3px !important;
+                    }
+                }
             }
         }
     }
 
-    // stacking publication type view in mobile
-    .publication-list
-        .content
-        .content-container
-        .publications
-        .publications-list-item
-        .featured-projects-container
+    // projects
+    .featured-projects-container {
         .featured-projects {
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr;
-
-        .project-list {
-            margin-top: 1rem;
-            .project {
-                justify-content: center;
+            grid-template-columns: 1fr !important;
+            .project-list {
+                margin-left: 0 !important;
+                .project {
+                    margin: 0 !important;
+                    padding-top: 1rem;
+                }
             }
         }
     }

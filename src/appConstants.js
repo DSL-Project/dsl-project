@@ -4,6 +4,7 @@ const PUBLICATIONS = 'publications';
 const PROJECTS = 'projects';
 // const MEDIA = 'media';
 const STATIC_QUERY = 'homepage';
+const TRAININGS = 'training';
 
 const navConstants = [
     {
@@ -16,7 +17,7 @@ const navConstants = [
         id: 2,
         name: 'training',
         url: '/training',
-        queryString: null,
+        queryString: TRAININGS,
     },
     {
         id: 3,
@@ -34,8 +35,15 @@ const navConstants = [
         id: 5,
         name: 'contact',
         url: '/contact',
-        queryString: null,
+        queryString: STATIC_QUERY,
     },
 ];
 
-export { navConstants, STATIC_QUERY, PUBLICATIONS, PROJECTS };
+export {
+    navConstants,
+    STATIC_QUERY,
+    PUBLICATIONS,
+    PROJECTS,
+    TRAININGS,
+    PEOPLE,
+};

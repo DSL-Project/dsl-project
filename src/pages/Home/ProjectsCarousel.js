@@ -2,8 +2,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { AiOutlineArrowRight } from "react-icons/ai";
+import { useGlobalContext } from "../../appContext";
 
 const ProjectsCarousel = () => {
+  const { projectsData } = useGlobalContext();
+
   let settings = {
     dots: true,
     infinite: true,
@@ -13,14 +16,14 @@ const ProjectsCarousel = () => {
     swipeToSlide: true,
     responsive: [
       {
-        breakpoint: 834,
+        breakpoint: 768,
         settings: {
-          slidesToShow: 2.5,
+          slidesToShow: 1,
           slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 375,
+        breakpoint: 480,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -39,182 +42,32 @@ const ProjectsCarousel = () => {
         </div>
       </div>
       <Slider {...settings}>
-        <div className="project-container">
-          <div className="title-container">
-            <h2 className="medium-16 project-title">GeckoSpy</h2>
+        {projectsData.map(({ slug, title, subtitle, url, about, tags }) => (
+          <div className="project-container" key={slug}>
+            <div className="title-container">
+              <h2 className="medium-16 project-title">{title}</h2>
+            </div>
+            <div className="subtitle">
+              <h3>{subtitle}</h3>
+              <a href={slug}>
+                <AiOutlineArrowRight />
+              </a>
+            </div>
+            {about && about.content && about.content.length > 0 && (
+              <p className="medium-16 project-description">
+                {about.content[0].value}
+              </p>
+            )}
+            <div className="tag-container semi-14">
+              {tags &&
+                tags.map((tag, index) => (
+                  <div className="tag-box" key={index}>
+                    {tag}
+                  </div>
+                ))}
+            </div>
           </div>
-          <div className="subtitle">
-            <h3>
-              Pegasus Spyware Used against Thailand's Pro-Democracy Movement
-            </h3>
-            <a href="/project">
-              {/* this anchor link should go to the specific project page */}
-              <AiOutlineArrowRight />
-            </a>
-          </div>
-          <p className="medium-16 project-description">
-            Digital technologies are transforming civil society and democracy.
-            Our dependencies on digital systems require new insights into how
-            these technologies work and how civil society can engage them
-            safely, equitably, purposefully, and in support of human dignity and
-            collective action.
-          </p>
-          <div className="tag-container semi-14">
-            <div className="tag-box">#</div>
-            <div className="tag-box">Security</div>
-            <div className="tag-box">Politics</div>
-            <div className="tag-box">Hacking</div>
-            <div className="tag-box">Privacy</div>
-          </div>
-        </div>
-
-        <div className="project-container">
-          <div className="title-container">
-            <h2 className="medium-16 project-title">Bada Bing, Bada Boom</h2>
-          </div>
-          <div className="subtitle">
-            <h3>
-              Microsoft Bing's Chinese Political Censorship of Autosuggestions
-              in North America
-            </h3>
-            <a href="/project">
-              {/* this anchor link should go to the specific project page */}
-              <AiOutlineArrowRight />
-            </a>
-          </div>
-          <p className="medium-16 project-description">
-            Digital technologies are transforming civil society and democracy.
-            Our dependencies on digital systems require new insights into how
-            these technologies work and how civil society can engage them
-            safely, equitably, purposefully, and in support of human dignity and
-            collective action.
-          </p>
-          <div className="tag-container semi-14">
-            <div className="tag-box">#</div>
-            <div className="tag-box">Security</div>
-            <div className="tag-box">Politics</div>
-            <div className="tag-box">Hacking</div>
-            <div className="tag-box">Privacy</div>
-          </div>
-        </div>
-
-        <div className="project-container">
-          <div className="title-container">
-            <h2 className="medium-16 project-title">GeckoSpy</h2>
-          </div>
-          <div className="subtitle">
-            <h3>
-              Pegasus Spyware Used against Thailand's Pro-Democracy Movement
-            </h3>
-            <a href="/project">
-              {/* this anchor link should go to the specific project page */}
-              <AiOutlineArrowRight />
-            </a>
-          </div>
-          <p className="medium-16 project-description">
-            Digital technologies are transforming civil society and democracy.
-            Our dependencies on digital systems require new insights into how
-            these technologies work and how civil society can engage them
-            safely, equitably, purposefully, and in support of human dignity and
-            collective action.
-          </p>
-          <div className="tag-container semi-14">
-            <div className="tag-box">#</div>
-            <div className="tag-box">Security</div>
-            <div className="tag-box">Politics</div>
-            <div className="tag-box">Hacking</div>
-            <div className="tag-box">Privacy</div>
-          </div>
-        </div>
-
-        <div className="project-container">
-          <div className="title-container">
-            <h2 className="medium-16 project-title">Bada Bing, Bada Boom</h2>
-          </div>
-          <div className="subtitle">
-            <h3>
-              Microsoft Bing's Chinese Political Censorship of Autosuggestions
-              in North America
-            </h3>
-            <a href="/project">
-              {/* this anchor link should go to the specific project page */}
-              <AiOutlineArrowRight />
-            </a>
-          </div>
-          <p className="medium-16 project-description">
-            Digital technologies are transforming civil society and democracy.
-            Our dependencies on digital systems require new insights into how
-            these technologies work and how civil society can engage them
-            safely, equitably, purposefully, and in support of human dignity and
-            collective action.
-          </p>
-          <div className="tag-container semi-14">
-            <div className="tag-box">#</div>
-            <div className="tag-box">Security</div>
-            <div className="tag-box">Politics</div>
-            <div className="tag-box">Hacking</div>
-            <div className="tag-box">Privacy</div>
-          </div>
-        </div>
-
-        <div className="project-container">
-          <div className="title-container">
-            <h2 className="medium-16 project-title">GeckoSpy</h2>
-          </div>
-          <div className="subtitle">
-            <h3>
-              Pegasus Spyware Used against Thailand's Pro-Democracy Movement
-            </h3>
-            <a href="/project">
-              {/* this anchor link should go to the specific project page */}
-              <AiOutlineArrowRight />
-            </a>
-          </div>
-          <p className="medium-16 project-description">
-            Digital technologies are transforming civil society and democracy.
-            Our dependencies on digital systems require new insights into how
-            these technologies work and how civil society can engage them
-            safely, equitably, purposefully, and in support of human dignity and
-            collective action.
-          </p>
-          <div className="tag-container semi-14">
-            <div className="tag-box">#</div>
-            <div className="tag-box">Security</div>
-            <div className="tag-box">Politics</div>
-            <div className="tag-box">Hacking</div>
-            <div className="tag-box">Privacy</div>
-          </div>
-        </div>
-
-        <div className="project-container">
-          <div className="title-container">
-            <h2 className="medium-16 project-title">Bada Bing, Bada Boom</h2>
-          </div>
-          <div className="subtitle">
-            <h3>
-              Microsoft Bing's Chinese Political Censorship of Autosuggestions
-              in North America
-            </h3>
-            <a href="/project">
-              {/* this anchor link should go to the specific project page */}
-              <AiOutlineArrowRight />
-            </a>
-          </div>
-          <p className="medium-16 project-description">
-            Digital technologies are transforming civil society and democracy.
-            Our dependencies on digital systems require new insights into how
-            these technologies work and how civil society can engage them
-            safely, equitably, purposefully, and in support of human dignity and
-            collective action.
-          </p>
-          <div className="tag-container semi-14">
-            <div className="tag-box">#</div>
-            <div className="tag-box">Security</div>
-            <div className="tag-box">Politics</div>
-            <div className="tag-box">Hacking</div>
-            <div className="tag-box">Privacy</div>
-          </div>
-        </div>
+        ))}
       </Slider>
     </div>
   );

@@ -10,6 +10,7 @@ import Error from '../../pages/Error/Error';
 import '../../App.scss';
 import React from 'react';
 import Profile from '../Profile/Profile';
+import ProjectDetails from '../ProjectDetails/ProjectDetails';
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
             <Route path='/' element={<SharedLayout />}>
                 <Route index element={<Home />} />
                 <Route path='projects' element={<Projects />} />
+                <Route path='projects/:slug' element={<ProjectDetails />} />
                 <Route path='training' element={<Training />} />
                 <Route path='people' element={<People />} />
                 <Route path='publications' element={<Publications />} />

@@ -17,13 +17,12 @@
   display: flex;
   justify-content: space-between;
   font-size: 0.6rem;
-  font-family: Arial, Helvetica, sans-serif;
-  // this is just a placeholder for Circular Air Pro
   font-weight: 500;
 }
 
 .logo-media {
   align-items: center;
+  font-size: 0.7rem;
 }
 
 .media-container {
@@ -39,7 +38,7 @@
   display: inline;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 480px) {
   .copyright-terms {
     flex-direction: column;
     gap: 0.35rem;

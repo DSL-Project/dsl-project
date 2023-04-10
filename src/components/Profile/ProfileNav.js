@@ -12,11 +12,11 @@ const ProfileNav = ({ pathname, website, email, name }) => {
                 {/* path name */}
                 <div className='navigation'>
                     <span>
-                        <Link to='/' className='medium-14 path-children'>
+                        <Link to='/people' className='medium-14 path-children'>
                             {pathItem[1]}
                         </Link>
                         <span className='medium-14 path-children'>/</span>
-                        <Link to='/' className='medium-14 path-children'>
+                        <Link to='/people' className='medium-14 path-children'>
                             {pathItem[2]}
                         </Link>
                         <span className='medium-14 path-children'>/</span>
@@ -29,16 +29,17 @@ const ProfileNav = ({ pathname, website, email, name }) => {
                     <ul>
                         {website && (
                             <li className='item'>
-                                <Link
-                                    to={{ pathname: website.siteUrl }}
+                                <a
+                                    href={website}
                                     target='_blank'
                                     className='links'
+                                    rel='noreferrer'
                                 >
                                     <GlobeLogo className='medium-16 nav-icons' />
                                     <span className='medium-16 links-title'>
                                         personal website
                                     </span>
-                                </Link>
+                                </a>
                             </li>
                         )}
                         {email && (

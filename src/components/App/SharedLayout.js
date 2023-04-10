@@ -1,20 +1,29 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
-// import NavBar from "../NavBar/NavBar";
-import Footer from '../Footer';
-import Header from '../Header/Header';
-import { useGlobalContext } from '../../appContext';
+import React from "react";
+import { Outlet } from "react-router-dom";
+import Footer from "../Footer";
+import Header from "../Header/Header";
+import { useGlobalContext } from "../../appContext";
+import LoadingState from "../LoadingState/LoadingState";
 
 const SharedLayout = () => {
-    const { openMenu } = useGlobalContext();
+  const { openMenu, homepageData, isLoading } = useGlobalContext();
+
+  if (isLoading) {
+    return <LoadingState />;
+  }
+
+  if (!isLoading && homepageData) {
+    const homeStatic = homepageData[0];
+
     return (
-        <>
-            <Header />
-            {/* <NavBar /> */}
-            {openMenu || <Outlet />}
-            <Footer />
-        </>
+      <>
+        <Header />
+        {openMenu || <Outlet />}
+        <Footer homeStatic={homeStatic} />
+      </>
     );
+  }
+  return <Footer />;
 };
 
 export default SharedLayout;

@@ -3,7 +3,8 @@ import { useGlobalContext } from '../../appContext';
 
 const LeftPane = ({ name, titles, tags, bio, personImg }) => {
     const [readMore, setReadMore] = useState(true);
-    const { tabletView } = useGlobalContext();
+    const [showAll, setShowAll] = useState(false);
+    const { tabletView, mobileView } = useGlobalContext();
     return (
         <div className='profile'>
             <div className='header'>
@@ -11,7 +12,7 @@ const LeftPane = ({ name, titles, tags, bio, personImg }) => {
                     <div className='person-image'>
                         <img
                             src={personImg}
-                            alt={`${name} look at the camera`}
+                            alt={`${name} looking at the camera`}
                         />
                     </div>
                 </div>
@@ -23,30 +24,104 @@ const LeftPane = ({ name, titles, tags, bio, personImg }) => {
                     {titles !== undefined && (
                         <div className='subtitles-container'>
                             {titles.map((title, id) => {
-                                return (
-                                    <h2 key={id} className='semi-14 subtitles'>
-                                        {(id ? ',  ' : '') + title}
-                                    </h2>
-                                );
+                                if (id < titles.length - 1) {
+                                    return (
+                                        <h2
+                                            key={id}
+                                            className='semi-14 subtitles'
+                                        >
+                                            {title},
+                                        </h2>
+                                    );
+                                } else {
+                                    return (
+                                        <h2
+                                            key={id}
+                                            className='semi-14 subtitles'
+                                        >
+                                            {title}
+                                        </h2>
+                                    );
+                                }
                             })}
                         </div>
                     )}
                 </div>
-                {tags !== undefined && (
-                    <ul className='tags-container'>
-                        {tags.map((tag, id) => {
-                            return (
-                                <li key={id} className='semi-14 tags'>
-                                    {tag}
-                                </li>
-                            );
-                        })}
-                    </ul>
-                )}
-                <div className='bio'>
-                    {/* if tabletView is true, then render only 1 paragraph with option to read-more
+                {/* ------------------------------------------------------- */}
+                {/* TAGS */}
+                {/* make sure tags are not retrurning undefined */}
+                {tags !== undefined ? (
+                    mobileView ? (
+                        // if its a mobile view, then check if length is > 5
+                        tags.length > 5 ? (
+                            // if length > 5 then show a button
+                            <div>
+                                {showAll ? (
+                                    <ul className='tags-container'>
+                                        {tags.slice(0, 5).map((tag, id) => (
+                                            <li
+                                                key={id}
+                                                className='semi-14 tags'
+                                            >
+                                                {tag}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                ) : (
+                                    <ul className='tags-container'>
+                                        {tags.slice(0).map((tag, id) => (
+                                            <li
+                                                key={id}
+                                                className='semi-14 tags'
+                                            >
+                                                {tag}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
+                                <button
+                                    className='read-btn show-btn'
+                                    onClick={() => setShowAll(!showAll)}
+                                >
+                                    <p className='regular-16'>
+                                        {showAll ? 'show all' : 'show less'}
+                                    </p>
+
+                                    {/* if button is true, then show all tags */}
+                                </button>
+                            </div>
+                        ) : (
+                            // if length is not > 5, then render all
+                            <ul className='tags-container'>
+                                {tags.map((tag, id) => {
+                                    return (
+                                        <li key={id} className='semi-14 tags'>
+                                            {/* {tag} */}
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+                        )
+                    ) : (
+                        // handle if its not mobile view
+                        <ul className='tags-container'>
+                            {tags.map((tag, id) => {
+                                return (
+                                    <li key={id} className='semi-14 tags'>
+                                        {tag}
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    )
+                ) : null}
+                {/* ---------------------------------------------- */}
+                {/* BIO */}
+
+                {/* if tabletView is true, then render only 1 paragraph with option to read-more
                     if tablet view is true and readmore is also true then render only 1 paragraph and to read more, other wise option to read less
                     if tabletView is false, then render all paragraphs with option  */}
+                <div className='bio'>
                     {bio !== null && tabletView
                         ? bio.slice(0, 1).map((para, id) => {
                               const paragraph =
