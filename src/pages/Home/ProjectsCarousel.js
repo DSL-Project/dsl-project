@@ -6,6 +6,7 @@ import { useGlobalContext } from "../../appContext";
 
 const ProjectsCarousel = () => {
   const { projectsData } = useGlobalContext();
+  //console.log(projectsData[0].slug);
 
   let settings = {
     dots: true,
@@ -42,14 +43,14 @@ const ProjectsCarousel = () => {
         </div>
       </div>
       <Slider {...settings}>
-        {projectsData.map(({ slug, title, subtitle, url, about, tags }) => (
+        {projectsData.map(({ slug, title, subtitle, about, tags }) => (
           <div className="project-container" key={slug}>
             <div className="title-container">
               <h2 className="medium-16 project-title">{title}</h2>
             </div>
             <div className="subtitle">
               <h3>{subtitle}</h3>
-              <a href={slug}>
+              <a href={`/projects/${slug}`}>
                 <AiOutlineArrowRight />
               </a>
             </div>
