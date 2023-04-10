@@ -9,15 +9,15 @@ const Sidebar = () => {
     const { setQuery, openMenu, setOpenMenu } = useGlobalContext();
 
     return (
-        // <aside className='side-menu'>
-
         <aside className={`${openMenu ? 'sidebar show-sidebar' : 'sidebar'}`}>
             {/* sidebar header */}
             <section className='sidebar-header'>
                 <Logo />
                 <button
+                    type='button'
                     className='close-btn'
                     onClick={() => setOpenMenu(false)}
+                    aria-label='close sidebar menu'
                 >
                     <CloseIcon className='close-icon' />
                 </button>
@@ -35,7 +35,6 @@ const Sidebar = () => {
                                     setQuery(queryString);
                                     setOpenMenu(false);
                                 }}
-                                // className='regular-caps'
                                 className={({ isActive }) =>
                                     isActive
                                         ? 'regular-16 sm-item sm-active'

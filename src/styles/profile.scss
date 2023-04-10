@@ -12,11 +12,9 @@
 
 // internal styling of navbar
 .links {
-    // border: 4px solid magenta;
     display: flex;
     align-items: center;
     .nav-icons {
-        // border: 2px solid blue;
         display: flex;
         width: 1.5rem;
         height: 1.5rem;
@@ -94,8 +92,6 @@
 // LEFT Pane
 .left-pane {
     width: 75%;
-
-    // border: 1px solid $neutral-400;
     border-right: 1px solid $neutral-400;
     overflow: auto;
     border-bottom: 0;
@@ -120,7 +116,6 @@
 .body {
     padding-left: 10rem;
     padding-right: 5rem;
-    // border: 2px solid red;
 }
 
 // giving top padding to body, to keep contents below the image
@@ -168,7 +163,6 @@
 
         .body-content {
             .name {
-                // text-transform: capitalize;
                 color: $black;
             }
             .subtitles-container {
@@ -214,18 +208,14 @@
 // -----------------end--------------------------
 // Right Pane of vertical Scroll styling
 .right-pane {
-    // border: 2px solid blue;
 }
 .right-panes {
-    // border: 2px solid red;
     height: 100%;
 
     .container {
-        // border: 3px solid black;
         padding: 2rem 1.5rem;
 
         .heading {
-            // border: 2px solid red;
             color: $neutral-500;
             text-transform: capitalize;
             margin-bottom: 1rem;
@@ -235,29 +225,21 @@
 
 .list {
     width: 100%;
-    // border: 2px solid magenta;
     .list-item {
-        // border: 2px solid black;
         max-width: 100%;
         padding: 0;
-        .publication-container {
-            // border: 2px solid green;
-        }
     }
 }
 .project-list {
-    // border: 2px solid red;
     .list-item .project {
         text-decoration: underline;
         text-decoration-color: $soft-black;
         text-underline-offset: 2px;
 
         padding-top: 0.5rem;
-        // border: 2px solid black;
     }
 }
 .publication-container {
-    // border: 2px solid blue;
     margin-top: 0.5rem;
 }
 
@@ -265,12 +247,10 @@
     display: flex;
     margin: 0.5rem 0;
     margin: 0;
-    // border: 2px solid red;
     .publication-on {
         text-transform: capitalize;
     }
     .publication-date {
-        // border: 2px solid red;
         display: block;
         margin-left: 0px;
     }
@@ -305,13 +285,11 @@
         flex-direction: column;
         min-height: 0;
         min-height: 100vh;
-        // border: 2px solid red;
     }
 
     // left pane
     .left-pane {
         width: 100%;
-        // border: 2px solid blue;
         border-bottom: 1px solid $neutral-400;
     }
     .person-image-container,
@@ -320,15 +298,12 @@
         padding-right: 1rem;
     }
     .tags-container {
-        // border: 2px solid red;
         min-width: 100%;
     }
 
     // right pane
     .right-pane {
         width: 100%;
-        // overflow: visible;
-        // border-top: 0.5px solid $neutral-400;
 
         .container {
             padding: 1.5rem 1rem;
@@ -350,7 +325,6 @@
             .subtitles-container {
                 .subtitles {
                     font-size: 0.7rem;
-                    // border: 2px solid red;
                     margin-left: 2px;
                 }
             }
@@ -366,7 +340,6 @@
     }
 
     .show-btn {
-        // border: 2px solid red;
         margin-top: 1rem;
     }
 
