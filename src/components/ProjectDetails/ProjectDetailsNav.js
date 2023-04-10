@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { NavHashLink } from 'react-router-hash-link';
 
-const ProjectDetailsNav = ({ pathname, navLinks, projectCardInfo }) => {
+const ProjectDetailsNav = ({ pathname, subNavLinks, projectCardInfo }) => {
     return (
         <nav className='pdnav-container'>
             <div className='pd-nav'>
@@ -19,15 +19,15 @@ const ProjectDetailsNav = ({ pathname, navLinks, projectCardInfo }) => {
                     </span>
                 </div>
                 <ul className='pd-main-menu'>
-                    {navLinks.map((link, id) => {
+                    {subNavLinks.map((link, id) => {
                         return (
                             <li key={id} className='pd-menu-item'>
                                 <NavHashLink
                                     smooth
                                     to={link.url}
                                     state={projectCardInfo}
-                                    className={({ isActive }) =>
-                                        isActive
+                                    className={({ isactive }) =>
+                                        isactive
                                             ? 'regular-14 pd-link pd-active'
                                             : 'regular-14 pd-link pd-inactive'
                                     }

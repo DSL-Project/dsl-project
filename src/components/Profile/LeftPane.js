@@ -12,7 +12,7 @@ const LeftPane = ({ name, titles, tags, bio, personImg }) => {
                     <div className='person-image'>
                         <img
                             src={personImg}
-                            alt={`${name} look at the camera`}
+                            alt={`${name} looking at the camera`}
                         />
                     </div>
                 </div>
@@ -24,11 +24,25 @@ const LeftPane = ({ name, titles, tags, bio, personImg }) => {
                     {titles !== undefined && (
                         <div className='subtitles-container'>
                             {titles.map((title, id) => {
-                                return (
-                                    <h2 key={id} className='semi-14 subtitles'>
-                                        {(id ? ',  ' : '') + title}
-                                    </h2>
-                                );
+                                if (id < titles.length - 1) {
+                                    return (
+                                        <h2
+                                            key={id}
+                                            className='semi-14 subtitles'
+                                        >
+                                            {title},
+                                        </h2>
+                                    );
+                                } else {
+                                    return (
+                                        <h2
+                                            key={id}
+                                            className='semi-14 subtitles'
+                                        >
+                                            {title}
+                                        </h2>
+                                    );
+                                }
                             })}
                         </div>
                     )}
