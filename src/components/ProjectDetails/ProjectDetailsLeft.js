@@ -48,12 +48,8 @@ const ProjectDetailsLeft = ({ projectCardInfo, newStatus }) => {
                                 {date === undefined
                                     ? null
                                     : date.substring(0, 4) + '-present'}
-
-                                {/* {date.substring(0, 4)}-present */}
                             </p>
                         </div>
-
-                        {/* <div className='btn-container'> */}
                         <div
                             className={`${
                                 url === undefined ? 'removeMe' : 'btn-container'
@@ -168,7 +164,8 @@ const ProjectDetailsLeft = ({ projectCardInfo, newStatus }) => {
             )}
 
             {/*3: Partners */}
-            <div className='pd-partners .pd-contain' id='partners'>
+            {/* we dont have partners information from response yet */}
+            {/* <div className='pd-partners .pd-contain' id='partners'>
                 <h2 className='pd-partner-heading pd-heading'>partners</h2>
                 <h3 className='regular-16 pd-content'>
                     <div className='dummy'></div>
@@ -176,9 +173,10 @@ const ProjectDetailsLeft = ({ projectCardInfo, newStatus }) => {
                     <div className='dummy'></div>
                     <div className='dummy'></div>
                 </h3>
-            </div>
+            </div> */}
             {/*4: funding */}
-            <div className='pd-funding .pd-contain' id='fundings'>
+            {/* we dont have funding information from response yet */}
+            {/* <div className='pd-funding .pd-contain' id='fundings'>
                 <h2 className='pd-funding-heading pd-heading'>
                     funding provided by
                 </h2>
@@ -189,7 +187,7 @@ const ProjectDetailsLeft = ({ projectCardInfo, newStatus }) => {
                     <div className='dummy'></div>
                     <div className='dummy'></div>
                 </h3>
-            </div>
+            </div> */}
         </section>
     );
 };

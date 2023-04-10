@@ -17,6 +17,8 @@ const PublicationCard = ({ publication, id }) => {
                             {publicationType !== undefined && (
                                 <a
                                     href={url}
+                                    target='_blank'
+                                    rel='noreferrer'
                                     className={`${
                                         publicationType === 'journal article'
                                             ? 'publication-type journal bold-caps'

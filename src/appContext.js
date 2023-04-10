@@ -8,13 +8,7 @@ import React, {
     useState,
     useCallback,
 } from 'react';
-import {
-    STATIC_QUERY,
-    PROJECTS,
-    PUBLICATIONS,
-    TRAININGS,
-    PEOPLE,
-} from './appConstants';
+import { STATIC_QUERY, PROJECTS, PUBLICATIONS } from './appConstants';
 import useContentful from './hooks/useContenful';
 
 const AppContext = createContext();

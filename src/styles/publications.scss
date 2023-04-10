@@ -9,7 +9,6 @@
 .publication-main {
     .pub-wrapper {
         padding-bottom: 8rem;
-        // border: 2px solid red;
 
         .single-content {
             margin-top: 2rem;
@@ -25,7 +24,6 @@
 
     .publication {
         padding: 1.5rem;
-        // border: 2px solid red;
 
         .meta-container {
             .meta {
@@ -146,7 +144,6 @@
     .featured-projects-container {
         padding: 1.5rem;
         border-top: 1px solid $neutral-400;
-        // border: 2px solid red;
 
         .featured-projects {
             display: grid;
@@ -160,7 +157,6 @@
             .project-list {
                 color: $soft-black;
                 margin-left: 1rem;
-                //border: 2px solid red;
 
                 .project {
                     margin-bottom: 10px;
@@ -196,7 +192,7 @@
 
         .authors-container {
             padding: 1.5rem;
-            // border: 2px solid red;
+
             .authors {
                 align-items: flex-start;
 
@@ -210,28 +206,17 @@
 @media (max-width: 375px) {
     // publication form
     .form {
-        // display: flex;
-        // align-items: center;
-        // justify-content: space-between;
-        // width: 85%;
-        // width: 100%;
         margin: 0;
 
         .child1 {
-            // border: 2px solid blue;
-            // min-width: 85%;
-            // width: 100%;
-            // gap: 0;
             margin: 0;
             gap: 2.5rem;
 
             .subchild1 {
-                // margin-right: 5px;
                 margin: 0;
             }
 
             .subchild2 {
-                // margin-right: 5px;
                 margin-right: 0px;
             }
         }

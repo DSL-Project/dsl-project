@@ -9,8 +9,7 @@ const ProjectDetails = () => {
 
     const generateSubNavLinks = (projectCard) => {
         /**This function generates the sub navigation items dynamically.
-         * partners and fundings are kept static on purpose to meet the figma designs
-         * response has no 'partners' and 'fundings' property, therefore its hard coded to showcase on UI.
+         *  * important to note that response has no 'partners' and 'fundings' property yet.
          */
         const { slug } = projectCard;
         const targetObj = projectCard;
@@ -26,10 +25,10 @@ const ProjectDetails = () => {
                 }, {});
             return filteredObject;
         });
-        linksArray.push(
-            { name: 'partners', url: `/projects/${slug}#partners` },
-            { name: 'fundings', url: `/projects/${slug}#fundings` }
-        );
+        // linksArray.push(
+        //     { name: 'partners', url: `/projects/${slug}#partners` },
+        //     { name: 'fundings', url: `/projects/${slug}#fundings` }
+        // );
         return linksArray;
     };
     const subNavLinks = generateSubNavLinks(projectCardInfo).filter(
