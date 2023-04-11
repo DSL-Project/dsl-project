@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import SharedLayout from "./SharedLayout";
 import Home from "../../pages/Home";
 import Projects from "../../pages/Projects";
-import Training from "../../pages/Training";
+import Programs from "../../pages/Programs";
 import Publications from "../../pages/Publications";
 import People from "../../pages/People";
 import Contact from "../../pages/Contact";
@@ -19,7 +19,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="projects" element={<Projects />} />
         <Route path="projects/:slug" element={<ProjectDetails />} />
-        <Route path="training" element={<Training />} />
+        <Route path="programs" element={<Programs />} />
         <Route path="people" element={<People />} />
         <Route path="publications" element={<Publications />} />
         <Route path="people/staff/:slug" element={<Profile />} />

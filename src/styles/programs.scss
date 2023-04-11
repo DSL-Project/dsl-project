@@ -1,29 +1,29 @@
-.training {
-  .training-border:not(:last-child) {
+.programs {
+  .programs-border:not(:last-child) {
     border-bottom: 1px solid $neutral-400;
   }
-  .training-wrapper {
+  .programs-wrapper {
     color: $soft-black;
     padding-bottom: 3rem;
   }
 
-  .training-container {
-    .training-title {
+  .programs-container {
+    .programs-title {
       color: $black;
     }
 
-    .training-link {
+    .programs-link {
       padding: 1rem 0;
     }
-    .training-description {
+    .programs-description {
       padding: 1rem 0;
     }
 
-    .training-link {
+    .programs-link {
       background-color: $neutral-200;
       padding: 1rem 2rem;
       border-radius: 0.25rem;
-      .training-anchor {
+      .programs-anchor {
         display: inline;
         text-decoration: underline;
       }
