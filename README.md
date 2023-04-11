@@ -113,7 +113,7 @@ PROJECT WORKFLOW:
   'cmsQuery' is called in useEffect() so that it executes everytime user click on different nav links
 - Some states like 'projectsData', 'homepageData', 'bannerContent' does not changes on user activity. They are loaded once the components loads and stays.
 
-### Projects/People/Publications/Home/Training pages
+### Projects, People, Publications, Home, and Training pages
 - All pages have access to associated query constant. When user refresh the page, the page set the query state present in 'appContext' by passing query constant as
   a parameter
   
