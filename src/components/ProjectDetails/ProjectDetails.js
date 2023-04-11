@@ -9,18 +9,9 @@ const ProjectDetails = () => {
 
     const generateSubNavLinks = (projectCard) => {
         /**This function generates the sub navigation items dynamically.
-         *  * important to note that response has no 'partners' and 'fundings' property yet.         *
+         *  * important to note that response has no 'partners' and 'fundings' property yet.
          */
-
-        const { slug } = projectCard || {
-            about: undefined,
-            media: undefined,
-            slug: undefined,
-            tags: undefined,
-            team: undefined,
-            title: undefined,
-        };
-        console.log('project: ', projectCard);
+        const { slug } = projectCard;
         const targetObj = projectCard;
         const filterItems = ['publications', 'media', 'team'];
         const linksArray = filterItems.map((item) => {
