@@ -15,7 +15,7 @@ const navConstants = [
     },
     {
         id: 2,
-        name: 'training',
+        name: 'programs',
         url: '/training',
         queryString: TRAININGS,
     },
