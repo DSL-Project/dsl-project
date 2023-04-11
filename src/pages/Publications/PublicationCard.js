@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { TbExternalLink as ExternalLink } from 'react-icons/tb';
-import { CgLink as LinkIcon } from 'react-icons/cg';
+// import { CgLink as LinkIcon } from 'react-icons/cg';
 
 const PublicationCard = ({ publication, id }) => {
     const { publicationType, title, authors, projects, url } = publication;
@@ -30,14 +30,14 @@ const PublicationCard = ({ publication, id }) => {
                             )}
 
                             {/* perma link */}
-                            <Link
+                            {/* <Link
                                 to={url}
                                 className='perma-link'
                                 title='Permalink'
                                 target='_blank'
                             >
                                 <LinkIcon />
-                            </Link>
+                            </Link> */}
                         </div>
                     )}
 
