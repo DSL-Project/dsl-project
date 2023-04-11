@@ -6,7 +6,6 @@ import { useGlobalContext } from "../../appContext";
 
 const ProjectsCarousel = () => {
   const { projectsData } = useGlobalContext();
-  //console.log(projectsData[0].slug);
 
   let settings = {
     dots: true,
