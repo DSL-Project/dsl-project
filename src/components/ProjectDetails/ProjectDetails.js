@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import ProjectDetailsNav from './ProjectDetailsNav';
 import ProjectDetailsLeft from './ProjectDetailsLeft';
 import ProjectDetailsRight from './ProjectDetailsRight';
+import { useGlobalContext } from '../../appContext';
 
 const ProjectDetails = () => {
-    const { pathname, state: projectCardInfo } = useLocation();
+    const { projectsData } = useGlobalContext();
+    const { pathname } = useLocation();
+    const slugFromLocation = pathname.split('/')[2];
+    const [projectCardInfo, setProjectCardInfo] = useState({});
 
     const generateSubNavLinks = (projectCard) => {
         /**This function generates the sub navigation items dynamically.
@@ -25,24 +29,25 @@ const ProjectDetails = () => {
                 }, {});
             return filteredObject;
         });
-        // linksArray.push(
-        //     { name: 'partners', url: `/projects/${slug}#partners` },
-        //     { name: 'fundings', url: `/projects/${slug}#fundings` }
-        // );
         return linksArray;
     };
     const subNavLinks = generateSubNavLinks(projectCardInfo).filter(
         (item) => item.name !== undefined
     );
 
-    /* in case status is undefined or user did not provide status information.
-     by default as per figma, if user does not provide status info, then its active otherwise whatever the user  provides*/
+    useEffect(() => {
+        const filteredProject = projectsData.filter(
+            (project) => project.slug === slugFromLocation
+        );
+        setProjectCardInfo(filteredProject[0]);
+    }, [pathname]);
+
     const { status } = projectCardInfo;
     const newStatus = status === undefined ? 'active' : status;
-    // -----------------------
     const RightPaneData = { projectCardInfo, subNavLinks, newStatus };
     const LeftPaneData = { projectCardInfo, newStatus };
     const NavData = { pathname, subNavLinks, projectCardInfo };
+
     return (
         <main className='pd-main'>
             {/* navigation */}

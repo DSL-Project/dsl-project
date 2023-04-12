@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useGlobalContext } from '../../appContext';
 import Banner from '../../components/Banner/Banner';
-// import Searchbar from './Searchbar';
+import Searchbar from './Searchbar';
 import { PUBLICATIONS } from '../../appConstants';
 import PublicationCard from './PublicationCard';
 import LoadingState from '../../components/LoadingState/LoadingState';

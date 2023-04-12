@@ -5,8 +5,13 @@ import Person from './Person';
 import { PEOPLE } from '../../appConstants';
 import LoadingState from '../../components/LoadingState/LoadingState';
 const People = () => {
-    const { response, peopleBody, peopleTitle, setQuery, isLoading } =
-        useGlobalContext();
+    const {
+        peopleBody,
+        peopleTitle,
+        setQuery,
+        isLoading,
+        peopleData: response,
+    } = useGlobalContext();
 
     useEffect(() => {
         // refresh button functionality
