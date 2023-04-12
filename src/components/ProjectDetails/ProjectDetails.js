@@ -39,7 +39,7 @@ const ProjectDetails = () => {
         const filteredProject = projectsData.filter(
             (project) => project.slug === slugFromLocation
         );
-        setProjectCardInfo(filteredProject[0]);
+        setProjectCardInfo(filteredProject?.[0] || {});
     }, [pathname]);
 
     const { status } = projectCardInfo;
