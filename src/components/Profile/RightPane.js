@@ -13,17 +13,17 @@ const RightPane = () => {
                 <h3 className='bold-16 heading'>affiliated projects</h3>
                 <ul className='project-list list'>
                     {authorProjects.map((project, id) => {
-                        const { subtitle, slug } = project;
+                        const { subtitle, slug: projectSlug } = project;
                         return (
                             <li key={id} className='list-item'>
                                 <Link
-                                    to={`/projects/${slug}`}
-                                    state={project}
+                                    to={`/projects/${projectSlug}`}
+                                    // state={project}
                                     className='medium-16 project'
                                 >
                                     {`${
-                                        slug.charAt(0).toUpperCase() +
-                                        slug.slice(1)
+                                        projectSlug.charAt(0).toUpperCase() +
+                                        projectSlug.slice(1)
                                     }  ${
                                         subtitle !== undefined
                                             ? `: ${subtitle}`

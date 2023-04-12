@@ -1,24 +1,31 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import ProfileNav from './ProfileNav';
 import LeftPane from './LeftPane';
 import RightPane from './RightPane';
 import { useGlobalContext } from '../../appContext';
-import defaultImg from '../../assets/defaultImg.jpg';
 
 const Profile = () => {
-    const { setAuthorSlug } = useGlobalContext();
-    const { pathname, state: profileData } = useLocation();
-    const { name, titles, website, email, tags, slug, img } = profileData;
-    const personImg = img?.fields?.file?.url || defaultImg;
-    const bio = profileData?.profile?.content || null;
-    const profileNavData = { pathname, website, email, name };
-    const leftPaneData = { name, titles, tags, bio, personImg };
+    const [profileData, setProfileData] = useState({});
+    const { setAuthorSlug, peopleData } = useGlobalContext();
+    const { pathname } = useLocation();
+    const memberTypeFromLocation = pathname.split('/')[2];
+    const slugFromLocation = pathname.split('/')[3];
+
+    const profileNavData = { pathname, profileData };
+    const leftPaneData = {
+        profileData,
+        slugFromLocation,
+        memberTypeFromLocation,
+    };
 
     useEffect(() => {
-        // set the global context state variable 'author slug'
-        setAuthorSlug(slug);
-    }, []);
+        setAuthorSlug(slugFromLocation);
+        const filteredPerson = peopleData.filter(
+            (person) => person.slug === slugFromLocation
+        );
+        setProfileData(filteredPerson);
+    }, [pathname, slugFromLocation]);
 
     return (
         <main className='person-main'>

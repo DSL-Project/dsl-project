@@ -2,8 +2,14 @@ import React from 'react';
 import { CgGlobeAlt as GlobeLogo, CgMail as MailLogo } from 'react-icons/cg';
 import { Link } from 'react-router-dom';
 
-const ProfileNav = ({ pathname, website, email, name }) => {
+const ProfileNav = ({ pathname, profileData }) => {
     const pathItem = pathname.split('/');
+    const { website, email, name } = profileData[0] || {
+        name: '',
+        email: '',
+        website: '',
+    };
+    // website email name
 
     return (
         <section className='nav-container'>

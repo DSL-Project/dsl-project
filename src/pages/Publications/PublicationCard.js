@@ -87,7 +87,6 @@ const PublicationCard = ({ publication, id }) => {
                                             <Link
                                                 to={`/people/staff/${slug}`}
                                                 className='author-link medium-16'
-                                                state={author.fields}
                                             >
                                                 {id < authors.length - 1
                                                     ? `${name},`
@@ -125,7 +124,6 @@ const PublicationCard = ({ publication, id }) => {
                                             >
                                                 <Link
                                                     to={`/projects/${slug}`}
-                                                    state={project.fields}
                                                     className='proj-link'
                                                     title={title}
                                                 >

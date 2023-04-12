@@ -158,9 +158,6 @@ const AppProvider = ({ children }) => {
     const getProjectsData = useCallback(async () => {
         setIsLoading(true);
         try {
-            // const response = await getCmsResponse(PROJECTS, {
-            //   content_type: PROJECTS,
-            // });
             const response = await getCmsResponse(PROJECTS);
             setProjectsData(response);
             setIsLoading(false);
@@ -172,9 +169,6 @@ const AppProvider = ({ children }) => {
     const getPeopleData = useCallback(async () => {
         setIsLoading(true);
         try {
-            // const response = await getCmsResponse(PROJECTS, {
-            //   content_type: PROJECTS,
-            // });
             const response = await getCmsResponse(PEOPLE);
             setPeopleData(response);
             setIsLoading(false);
