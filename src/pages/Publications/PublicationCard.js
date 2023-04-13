@@ -15,10 +15,7 @@ const PublicationCard = ({ publication, id }) => {
                         <div className='meta'>
                             {/* publication type */}
                             {publicationType !== undefined && (
-                                <a
-                                    href={url}
-                                    target='_blank'
-                                    rel='noreferrer'
+                                <p
                                     className={`${
                                         publicationType === 'journal article'
                                             ? 'publication-type journal bold-caps'
@@ -26,7 +23,19 @@ const PublicationCard = ({ publication, id }) => {
                                     }`}
                                 >
                                     {publicationType}
-                                </a>
+                                </p>
+                                // <a
+                                //     href={url}
+                                //     target='_blank'
+                                //     rel='noreferrer'
+                                //     className={`${
+                                //         publicationType === 'journal article'
+                                //             ? 'publication-type journal bold-caps'
+                                //             : 'publication-type popular bold-caps'
+                                //     }`}
+                                // >
+                                //     {publicationType}
+                                // </a>
                             )}
 
                             {/* perma link */}
