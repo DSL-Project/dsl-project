@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import LoadingState from '../../components/LoadingState/LoadingState';
 import { useGlobalContext } from '../../appContext';
+import MapGL from './MapGL';
 
 function Contact() {
     const [name, setName] = useState('');
@@ -208,7 +209,10 @@ function Contact() {
                             </div>
                         </address>
                     </address>
-                    <div className='map'></div>
+                    {/* <div className='map'></div> */}
+                    <div className='map'>
+                        <MapGL />
+                    </div>
                 </div>
             </div>
             {/* <hr /> */}

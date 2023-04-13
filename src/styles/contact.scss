@@ -144,14 +144,14 @@
 
         .map {
             width: 50%;
-            border-radius: 0 0.5rem 0.5rem 0;
-            background-image: url('../assets/dslMapStill.png');
-            background-size: cover;
-            background-repeat: no-repeat;
         }
     }
 }
-
+.map-container {
+    height: 305px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
 // -media-
 @media (max-width: 1300px) {
     .contact {
@@ -243,7 +243,7 @@
         }
     }
 }
-@media (max-width: 380px) {
+@media (max-width: 375px) {
     .contact {
         .address-container {
             .contact-methods {
@@ -251,5 +251,9 @@
                 flex-direction: column;
             }
         }
+    }
+    .map-container {
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 10px;
     }
 }
