@@ -3,7 +3,6 @@
     margin: 0 auto;
     padding-bottom: 4.4rem;
     overflow-x: hidden;
-    // border: 2px solid red;
 }
 
 .welcome-container {
@@ -25,13 +24,10 @@
 .recent-projects {
     display: flex;
     align-items: center;
-
-    // border: 2px solid red;
     .bold-18:hover {
         cursor: pointer;
     }
     .down-arrow {
-        // border: 2px solid blue;
         display: flex;
         align-items: center;
         padding-left: 3px;
@@ -144,12 +140,10 @@
 }
 
 .carousel-con {
-    // border: 2px solid red;
     margin-left: 10%;
 }
 
-//! Media Queries
-
+//  -media-
 @media (max-width: 1300px) {
     .home-address,
     .stay-updated {

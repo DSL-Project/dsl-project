@@ -1,4 +1,4 @@
-// ----------- SEARCH BAR STYLING---------------------
+//-search bar-
 // strip off all default styling
 .form,
 fieldset,
@@ -26,7 +26,7 @@ input {
     color: $neutral-500;
 }
 
-// styling starts
+// -individual styling-
 .form {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -53,7 +53,7 @@ input {
 
     // }
 }
-// adding icons
+//-adding icons-
 .filterBx {
     padding-left: 25%;
     background-image: url('../assets/filter.svg'),
@@ -93,8 +93,8 @@ input {
     }
 }
 
-//------------- CUSTOM DROP DOWN------------
-/* PLACEHOLDER */
+//-custom dropdown-
+// -place holder-
 .custom-select {
     margin-top: 0.5rem;
 }
@@ -144,7 +144,7 @@ input {
     color: inherit;
 }
 
-// checkbox
+//-checkbox-
 #css_custom .optionListContainer .optionContainer .option .checkbox::before {
     appearance: none;
     content: '';
@@ -170,8 +170,7 @@ input {
     border: none;
 }
 
-// --------------SUB MENU-------------------
-
+//-sub menu-
 .form .child1 {
     position: relative;
 }
@@ -188,7 +187,7 @@ input {
     padding: 0;
 }
 
-/* general section overall */
+//-general section overall-
 .subform-container {
     padding: 0rem 1rem;
     background-color: $white;
@@ -200,8 +199,7 @@ input {
     width: 0px;
 }
 
-/* ----------TOP SECTION --------------*/
-
+//-top section-
 .subform-header {
     padding: 1rem 0rem 1.5rem 0rem;
     border-bottom: 1px solid $neutral-400;
@@ -211,13 +209,12 @@ input {
     justify-content: space-between;
 }
 
-/* filter heading */
 .filter-heading {
     text-transform: uppercase;
     color: $black;
 }
 
-/* clear button */
+//-clear button-
 .clear-btn {
     border: none;
     background-color: inherit;
@@ -225,7 +222,7 @@ input {
     text-transform: uppercase;
     cursor: pointer;
 }
-/* item selected text */
+//-item selected text-
 .item-selected-text {
     margin-top: 5px;
     margin-top: 0.5rem;
@@ -233,7 +230,7 @@ input {
     text-transform: capitalize;
 }
 
-/* subform - main */
+//-subform main-
 .subform-main > div {
     border-top: 1px solid $neutral-400;
     padding: 1.5rem 0;

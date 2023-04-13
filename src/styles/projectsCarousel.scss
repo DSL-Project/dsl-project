@@ -8,24 +8,19 @@
     .seeAll-link {
         display: flex;
         align-items: center;
-
         margin-right: 10%;
         .seeAll-text {
             margin-right: 0.2rem;
-        }
-        .right-arrow {
-            // border: 2px solid blue;
         }
     }
 }
 
 .svg-arrow {
-    color: black;
+    color: $black;
     font-size: 0.9rem;
 }
 
 .project-container {
-    // border: 2px solid red;
     max-width: 98%;
 
     height: 16rem;
@@ -36,10 +31,7 @@
     cursor: grab;
 
     .project-subcontainer {
-        // border: 1px dotted goldenrod;
         height: 100%;
-
-        // ----
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -47,32 +39,25 @@
 
         .project-title {
             color: $neutral-500;
-            // position: relative;
-            // border: 2px solid red;
             width: 100%;
         }
         .subtitle {
             display: flex;
             align-items: flex-start;
-            // border: 2px solid red;
 
             .carousel-heading {
                 max-width: 95%;
                 display: flex;
                 overflow: hidden;
                 text-overflow: ellipsis;
-
-                // margin-right: 15px;
             }
             .arrow-right {
-                // border: 2px solid blue;
                 position: absolute;
                 top: 17%;
                 right: 0;
             }
         }
         .project-description {
-            // border: 2px solid red;
             // padding-top: 1.2rem;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -86,7 +71,6 @@
             // padding-top: 1.2rem;
             display: flex;
             flex-wrap: wrap;
-            // border: 2px solid red;
 
             .hash-box {
                 padding: 0.2rem 0.3rem;
@@ -99,19 +83,14 @@
                 justify-content: center;
             }
             .tag-box {
-                // padding: 0.5rem;
                 border: 1px solid $neutral-400;
                 border-radius: 0.1rem;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 padding: 0.2rem 0.3rem;
-                // border-right: 0;
-                // object-fit: contain;
-                // border-left: 0;
 
                 &:last-child {
-                    // border: 2px solid red;
                     border-right: 1px solid $neutral-400;
                     border-top-right-radius: 5px;
                     border-bottom-right-radius: 5px;
@@ -140,8 +119,7 @@
     font-size: 0.45rem;
 }
 
-//! Media Queries
-
+//-media-
 @media (max-width: 1500px) {
     .tag-container > .tag-box {
         font-size: 0.5rem;
@@ -151,7 +129,6 @@
 
 @media (max-width: 835px) {
     .carousel-con {
-        // border: 2px solid blue;
         margin-left: 4% !important;
     }
     .arrow-right {
@@ -184,21 +161,16 @@
 
 @media (max-width: 375px) {
     .project-container {
-        // border: 2px solid red;
         min-width: 96%;
     }
     .slick-dots {
-        // border: 2px solid red;
-        // margin-top: 1rem;
         position: absolute;
         top: 105%;
     }
     .seeAll-link {
-        // border: 2px solid red;
         margin-right: 3% !important;
     }
     .funding-container {
-        // border: 2px solid blue;
         margin-top: 2rem;
     }
 }

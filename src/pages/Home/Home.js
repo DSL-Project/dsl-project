@@ -31,7 +31,7 @@ function Home() {
             <Announcement />
             <div className='home-wrapper'>
                 <div className='welcome-container'>
-                    <h1>
+                    <h1 id='home'>
                         {homeStatic?.hometitle ??
                             `Welcome to the Digital Society Lab`}
                     </h1>

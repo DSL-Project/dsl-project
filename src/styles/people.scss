@@ -26,7 +26,7 @@
                 padding: 0.1rem;
                 outline: 0;
 
-                // first child of profile link
+                // -first child of profile link-
                 .profile-img {
                     display: flex;
                     align-items: center;
@@ -40,7 +40,7 @@
                     }
                 }
 
-                //second child of profile link
+                // -second child of profile link-
                 .profile-content {
                     width: 80%;
                     display: flex;
@@ -65,12 +65,12 @@
     }
 }
 
-// section-description
+// -section description-
 .section-description {
     text-transform: capitalize;
 }
 
-// styling on hover
+// -styling on hover-
 .personCard {
     transition: $main-transition;
     .profile-link {
@@ -85,13 +85,12 @@
     }
 }
 
-// space between the footer
+// -space between the footer-
 .students {
     margin-bottom: 4rem;
 }
 
-// media-queries
-
+// -media-
 @media (max-width: 835px) {
     .section-description {
         display: none;

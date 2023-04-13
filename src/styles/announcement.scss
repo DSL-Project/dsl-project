@@ -1,23 +1,23 @@
 .announcement-link {
-  background-color: $yellow;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 2.8rem;
-  padding: 0 2rem;
-
-  .announcement {
+    background-color: $yellow;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-  }
-  .bold-16:hover {
-    text-decoration: underline;
-  }
+    justify-content: space-between;
+    min-height: 2.8rem;
+    padding: 0 2rem;
+
+    .announcement {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    .bold-16:hover {
+        text-decoration: underline;
+    }
 }
 
 @media (max-width: 375px) {
-  .announcement-link {
-    padding: 0.9rem;
-  }
+    .announcement-link {
+        padding: 0.9rem;
+    }
 }

@@ -51,6 +51,7 @@ const AppProvider = ({ children }) => {
     // project data for project carousel
     const [projectsData, setProjectsData] = useState([]);
 
+    // people data for project carousel
     const [peopleData, setPeopleData] = useState([]);
 
     const cmsQuery = useCallback(

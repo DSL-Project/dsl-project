@@ -1,16 +1,20 @@
-// ProfileNav Component styling
-// top and bottom padding of profile navbar
+/*
+===============
+Profile Component Navbar
+===============
+*/
+
+//-top and bottom padding of navbar-
 .path-children,
 .links {
     padding: 0.5rem 0;
 }
 
-// left and right margin of profile navbar
 .person-nav {
     margin: 0 2rem;
 }
 
-// internal styling of navbar
+//-internal styling of navbar-
 .links {
     display: flex;
     align-items: center;
@@ -22,7 +26,7 @@
         color: $neutral-500;
     }
 
-    //navbar RHS: personal website and email styling
+    //-navbar RHS-
     .links-title {
         color: $neutral-500;
         text-transform: capitalize;
@@ -31,7 +35,7 @@
     }
 }
 
-// navbar LHS: path styling
+//-navbar LHS-
 .navigation {
     display: flex;
 
@@ -56,7 +60,6 @@
     }
 }
 
-// background color of profile navbar
 .nav-container {
     background-color: $neutral-400;
 
@@ -79,17 +82,14 @@
     }
 }
 
-// ------------------end of styling profile navbar-------------------------
-
-// diving main page into left and right pane, and general styling of both
+//-diving main page into left and right pane, and general styling of both-
 .person-profile {
     display: flex;
     max-width: 100vw;
     min-height: 95vh;
 }
 
-// dividing main page into 2 panes, left pane 80% and right 20%
-// LEFT Pane
+//-left pane-
 .left-pane {
     width: 75%;
     border-right: 1px solid $neutral-400;
@@ -103,31 +103,26 @@
     }
 }
 
-// Right Pane of vertical Scroll styling
+//-right pane-
 .right-pane {
     width: 25%;
 }
 
-// ----------------------------------------------------
-
-// LEFT PANE OF VERTICAL SCROLL styling
-// giving left and right padding to body and image container
+//-left pane-
 .person-image-container,
 .body {
     padding-left: 10rem;
     padding-right: 5rem;
 }
 
-// giving top padding to body, to keep contents below the image
+//-giving top padding to body, to keep contents below the image-
 .body {
     padding-top: 8rem;
-
-    // padding bottom for the footer space
     padding-bottom: 5rem;
 }
 
 .profile {
-    // top banner
+    //-top banner-
     .header {
         display: flex;
         background-color: $neutral-200;
@@ -136,7 +131,7 @@
         height: 14rem;
         padding: 0;
 
-        // image styling
+        //-image styling-
         .person-image-container {
             position: relative;
             top: 7.5rem;
@@ -154,8 +149,7 @@
         }
     }
 
-    // second child of profile
-
+    //-second child of profile-
     .body {
         display: flex;
         flex-direction: column;
@@ -177,7 +171,7 @@
             }
         }
 
-        // second child of body
+        //-second child of body-
         .tags-container {
             display: flex;
             flex-wrap: wrap;
@@ -193,7 +187,7 @@
             }
         }
 
-        //third child of body
+        //-third child of body-
         .bio {
             margin-top: 1rem;
 
@@ -205,8 +199,7 @@
     }
 }
 
-// -----------------end--------------------------
-// Right Pane of vertical Scroll styling
+//-Right Pane of vertical Scroll styling-
 .right-pane {
 }
 .right-panes {
@@ -255,9 +248,8 @@
         margin-left: 0px;
     }
 }
-// --------end of right pane
 
-// ------ misc -------------
+// -misc -
 .underline {
     width: 100%;
     height: 1px;
@@ -273,10 +265,10 @@
     cursor: pointer;
 }
 
-// -----------------MEDIA QUERIES--------------
+// -media-
 
 @media screen and (max-width: 835px) {
-    // removing the person-nav as per FIGMA
+    // -removing the person-nav as per FIGMA-
     .nav-container {
         display: none;
     }
@@ -287,7 +279,7 @@
         min-height: 100vh;
     }
 
-    // left pane
+    // -left pane-
     .left-pane {
         width: 100%;
         border-bottom: 1px solid $neutral-400;
@@ -301,7 +293,7 @@
         min-width: 100%;
     }
 
-    // right pane
+    // -right pane-
     .right-pane {
         width: 100%;
 
@@ -315,8 +307,7 @@
 }
 
 @media screen and (max-width: 375px) {
-    //left pane
-
+    // -left pane-
     .profile {
         .body-content {
             .name {

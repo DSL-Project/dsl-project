@@ -5,7 +5,6 @@ import defaultImg from '../../assets/defaultImg.jpg';
 const Person = ({ memberInfo }) => {
     const { slug, name, titles, memberType, img } = memberInfo;
     const personImg = img?.fields?.file?.url || defaultImg;
-
     return (
         <li className='personCard' key={slug}>
             <Link

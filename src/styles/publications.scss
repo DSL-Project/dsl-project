@@ -1,4 +1,4 @@
-// ------publications--------------------------------------------
+// -publications-
 .proj-link {
     display: inline;
 }
@@ -15,7 +15,7 @@
         }
     }
 }
-//-------publication card----------------------------
+//-publication card-
 .single-publication {
     margin-top: 1rem;
     border-radius: 5px;
@@ -72,7 +72,7 @@
                     }
                 }
             }
-            // heading
+            //-heading-
             .journal-heading-container {
                 padding: 0.7rem 0;
 
@@ -169,12 +169,12 @@
     }
 }
 
-// special S
+//-special S-
 .specialS {
     text-transform: lowercase;
 }
 
-//----- media query-----------------------------------------------------------
+//-media query-
 @media (max-width: 835px) {
     // single publication card
     .single-publication {
@@ -203,7 +203,7 @@
     }
 }
 @media (max-width: 375px) {
-    // publication form
+    //-publication form-
     .form {
         margin: 0;
 
@@ -226,9 +226,8 @@
             }
         }
     }
-    //---------------------------
 
-    // single publication card
+    //-single publication card-
     .single-publication {
         .publication {
             padding: 0.8rem 0.3rem;
@@ -241,7 +240,7 @@
         }
     }
 
-    // author
+    //-author-
     .authors-container {
         padding: 1rem;
 
@@ -265,7 +264,7 @@
         }
     }
 
-    // projects
+    //-projects-
     .featured-projects-container {
         .featured-projects {
             grid-template-columns: 1fr !important;
