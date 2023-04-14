@@ -4,6 +4,7 @@ import Banner from '../../components/Banner/Banner';
 import Person from './Person';
 import { PEOPLE } from '../../appConstants';
 import LoadingState from '../../components/LoadingState/LoadingState';
+
 const People = () => {
     const {
         peopleBody,
@@ -22,7 +23,7 @@ const People = () => {
     }, [setQuery]);
 
     if (isLoading) {
-        return <LoadingState />;
+        return <LoadingState></LoadingState>;
     }
     if (response === undefined) {
         return null;

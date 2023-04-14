@@ -7,14 +7,10 @@ function Footer({ homeStatic }) {
         <footer className='footer'>
             <div className='footer-wrapper'>
                 <div className='logo-media'>
-                    <Link to='/#home' className='bold-18'>
+                    <Link to='/#top-page' className='bold-18'>
                         {homeStatic?.hometitle?.slice(15) ||
                             'Digital Society Lab'}
                     </Link>
-                    {/* <p className='bold-18'>
-                        {homeStatic?.hometitle?.slice(15) ||
-                            'Digital Society Lab'}
-                    </p> */}
                     <div className='media-container'>
                         <a
                             href='https://twitter.com/DigSocietyLab'
@@ -42,10 +38,12 @@ function Footer({ homeStatic }) {
                 </div>
                 <div className='copyright-terms'>
                     <p className='copyright'>
+                        &copy;&nbsp;
                         {homeStatic?.copyright ||
-                            `@ Digital Society Lab, ${new Date().getFullYear()}. McMaster
+                            `Digital Society Lab, ${new Date().getFullYear()}. McMaster
             University`}
                     </p>
+
                     <p className='terms'>
                         <a
                             href={homeStatic?.privacyPolicy}
@@ -54,7 +52,7 @@ function Footer({ homeStatic }) {
                         >
                             Privacy Policy
                         </a>
-                        &nbsp;& &nbsp;
+                        &nbsp;&&nbsp;
                         <a
                             href={homeStatic?.termOfUse}
                             target='_blank'
