@@ -224,14 +224,26 @@ Profile Component Navbar
     }
 }
 .project-list {
-    .list-item .project {
-        text-decoration: underline;
-        text-decoration-color: $soft-black;
-        text-underline-offset: 2px;
-
-        padding-top: 0.5rem;
+    .list-item {
+        list-style-type: disc;
+        padding: 0;
+        .project {
+            display: inline;
+            text-decoration: underline;
+            text-decoration-color: $soft-black;
+            text-underline-offset: 2px;
+            padding: 0;
+            margin: -14px;
+        }
+        &:not(:first-child) {
+            margin-top: 0.5rem;
+        }
+        &::marker {
+            color: $soft-black;
+        }
     }
 }
+
 .publication-container {
     margin-top: 0.5rem;
 }

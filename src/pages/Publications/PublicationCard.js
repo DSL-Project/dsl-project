@@ -139,7 +139,7 @@ const PublicationCard = ({ publication, id }) => {
                                                     {subtitle.length > 62
                                                         ? ` ${title}: ${subtitle.substring(
                                                               0,
-                                                              64
+                                                              62
                                                           )}...`
                                                         : `${title}: ${subtitle}`}
                                                 </Link>

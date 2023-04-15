@@ -3,7 +3,14 @@
     display: inline;
 }
 .project-list {
+    list-style-type: disc;
     list-style-position: inside;
+
+    .project {
+        .proj-link {
+            margin: -10px;
+        }
+    }
 }
 
 .publication-main {
