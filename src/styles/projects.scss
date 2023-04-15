@@ -86,6 +86,7 @@
             align-items: center;
             color: $black;
             border-radius: 4px 0 0 4px;
+            border-right: 0;
         }
         //-styling rest of the li's-
         li {
@@ -96,9 +97,11 @@
             padding: 1px 10px;
             border: 1px solid $neutral-400;
             text-transform: capitalize;
+            border-right: 0;
         }
         li:last-child {
             border-radius: 0 4px 4px 0;
+            border-right: 1px solid $neutral-400;
         }
     }
 }
