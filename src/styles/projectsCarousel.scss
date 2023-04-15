@@ -84,7 +84,7 @@
             }
             .tag-box {
                 border: 1px solid $neutral-400;
-                border-radius: 0.1rem;
+                // border-radius: 0.1rem;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -104,10 +104,6 @@
         background-color: $soft-black;
         color: $white;
         .project-title {
-            color: $white;
-        }
-        .tag-container > .tag-box {
-            border: 1px solid $white;
             color: $white;
         }
         .arrow-right {
