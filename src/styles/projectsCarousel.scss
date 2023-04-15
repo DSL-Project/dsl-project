@@ -102,12 +102,12 @@
 
     &:hover {
         background-color: $soft-black;
-        color: $white;
+        color: $neutral-400;
         .project-title {
-            color: $white;
+            color: $neutral-400;
         }
         .arrow-right {
-            color: $white;
+            color: $neutral-400;
         }
     }
 }
