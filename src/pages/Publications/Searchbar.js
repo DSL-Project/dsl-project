@@ -3,7 +3,9 @@ import Submenu from './Submenu';
 import { useGlobalFilterContext } from '../../filterContext';
 
 const Searchbar = () => {
-    const { isSubmenuOpen, toggleSubmenu } = useGlobalFilterContext();
+    const { isSubmenuOpen, toggleSubmenu, updateSort, sort } =
+        useGlobalFilterContext();
+
     return (
         <section className='search-bar'>
             <form action='#' className='form'>
@@ -32,17 +34,14 @@ const Searchbar = () => {
                             name='sort'
                             id='sort'
                             className='regular-caps sortBx bx'
+                            value={sort}
+                            onChange={updateSort}
                         >
-                            <option
-                                value='placeholder'
-                                selected
-                                disabled
-                                id='sort'
-                            >
+                            <option value='placeholder' selected id='sort'>
                                 sort by
                             </option>
-                            <option value='item1'>item1</option>
-                            <option value='item2'>item2</option>
+                            <option value='yearL'>year inc</option>
+                            <option value='yearH'>year dec</option>
                         </select>
                     </fieldset>
                     <div className='subMenu'>
