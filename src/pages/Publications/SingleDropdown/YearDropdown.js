@@ -1,23 +1,13 @@
 import React, { useState } from 'react';
 import { MultiSelect } from 'react-multi-select-component';
-
-const data = [
-    {
-        value: 'year-1',
-        label: '2021',
-    },
-    {
-        value: 'year-2',
-        label: '2022',
-    },
-    {
-        value: 'year-3',
-        label: '2023',
-    },
-];
+import { useGlobalFilterContext } from '../../../filterContext';
+import { getUniqueValues, dropdownRelatedData } from '../../../utils';
 
 const YearDropdown = () => {
     const [selected, setSelected] = useState([]);
+    const { publications } = useGlobalFilterContext();
+    const uniqueYears = getUniqueValues(publications, 'date');
+    const data = dropdownRelatedData(uniqueYears);
 
     return (
         <MultiSelect

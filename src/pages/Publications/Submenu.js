@@ -23,14 +23,14 @@ const Submenu = () => {
                 </header>
 
                 {/* publication type */}
-                <form className='subform-main'>
+                <div className='subform-main'>
                     <PublicationDropdown />
                     <AuthorDropdown />
                     <YearDropdown />
                     <button className='view-result-btn medium-14'>
                         view results
                     </button>
-                </form>
+                </div>
             </div>
         </section>
     );

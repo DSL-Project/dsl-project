@@ -16,6 +16,12 @@ export const FilterProvider = ({ children }) => {
     const [filteredPublications, setFilteredPublications] =
         useState(publicationsData);
     const [sort, setSort] = useState('');
+    const [filters, setFilters] = useState({
+        authors: [],
+        year: [],
+        pubType: [],
+        text: '',
+    });
 
     const openSubmenu = () => {
         setIsSubmenuOpen(true);
@@ -63,13 +69,26 @@ export const FilterProvider = ({ children }) => {
         setFilteredPublications(tempPublications);
     }, [publicationsData, sort]);
 
+    const updateFilters = (e) => {
+        let name = e.target.name;
+        let value = e.target.value;
+        console.log(`update filters name is ${name} and value: ${value}`);
+        setFilters({ ...filters, text: value });
+        // setFilters({ ...filters, [name]: value });
+    };
+
+    const clearFilters = () => {};
+
+    const filterPub = () => {};
+
     useEffect(() => {
         loadPublications();
     }, [publicationsData, sort]);
 
     useEffect(() => {
+        filterPub();
         sortPublications();
-    }, [sort, publicationsData]);
+    }, [sort, publicationsData, filters]);
 
     return (
         <FilterContext.Provider
@@ -82,6 +101,9 @@ export const FilterProvider = ({ children }) => {
                 filteredPublications,
                 updateSort,
                 sort,
+                filters,
+                updateFilters,
+                clearFilters,
             }}
         >
             {children}

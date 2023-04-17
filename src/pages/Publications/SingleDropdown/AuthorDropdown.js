@@ -1,23 +1,14 @@
 import React, { useState } from 'react';
 import { MultiSelect } from 'react-multi-select-component';
-
-const data = [
-    {
-        value: 'author-1',
-        label: 'Author-1',
-    },
-    {
-        value: 'author-2',
-        label: 'Author-2',
-    },
-    {
-        value: 'author-3',
-        label: 'Author-3',
-    },
-];
+import { useGlobalFilterContext } from '../../../filterContext';
+import { getUniqueValues, dropdownRelatedData } from '../../../utils';
 
 const AuthorDropdown = () => {
     const [selected, setSelected] = useState([]);
+    const { publications } = useGlobalFilterContext();
+    const uniqueAuthors = getUniqueValues(publications, 'authors');
+
+    const data = dropdownRelatedData(uniqueAuthors);
 
     return (
         <MultiSelect

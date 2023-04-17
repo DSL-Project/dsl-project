@@ -3,12 +3,23 @@ import Submenu from './Submenu';
 import { useGlobalFilterContext } from '../../filterContext';
 
 const Searchbar = () => {
-    const { isSubmenuOpen, toggleSubmenu, updateSort, sort } =
-        useGlobalFilterContext();
+    const {
+        isSubmenuOpen,
+        toggleSubmenu,
+        updateSort,
+        sort,
+        filters,
+        updateFilters,
+        clearFilters,
+    } = useGlobalFilterContext();
 
     return (
         <section className='search-bar'>
-            <form action='#' className='form'>
+            <form
+                action='#'
+                className='form'
+                onSubmit={(e) => e.preventDefault()}
+            >
                 {/* filter dropdown */}
                 <fieldset className='child1'>
                     <fieldset className='subchild1'>
@@ -22,6 +33,8 @@ const Searchbar = () => {
                             className='regular-caps filterBx bx'
                             placeholder='filter'
                             onClick={toggleSubmenu}
+                            value={filters.text}
+                            onChange={updateFilters}
                         ></input>
                     </fieldset>
                     {/* sort-by dropdown */}
@@ -57,10 +70,12 @@ const Searchbar = () => {
                     </label>
                     <input
                         type='text'
-                        name='search'
+                        name='text'
                         id='search'
                         placeholder='search'
                         className='regular-caps searchBx bx'
+                        value={filters.text}
+                        onChange={updateFilters}
                     />
                 </fieldset> */}
             </form>
