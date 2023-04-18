@@ -47,15 +47,24 @@ const Searchbar = () => {
                         <select
                             name='sort'
                             id='sort'
-                            className='regular-caps sortBx bx'
+                            className='regular-caps sortBx bx '
                             value={sort}
                             onChange={updateSort}
                         >
-                            <option value='placeholder' selected id='sort'>
-                                sort by
+                            <option
+                                value='placeholder'
+                                selected
+                                id='sort'
+                                className='placeholder regular-caps'
+                            >
+                                SORT BY
                             </option>
-                            <option value='yearL'>year inc</option>
-                            <option value='yearH'>year dec</option>
+                            <option value='yearL' className='op regular-caps'>
+                                year inc
+                            </option>
+                            <option value='yearH' className='op regular-caps'>
+                                year dec
+                            </option>
                         </select>
                     </fieldset>
                     <div className='subMenu'>

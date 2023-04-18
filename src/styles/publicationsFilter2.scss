@@ -76,7 +76,11 @@ input {
     background-size: 0.6rem;
     background-position: 90% 50%;
     cursor: pointer;
-    color: $neutral-500;
+    text-transform: capitalize;
+
+    .op {
+        color: $soft-black;
+    }
 }
 
 .searchBx {

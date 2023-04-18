@@ -9,7 +9,7 @@ const PublicationDropdown = () => {
         updateFilters,
         filters: { pubType },
     } = useGlobalFilterContext();
-    const uniqueYears = getUniqueValues(publications, 'publicationType');
+    const uniquePublications = getUniqueValues(publications, 'publicationType');
 
     return (
         <select
@@ -22,9 +22,14 @@ const PublicationDropdown = () => {
                 PUBLICATION TYPE
             </option>
             ;
-            {uniqueYears.map((pub, index) => {
+            {uniquePublications.map((pub, index) => {
                 return (
-                    <option key={index} value={pub} className='op regular-caps'>
+                    <option
+                        key={index}
+                        value={pub}
+                        className='op regular-caps'
+                        // style={{ textTransform: 'capitalize' }}
+                    >
                         {pub}
                     </option>
                 );
