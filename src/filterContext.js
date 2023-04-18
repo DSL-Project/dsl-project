@@ -17,9 +17,9 @@ export const FilterProvider = ({ children }) => {
         useState(publicationsData);
     const [sort, setSort] = useState('');
     const [filters, setFilters] = useState({
-        authors: [],
-        year: [],
-        pubType: [],
+        authors: '',
+        pubType: '',
+        year: '',
         text: '',
     });
 
@@ -72,9 +72,7 @@ export const FilterProvider = ({ children }) => {
     const updateFilters = (e) => {
         let name = e.target.name;
         let value = e.target.value;
-        console.log(`update filters name is ${name} and value: ${value}`);
-        setFilters({ ...filters, text: value });
-        // setFilters({ ...filters, [name]: value });
+        setFilters({ ...filters, [name]: value });
     };
 
     const clearFilters = () => {};

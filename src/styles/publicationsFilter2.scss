@@ -1,0 +1,171 @@
+//-search bar-
+// strip off all default styling
+.form,
+fieldset,
+select,
+input {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    appearance: none;
+    outline: none;
+    color: inherit;
+    background-color: inherit;
+    &::placeholder {
+        color: inherit;
+    }
+}
+// styling all 3 common input and select boxes
+.bx {
+    width: 100%;
+    padding: 0.6rem 0.7rem;
+    text-transform: uppercase;
+    border-radius: 5px;
+    border: 1px solid $neutral-400;
+    background-color: $white;
+    color: $neutral-500;
+}
+
+// -individual styling-
+.form {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+
+    .child1 {
+        grid-column: 1/2;
+        display: grid;
+        grid-template-columns: repeat(
+            2,
+            minmax(calc(6.65rem - 0.5rem), calc(7.75rem - 0.5rem))
+        );
+
+        gap: 0.5rem;
+    }
+
+    // .child2 is the container for search bar which is not present right now
+    // .child2 {
+    //     grid-column: 4/-1;
+    //     display: grid;
+    //     grid-template-columns: repeat(1, minmax(2.2rem, 8.7rem));
+    //     gap: 0.5rem;
+    //     justify-content: flex-end;
+    //     cursor: pointer;
+
+    // }
+}
+//-adding icons-
+.filterBx {
+    padding-left: 25%;
+    background-image: url('../assets/filter.svg'),
+        url('../assets/downArrow.svg');
+    background-repeat: no-repeat;
+    background-size: 0.9rem, 0.6rem;
+    background-position: 5%, 92%;
+    cursor: pointer;
+
+    &::placeholder {
+        color: $neutral-500;
+        opacity: 1;
+    }
+}
+
+.sortBx {
+    padding-left: 1.2rem;
+    background-image: url('../assets/downArrow.svg');
+    background-repeat: no-repeat;
+    background-size: 0.6rem;
+    background-position: 90% 50%;
+    cursor: pointer;
+    color: $neutral-500;
+}
+
+.searchBx {
+    padding-left: 25%;
+    background-image: url('../assets/magnifier.svg');
+    background-repeat: no-repeat;
+    background-size: 0.9rem, 0.6rem;
+    background-position: 5%, 92%;
+    cursor: pointer;
+    text-transform: lowercase;
+    color: $soft-black;
+
+    &::placeholder {
+        color: $neutral-500;
+        opacity: 1;
+        text-transform: uppercase;
+    }
+}
+
+// SUBMENU STARTS
+.main-subform {
+    width: 206%;
+    background-color: $white;
+
+    .subform-container {
+        border: 1px solid $neutral-400;
+        border-radius: 4px;
+
+        .subform-header {
+            // border: 2px solid red;
+            padding: 1rem 0.6rem;
+            .top-container {
+                // border: 2px solid blue;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                text-transform: uppercase;
+
+                .clear-btn {
+                    border: none;
+                    background-color: inherit;
+                    text-transform: uppercase;
+                    color: $neutral-500;
+                    cursor: pointer;
+                }
+            }
+            .item-selected {
+                margin-top: 0.3rem;
+            }
+        }
+
+        .subform-main {
+            // border: 2px solid green;
+
+            .sel {
+                // border: 2px solid black;
+                display: block;
+                width: 100%;
+                cursor: pointer;
+                padding: 1rem 0.6rem;
+                border-top: 1px solid $neutral-400;
+                .placeholder {
+                    // display: none;
+                    color: $neutral-500;
+                }
+
+                background-image: url('../assets/downArrow.svg');
+                background-repeat: no-repeat;
+                background-size: 0.6rem;
+                background-position: 95% 50%;
+
+                .op {
+                    // color: blue;
+                    cursor: pointer;
+                }
+            }
+            .view-result-btn {
+                border: none;
+                background-color: inherit;
+                text-transform: uppercase;
+                width: 90%;
+                border-radius: 4px;
+                background-color: $soft-black;
+                color: $neutral-100;
+                letter-spacing: 1px;
+                margin: 1.5rem auto 1rem auto;
+                padding: 0.4rem 0rem;
+                cursor: pointer;
+            }
+        }
+    }
+}

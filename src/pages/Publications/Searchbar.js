@@ -8,7 +8,7 @@ const Searchbar = () => {
         toggleSubmenu,
         updateSort,
         sort,
-        filters,
+        filters: { text },
         updateFilters,
         clearFilters,
     } = useGlobalFilterContext();
@@ -28,15 +28,16 @@ const Searchbar = () => {
                         </label>
                         <input
                             type='text'
-                            name='filter'
+                            name='text'
                             id='filter'
                             className='regular-caps filterBx bx'
-                            placeholder='filter'
+                            placeholder='search'
+                            value={text}
                             onClick={toggleSubmenu}
-                            value={filters.text}
                             onChange={updateFilters}
                         ></input>
                     </fieldset>
+
                     {/* sort-by dropdown */}
                     <fieldset className='subchild2'>
                         <label htmlFor='sort' className='sr-only'>
