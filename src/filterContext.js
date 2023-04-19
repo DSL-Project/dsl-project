@@ -73,9 +73,12 @@ export const FilterProvider = ({ children }) => {
         let name = e.target.name;
         let value = e.target.value;
         setFilters({ ...filters, [name]: value });
+        console.log('click x button: ', e, 'name: ', name);
     };
 
-    const clearFilters = () => {};
+    const clearFilters = () => {
+        setFilters({ authors: '', pubType: '', year: '', text: '' });
+    };
 
     const filterPub = () => {};
 

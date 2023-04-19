@@ -173,3 +173,47 @@ input {
         }
     }
 }
+
+// total result found section
+.result-found-container {
+    // border: 2px solid red;
+    margin: 1rem 0rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .result-found {
+        text-transform: capitalize;
+    }
+    .clear-filters-btn {
+        // border: 2px solid red;
+        border: none;
+        background-color: inherit;
+        text-transform: uppercase;
+        color: $neutral-500;
+        cursor: pointer;
+        letter-spacing: 1px;
+    }
+}
+
+// filtered tags
+.filtered-tags-container {
+    // border: 2px solid red;
+    display: flex;
+    gap: 0.5rem;
+
+    .filt-btn {
+        border: none;
+        display: flex;
+        align-items: center;
+        padding: 0.3rem 0.4rem;
+        border-radius: 4px;
+
+        justify-content: space-between;
+        cursor: pointer;
+
+        svg {
+            // border: 2px solid red;
+            margin-left: 0.3rem;
+        }
+    }
+}

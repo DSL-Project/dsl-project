@@ -1,6 +1,7 @@
 import React from 'react';
 import Submenu from './Submenu';
 import { useGlobalFilterContext } from '../../filterContext';
+import { VscClose as CloseIcon } from 'react-icons/vsc';
 
 const Searchbar = () => {
     const {
@@ -8,10 +9,14 @@ const Searchbar = () => {
         toggleSubmenu,
         updateSort,
         sort,
-        filters: { text },
+        filters,
+        // filters: { text },
         updateFilters,
         clearFilters,
+        filteredPublications,
     } = useGlobalFilterContext();
+
+    console.log('current filters: ', filters);
 
     return (
         <section className='search-bar'>
@@ -32,7 +37,7 @@ const Searchbar = () => {
                             id='filter'
                             className='regular-caps filterBx bx'
                             placeholder='search'
-                            value={text}
+                            value={filters.text}
                             onClick={toggleSubmenu}
                             onChange={updateFilters}
                         ></input>
@@ -89,6 +94,61 @@ const Searchbar = () => {
                     />
                 </fieldset> */}
             </form>
+
+            {/* result */}
+            {filteredPublications !== undefined && (
+                <div className='result-found-container'>
+                    <h3 className='result-found'>
+                        {filteredPublications.length} results
+                    </h3>
+                    <button
+                        className='clear-filters-btn regular-caps'
+                        onClick={clearFilters}
+                    >
+                        clear filters
+                    </button>
+                </div>
+            )}
+
+            {/* filtered tags */}
+            {console.log('FILTERS: ', filters)}
+            <div className='filtered-tags-container'>
+                {/* publication type */}
+                {filters.pubType && (
+                    <button
+                        className='filt-btn semi-14'
+                        onClick={updateFilters}
+                        name='pubType'
+                    >
+                        {filters.pubType}
+                        <CloseIcon />
+                    </button>
+                )}
+
+                {/* author */}
+                {filters.authors && (
+                    <button
+                        className='filt-btn semi-14'
+                        onClick={updateFilters}
+                        name='authors'
+                    >
+                        {filters.authors}
+                        <CloseIcon />
+                    </button>
+                )}
+
+                {/* year */}
+                {filters.year && (
+                    <button
+                        className='filt-btn semi-14'
+                        name='year'
+                        onClick={updateFilters}
+                    >
+                        {filters.year}
+                        <CloseIcon />
+                    </button>
+                )}
+            </div>
         </section>
     );
 };

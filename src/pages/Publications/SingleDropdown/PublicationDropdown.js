@@ -24,12 +24,7 @@ const PublicationDropdown = () => {
             ;
             {uniquePublications.map((pub, index) => {
                 return (
-                    <option
-                        key={index}
-                        value={pub}
-                        className='op regular-caps'
-                        // style={{ textTransform: 'capitalize' }}
-                    >
+                    <option key={index} value={pub} className='op regular-caps'>
                         {pub}
                     </option>
                 );
