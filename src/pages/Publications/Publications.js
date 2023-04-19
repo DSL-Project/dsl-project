@@ -10,6 +10,8 @@ import { useGlobalFilterContext } from '../../filterContext';
 const Publications = () => {
     const { closeSubmenu, filteredPublications: response } =
         useGlobalFilterContext();
+
+    console.log('RESPONSE: ', response);
     const {
         // response,
         publicationsBody,

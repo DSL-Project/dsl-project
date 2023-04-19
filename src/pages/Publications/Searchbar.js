@@ -1,7 +1,7 @@
 import React from 'react';
 import Submenu from './Submenu';
 import { useGlobalFilterContext } from '../../filterContext';
-import { VscClose as CloseIcon } from 'react-icons/vsc';
+import closeIcon from '../../assets/closeIcon.png';
 
 const Searchbar = () => {
     const {
@@ -15,8 +15,6 @@ const Searchbar = () => {
         clearFilters,
         filteredPublications,
     } = useGlobalFilterContext();
-
-    console.log('current filters: ', filters);
 
     return (
         <section className='search-bar'>
@@ -58,17 +56,17 @@ const Searchbar = () => {
                         >
                             <option
                                 value='placeholder'
-                                selected
+                                // selected
                                 id='sort'
                                 className='placeholder regular-caps'
                             >
                                 SORT BY
                             </option>
                             <option value='yearL' className='op regular-caps'>
-                                year inc
+                                Year Inc
                             </option>
                             <option value='yearH' className='op regular-caps'>
-                                year dec
+                                Year Dec
                             </option>
                         </select>
                     </fieldset>
@@ -111,7 +109,6 @@ const Searchbar = () => {
             )}
 
             {/* filtered tags */}
-            {console.log('FILTERS: ', filters)}
             <div className='filtered-tags-container'>
                 {/* publication type */}
                 {filters.pubType && (
@@ -121,7 +118,13 @@ const Searchbar = () => {
                         name='pubType'
                     >
                         {filters.pubType}
-                        <CloseIcon />
+                        <img
+                            src={closeIcon}
+                            alt='close icon'
+                            name='pubType'
+                            onClick={updateFilters}
+                            className='close-img'
+                        />
                     </button>
                 )}
 
@@ -133,7 +136,14 @@ const Searchbar = () => {
                         name='authors'
                     >
                         {filters.authors}
-                        <CloseIcon />
+
+                        <img
+                            src={closeIcon}
+                            alt='close icon'
+                            name='authors'
+                            onClick={updateFilters}
+                            className='close-img'
+                        />
                     </button>
                 )}
 
@@ -145,7 +155,14 @@ const Searchbar = () => {
                         onClick={updateFilters}
                     >
                         {filters.year}
-                        <CloseIcon />
+
+                        <img
+                            src={closeIcon}
+                            alt='close icon'
+                            name='year'
+                            onClick={updateFilters}
+                            className='close-img'
+                        />
                     </button>
                 )}
             </div>

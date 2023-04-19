@@ -16,7 +16,7 @@ const YearDropdown = () => {
             onChange={updateFilters}
             className='sel regular-caps'
         >
-            <option value='' selected className='placeholder'>
+            <option value='' className='placeholder'>
                 YEAR
             </option>
             {uniqueYears.map((yr, index) => {

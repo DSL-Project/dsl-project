@@ -18,7 +18,7 @@ const PublicationDropdown = () => {
             onChange={updateFilters}
             className='sel regular-caps'
         >
-            <option value='' selected className='regular-caps placeholder'>
+            <option value='' className='regular-caps placeholder'>
                 PUBLICATION TYPE
             </option>
             ;

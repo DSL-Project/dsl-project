@@ -31,7 +31,7 @@ export const getUniqueValues = (data, type) => {
             return str2;
         });
     }
-    return ['All', ...new Set(unique.sort())];
+    return ['all', ...new Set(unique.sort())];
 };
 
 export const dropdownRelatedData = (uniqueItems) => {

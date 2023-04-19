@@ -61,11 +61,14 @@ input {
     background-repeat: no-repeat;
     background-size: 0.9rem, 0.6rem;
     background-position: 5%, 92%;
+    text-transform: lowercase;
     cursor: pointer;
+    color: $soft-black;
 
     &::placeholder {
         color: $neutral-500;
         opacity: 1;
+        text-transform: uppercase;
     }
 }
 
@@ -211,9 +214,10 @@ input {
         justify-content: space-between;
         cursor: pointer;
 
-        svg {
+        .close-img {
             // border: 2px solid red;
             margin-left: 0.3rem;
+            width: 0.6rem;
         }
     }
 }

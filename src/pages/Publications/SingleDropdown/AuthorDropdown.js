@@ -14,7 +14,7 @@ const AuthorDropdown = () => {
             onChange={updateFilters}
             className='sel regular-caps'
         >
-            <option value='' selected className='placeholder regular-caps'>
+            <option value='' className='placeholder regular-caps'>
                 AUTHORS
             </option>
 
