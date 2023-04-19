@@ -46,7 +46,7 @@ export const FilterProvider = ({ children }) => {
             // const name = e.target.name;
             const value = e.target.value;
             setSort(value);
-            console.log('VALUE: ', sort);
+            // console.log('VALUE: ', sort);
         },
         [sort]
     );
@@ -110,9 +110,9 @@ export const FilterProvider = ({ children }) => {
 
         // filtering pub type dropdown
         if (pubType !== '') {
-            console.log('pub type: ', pubType);
+            // console.log('pub type: ', pubType);
             tempPublications = tempPublications.filter((pub) => {
-                console.log('PUB: ', pub.publicationType);
+                // console.log('PUB: ', pub.publicationType);
                 return (
                     pub.publicationType.toLowerCase() === pubType.toLowerCase()
                 );
@@ -126,13 +126,20 @@ export const FilterProvider = ({ children }) => {
             });
         }
 
-        // --------------------------
-        console.log('ALL PUBLICATIONS: ', allPublications);
-        console.log(
-            `ALL FILTERS: \nauthors: ${authors}\npubType: ${pubType}\nyear: ${year}\ntext: ${text}`
-        );
+        // authors dropdown
+        if (authors !== '') {
+            tempPublications = tempPublications.filter((pub) => {
+                return pub.authors.map((p) => p.fields.name).includes(authors);
+            });
+        }
 
-        console.log('TEMP PUB: ', tempPublications);
+        // -----------------------------------------
+
+        // console.log(
+        //     `ALL FILTERS: \nauthors: ${authors}\npubType: ${pubType}\nyear: ${year}\ntext: ${text}`
+        // );
+
+        // console.log('TEMP PUB: ', tempPublications);
         // ** update the filtered publication state
         setFilteredPublications(tempPublications);
     }, [filters, publications]);
@@ -150,7 +157,7 @@ export const FilterProvider = ({ children }) => {
     }, [sort, sortPublications]);
 
     // console.log('PUBLICATIONS: ', publications);
-    console.log('FILTERED PUBLICATIONS: ', filteredPublications);
+    // console.log('FILTERED PUBLICATIONS: ', filteredPublications);
     return (
         <FilterContext.Provider
             value={{

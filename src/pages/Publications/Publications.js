@@ -11,7 +11,7 @@ const Publications = () => {
     const { closeSubmenu, filteredPublications: response } =
         useGlobalFilterContext();
 
-    console.log('RESPONSE: ', response);
+    // console.log('RESPONSE: ', response);
     const {
         // response,
         publicationsBody,
