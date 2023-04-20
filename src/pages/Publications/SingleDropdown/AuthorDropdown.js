@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useGlobalFilterContext } from '../../../filterContext';
 import { getUniqueValues } from '../../../utils';
 
 const AuthorDropdown = () => {
-    const { publications, updateFilters, filters } = useGlobalFilterContext();
+    const [localCounter, setLocalCounter] = useState(0);
+    const { publications, updateFilters, filters, updateCtr } =
+        useGlobalFilterContext();
     const uniqueAuthors = getUniqueValues(publications, 'authors');
     const { authors } = filters;
+
+    useEffect(() => {
+        updateCtr(localCounter);
+    }, [localCounter]);
 
     return (
         <select
@@ -24,6 +30,7 @@ const AuthorDropdown = () => {
                         key={index}
                         value={auth}
                         className='op regular-caps'
+                        onClick={() => setLocalCounter(1)}
                     >
                         {auth}
                     </option>

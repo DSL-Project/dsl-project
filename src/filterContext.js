@@ -17,12 +17,28 @@ export const FilterProvider = ({ children }) => {
     // const [filteredPublications, setFilteredPublications] =
     //     useState(publicationsData);
     const [sort, setSort] = useState('');
+    const [ctr, setCtr] = useState(0);
     const [filters, setFilters] = useState({
         pubType: '',
         authors: '',
         year: '',
         text: '',
     });
+
+    const resetCtr = () => {
+        setCtr(0);
+    };
+
+    const decreaseCtr = () => {
+        setCtr(ctr - 1);
+    };
+
+    const updateCtr = useCallback(
+        (n) => {
+            setCtr(ctr + n);
+        },
+        [ctr]
+    );
 
     const openSubmenu = () => {
         setIsSubmenuOpen(true);
@@ -41,21 +57,23 @@ export const FilterProvider = ({ children }) => {
         setFilteredPublications([...publicationsData]);
     }, [publicationsData]);
 
-    const updateSort = useCallback(
-        (e) => {
-            // const name = e.target.name;
-            const value = e.target.value;
-            setSort(value);
-            // console.log('VALUE: ', sort);
-        },
-        [sort]
-    );
+    const updateSort = (e) => {
+        const value = e.target.value;
+        setSort(value);
+    };
 
     const sortPublications = useCallback(() => {
         // this is inplace sorting, we wont get new array.
-        const allPublications = publications;
-        // const allPublications = filteredPublications;
-        let tempPublications = [...allPublications];
+        // const allPublications = publications;
+        let allPublications;
+        if (filteredPublications.length === 0) {
+            allPublications = publications;
+        } else {
+            allPublications = filteredPublications;
+        }
+        // let tempPublications = [...allPublications];
+        // let tempPublications = [...publications];
+        let tempPublications = [...filteredPublications];
 
         if (sort === 'yearL') {
             tempPublications = tempPublications.sort((a, b) => {
@@ -80,9 +98,15 @@ export const FilterProvider = ({ children }) => {
         let name = e.target.name;
         let value = e.target.value;
 
+        // this if condition will remove the fiter tags one by one
+        if (e.target.value === '') {
+            decreaseCtr();
+        }
+
         if (value === undefined) {
             value = '';
         }
+
         setFilters({ ...filters, [name]: value });
     };
 
@@ -92,6 +116,7 @@ export const FilterProvider = ({ children }) => {
 
     const filterPub = useCallback(() => {
         // (1) get all the publications from state
+        // const allPublications = publications;
         const allPublications = publications;
 
         // (2) get all the filters from state
@@ -110,9 +135,7 @@ export const FilterProvider = ({ children }) => {
 
         // filtering pub type dropdown
         if (pubType !== '') {
-            // console.log('pub type: ', pubType);
             tempPublications = tempPublications.filter((pub) => {
-                // console.log('PUB: ', pub.publicationType);
                 return (
                     pub.publicationType.toLowerCase() === pubType.toLowerCase()
                 );
@@ -133,31 +156,24 @@ export const FilterProvider = ({ children }) => {
             });
         }
 
-        // -----------------------------------------
-
-        // console.log(
-        //     `ALL FILTERS: \nauthors: ${authors}\npubType: ${pubType}\nyear: ${year}\ntext: ${text}`
-        // );
-
-        // console.log('TEMP PUB: ', tempPublications);
         // ** update the filtered publication state
         setFilteredPublications(tempPublications);
     }, [filters, publications]);
 
     useEffect(() => {
         loadPublications();
-    }, [publicationsData, sort, loadPublications]);
+    }, [publicationsData, loadPublications]);
 
     useEffect(() => {
         // sortPublications();
         filterPub();
-    }, [sort, publicationsData, filters, filterPub, sortPublications]);
+        setSort('');
+    }, [filters, filterPub]);
+
     useEffect(() => {
         sortPublications();
     }, [sort, sortPublications]);
 
-    // console.log('PUBLICATIONS: ', publications);
-    // console.log('FILTERED PUBLICATIONS: ', filteredPublications);
     return (
         <FilterContext.Provider
             value={{
@@ -165,13 +181,17 @@ export const FilterProvider = ({ children }) => {
                 openSubmenu,
                 closeSubmenu,
                 toggleSubmenu,
-                publications,
-                filteredPublications,
-                updateSort,
-                sort,
                 filters,
                 updateFilters,
                 clearFilters,
+                publications,
+                filteredPublications,
+                sort,
+                updateSort,
+                updateCtr,
+                ctr,
+                resetCtr,
+                decreaseCtr,
             }}
         >
             {children}

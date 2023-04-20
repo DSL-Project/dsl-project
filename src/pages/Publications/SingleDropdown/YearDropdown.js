@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useGlobalFilterContext } from '../../../filterContext';
 import { getUniqueValues } from '../../../utils';
 
 const YearDropdown = () => {
+    const [localCounter, setLocalCounter] = useState(0);
     const {
         publications,
         updateFilters,
         filters: { year },
+        updateCtr,
     } = useGlobalFilterContext();
     const uniqueYears = getUniqueValues(publications, 'date');
+
+    useEffect(() => {
+        updateCtr(localCounter);
+    }, [localCounter]);
+
     return (
         <select
             name='year'
@@ -21,7 +28,12 @@ const YearDropdown = () => {
             </option>
             {uniqueYears.map((yr, index) => {
                 return (
-                    <option key={index} value={yr} className='op regular-caps'>
+                    <option
+                        key={index}
+                        value={yr}
+                        className='op regular-caps'
+                        onClick={() => setLocalCounter(1)}
+                    >
                         {yr}
                     </option>
                 );

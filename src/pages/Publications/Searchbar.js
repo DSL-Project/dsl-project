@@ -14,6 +14,8 @@ const Searchbar = () => {
         updateFilters,
         clearFilters,
         filteredPublications,
+        closeSubmenu,
+        resetCtr,
     } = useGlobalFilterContext();
 
     return (
@@ -101,7 +103,12 @@ const Searchbar = () => {
                     </h3>
                     <button
                         className='clear-filters-btn regular-caps'
-                        onClick={clearFilters}
+                        // onClick={handleOnClick}
+                        onClick={() => {
+                            clearFilters();
+                            closeSubmenu();
+                            resetCtr();
+                        }}
                     >
                         clear filters
                     </button>

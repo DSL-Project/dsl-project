@@ -1,15 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { useGlobalFilterContext } from '../../../filterContext';
 import { getUniqueValues } from '../../../utils';
 
 const PublicationDropdown = () => {
+    const [localCounter, setLocalCounter] = useState(0);
     const {
         publications,
         updateFilters,
         filters: { pubType },
+        updateCtr,
     } = useGlobalFilterContext();
     const uniquePublications = getUniqueValues(publications, 'publicationType');
+
+    useEffect(() => {
+        updateCtr(localCounter);
+    }, [localCounter]);
 
     return (
         <select
@@ -24,7 +30,12 @@ const PublicationDropdown = () => {
             ;
             {uniquePublications.map((pub, index) => {
                 return (
-                    <option key={index} value={pub} className='op regular-caps'>
+                    <option
+                        key={index}
+                        value={pub}
+                        className='op regular-caps'
+                        onClick={() => setLocalCounter(1)}
+                    >
                         {pub}
                     </option>
                 );
@@ -33,6 +44,7 @@ const PublicationDropdown = () => {
     );
 };
 
+/**The code below is a backup in case we want to use checkboxes. The rease why I did not go for  code below, as it was difficult to maintain the state for the form */
 /*import { MultiSelect } from 'react-multi-select-component';
 import { getUniqueValues, dropdownRelatedData } from '../../../utils';
 const PublicationDropdown = () => {
