@@ -217,6 +217,7 @@
         .child1 {
             margin: 0;
             gap: 9px !important;
+            // grid-row: 2/-1;
             // border: 2px solid red;
             grid-template-columns: repeat(
                 2,
@@ -244,9 +245,14 @@
             }
         }
         .child2 {
+            grid-column: 1/-1 !important;
+            // grid-row: 2/-1;
+            // display: block;
+            margin: 0;
             .searchBx {
-                font-size: 0;
-                background-position: 50%;
+                // font-size: 0;
+                background-position: 2%;
+                padding-left: 11%;
             }
         }
     }
