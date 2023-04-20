@@ -32,12 +32,12 @@ const Searchbar = () => {
                             filter
                         </label>
                         <input
-                            type='text'
-                            name='text'
+                            // type='text'
+                            name='filter'
                             id='filter'
                             className='regular-caps filterBx bx'
-                            placeholder='search'
-                            value={filters.text}
+                            placeholder='filter'
+                            value=''
                             onClick={toggleSubmenu}
                             onChange={updateFilters}
                         ></input>
@@ -79,7 +79,7 @@ const Searchbar = () => {
 
                 {/* search bar */}
                 {/* child  */}
-                {/* <fieldset className='child2'>
+                <fieldset className='child2'>
                     <label htmlFor='search' className='sr-only'>
                         search
                     </label>
@@ -92,7 +92,7 @@ const Searchbar = () => {
                         value={filters.text}
                         onChange={updateFilters}
                     />
-                </fieldset> */}
+                </fieldset>
             </form>
 
             {/* result */}
