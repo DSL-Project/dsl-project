@@ -33,9 +33,16 @@ export const FilterProvider = ({ children }) => {
         setCtr(ctr - 1);
     };
 
+    const increaseCtr = () => {
+        setCtr(ctr + 1);
+    };
+
     const updateCtr = useCallback(
         (n) => {
-            setCtr(ctr + n);
+            // setCtr(ctr + n);
+            setCtr((ov) => {
+                return ov + n;
+            });
         },
         [ctr]
     );
@@ -99,9 +106,9 @@ export const FilterProvider = ({ children }) => {
         let value = e.target.value;
 
         // this if condition will remove the fiter tags one by one
-        if (e.target.value === '') {
-            decreaseCtr();
-        }
+        // if (e.target.value === '') {
+        //     decreaseCtr();
+        // }
 
         if (value === undefined) {
             value = '';
@@ -192,6 +199,7 @@ export const FilterProvider = ({ children }) => {
                 ctr,
                 resetCtr,
                 decreaseCtr,
+                increaseCtr,
             }}
         >
             {children}

@@ -10,6 +10,7 @@ const PublicationDropdown = () => {
         updateFilters,
         filters: { pubType },
         updateCtr,
+        ctr,
     } = useGlobalFilterContext();
     const uniquePublications = getUniqueValues(publications, 'publicationType');
 
@@ -35,6 +36,7 @@ const PublicationDropdown = () => {
                         value={pub}
                         className='op regular-caps'
                         onClick={() => setLocalCounter(1)}
+                        // onClick={updateCtr(1)}
                     >
                         {pub}
                     </option>

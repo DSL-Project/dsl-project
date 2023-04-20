@@ -17,6 +17,7 @@ const Submenu = () => {
                             className='clear-btn regular-caps'
                             onClick={() => {
                                 clearFilters();
+                                closeSubmenu();
                                 resetCtr();
                             }}
                         >

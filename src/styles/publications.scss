@@ -216,14 +216,31 @@
 
         .child1 {
             margin: 0;
-            gap: 2.5rem;
+            gap: 9px !important;
+            // border: 2px solid red;
+            grid-template-columns: repeat(
+                2,
+                minmax(8.15rem, 7.25rem)
+            ) !important;
 
             .subchild1 {
                 margin: 0;
+                // border: 2px solid green;
+                width: 100%;
+
+                .filterBx {
+                    // border: 2px solid magenta;
+                }
             }
 
             .subchild2 {
                 margin-right: 0px;
+                // border: 2px solid green;
+                width: 100%;
+
+                .sortBx {
+                    // border: 2px solid magenta;
+                }
             }
         }
         .child2 {
