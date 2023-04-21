@@ -48,6 +48,7 @@ const Searchbar = () => {
                             onClick={() => {
                                 toggleSubmenu();
                                 setIsTyping(false);
+                                setShowTypedResult(false);
                             }}
                             onChange={updateFilters}
                         ></input>
