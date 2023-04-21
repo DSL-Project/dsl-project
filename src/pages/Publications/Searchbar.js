@@ -219,6 +219,7 @@ const Searchbar = () => {
 
             {/* result text and clear button*/}
             {filteredPublications !== undefined &&
+                (filters.pubType || filters.authors || filters.year) &&
                 !isTyping &&
                 !showTypedResult && (
                     <div className='result-found-container'>
@@ -254,6 +255,19 @@ const Searchbar = () => {
                                 : `${filteredPublications.length} result for "${filters.text}"`
                         }`}
                     </h3>
+                    <button
+                        className='clear-filters-btn regular-caps'
+                        name='text'
+                        // onClick={handleOnClick}
+                        onClick={(e) => {
+                            updateFilters(e);
+                            setIsTyping(false);
+                            setShowCloseButton(false);
+                            setShowTypedResult(false);
+                        }}
+                    >
+                        clear search
+                    </button>
                 </div>
             )}
         </section>

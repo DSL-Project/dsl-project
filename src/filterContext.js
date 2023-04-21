@@ -72,12 +72,12 @@ export const FilterProvider = ({ children }) => {
     const sortPublications = useCallback(() => {
         // this is inplace sorting, we wont get new array.
         // const allPublications = publications;
-        let allPublications;
-        if (filteredPublications.length === 0) {
-            allPublications = publications;
-        } else {
-            allPublications = filteredPublications;
-        }
+        // let allPublications;
+        // if (filteredPublications.length === 0) {
+        //     allPublications = publications;
+        // } else {
+        //     allPublications = filteredPublications;
+        // }
         // let tempPublications = [...allPublications];
         // let tempPublications = [...publications];
         let tempPublications = [...filteredPublications];
@@ -109,7 +109,7 @@ export const FilterProvider = ({ children }) => {
         let value = e.target.value;
 
         // this if condition will remove the fiter tags one by one
-        if (e.target.value === '') {
+        if (e.target.value === '' && name !== 'text') {
             decreaseCtr();
         }
 
