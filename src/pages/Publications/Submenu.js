@@ -1,5 +1,4 @@
 import React from 'react';
-// import CustomDropdown from './CustomDropdown';
 import PublicationDropdown from './SingleDropdown/PublicationDropdown';
 import AuthorDropdown from './SingleDropdown/AuthorDropdown';
 import YearDropdown from './SingleDropdown/YearDropdown';

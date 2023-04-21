@@ -19,30 +19,33 @@ const PublicationDropdown = () => {
     }, [localCounter]);
 
     return (
-        <select
-            name='pubType'
-            value={pubType}
-            onChange={updateFilters}
-            className='sel regular-caps'
-        >
-            <option value='' className='regular-caps placeholder'>
-                PUBLICATION TYPE
-            </option>
-            ;
-            {uniquePublications.map((pub, index) => {
-                return (
-                    <option
-                        key={index}
-                        value={pub}
-                        className='op regular-caps'
-                        onClick={() => setLocalCounter(1)}
-                        // onClick={updateCtr(1)}
-                    >
-                        {pub}
-                    </option>
-                );
-            })}
-        </select>
+        <>
+            <div className='underline' />
+            <select
+                name='pubType'
+                value={pubType}
+                onChange={updateFilters}
+                className='sel regular-caps'
+            >
+                <option value='' className='regular-caps placeholder'>
+                    PUBLICATION TYPE
+                </option>
+                ;
+                {uniquePublications.map((pub, index) => {
+                    return (
+                        <option
+                            key={index}
+                            value={pub}
+                            className='op regular-caps'
+                            onClick={() => setLocalCounter(1)}
+                            // onClick={updateCtr(1)}
+                        >
+                            {pub}
+                        </option>
+                    );
+                })}
+            </select>
+        </>
     );
 };
 

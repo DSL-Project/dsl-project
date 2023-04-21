@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Submenu from './Submenu';
 import { useGlobalFilterContext } from '../../filterContext';
 import closeIcon from '../../assets/closeIcon.png';
 
 const Searchbar = () => {
+    const [isTyping, setIsTyping] = useState(false);
     const {
         isSubmenuOpen,
         toggleSubmenu,
@@ -16,6 +17,7 @@ const Searchbar = () => {
         filteredPublications,
         closeSubmenu,
         resetCtr,
+        ctr,
     } = useGlobalFilterContext();
 
     return (
@@ -36,7 +38,10 @@ const Searchbar = () => {
                             name='filter'
                             id='filter'
                             className='regular-caps filterBx bx'
-                            placeholder='filter'
+                            // placeholder='filter'
+                            placeholder={`${
+                                ctr > 0 ? `filter (${ctr})` : 'filter'
+                            }`}
                             value=''
                             onClick={toggleSubmenu}
                             onChange={updateFilters}
@@ -87,33 +92,33 @@ const Searchbar = () => {
                         type='text'
                         name='text'
                         id='search'
-                        placeholder='search'
+                        // placeholder='search'
+                        placeholder={`search`}
                         className='regular-caps searchBx bx'
                         value={filters.text}
                         onChange={updateFilters}
+                        onClick={() => setIsTyping(true)}
                     />
+                    {isTyping && (
+                        <button
+                            className='close-search-btn'
+                            name='text'
+                            onClick={() => {
+                                updateFilters();
+                                setIsTyping(false);
+                            }}
+                        >
+                            <img
+                                className='close-img'
+                                src={`${closeIcon}`}
+                                alt='close search bar'
+                                name='text'
+                                onClick={updateFilters}
+                            />
+                        </button>
+                    )}
                 </fieldset>
             </form>
-
-            {/* result */}
-            {filteredPublications !== undefined && (
-                <div className='result-found-container'>
-                    <h3 className='result-found'>
-                        {filteredPublications.length} results
-                    </h3>
-                    <button
-                        className='clear-filters-btn regular-caps'
-                        // onClick={handleOnClick}
-                        onClick={() => {
-                            clearFilters();
-                            closeSubmenu();
-                            resetCtr();
-                        }}
-                    >
-                        clear filters
-                    </button>
-                </div>
-            )}
 
             {/* filtered tags */}
             <div className='filtered-tags-container'>
@@ -173,6 +178,27 @@ const Searchbar = () => {
                     </button>
                 )}
             </div>
+
+            {/* result */}
+            {filteredPublications !== undefined && (
+                <div className='result-found-container'>
+                    <h3 className='result-found'>
+                        {filteredPublications.length} results
+                    </h3>
+                    <button
+                        className='clear-filters-btn regular-caps'
+                        // onClick={handleOnClick}
+                        onClick={() => {
+                            clearFilters();
+                            closeSubmenu();
+                            resetCtr();
+                            setIsTyping(false);
+                        }}
+                    >
+                        clear filters
+                    </button>
+                </div>
+            )}
         </section>
     );
 };

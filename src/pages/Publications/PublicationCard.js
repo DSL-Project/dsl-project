@@ -136,14 +136,14 @@ const PublicationCard = ({ publication, id }) => {
                                                     className='proj-link'
                                                     title={title}
                                                 >
-                                                    {subtitle.length > 62
+                                                    {subtitle.length > 10
                                                         ? ` ${title}: ${subtitle.substring(
                                                               0,
-                                                              62
+                                                              10
                                                           )}...`
                                                         : `${title}: ${subtitle}`}
                                                 </Link>
-                                                {/* dot will s how up if length of subtitle is greater than 62 as per FIGMA */}
+                                                {/* dot will s how up if length of subtitle length is greater than 10 letters*/}
                                             </li>
                                         )}
                                     </div>

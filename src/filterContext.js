@@ -102,6 +102,9 @@ export const FilterProvider = ({ children }) => {
     }, [publications, sort]);
 
     const updateFilters = (e) => {
+        if (e === undefined) {
+            return;
+        }
         let name = e.target.name;
         let value = e.target.value;
 
@@ -134,9 +137,18 @@ export const FilterProvider = ({ children }) => {
 
         // (4) start filtering
         // if search string is anything, but empty string then start filtering the title
+        // if (text) {
+        //     tempPublications = tempPublications.filter((pub) => {
+        //         return pub.title.toLowerCase().startsWith(text);
+        //     });
+        // }
         if (text) {
             tempPublications = tempPublications.filter((pub) => {
-                return pub.title.toLowerCase().startsWith(text);
+                return (
+                    pub.title.toLowerCase().includes(text) ||
+                    pub.publicationType.toLowerCase().includes(text) ||
+                    pub.date.includes(text)
+                );
             });
         }
 

@@ -17,28 +17,31 @@ const YearDropdown = () => {
     }, [localCounter]);
 
     return (
-        <select
-            name='year'
-            value={year}
-            onChange={updateFilters}
-            className='sel regular-caps'
-        >
-            <option value='' className='placeholder'>
-                YEAR
-            </option>
-            {uniqueYears.map((yr, index) => {
-                return (
-                    <option
-                        key={index}
-                        value={yr}
-                        className='op regular-caps'
-                        onClick={() => setLocalCounter(1)}
-                    >
-                        {yr}
-                    </option>
-                );
-            })}
-        </select>
+        <>
+            <div className='underline' />
+            <select
+                name='year'
+                value={year}
+                onChange={updateFilters}
+                className='sel regular-caps'
+            >
+                <option value='' className='placeholder'>
+                    YEAR
+                </option>
+                {uniqueYears.map((yr, index) => {
+                    return (
+                        <option
+                            key={index}
+                            value={yr}
+                            className='op regular-caps'
+                            onClick={() => setLocalCounter(1)}
+                        >
+                            {yr}
+                        </option>
+                    );
+                })}
+            </select>
+        </>
     );
 };
 

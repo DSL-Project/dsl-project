@@ -14,29 +14,32 @@ const AuthorDropdown = () => {
     }, [localCounter]);
 
     return (
-        <select
-            name='authors'
-            value={authors}
-            onChange={updateFilters}
-            className='sel regular-caps'
-        >
-            <option value='' className='placeholder regular-caps'>
-                AUTHORS
-            </option>
+        <>
+            <div className='underline' />
+            <select
+                name='authors'
+                value={authors}
+                onChange={updateFilters}
+                className='sel regular-caps'
+            >
+                <option value='' className='placeholder regular-caps'>
+                    AUTHORS
+                </option>
 
-            {uniqueAuthors.map((auth, index) => {
-                return (
-                    <option
-                        key={index}
-                        value={auth}
-                        className='op regular-caps'
-                        onClick={() => setLocalCounter(1)}
-                    >
-                        {auth}
-                    </option>
-                );
-            })}
-        </select>
+                {uniqueAuthors.map((auth, index) => {
+                    return (
+                        <option
+                            key={index}
+                            value={auth}
+                            className='op regular-caps'
+                            onClick={() => setLocalCounter(1)}
+                        >
+                            {auth}
+                        </option>
+                    );
+                })}
+            </select>
+        </>
     );
 };
 
