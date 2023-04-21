@@ -49,6 +49,13 @@ input {
         cursor: pointer;
         position: relative;
     }
+    .expand-search {
+        grid-column: 4/-1;
+
+        .searchBx {
+            padding-left: 8%;
+        }
+    }
 }
 //-adding icons-
 .filterBx {
@@ -97,7 +104,7 @@ input {
         opacity: 1;
     }
 }
-.close-search-btn {
+.commonCloseBtn {
     border: none;
     background-color: inherit;
     position: absolute;
@@ -118,6 +125,19 @@ input {
         width: 0.8rem;
         background-color: inherit;
     }
+}
+.close-search-btn {
+}
+.search-button {
+    background-color: $soft-black;
+    text-transform: uppercase;
+    color: $neutral-100;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 30%;
+    height: 78%;
+    top: 0;
+    right: 0;
 }
 
 // SUBMENU STARTS

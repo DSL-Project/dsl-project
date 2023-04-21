@@ -109,9 +109,9 @@ export const FilterProvider = ({ children }) => {
         let value = e.target.value;
 
         // this if condition will remove the fiter tags one by one
-        // if (e.target.value === '') {
-        //     decreaseCtr();
-        // }
+        if (e.target.value === '') {
+            decreaseCtr();
+        }
 
         if (value === undefined) {
             value = '';
