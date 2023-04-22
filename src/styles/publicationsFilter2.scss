@@ -68,6 +68,8 @@ input {
     text-transform: lowercase;
     cursor: pointer;
     color: $soft-black;
+    text-transform: uppercase;
+    color: $neutral-500;
 
     &::placeholder {
         color: $neutral-500;
@@ -77,13 +79,15 @@ input {
 }
 
 .sortBx {
-    padding-left: 1.2rem;
+    // padding-left: 1.2rem;
+    padding-left: 0.5rem;
     background-image: url('../assets/downArrow.svg');
     background-repeat: no-repeat;
     background-size: 0.6rem;
     background-position: 90% 50%;
     cursor: pointer;
-    text-transform: capitalize;
+    // text-transform: capitalize;
+    text-transform: uppercase;
 
     .op {
         color: $soft-black;

@@ -13,7 +13,6 @@ const Searchbar = () => {
         updateSort,
         sort,
         filters,
-        // filters: { text },
         updateFilters,
         clearFilters,
         filteredPublications,
@@ -30,18 +29,17 @@ const Searchbar = () => {
                 className='form'
                 onSubmit={(e) => e.preventDefault()}
             >
-                {/* filter dropdown */}
+                {/* FILTER DROPDOWN */}
                 <fieldset className='child1'>
-                    <fieldset className='subchild1'>
+                    {/* <fieldset className='subchild1'>
                         <label htmlFor='filter' className='sr-only'>
                             filter
                         </label>
                         <input
-                            // type='text'
+                            type='text'
                             name='filter'
                             id='filter'
                             className='regular-caps filterBx bx'
-                            // placeholder='filter'
                             placeholder={`${
                                 ctr > 0 ? `filter (${ctr})` : 'filter'
                             }`}
@@ -53,9 +51,27 @@ const Searchbar = () => {
                             }}
                             onChange={updateFilters}
                         ></input>
+                    </fieldset> */}
+
+                    <fieldset className='subchild1'>
+                        <fieldset
+                            type='text'
+                            name='filter'
+                            id='filter'
+                            className='regular-caps filterBx bx'
+                            value=''
+                            onClick={() => {
+                                toggleSubmenu();
+                                setIsTyping(false);
+                                setShowTypedResult(false);
+                            }}
+                        >
+                            {`${ctr > 0 ? `filter (${ctr})` : 'filter'}`}
+                        </fieldset>
                     </fieldset>
 
-                    {/* sort-by dropdown */}
+                    {/* ---end of filter dropdwon */}
+                    {/* SORT-BY DROPDOWN */}
                     <fieldset className='subchild2'>
                         <label htmlFor='sort' className='sr-only'>
                             sort by
@@ -88,10 +104,10 @@ const Searchbar = () => {
                         {isSubmenuOpen && <Submenu />}
                     </div>
                 </fieldset>
+                {/* ---end of sort by dropdown */}
 
-                {/* search bar */}
+                {/* SEARCH BAR */}
                 {/* child  */}
-                {/* <fieldset className='child2'> */}
                 <fieldset
                     className={`${
                         isTyping ? 'child2 expand-search' : 'child2'
@@ -104,7 +120,6 @@ const Searchbar = () => {
                         type='text'
                         name='text'
                         id='search'
-                        // placeholder='search'
                         placeholder={`search`}
                         className='regular-caps searchBx bx'
                         value={filters.text}
@@ -157,6 +172,7 @@ const Searchbar = () => {
                         </button>
                     )}
                 </fieldset>
+                {/* end of search bar dropdrown */}
             </form>
 
             {/* filtered tags */}
@@ -166,10 +182,7 @@ const Searchbar = () => {
                     <fieldset name='pubType'>
                         <button
                             className='filt-btn semi-14'
-                            // onClick={updateFilters}
-                            // onClick={updateFilters}
                             name='pubType'
-                            // data-c={0}
                             data-c={0}
                             onClick={(e) => {
                                 updateFilterCounter(e);
@@ -181,8 +194,6 @@ const Searchbar = () => {
                                 src={closeIcon}
                                 alt='close icon'
                                 name='pubType'
-                                // onClick={updateFilters}
-                                // onClick={updateFilterCounter}
                                 className='close-img'
                                 onClick={(e) => {
                                     updateFilterCounter(e);
@@ -198,7 +209,6 @@ const Searchbar = () => {
                     <fieldset name='authors'>
                         <button
                             className='filt-btn semi-14'
-                            // onClick={updateFilters}
                             name='authors'
                             data-c={0}
                             onClick={(e) => {
@@ -229,8 +239,6 @@ const Searchbar = () => {
                         <button
                             className='filt-btn semi-14'
                             name='year'
-                            // onClick={updateFilters}
-
                             onClick={(e) => {
                                 updateFilterCounter(e);
                                 updateFilters(e);
@@ -243,7 +251,6 @@ const Searchbar = () => {
                                 src={closeIcon}
                                 alt='close icon'
                                 name='year'
-                                // onClick={updateFilters}
                                 onClick={(e) => {
                                     updateFilterCounter(e);
                                     updateFilters(e);
@@ -271,7 +278,6 @@ const Searchbar = () => {
                         </h3>
                         <button
                             className='clear-filters-btn regular-caps'
-                            // onClick={handleOnClick}
                             onClick={() => {
                                 clearFilters();
                                 closeSubmenu();
@@ -297,7 +303,6 @@ const Searchbar = () => {
                     <button
                         className='clear-filters-btn regular-caps'
                         name='text'
-                        // onClick={handleOnClick}
                         onClick={(e) => {
                             updateFilters(e);
                             setIsTyping(false);
