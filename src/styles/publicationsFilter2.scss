@@ -223,8 +223,10 @@ input {
     // border: 2px solid red;
     margin: 1rem 0rem;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    gap: 5px;
     .result-found {
         text-transform: capitalize;
     }

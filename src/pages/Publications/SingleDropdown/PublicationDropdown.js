@@ -1,22 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 import { useGlobalFilterContext } from '../../../filterContext';
 import { getUniqueValues } from '../../../utils';
 
 const PublicationDropdown = () => {
-    const [localCounter, setLocalCounter] = useState(0);
     const {
         publications,
         updateFilters,
         filters: { pubType },
-        updateCtr,
-        ctr,
+        updateFilterCounter,
     } = useGlobalFilterContext();
     const uniquePublications = getUniqueValues(publications, 'publicationType');
-
-    useEffect(() => {
-        updateCtr(localCounter);
-    }, [localCounter]);
 
     return (
         <>
@@ -27,7 +21,12 @@ const PublicationDropdown = () => {
                 onChange={updateFilters}
                 className='sel regular-caps'
             >
-                <option value='' className='regular-caps placeholder'>
+                <option
+                    value=''
+                    className='regular-caps placeholder'
+                    data-c={0}
+                    onClick={updateFilterCounter}
+                >
                     PUBLICATION TYPE
                 </option>
                 ;
@@ -37,8 +36,8 @@ const PublicationDropdown = () => {
                             key={index}
                             value={pub}
                             className='op regular-caps'
-                            onClick={() => setLocalCounter(1)}
-                            // onClick={updateCtr(1)}
+                            data-c={1}
+                            onClick={updateFilterCounter}
                         >
                             {pub}
                         </option>
@@ -48,29 +47,5 @@ const PublicationDropdown = () => {
         </>
     );
 };
-
-/**The code below is a backup in case we want to use checkboxes. The rease why I did not go for  code below, as it was difficult to maintain the state for the form */
-/*import { MultiSelect } from 'react-multi-select-component';
-import { getUniqueValues, dropdownRelatedData } from '../../../utils';
-const PublicationDropdown = () => {
-    const [selected, setSelected] = useState([]);
-    const { publications, updateFilters } = useGlobalFilterContext();
-    const uniquePubType = getUniqueValues(publications, 'publicationType');
-    const data = dropdownRelatedData(uniquePubType);
-
-    updateFilters({ selected, type: 'pubType' });
-
-    return (
-        <MultiSelect
-            options={data}
-            value={selected}
-            onChange={setSelected}
-            labelledBy='publication dropdown'
-            className='single-select'
-            disableSearch
-            hasSelectAll={false}
-        />
-    );
-};*/
 
 export default PublicationDropdown;

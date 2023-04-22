@@ -16,7 +16,7 @@ const Submenu = () => {
                             className='clear-btn regular-caps'
                             onClick={() => {
                                 clearFilters();
-                                closeSubmenu();
+                                // closeSubmenu();
                                 resetCtr();
                             }}
                         >
@@ -26,7 +26,8 @@ const Submenu = () => {
                     <div className='item-selected'>
                         <p className='item-selected-text regular-14'>
                             {/* 0 selected */}
-                            {`${ctr > 3 ? 3 : ctr} selected`}
+                            {/* {`${ctr > 3 ? 3 : ctr} selected`} */}
+                            {`${ctr} selected`}
                         </p>
                     </div>
                 </header>

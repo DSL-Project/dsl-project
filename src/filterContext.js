@@ -25,27 +25,31 @@ export const FilterProvider = ({ children }) => {
         text: '',
     });
 
+    const [filterCounter, setFilterCounter] = useState({
+        pubType: 0,
+        authors: 0,
+        year: 0,
+    });
+
+    const updateFilterCounter = (e) => {
+        const name = e.target.parentElement.name;
+        const value = e.target.dataset.c;
+
+        setFilterCounter({ ...filterCounter, [name]: parseInt(value) });
+    };
+
+    const updateCtr = useCallback(() => {
+        const tempTotal =
+            filterCounter.pubType + filterCounter.authors + filterCounter.year;
+
+        setCtr(() => {
+            return tempTotal;
+        });
+    }, [filterCounter]);
+
     const resetCtr = () => {
-        setCtr(0);
+        setFilterCounter({ authors: 0, pubType: 0, year: 0 });
     };
-
-    const decreaseCtr = () => {
-        setCtr(ctr - 1);
-    };
-
-    const increaseCtr = () => {
-        setCtr(ctr + 1);
-    };
-
-    const updateCtr = useCallback(
-        (n) => {
-            // setCtr(ctr + n);
-            setCtr((ov) => {
-                return ov + n;
-            });
-        },
-        [ctr]
-    );
 
     const openSubmenu = () => {
         setIsSubmenuOpen(true);
@@ -70,16 +74,6 @@ export const FilterProvider = ({ children }) => {
     };
 
     const sortPublications = useCallback(() => {
-        // this is inplace sorting, we wont get new array.
-        // const allPublications = publications;
-        // let allPublications;
-        // if (filteredPublications.length === 0) {
-        //     allPublications = publications;
-        // } else {
-        //     allPublications = filteredPublications;
-        // }
-        // let tempPublications = [...allPublications];
-        // let tempPublications = [...publications];
         let tempPublications = [...filteredPublications];
 
         if (sort === 'yearL') {
@@ -108,11 +102,6 @@ export const FilterProvider = ({ children }) => {
         let name = e.target.name;
         let value = e.target.value;
 
-        // this if condition will remove the fiter tags one by one
-        if (e.target.value === '' && name !== 'text') {
-            decreaseCtr();
-        }
-
         if (value === undefined) {
             value = '';
         }
@@ -136,12 +125,6 @@ export const FilterProvider = ({ children }) => {
         let tempPublications = [...allPublications];
 
         // (4) start filtering
-        // if search string is anything, but empty string then start filtering the title
-        // if (text) {
-        //     tempPublications = tempPublications.filter((pub) => {
-        //         return pub.title.toLowerCase().startsWith(text);
-        //     });
-        // }
         if (text) {
             tempPublications = tempPublications.filter((pub) => {
                 return (
@@ -184,7 +167,6 @@ export const FilterProvider = ({ children }) => {
     }, [publicationsData, loadPublications]);
 
     useEffect(() => {
-        // sortPublications();
         filterPub();
         setSort('');
     }, [filters, filterPub]);
@@ -192,6 +174,10 @@ export const FilterProvider = ({ children }) => {
     useEffect(() => {
         sortPublications();
     }, [sort, sortPublications]);
+
+    useEffect(() => {
+        updateCtr();
+    }, [filterCounter]);
 
     return (
         <FilterContext.Provider
@@ -207,11 +193,10 @@ export const FilterProvider = ({ children }) => {
                 filteredPublications,
                 sort,
                 updateSort,
-                updateCtr,
                 ctr,
                 resetCtr,
-                decreaseCtr,
-                increaseCtr,
+                updateCtr,
+                updateFilterCounter,
             }}
         >
             {children}

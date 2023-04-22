@@ -20,6 +20,7 @@ const Searchbar = () => {
         closeSubmenu,
         resetCtr,
         ctr,
+        updateFilterCounter,
     } = useGlobalFilterContext();
 
     return (
@@ -162,58 +163,96 @@ const Searchbar = () => {
             <div className='filtered-tags-container'>
                 {/* publication type */}
                 {filters.pubType && (
-                    <button
-                        className='filt-btn semi-14'
-                        onClick={updateFilters}
-                        name='pubType'
-                    >
-                        {filters.pubType}
-                        <img
-                            src={closeIcon}
-                            alt='close icon'
+                    <fieldset name='pubType'>
+                        <button
+                            className='filt-btn semi-14'
+                            // onClick={updateFilters}
+                            // onClick={updateFilters}
                             name='pubType'
-                            onClick={updateFilters}
-                            className='close-img'
-                        />
-                    </button>
+                            // data-c={0}
+                            data-c={0}
+                            onClick={(e) => {
+                                updateFilterCounter(e);
+                                updateFilters(e);
+                            }}
+                        >
+                            {filters.pubType}
+                            <img
+                                src={closeIcon}
+                                alt='close icon'
+                                name='pubType'
+                                // onClick={updateFilters}
+                                // onClick={updateFilterCounter}
+                                className='close-img'
+                                onClick={(e) => {
+                                    updateFilterCounter(e);
+                                    updateFilters(e);
+                                }}
+                            />
+                        </button>
+                    </fieldset>
                 )}
 
                 {/* author */}
                 {filters.authors && (
-                    <button
-                        className='filt-btn semi-14'
-                        onClick={updateFilters}
-                        name='authors'
-                    >
-                        {filters.authors}
-
-                        <img
-                            src={closeIcon}
-                            alt='close icon'
+                    <fieldset name='authors'>
+                        <button
+                            className='filt-btn semi-14'
+                            // onClick={updateFilters}
                             name='authors'
-                            onClick={updateFilters}
-                            className='close-img'
-                        />
-                    </button>
+                            data-c={0}
+                            onClick={(e) => {
+                                updateFilterCounter(e);
+                                updateFilters(e);
+                            }}
+                        >
+                            {filters.authors}
+
+                            <img
+                                src={closeIcon}
+                                alt='close icon'
+                                name='authors'
+                                className='close-img'
+                                data-c={0}
+                                onClick={(e) => {
+                                    updateFilterCounter(e);
+                                    updateFilters(e);
+                                }}
+                            />
+                        </button>
+                    </fieldset>
                 )}
 
                 {/* year */}
                 {filters.year && (
-                    <button
-                        className='filt-btn semi-14'
-                        name='year'
-                        onClick={updateFilters}
-                    >
-                        {filters.year}
-
-                        <img
-                            src={closeIcon}
-                            alt='close icon'
+                    <fieldset name='year'>
+                        <button
+                            className='filt-btn semi-14'
                             name='year'
-                            onClick={updateFilters}
-                            className='close-img'
-                        />
-                    </button>
+                            // onClick={updateFilters}
+
+                            onClick={(e) => {
+                                updateFilterCounter(e);
+                                updateFilters(e);
+                            }}
+                            data-c={0}
+                        >
+                            {filters.year}
+
+                            <img
+                                src={closeIcon}
+                                alt='close icon'
+                                name='year'
+                                // onClick={updateFilters}
+                                onClick={(e) => {
+                                    updateFilterCounter(e);
+                                    updateFilters(e);
+                                }}
+                                className='close-img'
+                                data-c={0}
+                            />
+                        </button>
+                    </fieldset>
                 )}
             </div>
 
@@ -237,7 +276,7 @@ const Searchbar = () => {
                                 clearFilters();
                                 closeSubmenu();
                                 resetCtr();
-                                setIsTyping(false);
+                                // setIsTyping(false);
                             }}
                         >
                             clear filters
