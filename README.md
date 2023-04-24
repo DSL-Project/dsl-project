@@ -118,7 +118,8 @@ PROJECT WORKFLOW:
   a parameter
   
 ### filterContext.js
-- This context is solely responsible for any changes when user wish to filter data. This functionality is on going.
+- This context is solely responsible for any changes when user wish to filter data in Publication nav.
+- The search functionality provides user to search for publication type, year or publication title.
 
 
 
