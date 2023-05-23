@@ -10,7 +10,7 @@ const Person = ({ memberInfo }) => {
         <li className='personCard' key={slug}>
             <Link
                 to={`/people/${memberType}/${slug}`}
-                state={memberInfo}
+                // state={memberInfo}
                 className='profile-link'
             >
                 {/* person image */}

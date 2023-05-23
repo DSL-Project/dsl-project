@@ -1,20 +1,35 @@
-import React from 'react';
-const yearData = [
+import React, { useState } from 'react';
+import { MultiSelect } from 'react-multi-select-component';
+
+const data = [
     {
         value: 'year-1',
-        key: '2021',
+        label: '2021',
     },
     {
         value: 'year-2',
-        key: '2022',
+        label: '2022',
     },
     {
         value: 'year-3',
-        key: '2023',
+        label: '2023',
     },
 ];
+
 const YearDropdown = () => {
-    return <div>YearDropdown</div>;
+    const [selected, setSelected] = useState([]);
+
+    return (
+        <MultiSelect
+            options={data}
+            value={selected}
+            onChange={setSelected}
+            labelledBy='year dropdown'
+            className='single-select'
+            disableSearch
+            hasSelectAll={false}
+        />
+    );
 };
 
 export default YearDropdown;

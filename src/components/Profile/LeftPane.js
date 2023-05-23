@@ -1,10 +1,24 @@
 import React, { useState } from 'react';
 import { useGlobalContext } from '../../appContext';
+import defaultImg from '../../assets/defaultImg.jpg';
 
-const LeftPane = ({ name, titles, tags, bio, personImg }) => {
+const LeftPane = ({
+    profileData,
+    slugFromLocation,
+    memberTypeFromLocation,
+}) => {
     const [readMore, setReadMore] = useState(true);
     const [showAll, setShowAll] = useState(false);
     const { tabletView, mobileView } = useGlobalContext();
+
+    const { name, titles, tags, img } = profileData?.[0] || {
+        name: '',
+        titles: [''],
+        tags: [''],
+        img: {},
+    };
+    const personImg = img?.fields?.file?.url || defaultImg;
+    const bio = profileData[0]?.profile?.content || null;
     return (
         <div className='profile'>
             <div className='header'>

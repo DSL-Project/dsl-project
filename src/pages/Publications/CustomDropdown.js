@@ -3,9 +3,8 @@
 // https://multiselect-react-dropdown.vercel.app/?path=/docs/multiselect-dropdown--custom-close-icon
 // https://www.npmjs.com/package/multiselect-react-dropdown
  */
-import React, { useState } from 'react';
+/*import React, { useState } from 'react';
 import { Multiselect } from 'multiselect-react-dropdown';
-
 const CustomDropdown = ({ title, data }) => {
     const [count, setCount] = useState(0);
 
@@ -30,9 +29,9 @@ const CustomDropdown = ({ title, data }) => {
             disablePreSelectedValues
             hideSelectedList
             avoidHighlightFirstOption
-            // selectedValueDecorator={function noRefCheck() {}}
+            selectedValueDecorator={function noRefCheck() {}}
         />
     );
 };
 
-export default CustomDropdown;
+export default CustomDropdown;*/

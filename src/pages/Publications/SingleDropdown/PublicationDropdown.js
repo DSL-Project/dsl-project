@@ -1,52 +1,33 @@
-// https://srigar.github.io/multiselect-react-dropdown/
 import React, { useState } from 'react';
-import { Multiselect } from 'multiselect-react-dropdown';
-import { useGlobalFilterContext } from '../../filterContext';
+import { MultiSelect } from 'react-multi-select-component';
 
-const publicationData = [
+const data = [
     {
         value: 'journal aritcle',
-        key: 'Journal Article',
+        label: 'Journal Article',
     },
     {
         value: 'popular press',
-        key: 'Popular Press',
+        label: 'Popular Press',
     },
     {
         value: 'independent media',
-        key: 'Independent Media',
+        label: 'Independent Media',
     },
 ];
 
 const PublicationDropdown = () => {
-    const [count, setCount] = useState(0);
-    const { addTotalCount, subTotalCount } = useGlobalFilterContext();
-    const title = 'publication';
+    const [selected, setSelected] = useState([]);
 
     return (
-        <Multiselect
-            showCheckbox
-            options={publicationData}
-            placeholder={`${count === 0 ? `${title}` : `${title} (${count})`}`}
-            displayValue='key'
-            onKeyPressFn={function noRefCheck() {}}
-            onSearch={function noRefCheck() {}}
-            onRemove={function noRefCheck() {
-                setCount(count - 1);
-                subTotalCount();
-            }}
-            onSelect={function noRefCheck(e) {
-                setCount(count + 1);
-                addTotalCount();
-            }}
-            className='custom-select'
-            id='css_custom'
-            showArrow='true'
-            keepSearchTerm='false'
-            disablePreSelectedValues
-            hideSelectedList
-            avoidHighlightFirstOption
-            // selectedValueDecorator={function noRefCheck() {}}
+        <MultiSelect
+            options={data}
+            value={selected}
+            onChange={setSelected}
+            labelledBy='publication dropdown'
+            className='single-select'
+            disableSearch
+            hasSelectAll={false}
         />
     );
 };

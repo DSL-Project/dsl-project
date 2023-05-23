@@ -8,7 +8,7 @@ import React, {
     useState,
     useCallback,
 } from 'react';
-import { STATIC_QUERY, PROJECTS, PUBLICATIONS } from './appConstants';
+import { STATIC_QUERY, PROJECTS, PUBLICATIONS, PEOPLE } from './appConstants';
 import useContentful from './hooks/useContenful';
 
 const AppContext = createContext();
@@ -50,6 +50,8 @@ const AppProvider = ({ children }) => {
 
     // project data for project carousel
     const [projectsData, setProjectsData] = useState([]);
+
+    const [peopleData, setPeopleData] = useState([]);
 
     const cmsQuery = useCallback(
         async (queryName) => {
@@ -156,11 +158,19 @@ const AppProvider = ({ children }) => {
     const getProjectsData = useCallback(async () => {
         setIsLoading(true);
         try {
-            // const response = await getCmsResponse(PROJECTS, {
-            //   content_type: PROJECTS,
-            // });
             const response = await getCmsResponse(PROJECTS);
             setProjectsData(response);
+            setIsLoading(false);
+        } catch (error) {
+            setIsLoading(true);
+        }
+        setIsLoading(false);
+    }, []);
+    const getPeopleData = useCallback(async () => {
+        setIsLoading(true);
+        try {
+            const response = await getCmsResponse(PEOPLE);
+            setPeopleData(response);
             setIsLoading(false);
         } catch (error) {
             setIsLoading(true);
@@ -170,7 +180,8 @@ const AppProvider = ({ children }) => {
 
     useEffect(() => {
         getProjectsData();
-    }, [getProjectsData]);
+        getPeopleData();
+    }, [getProjectsData, getPeopleData]);
 
     useEffect(() => {
         cmsQuery(query);
@@ -201,6 +212,7 @@ const AppProvider = ({ children }) => {
                 setOpenMenu,
                 homepageData,
                 projectsData,
+                peopleData,
                 ...bannerContent,
             }}
         >

@@ -12,11 +12,7 @@ const ProjectCard = ({ projectCardInfo }) => {
     } = projectCardInfo;
 
     return (
-        <Link
-            className='project-link'
-            to={`/projects/${slug}`}
-            state={projectCardInfo}
-        >
+        <Link className='project-link' to={`/projects/${slug}`}>
             <article className='project-card'>
                 <h2 className='medium-16 project-card-heading'>{title}</h2>
                 <h3 className='bold-18 project-card-subheading'>{subtitle}</h3>
