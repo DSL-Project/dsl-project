@@ -46,7 +46,7 @@ const ProjectsCarousel = () => {
 			</div>
 			<Slider {...settings}>
 				{projectsData.map((project, id) => {
-					const { slug, title, subtitle, about, tags } = project;
+					const { slug, title, subtitle, about } = project;
 
 					return (
 						<div key={id} className="project-container">
