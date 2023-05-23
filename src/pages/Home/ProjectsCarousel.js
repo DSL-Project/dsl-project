@@ -38,8 +38,10 @@ const ProjectsCarousel = () => {
 			<div className="heading-container">
 				<h2>Projects</h2>
 				<div className="custom-arrow">
-					<a href="/projects">See All</a>
-					<AiOutlineArrowRight />
+					<a href="/projects">
+						See All
+						<AiOutlineArrowRight />
+					</a>
 				</div>
 			</div>
 			<Slider {...settings}>
