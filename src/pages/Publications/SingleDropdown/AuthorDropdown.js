@@ -1,34 +1,46 @@
-import React, { useState } from 'react';
-import { MultiSelect } from 'react-multi-select-component';
-
-const data = [
-    {
-        value: 'author-1',
-        label: 'Author-1',
-    },
-    {
-        value: 'author-2',
-        label: 'Author-2',
-    },
-    {
-        value: 'author-3',
-        label: 'Author-3',
-    },
-];
+import React from 'react';
+import { useGlobalFilterContext } from '../../../filterContext';
+import { getUniqueValues } from '../../../utils';
 
 const AuthorDropdown = () => {
-    const [selected, setSelected] = useState([]);
+    const { publications, updateFilters, filters, updateFilterCounter } =
+        useGlobalFilterContext();
+    const uniqueAuthors = getUniqueValues(publications, 'authors');
+    const { authors } = filters;
 
     return (
-        <MultiSelect
-            options={data}
-            value={selected}
-            onChange={setSelected}
-            labelledBy='author dropdown'
-            className='single-select'
-            disableSearch
-            hasSelectAll={false}
-        />
+        <>
+            <div className='underline' />
+            <select
+                name='authors'
+                value={authors}
+                onChange={updateFilters}
+                className='sel regular-caps'
+            >
+                <option
+                    value=''
+                    className='placeholder regular-caps'
+                    data-c={0}
+                    onClick={updateFilterCounter}
+                >
+                    AUTHORS
+                </option>
+
+                {uniqueAuthors.map((auth, index) => {
+                    return (
+                        <option
+                            key={index}
+                            value={auth}
+                            className='op regular-caps'
+                            data-c={1}
+                            onClick={updateFilterCounter}
+                        >
+                            {auth}
+                        </option>
+                    );
+                })}
+            </select>
+        </>
     );
 };
 

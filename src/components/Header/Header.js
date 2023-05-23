@@ -9,13 +9,12 @@ import Logo from './Logo';
 const Header = () => {
     const { setQuery, setOpenMenu } = useGlobalContext();
     return (
-        // body
         <nav className='header-container'>
-            <header className='header'>
-                {/* LOGO */}
+            <header className='header' id='top-page'>
+                {/* logo */}
                 <Logo />
 
-                {/* main NAVBAR */}
+                {/* main navbar */}
                 <section className='main-menu'>
                     <ul className='mm-list'>
                         {navConstants.map((nav) => {
@@ -38,7 +37,7 @@ const Header = () => {
                         })}
                     </ul>
 
-                    {/* HAMBURGER button */}
+                    {/* hamburger button*/}
                     <button
                         className='ham-btn'
                         onClick={() => setOpenMenu(true)}
@@ -46,7 +45,7 @@ const Header = () => {
                         <HamburgerIcon className='hamburgerIcon' />
                     </button>
 
-                    {/* SIDEBAR menu */}
+                    {/* sidebar menu */}
                     <Sidebar />
                     {/* <Sidebar openMenu={openMenu} setOpenMenu={setOpenMenu} /> */}
                 </section>

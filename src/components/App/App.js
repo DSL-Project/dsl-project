@@ -25,7 +25,7 @@ function App() {
                 <Route path='people/staff' element={<People />} />
                 <Route path='people/students' element={<People />} />
                 <Route path='people/staff/:slug' element={<Profile />} />
-                <Route path='people/student/:slug' element={<Profile />} />
+                <Route path='people/students/:slug' element={<Profile />} />
                 <Route path='contact' element={<Contact />} />
                 <Route path='*' element={<Error />} />
             </Route>

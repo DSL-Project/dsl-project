@@ -15,10 +15,7 @@ const PublicationCard = ({ publication, id }) => {
                         <div className='meta'>
                             {/* publication type */}
                             {publicationType !== undefined && (
-                                <a
-                                    href={url}
-                                    target='_blank'
-                                    rel='noreferrer'
+                                <p
                                     className={`${
                                         publicationType === 'journal article'
                                             ? 'publication-type journal bold-caps'
@@ -26,7 +23,19 @@ const PublicationCard = ({ publication, id }) => {
                                     }`}
                                 >
                                     {publicationType}
-                                </a>
+                                </p>
+                                // <a
+                                //     href={url}
+                                //     target='_blank'
+                                //     rel='noreferrer'
+                                //     className={`${
+                                //         publicationType === 'journal article'
+                                //             ? 'publication-type journal bold-caps'
+                                //             : 'publication-type popular bold-caps'
+                                //     }`}
+                                // >
+                                //     {publicationType}
+                                // </a>
                             )}
 
                             {/* perma link */}
@@ -127,14 +136,14 @@ const PublicationCard = ({ publication, id }) => {
                                                     className='proj-link'
                                                     title={title}
                                                 >
-                                                    {subtitle.length > 62
+                                                    {subtitle.length > 10
                                                         ? ` ${title}: ${subtitle.substring(
                                                               0,
-                                                              64
+                                                              10
                                                           )}...`
                                                         : `${title}: ${subtitle}`}
                                                 </Link>
-                                                {/* dot will s how up if length of subtitle is greater than 62 as per FIGMA */}
+                                                {/* dot will s how up if length of subtitle length is greater than 10 letters*/}
                                             </li>
                                         )}
                                     </div>

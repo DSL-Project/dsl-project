@@ -4,6 +4,7 @@ import Banner from '../../components/Banner/Banner';
 import Person from './Person';
 import { PEOPLE } from '../../appConstants';
 import LoadingState from '../../components/LoadingState/LoadingState';
+
 const People = () => {
     const {
         peopleBody,
@@ -22,7 +23,7 @@ const People = () => {
     }, [setQuery]);
 
     if (isLoading) {
-        return <LoadingState />;
+        return <LoadingState></LoadingState>;
     }
     if (response === undefined) {
         return null;
@@ -36,7 +37,9 @@ const People = () => {
             <section className='people-list'>
                 {/* rendering staff */}
                 <div className='wrapper group'>
-                    <h2 className='category-title'>staff</h2>
+                    <h2 className='category-title' id='staff'>
+                        staff
+                    </h2>
                     <ul className='staff contributor'>
                         {response
                             .filter((person) => person.isStaff)
@@ -57,14 +60,16 @@ const People = () => {
 
                 {/* rendering students */}
                 <div className='wrapper group'>
-                    <h2 className='category-title'>students</h2>
+                    <h2 className='category-title' id='students'>
+                        students
+                    </h2>
                     <ul className='students contributor'>
                         {response
                             .filter((person) => person.isStudent)
                             .map((student, id) => {
                                 const memberInfo = {
                                     ...student,
-                                    memberType: 'student',
+                                    memberType: 'students',
                                 };
                                 return (
                                     <Person key={id} memberInfo={memberInfo} />

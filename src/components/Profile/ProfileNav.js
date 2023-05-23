@@ -1,6 +1,6 @@
 import React from 'react';
 import { CgGlobeAlt as GlobeLogo, CgMail as MailLogo } from 'react-icons/cg';
-import { Link } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
 
 const ProfileNav = ({ pathname, profileData }) => {
     const pathItem = pathname.split('/');
@@ -9,7 +9,6 @@ const ProfileNav = ({ pathname, profileData }) => {
         email: '',
         website: '',
     };
-    // website email name
 
     return (
         <section className='nav-container'>
@@ -18,11 +17,17 @@ const ProfileNav = ({ pathname, profileData }) => {
                 {/* path name */}
                 <div className='navigation'>
                     <span>
-                        <Link to='/people' className='medium-14 path-children'>
+                        <Link
+                            to={`/${pathItem[1]}`}
+                            className='medium-14 path-children'
+                        >
                             {pathItem[1]}
                         </Link>
                         <span className='medium-14 path-children'>/</span>
-                        <Link to='/people' className='medium-14 path-children'>
+                        <Link
+                            to={`/${pathItem[1]}#${pathItem[2]}`}
+                            className='medium-14 path-children'
+                        >
                             {pathItem[2]}
                         </Link>
                         <span className='medium-14 path-children'>/</span>

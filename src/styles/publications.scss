@@ -1,9 +1,16 @@
-// ------publications--------------------------------------------
+// -publications-
 .proj-link {
     display: inline;
 }
 .project-list {
+    list-style-type: disc;
     list-style-position: inside;
+
+    .project {
+        .proj-link {
+            margin: 0px;
+        }
+    }
 }
 
 .publication-main {
@@ -15,7 +22,7 @@
         }
     }
 }
-//-------publication card----------------------------
+//-publication card-
 .single-publication {
     margin-top: 1rem;
     border-radius: 5px;
@@ -43,17 +50,17 @@
                     color: $journal-col;
                     background-color: $journal-bg;
                     transition: $main-transition;
-                    &:hover {
-                        border: 1px solid $journal-col;
-                    }
+                    // &:hover {
+                    //     border: 1px solid $journal-col;
+                    // }
                 }
                 .popular {
                     color: $popular-col;
                     background-color: $popular-bg;
 
-                    &:hover {
-                        border: 1px solid $popular-col;
-                    }
+                    // &:hover {
+                    //     border: 1px solid $popular-col;
+                    // }
                 }
                 .perma-link {
                     background-color: $neutral-300;
@@ -72,7 +79,7 @@
                     }
                 }
             }
-            // heading
+            //-heading-
             .journal-heading-container {
                 padding: 0.7rem 0;
 
@@ -100,8 +107,8 @@
                                 font-size: 1rem;
                             }
                             &:hover {
-                                background-color: $black;
-                                color: $white;
+                                background-color: $soft-black;
+                                color: $neutral-400;
                                 border-color: $black;
                             }
                         }
@@ -169,12 +176,12 @@
     }
 }
 
-// special S
+//-special S-
 .specialS {
     text-transform: lowercase;
 }
 
-//----- media query-----------------------------------------------------------
+//-media query-
 @media (max-width: 835px) {
     // single publication card
     .single-publication {
@@ -201,34 +208,63 @@
             }
         }
     }
+
+    // search bar
+    .form {
+        .child2 {
+            grid-column: 4/-1 !important;
+
+            .searchBx {
+                padding-left: 11% !important;
+            }
+        }
+    }
+
+    // submenu
+    .main-subform {
+        // border: 2px solid red;
+        min-width: 30.7% !important;
+    }
 }
 @media (max-width: 375px) {
-    // publication form
+    //-publication form-
     .form {
         margin: 0;
 
         .child1 {
             margin: 0;
-            gap: 2.5rem;
+            gap: 9px !important;
+            // grid-row: 2/-1;
+            grid-template-columns: repeat(
+                2,
+                minmax(8.15rem, 7.25rem)
+            ) !important;
 
             .subchild1 {
                 margin: 0;
+                width: 100%;
             }
 
             .subchild2 {
                 margin-right: 0px;
+                width: 100%;
+                .sortBx {
+                }
             }
         }
         .child2 {
+            grid-column: 1/1 !important;
+            grid-row: 1/1;
+            margin-bottom: 9px;
+
             .searchBx {
-                font-size: 0;
-                background-position: 50%;
+                background-position: 2%;
+                padding-left: 11%;
             }
         }
     }
-    //---------------------------
 
-    // single publication card
+    //-single publication card-
     .single-publication {
         .publication {
             padding: 0.8rem 0.3rem;
@@ -241,7 +277,7 @@
         }
     }
 
-    // author
+    //-author-
     .authors-container {
         padding: 1rem;
 
@@ -265,7 +301,7 @@
         }
     }
 
-    // projects
+    //-projects-
     .featured-projects-container {
         .featured-projects {
             grid-template-columns: 1fr !important;
@@ -277,5 +313,15 @@
                 }
             }
         }
+    }
+
+    // submenu
+    .main-subform {
+        min-width: 89.6% !important;
+    }
+
+    // search button on submenu
+    .search-button {
+        height: 100% !important;
     }
 }
