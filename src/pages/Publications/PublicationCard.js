@@ -101,7 +101,7 @@ const PublicationCard = ({ publication, id }) => {
 				<div className="featured-projects-container">
 					<div className="featured-projects">
 						<h4 className="regular-16 featured-projects-heading">
-							featured projects
+							affiliated projects
 						</h4>
 
 						{/* projects list */}
