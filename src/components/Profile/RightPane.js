@@ -13,7 +13,6 @@ const RightPane = () => {
 				<h3 className="bold-16 heading">affiliated projects</h3>
 				<ul className="project-list list">
 					{authorProjects.map((project, id) => {
-						console.log(project, 'MWW')
 						const { subtitle, slug: projectSlug, title } = project;
 						return (
 							<li key={id} className="list-item">

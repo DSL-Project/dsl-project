@@ -27,16 +27,6 @@ const PublicationCard = ({ publication, id }) => {
 									{publicationType}
 								</a>
 							)}
-
-							{/* perma link */}
-							{/* <Link
-                                to={url}
-                                className='perma-link'
-                                title='Permalink'
-                                target='_blank'
-                            >
-                                <LinkIcon />
-                            </Link> */}
 						</div>
 					)}
 
