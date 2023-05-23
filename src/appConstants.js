@@ -19,17 +19,17 @@ const navConstants = [
         url: '/training',
         queryString: TRAININGS,
     },
+		{
+				id: 3,
+				name: 'publications',
+				url: '/publications',
+				queryString: PUBLICATIONS,
+		},
     {
-        id: 3,
+        id: 4,
         name: 'people',
         url: '/people',
         queryString: PEOPLE,
-    },
-    {
-        id: 4,
-        name: 'publications',
-        url: '/publications',
-        queryString: PUBLICATIONS,
     },
     {
         id: 5,
