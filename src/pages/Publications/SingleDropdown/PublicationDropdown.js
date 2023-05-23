@@ -1,34 +1,50 @@
-import React, { useState } from 'react';
-import { MultiSelect } from 'react-multi-select-component';
+import React from 'react';
 
-const data = [
-    {
-        value: 'journal aritcle',
-        label: 'Journal Article',
-    },
-    {
-        value: 'popular press',
-        label: 'Popular Press',
-    },
-    {
-        value: 'independent media',
-        label: 'Independent Media',
-    },
-];
+import { useGlobalFilterContext } from '../../../filterContext';
+import { getUniqueValues } from '../../../utils';
 
 const PublicationDropdown = () => {
-    const [selected, setSelected] = useState([]);
+    const {
+        publications,
+        updateFilters,
+        filters: { pubType },
+        updateFilterCounter,
+    } = useGlobalFilterContext();
+    const uniquePublications = getUniqueValues(publications, 'publicationType');
 
     return (
-        <MultiSelect
-            options={data}
-            value={selected}
-            onChange={setSelected}
-            labelledBy='publication dropdown'
-            className='single-select'
-            disableSearch
-            hasSelectAll={false}
-        />
+        <>
+            <div className='underline' />
+            <select
+                name='pubType'
+                value={pubType}
+                onChange={updateFilters}
+                className='sel regular-caps'
+            >
+                <option
+                    value=''
+                    className='regular-caps placeholder'
+                    data-c={0}
+                    onClick={updateFilterCounter}
+                >
+                    PUBLICATION TYPE
+                </option>
+                ;
+                {uniquePublications.map((pub, index) => {
+                    return (
+                        <option
+                            key={index}
+                            value={pub}
+                            className='op regular-caps'
+                            data-c={1}
+                            onClick={updateFilterCounter}
+                        >
+                            {pub}
+                        </option>
+                    );
+                })}
+            </select>
+        </>
     );
 };
 

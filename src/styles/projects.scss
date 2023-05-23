@@ -5,7 +5,7 @@
     gap: 2rem;
 }
 
-// project card component styling
+//-project card component styling-
 .project-card {
     background-color: $neutral-200;
     border: 1px solid $neutral-400;
@@ -34,7 +34,7 @@
     font-size: 0.8rem;
     margin-top: 0.7rem;
 
-    // first child status
+    //-first child status-
     .status {
         display: flex;
         flex-direction: row;
@@ -66,18 +66,19 @@
             margin-left: 0.3rem;
         }
 
-        // styling date
+        //-styling date-
         .timeline {
             margin-left: 0.5rem;
             color: $neutral-500;
         }
     }
 
-    // second child categories/tags
+    //-second child categories/tags-
     .categories {
         display: flex;
         flex-wrap: wrap;
-        // styling hashtag
+
+        //-styling hashtag-
         li:first-child {
             width: 1.3rem;
             display: flex;
@@ -85,8 +86,9 @@
             align-items: center;
             color: $black;
             border-radius: 4px 0 0 4px;
+            border-right: 1px solid $neutral-400;
         }
-        // styling rest of the li's
+        //-styling rest of the li's-
         li {
             color: $black;
             display: flex;
@@ -96,15 +98,14 @@
             border: 1px solid $neutral-400;
             text-transform: capitalize;
         }
-        // styling last li
         li:last-child {
             border-radius: 0 4px 4px 0;
+            border-right: 1px solid $neutral-400;
         }
     }
 }
 
-// --animated three dot flashing icon--
-
+// -animated three dot flashing icon-
 .dot-flashing {
     position: relative;
     width: 5px;
@@ -153,7 +154,7 @@
     }
 }
 
-// --single dot icon------
+// -single dot icon-
 .singleDot {
     background: $white;
     border-radius: 50%;
@@ -161,7 +162,7 @@
     height: 12px;
 }
 
-// hover effect on each project
+// -hover effect on each project-
 .project-card {
     border: none;
     outline: none;
@@ -179,7 +180,7 @@
     }
 }
 
-// media
+// -media-
 @media screen and (max-width: 466px) {
     .project-card-metadata {
         flex-direction: column;

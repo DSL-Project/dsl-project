@@ -51,7 +51,11 @@ const AppProvider = ({ children }) => {
     // project data for project carousel
     const [projectsData, setProjectsData] = useState([]);
 
+    // people data for project carousel
     const [peopleData, setPeopleData] = useState([]);
+
+    // publications data
+    const [publicationsData, setPublicationsData] = useState([]);
 
     const cmsQuery = useCallback(
         async (queryName) => {
@@ -177,21 +181,30 @@ const AppProvider = ({ children }) => {
         }
         setIsLoading(false);
     }, []);
+    const getPublicationsData = useCallback(async () => {
+        setIsLoading(true);
+        try {
+            const response = await getCmsResponse(PUBLICATIONS);
+            setPublicationsData(response);
+            setIsLoading(false);
+        } catch (error) {
+            setIsLoading(true);
+        }
+        setIsLoading(false);
+    }, []);
 
     useEffect(() => {
         getProjectsData();
         getPeopleData();
-    }, [getProjectsData, getPeopleData]);
+        getPublicationsData();
+        getHomeData();
+    }, [getProjectsData, getPeopleData, getPublicationsData, getHomeData]);
 
     useEffect(() => {
         cmsQuery(query);
         getProjectsByAuthSlug(authorSlug);
         getPublicationsByAuthSlug(authorSlug);
     }, [authorSlug, query]);
-
-    useEffect(() => {
-        getHomeData();
-    }, [getHomeData]);
 
     useEffect(() => {
         window.addEventListener('resize', handleResize);
@@ -213,6 +226,7 @@ const AppProvider = ({ children }) => {
                 homepageData,
                 projectsData,
                 peopleData,
+                publicationsData,
                 ...bannerContent,
             }}
         >

@@ -14,10 +14,7 @@ const PublicationCard = ({ publication, id }) => {
 						<div className="meta">
 							{/* publication type */}
 							{publicationType !== undefined && (
-								<a
-									href={url}
-									target="_blank"
-									rel="noreferrer"
+								<p
 									className={`${
 										publicationType === "journal article"
 											? "publication-type journal bold-caps"
@@ -25,7 +22,7 @@ const PublicationCard = ({ publication, id }) => {
 									}`}
 								>
 									{publicationType}
-								</a>
+								</p>
 							)}
 						</div>
 					)}
@@ -59,7 +56,7 @@ const PublicationCard = ({ publication, id }) => {
 				<div className="authors-container">
 					<div className="authors">
 						<h4 className="regular-16 auth-heading">
-							author
+							lab author
 							<span className="specialS">&#40;s&#41;</span>
 						</h4>
 						{authors && (
@@ -91,7 +88,7 @@ const PublicationCard = ({ publication, id }) => {
 				<div className="featured-projects-container">
 					<div className="featured-projects">
 						<h4 className="regular-16 featured-projects-heading">
-							affiliated projects
+							featured projects
 						</h4>
 
 						{/* projects list */}
@@ -107,11 +104,11 @@ const PublicationCard = ({ publication, id }) => {
 													className="proj-link"
 													title={title}
 												>
-													{subtitle.length > 62
-														? ` ${title}: ${subtitle.substring(0, 64)}...`
+													{subtitle.length > 10
+														? ` ${title}: ${subtitle.substring(0, 10)}...`
 														: `${title}: ${subtitle}`}
 												</Link>
-												{/* dot will s how up if length of subtitle is greater than 62 as per FIGMA */}
+												{/* dot will s how up if length of subtitle length is greater than 10 letters*/}
 											</li>
 										)}
 									</div>
