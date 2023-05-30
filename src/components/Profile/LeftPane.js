@@ -44,7 +44,7 @@ const LeftPane = ({
                                             key={id}
                                             className='semi-14 subtitles'
                                         >
-                                            {title},
+                                            {title}
                                         </h2>
                                     );
                                 } else {

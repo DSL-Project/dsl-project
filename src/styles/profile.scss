@@ -162,6 +162,7 @@ Profile Component Navbar
             .subtitles-container {
                 display: flex;
                 flex-wrap: wrap;
+								flex-direction: column;
 
                 .subtitles {
                     color: $black;
