@@ -49,7 +49,7 @@ const ProjectsCarousel = () => {
 					const { slug, title, subtitle, about } = project;
 
 					return (
-						<Link to={`/projects/${slug}`}>
+						<Link key={id} to={`/projects/${slug}`}>
 							<div key={id} className="project-container">
 								<div className="title-container">
 									<h2 className="medium-16 project-title">{title}</h2>

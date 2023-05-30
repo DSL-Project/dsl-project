@@ -22,8 +22,8 @@ const ProjectDetailsNav = ({ pathname, subNavLinks, projectCardInfo }) => {
 								<NavHashLink
 									to={link.url}
 									state={projectCardInfo}
-									className={({ isactive }) =>
-										isactive
+									className={({ isActive }) =>
+										isActive
 											? "regular-14 pd-link pd-active"
 											: "regular-14 pd-link pd-inactive"
 									}
