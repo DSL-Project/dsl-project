@@ -65,6 +65,7 @@
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
+		font-size: 0.8rem;
   }
 
   .project-description {
@@ -117,10 +118,10 @@
 
     .project-title,
     .project-description {
-      font-size: 0.6rem;
+      font-size: 0.7rem;
     }
     .subtitle {
-      font-size: 0.7rem;
+      font-size: 0.5rem;
     }
   }
 }

@@ -49,21 +49,6 @@ function Home() {
 					</div>
 				</div>
 
-				<div className="recent-projects">
-					<Link
-						to="#projectsCarousel"
-						smooth={true}
-						// duration={500}
-						className="bold-18"
-					>
-						See recent projects
-					</Link>
-
-					<Link to="#projectsCarousel" smooth={true} className="down-arrow">
-						<AiOutlineArrowDown className="svg-arrow" />
-					</Link>
-				</div>
-
 				<div className="carousel-con">
 					<ProjectsCarousel />
 				</div>
