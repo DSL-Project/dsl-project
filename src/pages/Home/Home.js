@@ -1,12 +1,11 @@
 import React from "react";
 import Announcement from "./Announcement";
-import { AiOutlineArrowDown } from "react-icons/ai";
 import { FaFacebookF, FaTwitter } from "react-icons/fa";
 import ProjectsCarousel from "./ProjectsCarousel";
 import { useGlobalContext } from "../../appContext";
 import defaultImg from "../../assets/defaultImg.jpg";
 import LoadingState from "../../components/LoadingState/LoadingState";
-import { NavHashLink as Link } from "react-router-hash-link";
+
 
 function Home() {
 	const handleSubmit = () => {
