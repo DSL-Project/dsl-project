@@ -49,22 +49,21 @@ const ProjectsCarousel = () => {
 					const { slug, title, subtitle, about } = project;
 
 					return (
-						<div key={id} className="project-container">
-							<div className="title-container">
-								<h2 className="medium-16 project-title">{title}</h2>
+						<Link to={`/projects/${slug}`}>
+							<div key={id} className="project-container">
+								<div className="title-container">
+									<h2 className="medium-16 project-title">{title}</h2>
+								</div>
+								<div className="subtitle">
+									<h3>{subtitle}</h3>
+								</div>
+								{about && about.content && about.content.length > 0 && (
+									<p className="medium-16 project-description">
+										{about.content[0].content[0].value}
+									</p>
+								)}
 							</div>
-							<div className="subtitle">
-								<h3>{subtitle}</h3>
-								<Link to={`/projects/${slug}`}>
-									<AiOutlineArrowRight />
-								</Link>
-							</div>
-							{about && about.content && about.content.length > 0 && (
-								<p className="medium-16 project-description">
-									{about.content[0].content[0].value}
-								</p>
-							)}
-						</div>
+						</Link>
 					);
 				})}
 			</Slider>
