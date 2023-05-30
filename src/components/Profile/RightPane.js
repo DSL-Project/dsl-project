@@ -16,10 +16,16 @@ const RightPane = () => {
 						const { subtitle, slug: projectSlug, title } = project;
 						return (
 							<li key={id} className="list-item">
-								<Link to={`/projects/${projectSlug}`} className="medium-16 project">
-									{
-									title !== undefined ? `${title}: ${subtitle}` : ""
-									}
+								<Link
+									to={`/projects/${projectSlug}`}
+									className="medium-16 project"
+								>
+									{title && (
+										<span>
+											{title}
+											{subtitle ? `: ${subtitle}` : ""}
+										</span>
+									)}
 								</Link>
 							</li>
 						);
