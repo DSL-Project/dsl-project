@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useGlobalContext } from '../../appContext';
 import Banner from '../../components/Banner/Banner';
-import { TRAININGS } from '../../appConstants';
+import { PROGRAMS } from '../../appConstants';
 import LoadingState from '../../components/LoadingState/LoadingState';
 
 const Training = () => {
@@ -9,9 +9,9 @@ const Training = () => {
         useGlobalContext();
 
     useEffect(() => {
-        window.addEventListener('beforeunload', setQuery(TRAININGS));
+        window.addEventListener('beforeunload', setQuery(PROGRAMS));
         return () => {
-            window.removeEventListener('beforeunload', setQuery(TRAININGS));
+            window.removeEventListener('beforeunload', setQuery(PROGRAMS));
         };
     }, [setQuery]);
 

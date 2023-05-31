@@ -4,7 +4,7 @@ const PUBLICATIONS = "publications";
 const PROJECTS = "projects";
 // const MEDIA = 'media';
 const STATIC_QUERY = "homepage";
-const TRAININGS = "training";
+const PROGRAMS = "programs";
 
 const navConstants = [
 	{
@@ -16,8 +16,8 @@ const navConstants = [
 	{
 		id: 2,
 		name: "programs",
-		url: "/training",
-		queryString: TRAININGS,
+		url: "/programs",
+		queryString: PROGRAMS,
 	},
 	{
 		id: 3,
@@ -44,6 +44,6 @@ export {
 	STATIC_QUERY,
 	PUBLICATIONS,
 	PROJECTS,
-	TRAININGS,
+	PROGRAMS,
 	PEOPLE,
 };
