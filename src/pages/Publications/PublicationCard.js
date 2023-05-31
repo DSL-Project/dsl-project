@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { TbExternalLink as ExternalLink } from "react-icons/tb";
-// import { CgLink as LinkIcon } from 'react-icons/cg';
 
 const PublicationCard = ({ publication, id }) => {
 	const { publicationType, title, authors, projects, url } = publication;
+
 	return (
 		<section className="single-publication">
 			{/* rendering publication  */}
@@ -56,8 +56,7 @@ const PublicationCard = ({ publication, id }) => {
 				<div className="authors-container">
 					<div className="authors">
 						<h4 className="regular-16 auth-heading">
-							lab author
-							<span className="specialS">&#40;s&#41;</span>
+							{authors.length >= 2 ? "authors" : "author"}
 						</h4>
 						{authors && (
 							<ul className="authors-list">
@@ -83,12 +82,13 @@ const PublicationCard = ({ publication, id }) => {
 			)}
 
 			{/* rendering featured projects */}
-
 			{projects && projects.length > 0 && (
 				<div className="featured-projects-container">
 					<div className="featured-projects">
 						<h4 className="regular-16 featured-projects-heading">
-							featured projects
+							{projects.length > 1
+								? "affiliated Projects"
+								: "affiliated Project"}
 						</h4>
 
 						{/* projects list */}
@@ -96,22 +96,18 @@ const PublicationCard = ({ publication, id }) => {
 							{projects.map((project, id) => {
 								const { subtitle, title, slug } = project.fields;
 								return (
-									<div key={id}>
-										{subtitle !== undefined && (
-											<li key={id} className="project medium-16">
-												<Link
-													to={`/projects/${slug}`}
-													className="proj-link"
-													title={title}
-												>
-													{subtitle.length > 10
-														? ` ${title}: ${subtitle.substring(0, 10)}...`
-														: `${title}: ${subtitle}`}
-												</Link>
-												{/* dot will s how up if length of subtitle length is greater than 10 letters*/}
-											</li>
-										)}
-									</div>
+									subtitle !== undefined && (
+										<li key={id} className="project medium-16">
+											<Link
+												to={`/projects/${slug}`}
+												className="proj-link"
+												title={title}
+											>
+												{title}: {subtitle}
+											</Link>
+											{/* dot will s how up if length of subtitle length is greater than 10 letters*/}
+										</li>
+									)
 								);
 							})}
 						</ol>
