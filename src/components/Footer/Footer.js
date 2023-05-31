@@ -7,7 +7,7 @@ function Footer({ homeStatic }) {
         <footer className='footer'>
             <div className='footer-wrapper'>
                 <div className='logo-media'>
-                    <Link to='/#top-page' className='bold-18'>
+                    <Link to='/' className='bold-18'>
                         {homeStatic?.hometitle?.slice(15) ||
                             'Digital Society Lab'}
                     </Link>
