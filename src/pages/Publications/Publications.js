@@ -11,6 +11,9 @@ const Publications = () => {
 	const { closeSubmenu, filteredPublications: response } =
 		useGlobalFilterContext();
 
+	const sortedResponse = response.sort(
+		(a, b) => new Date(b.date) - new Date(a.date)
+	);
 
 	const {
 		// response,
@@ -34,15 +37,13 @@ const Publications = () => {
 		return null;
 	}
 
-
-
 	return (
 		<main className="publication-main">
 			<Banner title={publicationsTitle} info={publicationsBody} />
 
 			<div className="wrapper pub-wrapper">
 				<Searchbar />
-				{response.map((publication, id) => {
+				{sortedResponse.map((publication, id) => {
 					return (
 						<div className="single-content" key={id} onClick={closeSubmenu}>
 							{publication.date !== undefined && (
@@ -58,4 +59,3 @@ const Publications = () => {
 };
 
 export default Publications;
-
