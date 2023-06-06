@@ -96,7 +96,7 @@ const PublicationCard = ({ publication, id }) => {
 							{projects.map((project, id) => {
 								const { subtitle, title, slug } = project.fields;
 								return (
-									subtitle !== undefined && (
+									
 										<li key={id} className="project medium-16">
 											<Link
 												to={`/projects/${slug}`}
@@ -107,7 +107,7 @@ const PublicationCard = ({ publication, id }) => {
 											</Link>
 											{/* dot will s how up if length of subtitle length is greater than 10 letters*/}
 										</li>
-									)
+									
 								);
 							})}
 						</ol>
