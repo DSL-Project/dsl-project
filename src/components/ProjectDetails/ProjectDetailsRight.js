@@ -5,6 +5,11 @@ import { HashLink } from "react-router-hash-link";
 const ProjectDetailsRight = ({ projectCardInfo, subNavLinks }) => {
 	const { startDate: date, url } = projectCardInfo;
 
+	const displayOrder = { team: 1, publications: 2, media: 3 };
+	subNavLinks.sort((a, b) => {
+		return displayOrder[a.name] - displayOrder[b.name];
+	});
+
 	return (
 		<aside className="right-pane">
 			{/* associated projects to this person */}
