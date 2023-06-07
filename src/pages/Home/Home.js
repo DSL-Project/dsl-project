@@ -5,6 +5,7 @@ import ProjectsCarousel from "./ProjectsCarousel";
 import { useGlobalContext } from "../../appContext";
 import defaultImg from "../../assets/defaultImg.jpg";
 import LoadingState from "../../components/LoadingState/LoadingState";
+import ReactMarkdown from "react-markdown";
 
 
 function Home() {
@@ -35,7 +36,9 @@ function Home() {
 							<div key={outerIndex}>
 								{outerItem.content.map((innerItem, innerIndex) => (
 									<div key={innerIndex}>
-										<p className="description">{innerItem.value}</p>
+										<p className="description">
+											<ReactMarkdown>{innerItem.value}</ReactMarkdown>
+										</p>
 										{innerIndex !== outerItem.content.length - 1 && (
 											<div key={`line-break-${innerIndex}`}>
 												<br />

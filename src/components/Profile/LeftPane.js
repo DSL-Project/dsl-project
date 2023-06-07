@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useGlobalContext } from "../../appContext";
 import defaultImg from "../../assets/defaultImg.jpg";
 import { CgGlobeAlt as GlobeLogo, CgMail as MailLogo } from "react-icons/cg";
+import ReactMarkdown from "react-markdown";
 
 const LeftPane = ({
 	profileData,
@@ -158,7 +159,9 @@ const LeftPane = ({
 								const paragraph = para?.content[0]?.value || "NODATA";
 								return (
 									<div key={id}>
-										<p className="regular-16 paragraphs">{paragraph}</p>
+										<p className="regular-16 paragraphs">
+											<ReactMarkdown>{paragraph}</ReactMarkdown>
+										</p>
 
 										{!readMore &&
 											bio.slice(1).map((para, id) => {

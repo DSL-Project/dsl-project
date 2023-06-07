@@ -3,6 +3,7 @@ import { useGlobalContext } from '../../appContext';
 import Banner from '../../components/Banner/Banner';
 import { PROGRAMS } from '../../appConstants';
 import LoadingState from '../../components/LoadingState/LoadingState';
+import ReactMarkdown from "react-markdown";
 
 const Training = () => {
     const { trainingBody, trainingTitle, response, setQuery, isLoading } =
@@ -35,7 +36,7 @@ const Training = () => {
                             <div key={id} className='training-container'>
                                 <h2 className='training-title'>{title}</h2>
                                 <p className='regular-16 training-description'>
-                                    {description}
+                                    <ReactMarkdown>{description}</ReactMarkdown>
                                 </p>
                                 <p className='bold-16 training-link'>
                                     {leadToUrl}&nbsp;
