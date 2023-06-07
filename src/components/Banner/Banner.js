@@ -6,7 +6,7 @@ const Banner = ({ title, info }) => {
 			<div className="wrapper">
 				<div className="banner-container">
 					<h1 className="banner-heading">{title}</h1>
-					<p className="banner-content medium-16"><ReactMarkdown>{info}</ReactMarkdown></p>
+					<ReactMarkdown className="banner-content medium-16" children={info} />
 				</div>
 			</div>
 		</section>

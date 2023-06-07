@@ -7,7 +7,6 @@ import defaultImg from "../../assets/defaultImg.jpg";
 import LoadingState from "../../components/LoadingState/LoadingState";
 import ReactMarkdown from "react-markdown";
 
-
 function Home() {
 	const handleSubmit = () => {
 		window.open("https://buttondown.email/digitalsocietylab", "popupwindow");
@@ -36,9 +35,8 @@ function Home() {
 							<div key={outerIndex}>
 								{outerItem.content.map((innerItem, innerIndex) => (
 									<div key={innerIndex}>
-										<p className="description">
-											<ReactMarkdown>{innerItem.value}</ReactMarkdown>
-										</p>
+										<ReactMarkdown children={innerItem.value} />
+
 										{innerIndex !== outerItem.content.length - 1 && (
 											<div key={`line-break-${innerIndex}`}>
 												<br />

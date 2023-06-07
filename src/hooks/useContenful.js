@@ -22,7 +22,7 @@ const useContentful = () => {
 
       return sanitizedEntries;
     } catch (error) {
-      console.log(`error fetching ${contentType} , ${error}`);
+      // console.log(`error fetching ${contentType} , ${error}`);
     }
   };
 

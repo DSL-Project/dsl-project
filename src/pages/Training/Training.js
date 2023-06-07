@@ -36,7 +36,7 @@ const Training = () => {
                             <div key={id} className='training-container'>
                                 <h2 className='training-title'>{title}</h2>
                                 <p className='regular-16 training-description'>
-                                    <ReactMarkdown>{description}</ReactMarkdown>
+                                    <ReactMarkdown childre={description} />
                                 </p>
                                 <p className='bold-16 training-link'>
                                     {leadToUrl}&nbsp;
