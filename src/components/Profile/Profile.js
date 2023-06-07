@@ -19,6 +19,7 @@ const Profile = () => {
         memberTypeFromLocation,
     };
 
+
     useEffect(() => {
         setAuthorSlug(slugFromLocation);
         const filteredPerson = peopleData.filter(

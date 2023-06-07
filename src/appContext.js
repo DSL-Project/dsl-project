@@ -101,23 +101,18 @@ const AppProvider = ({ children }) => {
     };
 
     const getPublicationsByAuthSlug = (authSlug) => {
+
         getCmsResponse(PUBLICATIONS).then((response) => {
-            // STEP1: filter the publications that has any authors
+
             const arrayWithAuthors = response.filter((resp) => resp?.authors);
+				
+						const matchingItems = arrayWithAuthors.filter((item) =>
+							item.authors.some((author) => author.fields.slug === authSlug)
+						);
 
-            //STEP 2: filter the publication  wrt user's author slug
-            arrayWithAuthors.map((response) => {
-                const publicationsResponse = response.authors.map((author) => {
-                    if (author.fields.slug === authSlug) {
-                        return response;
-                    } else {
-                        return null;
-                    }
-                });
-                setAuthorPublications(publicationsResponse);
+						setAuthorPublications(matchingItems);
 
-                return publicationsResponse;
-            });
+						return matchingItems;
         });
     };
 
@@ -240,3 +235,24 @@ export const useGlobalContext = () => {
 };
 
 export { AppProvider };
+
+// const data = [
+// 	{
+// 		authors:[
+// 			{
+// 				fields: {
+// 					name: 'Mark',
+// 					slug: 'mark-pickup'
+// 				}
+// 			},
+// 			{
+// 				fields: {
+// 					name: 'colin',
+// 					slug: 'colin-damelio'
+// 				}
+// 			}
+// 		],
+// 		title: "Pickup, Mark, Dominik Stecula, and Clifton van der Linden. Who Shares Covid-19 Conspiracies Online? Survey Evidence from 5 Countries.",​
+// 		url: "https://journalqd.org/article/view/3514"
+// 	}
+// ]

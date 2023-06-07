@@ -1,10 +1,12 @@
 import React from "react";
 import { useGlobalContext } from "../../appContext";
 import { Link } from "react-router-dom";
-import { printMonthYear } from "../../utils";
+// import { printMonthYear } from "../../utils";
 
 const RightPane = () => {
 	const { authorProjects, authorPublications } = useGlobalContext();
+
+	console.log(authorPublications)
 
 	return (
 		<aside className="right-panes">
@@ -39,7 +41,7 @@ const RightPane = () => {
 				<ul className="publication-list list">
 					{authorPublications.map((article, id) => {
 						const title = article?.title || null;
-						const date = article?.date || null;
+						// const date = article?.date || null;
 
 						return (
 							<li key={id} className="list-item">
@@ -49,7 +51,7 @@ const RightPane = () => {
 									</div>
 								)}
 
-								{date !== null && (
+								{/* {date !== null && (
 									<div className="date-container">
 										<p className="medium-16 publication-on ">
 											<time
@@ -60,7 +62,7 @@ const RightPane = () => {
 											</time>
 										</p>
 									</div>
-								)}
+								)} */}
 							</li>
 						);
 					})}
