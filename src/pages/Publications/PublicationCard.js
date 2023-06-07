@@ -36,7 +36,7 @@ const PublicationCard = ({ publication, id }) => {
 								<div className="link-container">
 									<a
 										href={url}
-										className="heading-url regular-caps"
+										className="regular-caps"
 										target="_blank"
 										rel="noreferrer"
 									>

@@ -1,327 +1,324 @@
 // -publications-
 .proj-link {
-    display: inline;
+	display: inline;
 }
 .project-list {
-    list-style-type: disc;
-    list-style-position: inside;
+	list-style-type: disc;
+	list-style-position: inside;
 
-    .project {
-        .proj-link {
-            margin: 0px;
-        }
-    }
+	.project {
+		.proj-link {
+			margin: 0px;
+		}
+	}
 }
 
 .publication-main {
-    .pub-wrapper {
-        padding-bottom: 8rem;
+	.pub-wrapper {
+		padding-bottom: 8rem;
 
-        .single-content {
-            margin-top: 2rem;
-        }
-    }
+		.single-content {
+			margin-top: 2rem;
+		}
+	}
 }
 //-publication card-
 .single-publication {
-    margin-top: 1rem;
-    border-radius: 5px;
+	margin-top: 1rem;
+	border-radius: 5px;
 
-    border: 1px solid $neutral-400;
+	border: 1px solid $neutral-400;
 
-    .publication {
-        padding: 1.5rem;
+	.publication {
+		padding: 1.5rem;
 
-        .meta-container {
-            .meta {
-                display: flex;
-                justify-content: space-between;
+		.meta-container {
+			.meta {
+				display: flex;
+				justify-content: space-between;
 
-                .publication-type {
-                    padding: 0.4rem 0.45rem;
-                    border-radius: 5px;
-                    text-transform: uppercase;
-                    display: flex;
-                    align-items: center;
-                    order: 1;
-                }
+				.publication-type {
+					padding: 0.4rem 0.45rem;
+					border-radius: 5px;
+					text-transform: uppercase;
+					display: flex;
+					align-items: center;
+					order: 1;
+				}
 
-                .journal {
-                    color: $journal-col;
-                    background-color: $journal-bg;
-                    transition: $main-transition;
-                    // &:hover {
-                    //     border: 1px solid $journal-col;
-                    // }
-                }
-                .popular {
-                    color: $popular-col;
-                    background-color: $popular-bg;
+				.journal {
+					color: $journal-col;
+					background-color: $journal-bg;
+					transition: $main-transition;
+					// &:hover {
+					//     border: 1px solid $journal-col;
+					// }
+				}
+				.popular {
+					color: $popular-col;
+					background-color: $popular-bg;
 
-                    // &:hover {
-                    //     border: 1px solid $popular-col;
-                    // }
-                }
-                .perma-link {
-                    background-color: $neutral-300;
-                    border-radius: 4px;
-                    padding: 0.4rem 0.45rem;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    color: $black;
-                    font-size: 1rem;
-                    transition: $main-transition;
+					// &:hover {
+					//     border: 1px solid $popular-col;
+					// }
+				}
+				.perma-link {
+					background-color: $neutral-300;
+					border-radius: 4px;
+					padding: 0.4rem 0.45rem;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					color: $black;
+					font-size: 1rem;
+					transition: $main-transition;
 
-                    &:hover {
-                        background-color: $neutral-500;
-                        color: $neutral-100;
-                    }
-                }
-            }
-            //-heading-
-            .journal-heading-container {
-                padding: 0.7rem 0;
+					&:hover {
+						background-color: $neutral-500;
+						color: $neutral-100;
+					}
+				}
+			}
+			//-heading-
+			.journal-heading-container {
+				padding: 0.7rem 0;
 
-                .journal-heading {
-                    color: $soft-black;
+				.journal-heading {
+					color: $soft-black;
+				}
+			}
+		}
+	}
+	.link-container {
+		display: inline-block;
+		a {
+			display: inline-flex;
+			align-items: center;
+			border-radius: 5px;
+			border: 1px solid $neutral-400;
+			color: $black;
+			margin-left: 5px;
 
-                    .link-container {
-                        display: inline-block;
-                        .heading-url {
-                            display: inline-flex;
-                            align-items: center;
-                            border-radius: 5px;
-                            border: 1px solid $neutral-400;
-                            color: $black;
-                            margin-left: 5px;
+			padding: 0.15rem 0.3rem;
+			display: inline-flex;
+			align-items: center;
+			transition: $main-transition;
 
-                            padding: 0.15rem 0.3rem;
-                            display: inline-flex;
-                            align-items: center;
-                            transition: $main-transition;
+			svg {
+				margin-left: 0.15rem;
+				font-size: 0.9rem;
+				font-size: 1rem;
+			}
+			&:hover {
+				background-color: $soft-black;
+				color: $neutral-400;
+				border-color: $black;
+			}
+		}
+	}
+}
+.authors-container {
+	padding: 1.5rem;
+	border-top: 1px solid $neutral-400;
 
-                            svg {
-                                margin-left: 0.15rem;
-                                font-size: 0.9rem;
-                                font-size: 1rem;
-                            }
-                            &:hover {
-                                background-color: $soft-black;
-                                color: $neutral-400;
-                                border-color: $black;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-    .authors-container {
-        padding: 1.5rem;
-        border-top: 1px solid $neutral-400;
+	.authors {
+		display: grid;
+		align-items: flex-start;
+		grid-template-columns: 120px 1fr;
 
-        .authors {
-            display: grid;
-            align-items: flex-start;
-            grid-template-columns: 120px 1fr;
+		.auth-heading {
+			color: $neutral-500;
+			text-transform: capitalize;
+		}
+		.authors-list {
+			margin-left: 2.5rem;
+			display: flex;
+			flex-wrap: wrap;
 
-            .auth-heading {
-                color: $neutral-500;
-                text-transform: capitalize;
-            }
-            .authors-list {
-                margin-left: 2.5rem;
-                display: flex;
-                flex-wrap: wrap;
+			.authors-list-item {
+				.author-link {
+					max-width: 213px;
+					margin-left: 5px;
+					color: $soft-black;
+					text-decoration: underline;
+					text-underline-offset: 3px;
+				}
+			}
+		}
+	}
+}
+.featured-projects-container {
+	padding: 1.5rem;
+	border-top: 1px solid $neutral-400;
 
-                .authors-list-item {
-                    .author-link {
-                        max-width: 213px;
-                        margin-left: 5px;
-                        color: $soft-black;
-                        text-decoration: underline;
-                        text-underline-offset: 3px;
-                    }
-                }
-            }
-        }
-    }
-    .featured-projects-container {
-        padding: 1.5rem;
-        border-top: 1px solid $neutral-400;
+	.featured-projects {
+		display: grid;
+		align-items: flex-start;
+		grid-template-columns: 155px 1fr;
 
-        .featured-projects {
-            display: grid;
-            align-items: flex-start;
-            grid-template-columns: 155px 1fr;
+		.featured-projects-heading {
+			color: $neutral-500;
+			text-transform: capitalize;
+		}
+		.project-list {
+			color: $soft-black;
+			margin-left: 1rem;
 
-            .featured-projects-heading {
-                color: $neutral-500;
-                text-transform: capitalize;
-            }
-            .project-list {
-                color: $soft-black;
-                margin-left: 1rem;
-
-                .project {
-                    margin-bottom: 10px;
-										list-style-type: none;
-                    .proj-link {
-                        text-decoration: underline;
-                        text-underline-offset: 2px;
-                    }
-                }
-            }
-        }
-    }
+			.project {
+				margin-bottom: 10px;
+				list-style-type: none;
+				.proj-link {
+					text-decoration: underline;
+					text-underline-offset: 2px;
+				}
+			}
+		}
+	}
 }
 
 //-special S-
 .specialS {
-    text-transform: lowercase;
+	text-transform: lowercase;
 }
 
 //-media query-
 @media (max-width: 835px) {
-    // single publication card
-    .single-publication {
-        .publication {
-            .meta-container {
-                .meta {
-                    flex-direction: row;
-                    a[class='perma-link'] {
-                        display: none;
-                    }
-                }
-            }
-        }
+	// single publication card
+	.single-publication {
+		.publication {
+			.meta-container {
+				.meta {
+					flex-direction: row;
+					a[class="perma-link"] {
+						display: none;
+					}
+				}
+			}
+		}
 
-        .authors-container {
-            padding: 1.5rem;
+		.authors-container {
+			padding: 1.5rem;
 
-            .authors {
-                align-items: flex-start;
+			.authors {
+				align-items: flex-start;
 
-                .authors-list {
-                    margin-left: 2.2rem;
-                }
-            }
-        }
-    }
+				.authors-list {
+					margin-left: 2.2rem;
+				}
+			}
+		}
+	}
 
-    // search bar
-    .form {
-        .child2 {
-            grid-column: 4/-1 !important;
+	// search bar
+	.form {
+		.child2 {
+			grid-column: 4/-1 !important;
 
-            .searchBx {
-                padding-left: 11% !important;
-            }
-        }
-    }
-
-    // submenu
-    .main-subform {
-			
-    }
+			.searchBx {
+				padding-left: 11% !important;
+			}
+		}
+	}
 }
 @media (max-width: 375px) {
-    //-publication form-
-    .form {
-        margin: 0;
+	//-publication form-
+	.form {
+		margin: 0;
 
-        .child1 {
-            margin: 0;
-            gap: 9px !important;
-            // grid-row: 2/-1;
-            grid-template-columns: repeat(
-                2,
-                minmax(8.15rem, 7.25rem)
-            ) !important;
+		.child1 {
+			margin: 0;
+			gap: 9px !important;
+			grid-template-columns: repeat(2, minmax(8.15rem, 7.25rem)) !important;
 
-            .subchild1 {
-                margin: 0;
-                width: 100%;
-            }
+			.subchild1 {
+				margin: 0;
+				width: 100%;
+			}
 
-            .subchild2 {
-                margin-right: 0px;
-                width: 100%;
-                .sortBx {
-                }
-            }
-        }
-        .child2 {
-            grid-column: 1/1 !important;
-            grid-row: 1/1;
-            margin-bottom: 9px;
+			.subchild2 {
+				margin-right: 0px;
+				width: 100%;
+			}
+		}
+		.child2 {
+			grid-column: 1/1 !important;
+			grid-row: 1/1;
+			margin-bottom: 9px;
 
-            .searchBx {
-                background-position: 2%;
-                padding-left: 11%;
-            }
-        }
-    }
+			.searchBx {
+				background-position: 2%;
+				padding-left: 11%;
+			}
+		}
+	}
 
-    //-single publication card-
-    .single-publication {
-        .publication {
-            padding: 0.8rem 0.3rem;
-        }
-        .authors-container {
-            padding: 0.8rem 0.3rem;
-        }
-        .featured-projects-container {
-            padding: 0.8rem 0.3rem;
-        }
-    }
+	//-single publication card-
+	.single-publication {
+		.publication {
+			padding: 0.8rem 0.3rem;
+		}
+		.authors-container {
+			padding: 0.8rem 0.3rem;
+		}
+		.featured-projects-container {
+			padding: 0.8rem 0.3rem;
+		}
+	}
 
-    //-author-
-    .authors-container {
-        padding: 1rem;
+	//-author-
+	.authors-container {
+		padding: 1rem;
 
-        .authors {
-            grid-template-columns: 1fr !important;
+		.authors {
+			grid-template-columns: 1fr !important;
 
-            .auth-heading {
-                margin: 0;
-            }
-            .authors-list {
-                margin: 0;
-                margin-left: 0px !important;
-                padding-top: 1rem;
+			.auth-heading {
+				margin: 0;
+			}
+			.authors-list {
+				margin: 0;
+				margin-left: 0px !important;
+				padding-top: 1rem;
 
-                .authors-list-item {
-                    .author-link {
-                        margin-left: 3px !important;
-                    }
-                }
-            }
-        }
-    }
+				.authors-list-item {
+					.author-link {
+						margin-left: 3px !important;
+					}
+				}
+			}
+		}
+	}
 
-    //-projects-
-    .featured-projects-container {
-        .featured-projects {
-            grid-template-columns: 1fr !important;
-            .project-list {
-                margin-left: 0 !important;
-                .project {
-                    margin: 0 !important;
-                    padding-top: 1rem;
-                }
-            }
-        }
-    }
+	//-projects-
+	.featured-projects-container {
+		.featured-projects {
+			grid-template-columns: 1fr !important;
+			.project-list {
+				margin-left: 0 !important;
+				.project {
+					margin: 0 !important;
+					padding-top: 1rem;
+				}
+			}
+		}
+	}
 
-    // submenu
-    .main-subform {
-        min-width: 89.6% !important;
-    }
+	.journal-heading-container {
+		.link-container {
+			display: block;
+			a {
+				margin: 10px 0 0 0;
+			}
+		}
+	}
 
-    // search button on submenu
-    .search-button {
-        height: 100% !important;
-    }
+	// submenu
+	.main-subform {
+		min-width: 89.6% !important;
+	}
+
+	// search button on submenu
+	.search-button {
+		height: 100% !important;
+	}
 }
