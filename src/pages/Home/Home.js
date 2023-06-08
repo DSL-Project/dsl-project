@@ -8,9 +8,6 @@ import LoadingState from "../../components/LoadingState/LoadingState";
 import ReactMarkdown from "react-markdown";
 
 function Home() {
-	const handleSubmit = () => {
-		window.open("https://buttondown.email/digitalsocietylab", "popupwindow");
-	};
 	const { homepageData, isLoading } = useGlobalContext();
 
 	if (!homepageData || homepageData.length === 0) {
@@ -132,12 +129,7 @@ function Home() {
 					</div>
 					<div className="stay-updated">
 						<h2>Stay updated with the Digital Society Lab</h2>
-						<form
-							action="https://buttondown.email/api/emails/embed-subsribe/digitalsocietylab"
-							method="post"
-							target="popupwindow"
-							onSubmit={handleSubmit}
-						>
+						<form name="signup">
 							<input
 								id="sign-up"
 								type="email"
@@ -145,9 +137,7 @@ function Home() {
 								placeholder="email@address.com"
 								className="regular-14"
 							/>
-							<input type="hidden" name="tag" value="placeholder-signup" />
-							<input type="hidden" value="1" name="embed" />
-
+							<input type="hidden" name="signup" value="signup" />
 							<label sr-only="true" htmlFor="sign-up" />
 							<button className="regular-14">SIGN UP</button>
 						</form>
