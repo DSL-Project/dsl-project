@@ -1,214 +1,219 @@
 .projects-list {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    gap: 2rem;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	gap: 2rem;
 }
 
 //-project card component styling-
 .project-card {
-    background-color: $neutral-200;
-    border: 1px solid $neutral-400;
-    border-radius: 10px;
-    padding: 1rem 1rem 1rem;
-    width: 100%;
-    margin: 0 auto;
+	background-color: $neutral-200;
+	border: 1px solid $neutral-400;
+	border-radius: 10px;
+	padding: 1rem 1rem 1rem;
+	width: 100%;
+	margin: 0 auto;
 
-    .project-card-heading {
-        color: $neutral-500;
-    }
-    .project-card-subheading {
-        color: $black;
-        margin-top: 0.3rem;
-    }
-    .project-card-intro {
-        margin-top: 0.7rem;
-    }
+	.project-card-heading {
+		color: $neutral-500;
+	}
+	.project-card-subheading {
+		color: $black;
+		margin-top: 0.3rem;
+		font-size: 0.8rem;
+	}
+	.project-card-intro {
+		margin-top: 0.7rem;
+		overflow: hidden;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 3;
+		display: -webkit-box;
+	}
 }
 .project-link:last-child {
-    margin-bottom: 3rem;
+	margin-bottom: 3rem;
 }
 .project-card-metadata {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.8rem;
-    margin-top: 0.7rem;
+	display: flex;
+	justify-content: space-between;
+	font-size: 0.8rem;
+	margin-top: 0.7rem;
 
-    //-first child status-
-    .status {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
+	//-first child status-
+	.status {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
 
-        .current-status {
-            display: flex;
-            justify-content: space-between;
-            min-height: 30px;
-            padding: 0 12px;
-            background-color: $black;
-            border-radius: 4px;
-            align-items: center;
-        }
+		.current-status {
+			display: flex;
+			justify-content: space-between;
+			min-height: 30px;
+			padding: 0 12px;
+			background-color: $black;
+			border-radius: 4px;
+			align-items: center;
+		}
 
-        .status-label {
-            color: $neutral-200;
-            text-transform: capitalize;
-        }
-        .status-icon {
-            display: flex;
-            align-items: center;
-        }
+		.status-label {
+			color: $neutral-200;
+			text-transform: capitalize;
+		}
+		.status-icon {
+			display: flex;
+			align-items: center;
+		}
 
-        .flashing {
-            margin: 0 0.7rem;
-        }
-        .singleDot {
-            margin-left: 0.3rem;
-        }
+		.flashing {
+			margin: 0 0.7rem;
+		}
+		.singleDot {
+			margin-left: 0.3rem;
+		}
 
-        //-styling date-
-        .timeline {
-            margin-left: 0.5rem;
-            color: $neutral-500;
-        }
-    }
+		//-styling date-
+		.timeline {
+			margin-left: 0.5rem;
+			color: $neutral-500;
+		}
+	}
 
-    //-second child categories/tags-
-    .categories {
-        display: flex;
-        flex-wrap: wrap;
+	//-second child categories/tags-
+	.categories {
+		display: flex;
+		flex-wrap: wrap;
 
-        //-styling hashtag-
-        li:first-child {
-            width: 1.3rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: $black;
-            border-radius: 4px 0 0 4px;
-            border-right: 1px solid $neutral-400;
-        }
-        //-styling rest of the li's-
-        li {
-            color: $black;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 1px 10px;
-            border: 1px solid $neutral-400;
-            text-transform: capitalize;
-        }
-        li:last-child {
-            border-radius: 0 4px 4px 0;
-            border-right: 1px solid $neutral-400;
-        }
-    }
+		//-styling hashtag-
+		li:first-child {
+			width: 1.3rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: $black;
+			border-radius: 4px 0 0 4px;
+			border-right: 1px solid $neutral-400;
+		}
+		//-styling rest of the li's-
+		li {
+			color: $black;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 1px 10px;
+			border: 1px solid $neutral-400;
+			text-transform: capitalize;
+		}
+		li:last-child {
+			border-radius: 0 4px 4px 0;
+			border-right: 1px solid $neutral-400;
+		}
+	}
 }
 
 // -animated three dot flashing icon-
 .dot-flashing {
-    position: relative;
-    width: 5px;
-    height: 5px;
-    border-radius: 5px;
-    background-color: $white;
-    color: $white;
-    animation: dot-flashing 1s infinite linear alternate;
-    animation-delay: 0.5s;
+	position: relative;
+	width: 5px;
+	height: 5px;
+	border-radius: 5px;
+	background-color: $white;
+	color: $white;
+	animation: dot-flashing 1s infinite linear alternate;
+	animation-delay: 0.5s;
 }
 .dot-flashing::before,
 .dot-flashing::after {
-    content: '';
-    display: inline-block;
-    position: absolute;
-    top: 0;
+	content: "";
+	display: inline-block;
+	position: absolute;
+	top: 0;
 }
 .dot-flashing::before {
-    left: -7px;
-    width: 5px;
-    height: 5px;
-    border-radius: 5px;
-    background-color: $white;
-    color: $white;
-    animation: dot-flashing 1s infinite alternate;
-    animation-delay: 0s;
+	left: -7px;
+	width: 5px;
+	height: 5px;
+	border-radius: 5px;
+	background-color: $white;
+	color: $white;
+	animation: dot-flashing 1s infinite alternate;
+	animation-delay: 0s;
 }
 .dot-flashing::after {
-    left: 7px;
-    width: 5px;
-    height: 5px;
-    border-radius: 5px;
-    background-color: $white;
-    color: $white;
-    animation: dot-flashing 1s infinite alternate;
-    animation-delay: 1s;
+	left: 7px;
+	width: 5px;
+	height: 5px;
+	border-radius: 5px;
+	background-color: $white;
+	color: $white;
+	animation: dot-flashing 1s infinite alternate;
+	animation-delay: 1s;
 }
 
 @keyframes dot-flashing {
-    0% {
-        background-color: $white;
-    }
-    50%,
-    100% {
-        background-color: rgba(255, 255, 255, 0.2);
-    }
+	0% {
+		background-color: $white;
+	}
+	50%,
+	100% {
+		background-color: rgba(255, 255, 255, 0.2);
+	}
 }
 
 // -single dot icon-
 .singleDot {
-    background: $white;
-    border-radius: 50%;
-    width: 12px;
-    height: 12px;
+	background: $white;
+	border-radius: 50%;
+	width: 12px;
+	height: 12px;
 }
 
 // -hover effect on each project-
 .project-card {
-    border: none;
-    outline: none;
-    transition: $main-transition;
-    &:hover {
-        background-color: $soft-black;
-        .project-card-heading,
-        .project-card-subheading,
-        .project-card-intro,
-        .timeline,
-        #hash,
-        .category {
-            color: $neutral-400;
-        }
-    }
+	border: none;
+	outline: none;
+	transition: $main-transition;
+	&:hover {
+		background-color: $soft-black;
+		.project-card-heading,
+		.project-card-subheading,
+		.project-card-intro,
+		.timeline,
+		#hash,
+		.category {
+			color: $neutral-400;
+		}
+	}
 }
 
 // -media-
 @media screen and (max-width: 466px) {
-    .project-card-metadata {
-        flex-direction: column;
-        justify-content: center;
-    }
-    .status {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-bottom: 0.9rem;
+	.project-card-metadata {
+		flex-direction: column;
+		justify-content: center;
+	}
+	.status {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin-bottom: 0.9rem;
 
-        .timeline {
-            margin-top: 0.6rem;
-        }
-    }
-    .categories {
-        justify-content: center;
-        justify-content: flex-start;
-    }
+		.timeline {
+			margin-top: 0.6rem;
+		}
+	}
+	.categories {
+		justify-content: center;
+		justify-content: flex-start;
+	}
 }
 @media screen and (max-width: 375px) {
-    .status {
-        align-items: flex-end;
-        justify-content: flex-start;
-        .timeline {
-            margin-top: 0;
-            padding: 0.1rem 0;
-        }
-    }
+	.status {
+		align-items: flex-end;
+		justify-content: flex-start;
+		.timeline {
+			margin-top: 0;
+			padding: 0.1rem 0;
+		}
+	}
 }

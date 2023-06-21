@@ -22,6 +22,7 @@
             display: flex;
             flex-wrap: wrap;
             align-items: center;
+						gap: 20px;
 
             .mm-list-item {
                 color: $white;
@@ -137,7 +138,7 @@
     display: none;
 }
 
-@media (max-width: 710px) {
+@media (max-width: 750px) {
     .header {
         padding: 0 0.7rem;
     }

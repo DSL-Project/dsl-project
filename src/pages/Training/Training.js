@@ -1,17 +1,18 @@
 import React, { useEffect } from 'react';
 import { useGlobalContext } from '../../appContext';
 import Banner from '../../components/Banner/Banner';
-import { TRAININGS } from '../../appConstants';
+import { PROGRAMS } from '../../appConstants';
 import LoadingState from '../../components/LoadingState/LoadingState';
+import ReactMarkdown from "react-markdown";
 
 const Training = () => {
     const { trainingBody, trainingTitle, response, setQuery, isLoading } =
         useGlobalContext();
 
     useEffect(() => {
-        window.addEventListener('beforeunload', setQuery(TRAININGS));
+        window.addEventListener('beforeunload', setQuery(PROGRAMS));
         return () => {
-            window.removeEventListener('beforeunload', setQuery(TRAININGS));
+            window.removeEventListener('beforeunload', setQuery(PROGRAMS));
         };
     }, [setQuery]);
 
@@ -35,7 +36,7 @@ const Training = () => {
                             <div key={id} className='training-container'>
                                 <h2 className='training-title'>{title}</h2>
                                 <p className='regular-16 training-description'>
-                                    {description}
+                                    <ReactMarkdown childre={description} />
                                 </p>
                                 <p className='bold-16 training-link'>
                                     {leadToUrl}&nbsp;

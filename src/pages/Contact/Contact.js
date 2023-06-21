@@ -17,7 +17,6 @@ function Contact() {
         setEmail('');
         setSubject('select a subject');
         setMessage('');
-        setIsSubmitted(false);
     };
 
     const handleSubmit = (event) => {

@@ -6,8 +6,17 @@ import { PROJECTS } from '../../appConstants';
 import LoadingState from '../../components/LoadingState/LoadingState';
 
 const Projects = () => {
-    const { response, projectsBody, projectsTitle, setQuery, isLoading } =
-        useGlobalContext();
+    const { response, projectsBody, projectsTitle, setQuery, isLoading } = useGlobalContext();
+
+
+		const sortedResponses = response?.sort((a, b) => {
+			let aOrder = a.hasOwnProperty("sortOrder") ? a.sortOrder : 100001;
+			let bOrder = b.hasOwnProperty("sortOrder") ? b.sortOrder : 100001;
+
+			return aOrder - bOrder;
+		});
+
+		
 
     // refresh button functionality
     useEffect(() => {
@@ -25,22 +34,20 @@ const Projects = () => {
     }
 
     return (
-        <main className='projects-main'>
-            {/* banner */}
-            <Banner title={projectsTitle} info={projectsBody} />
+			<main className="projects-main">
+				{/* banner */}
+				<Banner title={projectsTitle} info={projectsBody} />
 
-            {/* rendering project cards */}
-            <article className='projects-list-container'>
-                <article className='projects-list wrapper'>
-                    {response.map((project, id) => {
-                        return (
-                            <ProjectCard key={id} projectCardInfo={project} />
-                        );
-                    })}
-                </article>
-            </article>
-        </main>
-    );
+				{/* rendering project cards */}
+				<article className="projects-list-container">
+					<article className="projects-list wrapper">
+						{sortedResponses.map((project, id) => {
+							return <ProjectCard key={id} projectCardInfo={project} />;
+						})}
+					</article>
+				</article>
+			</main>
+		);
 };
 
 export default Projects;
