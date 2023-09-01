@@ -87,8 +87,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-### Main Execution
-- When the user click on Nav Links, the application makes a call to contentful's content type.
 - The valid query constants map with content type which are defined in the `src/appConstants.js`  
   e.g. PEOPLE constant responsbile to query 'persons' content type.
        PUBLICAITONS constant responsible to query 'publications' content type etc.
@@ -97,13 +95,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
   Each Navigation link on click will update the 'query' state in 'src/appContext'.
   The actual query to contentful is made inside 'useEffect' present in the appContext.
 
-### useContentful hook 
+## useContentful hook 
 - The useContentful hook is defined in `/src/hooks/useContentful`
 - This hook takes content type (in our project its a valid query constants that were defined in appConstants) as a parameter and return success or failed promise.
 - This hook used inside 'appContext' to make any query.
 
-### appContext.js
-- imports all the query constants and useContentful hook to get response from contentful.
 - The 'query' state is dynamic which updates everytime the user click on navigation links
 - The  'response' state is also dynamic that stores information.
 - Important to Note: the 'response' and 'query' state always changes on user's activity.
@@ -111,11 +107,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
   'CmsQuery' function is executed in useEffect() so that it executes everytime the component loads.
 - Some states like 'projectsData', 'homepageData', 'bannerContent' does not changes on user activity. They are loaded once the components loads and stays until re-loads.
 
-### Projects, People, Publications, Home, and Training pages
-- All pages have access to associated query constants. When the user refresh the page, the page set the query state present in 'appContext' by passing query constant as a parameter.
-  
-### filterContext.js
-- This context is solely responsible for any changes when user wish to filter or sort data. This functionality has not been implemented yet.
 
 
 

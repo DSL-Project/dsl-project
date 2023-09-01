@@ -1,84 +1,74 @@
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import Slider from 'react-slick';
-import { AiOutlineArrowRight } from 'react-icons/ai';
-import { useGlobalContext } from '../../appContext';
-import { Link } from 'react-router-dom';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+import { AiOutlineArrowRight } from "react-icons/ai";
+import { useGlobalContext } from "../../appContext";
+import { Link } from "react-router-dom";
 
 const ProjectsCarousel = () => {
-    const { projectsData } = useGlobalContext();
+	const { projectsData } = useGlobalContext();
 
-    let settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 2,
-        swipeToSlide: true,
-        responsive: [
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                },
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                },
-            },
-        ],
-    };
+	let settings = {
+		dots: true,
+		infinite: true,
+		speed: 500,
+		slidesToShow: 3,
+		slidesToScroll: 2,
+		swipeToSlide: true,
+		responsive: [
+			{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+				},
+			},
+			{
+				breakpoint: 480,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+				},
+			},
+		],
+	};
 
-    return (
-        <div>
-            <div className='heading-container'>
-                <h2>Projects</h2>
-                <div className='custom-arrow'>
-                    <a href='/projects'>See All</a>
-                    <AiOutlineArrowRight />
-                </div>
-            </div>
-            <Slider {...settings}>
-                {projectsData.map((project, id) => {
-                    const { slug, title, subtitle, about, tags } = project;
+	return (
+		<div>
+			<div className="heading-container">
+				<h2>Projects</h2>
+				<div className="custom-arrow">
+					<a href="/projects">
+						See All
+						<AiOutlineArrowRight />
+					</a>
+				</div>
+			</div>
+			<Slider {...settings}>
+				{projectsData.map((project, id) => {
+					const { slug, title, subtitle, about } = project;
 
-                    return (
-                        <div key={id} className='project-container'>
-                            <div className='title-container'>
-                                <h2 className='medium-16 project-title'>
-                                    {title}
-                                </h2>
-                            </div>
-                            <div className='subtitle'>
-                                <h3>{subtitle}</h3>
-                                <Link to={`/projects/${slug}`} state={project}>
-                                    <AiOutlineArrowRight />
-                                </Link>
-                            </div>
-                            {about &&
-                                about.content &&
-                                about.content.length > 0 && (
-                                    <p className='medium-16 project-description'>
-                                        {about.content[0].content[0].value}
-                                    </p>
-                                )}
-                            <div className='tag-container semi-14'>
-                                {tags &&
-                                    tags.map((tag, index) => (
-                                        <div className='tag-box' key={index}>
-                                            {tag}
-                                        </div>
-                                    ))}
-                            </div>
-                        </div>
-                    );
-                })}
-            </Slider>
-        </div>
-    );
+					return (
+						<div key={id} className="project-container">
+							<div className="title-container">
+								<h2 className="medium-16 project-title">{title}</h2>
+							</div>
+							<div className="subtitle">
+								<h3>{subtitle}</h3>
+								<Link to={`/projects/${slug}`}>
+									<AiOutlineArrowRight />
+								</Link>
+							</div>
+							{about && about.content && about.content.length > 0 && (
+								<p className="medium-16 project-description">
+									{about.content[0].content[0].value}
+								</p>
+							)}
+						</div>
+					);
+				})}
+			</Slider>
+		</div>
+	);
 };
 export default ProjectsCarousel;

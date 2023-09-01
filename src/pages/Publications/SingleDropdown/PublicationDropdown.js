@@ -1,53 +1,50 @@
-// https://srigar.github.io/multiselect-react-dropdown/
-import React, { useState } from 'react';
-import { Multiselect } from 'multiselect-react-dropdown';
-import { useGlobalFilterContext } from '../../filterContext';
+import React from 'react';
 
-const publicationData = [
-    {
-        value: 'journal aritcle',
-        key: 'Journal Article',
-    },
-    {
-        value: 'popular press',
-        key: 'Popular Press',
-    },
-    {
-        value: 'independent media',
-        key: 'Independent Media',
-    },
-];
+import { useGlobalFilterContext } from '../../../filterContext';
+import { getUniqueValues } from '../../../utils';
 
 const PublicationDropdown = () => {
-    const [count, setCount] = useState(0);
-    const { addTotalCount, subTotalCount } = useGlobalFilterContext();
-    const title = 'publication';
+    const {
+        publications,
+        updateFilters,
+        filters: { pubType },
+        updateFilterCounter,
+    } = useGlobalFilterContext();
+    const uniquePublications = getUniqueValues(publications, 'publicationType');
 
     return (
-        <Multiselect
-            showCheckbox
-            options={publicationData}
-            placeholder={`${count === 0 ? `${title}` : `${title} (${count})`}`}
-            displayValue='key'
-            onKeyPressFn={function noRefCheck() {}}
-            onSearch={function noRefCheck() {}}
-            onRemove={function noRefCheck() {
-                setCount(count - 1);
-                subTotalCount();
-            }}
-            onSelect={function noRefCheck(e) {
-                setCount(count + 1);
-                addTotalCount();
-            }}
-            className='custom-select'
-            id='css_custom'
-            showArrow='true'
-            keepSearchTerm='false'
-            disablePreSelectedValues
-            hideSelectedList
-            avoidHighlightFirstOption
-            // selectedValueDecorator={function noRefCheck() {}}
-        />
+        <>
+            <div className='underline' />
+            <select
+                name='pubType'
+                value={pubType}
+                onChange={updateFilters}
+                className='sel regular-caps'
+            >
+                <option
+                    value=''
+                    className='regular-caps placeholder'
+                    data-c={0}
+                    onClick={updateFilterCounter}
+                >
+                    PUBLICATION TYPE
+                </option>
+                ;
+                {uniquePublications.map((pub, index) => {
+                    return (
+                        <option
+                            key={index}
+                            value={pub}
+                            className='op regular-caps'
+                            data-c={1}
+                            onClick={updateFilterCounter}
+                        >
+                            {pub}
+                        </option>
+                    );
+                })}
+            </select>
+        </>
     );
 };
 

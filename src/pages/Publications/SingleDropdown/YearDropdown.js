@@ -1,20 +1,48 @@
 import React from 'react';
-const yearData = [
-    {
-        value: 'year-1',
-        key: '2021',
-    },
-    {
-        value: 'year-2',
-        key: '2022',
-    },
-    {
-        value: 'year-3',
-        key: '2023',
-    },
-];
-const YearDropdown = () => {
-    return <div>YearDropdown</div>;
-};
+import { useGlobalFilterContext } from '../../../filterContext';
+import { getUniqueValues } from '../../../utils';
 
+const YearDropdown = () => {
+    const {
+        publications,
+        updateFilters,
+        filters: { year },
+        updateFilterCounter,
+    } = useGlobalFilterContext();
+    const uniqueYears = getUniqueValues(publications, 'date');
+
+    return (
+        <>
+            <div className='underline' />
+            <select
+                name='year'
+                value={year}
+                onChange={updateFilters}
+                className='sel regular-caps'
+            >
+                <option
+                    value=''
+                    className='placeholder'
+                    data-c={0}
+                    onClick={updateFilterCounter}
+                >
+                    YEAR
+                </option>
+                {uniqueYears.map((yr, index) => {
+                    return (
+                        <option
+                            key={index}
+                            value={yr}
+                            className='op regular-caps'
+                            onClick={updateFilterCounter}
+                            data-c={1}
+                        >
+                            {yr}
+                        </option>
+                    );
+                })}
+            </select>
+        </>
+    );
+};
 export default YearDropdown;
