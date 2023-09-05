@@ -139,7 +139,7 @@ export const FilterProvider = ({ children }) => {
         if (pubType !== '') {
             tempPublications = tempPublications.filter((pub) => {
                 return (
-                    pub.publicationType.toLowerCase() === pubType.toLowerCase()
+                    pub?.publicationType.toLowerCase() === pubType.toLowerCase()
                 );
             });
         }
@@ -147,14 +147,14 @@ export const FilterProvider = ({ children }) => {
         // filtering year type dropdown
         if (year !== '') {
             tempPublications = tempPublications.filter((pub) => {
-                return pub.date.split('-')[0] === year;
+                return pub?.date.split('-')[0] === year;
             });
         }
 
         // authors dropdown
         if (authors !== '') {
             tempPublications = tempPublications.filter((pub) => {
-                return pub.authors.map((p) => p.fields.name).includes(authors);
+                return pub?.authors?.map((p) => p.fields.name).includes(authors);
             });
         }
 

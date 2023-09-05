@@ -6,18 +6,22 @@ export const printMonthYear = (dateString) => {
 
 export const getUniqueValues = (data, type) => {
 	let unique = data.map((item) => item[type]);
+
+	
 	if (type === "date") {
 		unique = data.map((item) => item[type].split("-")[0]);
 	}
+	
 	if (type === "authors") {
 		unique = data.map((item) =>
-			item.authors.map((subItem) => subItem.fields.name)
+			item?.authors?.map((subItem) => subItem.fields.name)
 		);
 		unique = unique.flat();
 	}
+	
 	if (type === "publicationType") {
 		unique = data.map((item) => {
-			const targetString = item.publicationType;
+			const targetString = item?.publicationType;
 			const arr = targetString.split(" ");
 
 			for (let i = 0; i < arr.length; i++) {
